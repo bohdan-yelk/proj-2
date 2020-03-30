@@ -17,5 +17,8 @@ import { log } from './utils'
 ;($ => {
   log('Ready')
 
+  $('#mainSlider').slick({
+    dots: true
+  })
   /* --------  Apply global listeners  -------- */
 })(window.jQuery)

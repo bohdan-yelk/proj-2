@@ -10,21 +10,19 @@ body {
 
 // Import abstract
 @import './abstracts/variables';
-@import './abstracts/mixins';
+@import './abstracts/include-media';
 
 // Import base
 @import './base/fonts';
 @import './base/typography';
-@import './base/icons';
-@import './base/animations';
 
 // Import layouts
 @import './layouts/header';
+@import './layouts/common';
 @import './layouts/footer';
 
 // Import components
-@import './components/forms';
-@import './components/paginations';
+@import './components/main-section';
 
 // Import pages
 @import './pages/home';

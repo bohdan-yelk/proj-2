@@ -13,3 +13,5 @@ window.jQuery = jQuery
 //   offset: 100,
 //   mobile: false
 // }).init()
+
+import 'slick-carousel'
