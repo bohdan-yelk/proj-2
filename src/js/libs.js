@@ -1,6 +1,6 @@
 import jQuery from 'jquery'
 // Enable wow.js if it is needed
-// import { WOW } from 'wowjs'
+import { WOW } from 'wowjs'
 
 // Enable popper.js and bootstrap if they are needed
 // import 'popper.js'
@@ -9,9 +9,9 @@ import jQuery from 'jquery'
 // Allow to use jQuery in a global scope
 /* global */
 window.jQuery = jQuery
-// new WOW({
-//   offset: 100,
-//   mobile: false
-// }).init()
+new WOW({
+  offset: 200,
+  mobile: false
+}).init()
 
 import 'slick-carousel'

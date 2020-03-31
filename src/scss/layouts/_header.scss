@@ -1,5 +1,5 @@
 #header {
-    padding: 20px 0;
+    padding: 20px 0 16px;
     background-color: $white;
 
     .inner-wrapper {
@@ -11,9 +11,13 @@
         margin: 0 auto 0 0;
     }
 
+    form {
+        margin: -3px 0 0;
+    }
+
     input[type="search"] {
         width: calc(100% - 70px);
-        padding: 20px 24px 19px 0;
+        padding: 20px 24px 19px 2px;
         border-left: none;
         border-radius: 0 4px 4px 0;
         outline: none;
@@ -21,8 +25,8 @@
 
     .search {
         margin: 0 -5px 0 0;
-        padding: 18px 24px 18px;
-        font-size: 21px;
+        padding: 19px 24px 18px;
+        font-size: 18px;
         line-height: 19px;
         border: 1px solid #eee;
         border-right: none;
@@ -43,6 +47,7 @@
         justify-content: center;
         width: 60px;
         height: 60px;
+        margin: -3px 0 0 5px;
         font-size: 20px;
         color: $blue;
         background-color: $white;
@@ -83,7 +88,7 @@
     }
 
     li {
-        padding: 20px 32px;
+        padding: 21px 32px;
 
         &.has-submenu {
             a {

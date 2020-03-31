@@ -1,10 +1,12 @@
 .main-section {
-    padding: 145px 0 200px;
+    padding: 149px 0 87px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
 
     .tag {
+        margin: 0 0 14px;
+        padding: 0 0 0 37px;
         font-family: $base-font-sans-serif;
         font-size: 16px;
         font-weight: bold;
@@ -13,21 +15,29 @@
     }
 
     h1 {
-        padding: 0 70px 0 0;
+        margin: 0 0 47px;
+        padding: 0 0 0 37px;
         color: $white;
     }
 
     .block {
         &-content {
             width: 41.5%;
+            margin: -4px 0 0;
         }
     }
 
     .btn-blue {
-        margin: auto 0 0;
+        margin: 0 0 0 37px;
+        padding: 20px 65px 19px;
+        text-align: inherit;
         &:hover {
             color: $white;
             border-color: $white;
+        }
+
+        &:after {
+            right: 68px;
         }
     }
 
@@ -56,6 +66,7 @@
 
     .slick {
         &-arrow {
+            top: calc(50% - 16px);
             &:before {
                 padding: 16px;
                 font-family: 'icomoon';
@@ -75,7 +86,7 @@
         }
 
         &-prev {
-            left: -170px;
+            left: -125px;
             &:before {
                 content: "\e902";
                 
@@ -83,17 +94,18 @@
         }
 
         &-next {
-            right: -170px;
+            right: -97px;
             &:before {
                 content: "\e901";
             }
         }
 
         &-dots {
+            bottom: 55px;
             display: flex;
             justify-content: flex-start;
             margin: 0 -5px -25px;
-            padding: 0 0 0 53px;
+            padding: 0 0 0 92px;
             transition: width .3s ease;
 
             li {
@@ -103,7 +115,7 @@
                 padding: 0 5px;
                 
                 &.slick-active {
-                    width: 32px;
+                    width: 42px;
                     
                     button {
                         width: 100%;

@@ -7,10 +7,15 @@ body {
     width: 100%;
     max-width: 1110px;
     margin: 0 auto;
+    padding: 0;
 }
 
 .inner-wrapper {
     display: flex;
+}
+
+img {
+    max-width: 100%;
 }
 
 a,
@@ -35,13 +40,69 @@ a {
     }
 }
 
+.btn-more {
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    background-image: 19px;
+    color: $blue;
+
+    &:hover {
+        color: $dark-blue;
+
+        &:after {
+            right: -30px;
+        }
+    }
+
+    &:after {
+        position: absolute;
+        content: '\e901';
+        top: calc(50% - 1px);
+        transform: translateY(-50%);
+        transition: right .3s ease;
+        right: -27px;
+        font-family: 'icomoon';
+        font-size: 8px;
+    }
+}
+
+.btn-watch {
+    position: relative;
+    display: inline-block;
+    min-width: 195px;
+    margin: 5px 0 0;
+    padding: 15px 24px 14px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    color: $dark-blue;
+    border-radius: 24px;
+    background-color: $light-blue;
+
+    &:after {
+        position: absolute;
+        content: '\e90f';
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1px;
+        padding: 18px 21px;
+        font-family: 'icomoon';
+        font-size: 14px;
+        color: $green;
+        background-color: $white;
+        border-radius: 50%;
+        box-shadow: 0px 8px 24px rgba(52, 90, 156, 0.25);
+    }
+}
+
 .btn-blue,
 input[type="submit"] {
     position: relative;
     min-width: 238px;
     padding: 20px 24px 19px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 19px;
     text-align: center;
     color: $white;
