@@ -1,6 +1,10 @@
 body {
     font-family: $base-font-serif;
-    color: $gray-100  ;
+    color: $gray-100;
+}
+
+#wrapper {
+    overflow: hidden;
 }
 
 .container {
@@ -44,7 +48,7 @@ a {
     position: relative;
     font-size: 16px;
     font-weight: 500;
-    background-image: 19px;
+    line-height: 19px;
     color: $blue;
 
     &:hover {
@@ -149,4 +153,88 @@ select {
         color: $gray;
     }
 }
-  
+
+span.bg-title {
+    font-family: $base-font-sans-serif;
+    font-size: 144px;
+    font-weight: 900;
+    line-height: 169px;
+    color: rgba(0, 148, 255, 0.05);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $white;
+    border-radius: 8px;
+    font-family: $base-font-sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 21px;
+    padding: 32px 56px 56px;
+    background-color: $white;
+    transition: padding .3s ease, box-shadow .3s ease;
+
+    picture {
+        max-width: 222px;
+        max-height: 222px;
+        display: block;
+        margin: 0 8px 32px;
+    }
+
+    .discount {
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        padding: 0 10px;
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 27px;
+        color: $white;
+        background-color: $green;
+        box-shadow: 0px 8px 16px rgba(0, 203, 118, 0.25);
+        border-radius: 8px;
+    }
+
+    p {
+        margin: 0 0 24px;
+    }
+
+    .price {
+        &-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 32px;
+        }
+
+        &-old {
+            margin: 0 8px;
+            font-size: 14px;
+            font-weight: 400;
+            color: $gray-100;
+            line-height: 27px;
+            text-decoration: line-through;
+        }
+
+        &-new {
+            margin: 0 8px;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 27px;
+            color: $gray-800;
+        }
+    }
+
+    .btn-blue {
+        cursor: pointer;
+
+        &:hover {
+            background-color: $blue;
+            color: $white;
+        }
+    }
+}

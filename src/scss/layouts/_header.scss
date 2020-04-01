@@ -90,6 +90,12 @@
     li {
         padding: 21px 32px;
 
+        &.active {
+            a {
+                color: rgba(255,255,255,.75);
+            }
+        }
+
         &.has-submenu {
             a {
                 &:after {
@@ -109,5 +115,9 @@
     a {
         position: relative;
         color: $white;
+
+        &:hover {
+            color: rgba(255,255,255,.75);
+        }
     }
 }

@@ -38,7 +38,7 @@
 
             &-img {
 
-                span {
+                .bg-title {
                     top: 0;
                     left: inherit;
                     right: -84px;
@@ -73,15 +73,10 @@
         &-img {
             position: relative;
 
-            span {
+            .bg-title {
                 position: absolute;
                 top: -122px;
                 left: -84px;
-                font-family: $base-font-sans-serif;
-                font-size: 144px;
-                font-weight: 900;
-                line-height: 169px;
-                color: rgba(0, 148, 255, 0.05);
             }
         }
 

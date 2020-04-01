@@ -1,0 +1,100 @@
+.follow-section {
+    padding: 40px 0;
+    background-color: $gray-700;
+
+    .inner-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    h3 {
+        margin: 0 24px 0 0;
+        font-family: $base-font-sans-serif;
+        font-weight: bold;
+        line-height: 28px;
+        color: $white;  
+    }
+
+    a {
+        color: $white;
+
+        &.tel,
+        &.mail {
+            position: relative;
+            padding: 13px 24px 13px 55px;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            border-radius: 4px;
+            transition: border-color .3s ease;
+            
+            &:hover {
+                border-color: $white;
+            }
+
+            &:before {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 18px;
+                width: 20px;
+                font-family: 'icomoon';
+                color: rgba(255, 255, 255, 0.75);
+            }
+        }
+
+        &.tel {
+            margin-right: 24px;
+
+            &:before {
+                content: '\e90d';
+            }
+        }
+
+        &.mail {
+            &:before {
+                content: '\e90b';
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        margin: 0 -12px;
+        padding: 0;
+        list-style: none;
+
+        li {
+            
+            padding: 0 12px;
+            
+            
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            padding: 12px 24px;
+            background-color: $blue;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: $dark-blue;
+            }
+
+            i {
+                font-size: 24px;
+            }
+        }
+    }
+
+    .block {
+        &-social {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

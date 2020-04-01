@@ -1,0 +1,109 @@
+.learn-section {
+    position: relative;
+    display: flex;
+    padding: 190px 0;
+
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        z-index: 10;
+    }
+
+    .inner-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 50%;
+    }
+
+    h2 {
+        margin: 0 0 40px;
+        padding: 0 60px 0 0;
+        font-size: 40px;
+        font-weight: bold;
+        line-height: 53px;
+        color: $white;
+    }
+
+    .btn-blue {
+        padding: 20px 80px 19px;
+    }
+
+    .block {
+        &-left,
+        &-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+        }
+
+        &-left {
+            left: 0;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+            .bg-color {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+                background: linear-gradient(0deg, rgba(48, 48, 48, 0.75), rgba(48, 48, 48, 0.75));;
+            }
+        }
+
+        &-right {
+            display: flex;
+            flex-wrap: wrap;
+            right: 0;
+
+            .item {
+                position: relative;
+                width: 50%;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                // z-index: 0;
+
+                &:last-of-type {
+                    width: 100%;
+                }
+
+                &:hover {
+                    .bg-text {
+                        background: linear-gradient(0deg, rgba(52, 90, 156, 0.75), rgba(52, 90, 156, 0.75));
+                    }
+                }
+
+            }
+
+            .bg-text {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 10;
+                background: linear-gradient(0deg, rgba(48, 48, 48, 0.75), rgba(48, 48, 48, 0.75));
+                transition: background .3s ease;
+            }
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                font-family: $base-font-sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 21px;
+                text-align: center;
+                color: $white;
+            }
+        }
+    }
+}
