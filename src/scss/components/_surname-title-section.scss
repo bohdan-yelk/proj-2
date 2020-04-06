@@ -1,0 +1,23 @@
+.surname-title-section {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 0 0 70px;
+    .block {
+        &-content,
+        &-img {
+            display: flex;
+            align-items: center;
+            width: 50%;
+        }
+
+        &-img {
+            justify-content: center;
+        }
+    }
+
+    h1 {
+        color: $gray-800;
+    }
+}
