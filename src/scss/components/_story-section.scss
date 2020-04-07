@@ -1,5 +1,6 @@
 .story-section {
     padding: 0 0 100px;
+
     .inner-wrapper {
         display: flex;
         align-items: center;
@@ -37,8 +38,19 @@
         display: block;
         padding: 20px 24px 19px;
 
+        &:hover {
+            border-color: $white;
+            color: $white;
+        }
+
         &:after {
             right: 20px;
+        }
+
+        &:hover {
+            &:after {
+                right: 17px;
+            }
         }
     }
 }

@@ -10,23 +10,105 @@
         color: $gray-800;
     }
 
-    .cres-slider {
+    .crest-slider {
+        position: relative;
         max-width: 350px;
     }
 
     .item {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         align-items: center;
-        padding: 60px 60px;
+        padding: 60px 60px 76px;
         border-radius: 8px;
         background-color: $white;
+
+        h3 {
+            margin: 0 0 16px;
+            color: $dark-blue;
+        }
+    }
+
+    .location {
+        position: relative;
+        margin: 0 0 16px;
+        padding: 0 0 0 20px;
+        font-family: $base-font-sans-serif;
+        font-size: 16px;
+        line-height: 19px;
+        color: $gray-100;
+
+        &:before {
+            position: absolute;
+            content: '\e90c';
+            top: 9px;
+            transform: translateY(-50%);
+            left: -0px;
+            font-family: 'icomoon';
+            color: $blue;
+        }
+    }
+
+    .slick {
+        &-arrow {
+            top: calc(50% - 16px);
+            z-index: 10;
+            &:before {
+                padding: 10px;
+                font-family: 'icomoon';
+                font-size: 12px;
+                color: $blue;
+                background-color: $white;
+                border-radius: 50%;
+                opacity: 1;
+                transition: opacity .3s ease;
+                box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
+            }
+
+            &:hover {
+                &:before {
+                    color: $dark-blue;
+                }
+            }
+        }
+
+        &-prev {
+            left: -15px;
+            &:before {
+                content: "\e902";
+                
+            }
+        }
+
+        &-next {
+            right: -5px;
+            &:before {
+                content: "\e901";
+            }
+        }
+
+        &-dots {
+            display: none !important;
+        }
     }
 
     .block {
         &-slider {
+            position: relative;
+
             h2 {
                 margin: 0 0 48px;
+            }
+
+            .pagingInfo {
+                position: absolute;
+                bottom: 70px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 24px;
+                color: $gray-100;
             }
         }
 
@@ -34,10 +116,79 @@
             h2 {
                 margin: 0 0 32px;
             }
+
+            p {
+                margin: 0 0 48px;
+            }
         }
     }
+
+    .digital-wrapper {
+        display: flex;
+        align-items: center;
+        padding: 30px 30px;
+        border-radius: 8px;
+        background-color: $white;
+        box-shadow: 0px 16px 32px rgba(0, 148, 255, 0.2);
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        picture {
+            display: block;
+            min-width: 160px;
+            min-height: 160px;
+            margin: 0 30px 0 0;
+        }
+
+        h3,p {
+            margin: 0 0 24px;
+        }
+    }
+
     .btn,
     .price {
         display: inline-block;
+        align-self: flex-end;
     }
+
+    .btn {
+        padding: 18px 23px 17px;
+
+        &:hover {
+            color: $white;
+            background-color: $dark-blue;
+            border-color: $dark-blue;
+        }
+
+        &:after {
+            right: 25px;
+        }
+
+        &:hover {
+            &:after {
+                right: 22px;
+            }
+        }
+    }
+
+    .price {
+        padding: 14px 0 14px;
+        font-family: $base-font-sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 28px;
+        color: $gray-800;
+    }
+
+    .research {
+        display: block;
+        margin: 48px 0 0;
+        font-family: $base-font-sans-serif;
+        font-size: 16px;
+    }
+    
 }

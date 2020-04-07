@@ -24,6 +24,7 @@ img {
 
 a,
 button,
+select,
 input,
 textarea {
     font-family: $base-font-sans-serif;
@@ -138,6 +139,7 @@ input[type="submit"] {
 }
 
 input[type="search"],
+input[type="email"],
 input[type="text"],
 textarea,
 select {
@@ -290,6 +292,115 @@ span.bg-title {
 
         &:after {
             right: -22px;
+        }
+    }
+}
+
+.block-share-history {
+    display: flex;
+    justify-content: space-between;
+
+    .block {
+        &-prev,
+        &-next {
+            display: flex;
+            align-items: center;
+            a {
+                position: relative;
+                display: flex;
+                align-items: center;
+                font-size: 1px;
+                font-weight: normal;
+                color: $gray;
+
+                &:before {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-family: 'icomoon';
+                    font-size: 16px;
+                    color: #ccc;
+                    transition: color .3s ease;
+                }
+
+                &:hover {
+                    &:before {
+                        color: $gray-100;
+                    }
+                    span {
+                        color: $dark-blue;
+                    }
+                }
+
+                p,span {
+                    line-height: 25px;
+                }
+            }
+
+            span {
+                font-weight: bold;
+                color: $blue;
+                transition: color .3s ease;
+            }
+        }
+
+        &-prev {
+            a {
+                padding: 0 0 0 30px;
+
+                &:before {
+                    content: '\e902';
+                    left: 0;
+                }
+            }
+            img {
+                margin: 0 24px 0 0;
+            }
+        }
+
+        &-next {
+            a {
+                padding: 0 30px 0 0;
+
+                &:before {
+                    content: '\e901';
+                    right: 0;
+                }
+            }
+            img {
+                margin: 0 0 0 24px;
+            }
+        } 
+
+        &-social {
+            display: flex;
+            flex-direction: column;
+
+            h3 {
+                font-weight: bold;
+                color: $gray-800;
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                margin: 0 -20px;
+                padding: 0;
+                list-style: none;
+            }
+
+            li {
+                padding: 0 20px;
+
+                a {
+                    font-size: 20px;
+                    color: $blue;
+
+                    &:hover {
+                        color: $dark-blue;
+                    }
+                }
+            }
         }
     }
 }

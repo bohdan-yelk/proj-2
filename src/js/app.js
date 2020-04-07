@@ -33,6 +33,28 @@ import { log } from './utils'
     variableWidth: true
   })
 
+  let $status = $('.pagingInfo')
+  let $slickElement = $('#crestSlider')
+  
+  $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    // no dots -> no slides
+    if(!slick.$dots){
+      return
+    }
+  
+    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+    var i = (currentSlide ? currentSlide : 0) + 1
+    // use dots to get some count information
+    $status.text(i + '/' + (slick.$dots[0].children.length))
+  })
+
+  $slickElement.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+      infinite: false
+  })
+
   // animation picture at game-section on homepage
 
   function initAnimation(time = 2000) {
