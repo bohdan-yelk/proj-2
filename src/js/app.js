@@ -33,8 +33,18 @@ import { log } from './utils'
     variableWidth: true
   })
 
+  // gallery product slider on surname CoA page
+
   $('#gallerySlider').slick({
     dots: true
+  })
+
+  // popup slider on surname CoA page
+
+  $('#coaZoomSlider').slick({
+    dots: false,
+    slidesToShow: 1,
+    slidesToScroll: 1
   })
 
   let $status = $('.pagingInfo')
@@ -61,36 +71,44 @@ import { log } from './utils'
 
   // animation picture at game-section on homepage
 
-  function initAnimation(time = 2000) {
-	  const items = document.querySelectorAll('.js-item')
-  	const leftItems = document.querySelectorAll('.js-item-left')
-  	const rightItems = document.querySelectorAll('.js-item-right')
-	  const opacityClass = 'opacity'
-	  let index = 0
+    function initAnimation(time = 2000) {
+      const items = document.querySelectorAll('.js-item')
+      const leftItems = document.querySelectorAll('.js-item-left')
+      const rightItems = document.querySelectorAll('.js-item-right')
+      const opacityClass = 'opacity'
+      let index = 0
 
-	  function toggleClass(arr) {
-		  arr.forEach((el, i) => {
-		  	if (index === i) {
-          el.classList.add(opacityClass)
-        } else {
-				  el.classList.remove(opacityClass)
-			  }
-		  })
-	  }
+      function toggleClass(arr) {
+        arr.forEach((el, i) => {
+          if (index === i) {
+            el.classList.add(opacityClass)
+          } else {
+            el.classList.remove(opacityClass)
+          }
+        })
+      }
 
-	  function nextTick() {
-		  toggleClass(leftItems)
-		  toggleClass(rightItems)
+      function nextTick() {
+        toggleClass(leftItems)
+        toggleClass(rightItems)
 
-		  index = index === items.length / 2 - 1 ? 0 : index + 1
-    }
+        index = index === items.length / 2 - 1 ? 0 : index + 1
+      }
 
-	  setInterval(nextTick, time)
-}
+      setInterval(nextTick, time)
+  }
 
-initAnimation(2000)
+  initAnimation(2000)
 
-  
+  //popup click 
+
+  $('a.pic').on('click', function() {
+    $('#CoaZoom').addClass('active')
+  })
+
+  $('.btn-close').on('click', function(){
+    $(this).parents('.popup').removeClass('active')
+  })
 
   /* --------  Apply global listeners  -------- */
 })(window.jQuery)
