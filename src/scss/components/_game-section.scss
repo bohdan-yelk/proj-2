@@ -29,6 +29,12 @@
     .btn-blue {
         display: inline-block;
         padding: 20px 80px 19px;
+
+        &:hover {
+            background-color: $dark-blue;
+            border-color: $dark-blue;
+            color: $white;
+        }
     }
 
     .animation-wrapper {

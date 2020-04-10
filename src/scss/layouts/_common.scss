@@ -101,6 +101,37 @@ a {
     }
 }
 
+.btn-cart {
+    position: relative;
+    min-width: 191px;
+    padding: 20px 24px 19px 45px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: center;
+    color: $white;
+    border-radius: 4px;
+    border: 1px solid $blue;
+    background-color: $blue;
+
+    &:hover {
+        background-color: $dark-blue;
+        border-color: $dark-blue;
+        color: $white;
+    }
+
+    &:before {
+        position: absolute;
+        content: '\e903';
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
+        font-family: 'icomoon';
+        font-size: 13px;
+        transition: right .3s ease;
+    }
+}
+
 .btn-blue,
 input[type="submit"] {
     position: relative;
@@ -199,6 +230,7 @@ span.bg-title {
         background-color: $green;
         box-shadow: 0px 8px 16px rgba(0, 203, 118, 0.25);
         border-radius: 8px;
+        z-index: 10;
     }
 
     p {
@@ -232,11 +264,150 @@ span.bg-title {
     }
 
     .btn-blue {
+        display: block;
+        width: 100%;
         cursor: pointer;
 
         &:hover {
-            background-color: $blue;
+            background-color: $dark-blue;
+            border-color: $dark-blue;
             color: $white;
+        }
+    }
+
+    &.add-cart,
+    &.small {
+        width: 25%;
+        padding: 0 15px;
+        background-color: transparent;
+
+        &:hover {
+            .content-wrapper {
+                box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
+            }
+        }
+        
+        .content-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 32px;
+            border-radius: 8px;
+            background-color: $white;
+            transition: box-shadow .3s ease;
+        }
+
+        .pic {
+            position: relative;
+            display: block;
+            width: 191px;
+            height: 191px;
+            margin: 0 0 24px;
+
+            &:hover {
+
+                &:after,
+                &:before {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &:after,
+            &:before {
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity .3s ease, visibility .3s ease;
+            }
+
+            &:after {
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background: linear-gradient(0deg, rgba(245, 247, 250, 0.75), rgba(245, 247, 250, 0.75));
+                border-radius: 4px;
+            }
+
+            &:before {
+                content: '\e913';
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 12px;
+                font-family: 'icomoon';
+                color: $blue;
+                border-radius: 4px;
+                background-color: $white;
+                z-index: 10;
+            }
+
+            img {
+                display: block;
+                margin: 0 auto;
+                height: 191px;
+            }
+        }
+
+        .price-wrapper  {
+            display: flex;
+        }
+
+        .price-new,
+        .price-old,
+        .deskr {
+            margin: 0 4px 24px;
+            font-size: 18px;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+        }
+
+        .desktop {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 7px 8px 4px;
+            border-radius: 4px;
+            background-color: $green;
+            box-shadow: 0px 8px 16px rgba(0, 203, 118, 0.25);
+            color: $white;
+            font-size: 14px;
+            z-index: 10;
+        }
+    }
+
+    &.small {
+        .content-wrapper {
+            background-color: $light-blue;
+        }
+
+        .price-wrapper {
+            margin: 0;
+        }
+
+        .discount {
+            top: 16px;
+            left: 16px;
+        }
+
+        .btn-blue {
+            min-width: auto;
+
+            &:hover {
+                &:after {
+                    right: 27px;
+                }
+            }
+
+            &:after {
+                right: 30px;
+            }
         }
     }
 }
@@ -299,6 +470,11 @@ span.bg-title {
 .block-share-history {
     display: flex;
     justify-content: space-between;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
 
     .block {
         &-prev,

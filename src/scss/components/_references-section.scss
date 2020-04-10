@@ -1,0 +1,36 @@
+.references-section {
+    padding: 80px 0;
+    background-color: $light-blue;
+
+    h3 {
+        margin: 0 0 32px;
+    }
+
+    ol {
+        margin: 0;
+        padding: 0;        
+        list-style: none;
+
+        li {
+            position: relative;
+            margin: 0 0 24px;
+            text-indent: 20px;
+            font-family: $base-font-sans-serif;
+            font-size: 14px;
+            line-height: 16px;
+            color: $gray-100;
+            counter-increment: my-counter;
+
+            &:before {
+                position: absolute;
+                content: counter(my-counter);
+                top: 0;
+                left: -15px;
+                font-family: $base-font-sans-serif;
+                font-size: 14px;
+                line-height: 16px;
+                color: $dark-blue;
+            }
+        }
+    }
+}

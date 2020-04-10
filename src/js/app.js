@@ -33,6 +33,10 @@ import { log } from './utils'
     variableWidth: true
   })
 
+  $('#gallerySlider').slick({
+    dots: true
+  })
+
   let $status = $('.pagingInfo')
   let $slickElement = $('#crestSlider')
   
