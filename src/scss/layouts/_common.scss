@@ -6,6 +6,19 @@ body {
 #wrapper {
     position: relative;
     overflow: hidden;
+
+    &.active {
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, .5);
+        }
+    }
 }
 
 .container {
@@ -17,6 +30,20 @@ body {
 
 .inner-wrapper {
     display: flex;
+}
+
+#main {
+    &.shop {
+        // background: url('/images/shop-bg.png'),linear-gradient(360deg, #F5F7FA 13%, rgba(245, 247, 250, 0.5) 100%);
+        // background-repeat: no-repeat;
+        // background-position: top center;
+        // background-size: contain;
+        background-image: url('/images/shop-bg.png');
+        background-color: $light-blue;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: contain;
+    }
 }
 
 img {
@@ -133,6 +160,30 @@ a {
     }
 }
 
+.btn-clear {
+    position: relative;
+    padding: 22px 24px 22px;
+    font-size: 14px;
+    line-height: 16px;
+    color: $gray;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        color: $gray-100;
+    }
+
+    &:before {
+        position: absolute;
+        content: '\e905';
+        top: 50%;
+        transform: translateY(-50%);
+        left: 5px;
+        font-family: 'icomoon';
+        font-size: 8px;
+    }
+}
+
 .btn-blue,
 input[type="submit"] {
     position: relative;
@@ -236,6 +287,7 @@ span.bg-title {
 
     p {
         margin: 0 0 18px;
+        line-height: 21px;
     }
 
     .price {
@@ -267,6 +319,7 @@ span.bg-title {
     .btn-blue {
         display: block;
         width: 100%;
+        margin: auto 0 0;
         cursor: pointer;
 
         &:hover {
@@ -287,12 +340,13 @@ span.bg-title {
                 box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
             }
         }
-        
+
         .content-wrapper {
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 100%;
             padding: 32px 32px;
             border-radius: 8px;
             background-color: $white;
@@ -354,7 +408,7 @@ span.bg-title {
             }
         }
 
-        .price-wrapper  {
+        .price-wrapper {
             display: flex;
         }
 
@@ -415,6 +469,7 @@ span.bg-title {
 
 .breadcrumbs {
     padding: 24px 0;
+
     ul {
         display: flex;
         align-items: center;
@@ -478,10 +533,12 @@ span.bg-title {
     }
 
     .block {
+
         &-prev,
         &-next {
             display: flex;
             align-items: center;
+
             a {
                 position: relative;
                 display: flex;
@@ -504,12 +561,14 @@ span.bg-title {
                     &:before {
                         color: $gray-100;
                     }
+
                     span {
                         color: $dark-blue;
                     }
                 }
 
-                p,span {
+                p,
+                span {
                     line-height: 25px;
                 }
             }
@@ -530,6 +589,7 @@ span.bg-title {
                     left: 0;
                 }
             }
+
             img {
                 margin: 0 24px 0 0;
             }
@@ -544,10 +604,11 @@ span.bg-title {
                     right: 0;
                 }
             }
+
             img {
                 margin: 0 0 0 24px;
             }
-        } 
+        }
 
         &-social {
             display: flex;
@@ -579,5 +640,149 @@ span.bg-title {
                 }
             }
         }
+    }
+}
+
+
+//block-abc
+
+.block-abc {
+    margin: 0 0 24px;
+
+
+
+    &.top {
+        border-bottom: none;
+
+        .container {
+            border-top: 1px solid #eee;
+            border-bottom: none;
+        }
+    }
+
+    .container {
+        padding: 24px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        a {
+            font-family: $base-font-serif;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 32px;
+            text-transform: uppercase;
+            color: $gray-100;
+
+            &:hover {
+                color: $blue;
+            }
+        }
+
+        li {
+            &.active {
+                a {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}
+
+// block wood title
+
+.block-wood {
+    display: flex;
+    justify-content: space-between;
+    padding: 65px 70px;
+    background: linear-gradient(0deg, rgba(52, 90, 156, 0.75), rgba(52, 90, 156, 0.75)), url('/images/wood-bg.png');
+    box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
+    border-radius: 8px;
+    color: white;
+    font-family: $base-font-sans-serif;
+
+    h2 {
+        margin: 0 0 24px;
+        color: $white;
+    }
+
+    .btn-blue {
+        display: inline-block;
+        min-width: auto;
+        padding: 20px 55px 19px;
+
+        &:after {
+            right: 30px;
+        }
+
+        &:hover {
+            &:after {
+                right: 27px;
+            }
+        }
+    }
+
+    blockquote {
+        position: relative;
+        max-width: 350px;
+        padding: 0 0 0 50px;
+        margin: 0;
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 37px;
+
+        &:before {
+            position: absolute;
+            content: '\e910';
+            top: 10px;
+            left: -10px;
+            font-family: 'icomoon';
+            font-size: 20px;
+            color: $green;
+        }
+    }
+
+    .btn-video {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        font-size: 14px;
+        color: $white;
+        border-radius: 50%;
+        background-color: $green;
+        box-shadow: 0px 0px 32px 10px rgba(0, 203, 118, 0.5);
+        transition: box-shadow .3s ease;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            width: 76px;
+            height: 76px;
+            transform: translate(-50%,-50%);
+            background-color: rgba(0, 203, 118, 0.15);
+            border-radius: 50%;            
+        }
+    }
+
+    &-content{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }

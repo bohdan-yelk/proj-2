@@ -103,12 +103,34 @@ import { log } from './utils'
   //popup click 
 
   $('a.pic').on('click', function() {
-    $('#CoaZoom').addClass('active')
+    $('#CoaZoomPopup').addClass('active')
+  })
+
+  $('#btnVideo').on('click', function() {
+    $('#videoPopup').addClass('active')
   })
 
   $('.btn-close').on('click', function(){
     $(this).parents('.popup').removeClass('active')
   })
+
+  setTimeout(function(){
+    $('#SurnamePopup').addClass('active');
+  },5000)
+
+  // submenu nav
+
+   $('.has-submenu').on('click', function(){
+     $(this).find('.submenu').addClass('active')
+     $('#wrapper').addClass('active')
+
+     $(document).mouseup(function(e){
+      if(!$('.submenu').is(e.target) && $('.submenu').has(e.target).length === 0) {
+        $('.submenu').removeClass('active')
+        $('#wrapper').removeClass('active')
+      }
+     })
+   })
 
   /* --------  Apply global listeners  -------- */
 })(window.jQuery)

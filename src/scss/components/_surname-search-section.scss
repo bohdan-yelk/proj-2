@@ -1,0 +1,83 @@
+.surname-search-section {
+    padding: 0 0 40px;
+
+    form {
+        position: relative;
+        padding: 0 0 64px;
+
+        &.active {
+            .btn-clear {
+                display: block;
+            }
+        }
+
+        .btn-clear {
+            position: absolute;
+            display: none;
+            top: 0;
+            right: 0;
+        }
+
+        .search {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px 24px 19px;
+            font-size: 18px;
+            color: $blue;
+            background-color: transparent;
+            border: none;
+            z-index: 10;
+
+            &:hover {
+                color: $dark-blue;
+            }    
+        }
+
+        input[type="search"] {
+            width: 100%;
+            padding: 20px 24px 19px 60px;
+            background-color: $white;
+            box-shadow: 0px 8px 16px rgba(0, 148, 255, 0.25);
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+                border-color: $blue;
+            }
+        }
+    }
+
+    .surname-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        column-count: 6;
+        list-style: none;
+
+        li {
+            width: 16.6%;
+            margin: 0 0 32px;
+            padding: 0;
+
+            &.active {
+                a {
+                    color: $blue;
+                }
+            }
+        }
+
+        a {
+            font-size: 16px;
+            line-height: 19px;
+            text-align: left;
+            color: $gray-100;
+
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+}

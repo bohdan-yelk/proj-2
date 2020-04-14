@@ -1,0 +1,38 @@
+.block-abc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+
+    &.top {
+        border-bottom: none;
+        border-top: 1px solid #eee;
+    }
+
+    ul {
+        margin: 0;
+        padding: ;
+        list-style: none;
+        a {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 32px;
+            text-transform: uppercase;
+            color: $gray-100;
+
+            *:hover {
+                color: $blue;
+            }
+        }
+
+        li {
+            &.active {
+                a {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}
