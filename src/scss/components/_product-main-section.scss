@@ -1,0 +1,299 @@
+.product-main-section {
+
+	h1 {
+		margin: 0 0 24px;
+		padding: 0 95px 0 0;
+		color: $gray-800;
+	}
+
+	span,
+	label {
+		font-family: $base-font-sans-serif;
+	}
+
+	label {
+		margin: 0 0 16px;
+		font-size: 16px;
+		line-height: 19px;
+		color: $gray-100;
+	}
+
+	input,
+	.btn {
+		padding-top: 22px;
+		padding-bottom: 21px;
+	}
+
+	 .custom-select {
+		 width: 120px;
+		 
+
+		 .select-selected {
+			padding: 22px 24px 20px;
+			background-color: $light-blue;
+			border-radius: 4px;
+			border: 1px solid #eee;			
+			font-size: 16px;
+			line-height: 19px;
+			color: $gray;
+
+			&:after {
+				top: 50%;
+				right: 24px;
+				transform: translateY(-50%);
+				content: '\e900';
+				width: 10px;
+				height: 20px;
+				font-family: 'icomoon';
+				color: $gray;
+				border: none;
+				font-size: 8px;
+			}
+		 }
+
+		 .select-items {
+			 top: 95%;
+			 background-color: $light-blue;
+			 border: 1px solid #eee;
+			 border-top: 1px solid transparent;
+			 border-radius: 0 0 4px 4px;
+
+			 div {
+				color: $gray-100;
+				border: none;
+			 }
+		 }
+	 }
+
+	.price {
+
+		&-wrapper {
+			display: flex;
+			align-items: center;
+			margin: 0 -8px 32px;
+		}
+		
+		&-old,
+		&-new {
+			padding: 0 8px;
+			font-size: 32px;
+			line-height: 37px;
+		}
+
+		&-old {
+			text-decoration: line-through;
+			font-weight: normal;
+			color: $gray;
+		}
+
+		&-new {
+			font-weight: 900;
+			color: $dark-blue;
+		}
+
+	}
+
+	.block {
+		&-image {
+			background-color: $light-blue;
+			border-radius: 8px;
+			overflow: hidden;
+
+			picture {
+				display: flex;
+				justify-content: center;
+				width: 507px;
+				height: 507px;
+				background-color: $light-blue;
+			}
+
+			.color-list {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 -4px;
+				padding: 25px 0 32px;
+				list-style: none;
+			}
+
+			li {
+				padding: 0 4px;
+
+				&.active {
+					a {
+						&:before {
+							position: absolute;
+							content: '\2714';
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							width: 20px;
+							height: 20px;
+							font-family: 'icomoon';
+							font-size: 15px;
+							color: $blue;
+							border: 1px solid $blue;
+							border-radius: 50%;
+							background-color: $white;
+						}
+					}
+				}
+
+				&#color {
+					&-1 {
+						a {
+							background-color: #fff;
+						}
+					}
+
+					&-2 {
+						a {
+							background-color: #FF6E3F;
+						}
+					}
+
+					&-3 {
+						a {
+							background-color: #6D4F47;
+						}
+					}
+
+					&-4 {
+						a {
+							background-color: #050505;
+						}
+					}
+
+					&-5 {
+						a {
+							background-color: #FFA100;
+						}
+					}
+
+					&-6 {
+						a {
+							background-color: #FFC700;
+						}
+					}
+
+					&-7 {
+						a {
+							background-color: #00D89F;
+						}
+					}
+
+					&-8 {
+						a {
+							background-color: #A9BAC5;
+						}
+					}
+
+					&-9 {
+						a {
+							background-color: #4B4F54;
+						}
+					}
+
+					&-10 {
+						a {
+							background-color: #041E2F;
+						}
+					}
+
+					&-11 {
+						a {
+							background-color: #BF0A33;
+						}
+					}
+
+					&-12 {
+						a {
+							background-color: #9B2743;
+						}
+					}
+
+				}
+
+				a {
+					position: relative;
+					display: block;
+					width: 32px;
+					height: 32px;
+					border: 2px solid $white;
+					border-radius: 50%;
+				}
+			}
+		}
+
+		&-content {
+
+			form {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				margin: 0 -12px;
+			}
+
+			.form-row {
+				display: flex;
+				flex-direction: column;
+				margin: 0 0 32px;
+				padding: 0 12px;
+
+				&-surname,
+				&-submit {
+					flex-grow: 1;
+				}
+
+				&-num {
+					.num-block {
+						width: 104px;
+					}
+
+					.num-in {
+						display: flex;
+						align-items: center;
+					}
+
+					input {
+						width: 64px;
+						border-left: 1px solid transparent;
+						border-right: 1px solid transparent;
+					}
+
+					span {
+						display: block;
+						width: 20px;
+						height: 100%;
+						padding: 16px 0 17px;
+						font-size: 20px;
+						text-align: center;
+						color: #ccc;
+						background-color: $light-blue;
+						border: 1px solid #eee;						
+						cursor: pointer;
+
+						&:hover {
+							color: $gray-800;
+						}
+
+						&.minus {
+							margin-right: -2px;
+							border-right: none;
+							border-radius: 4px 0 0 4px;
+						}
+
+						&.plus {
+							margin-left: -2px;
+							border-left: none;
+							border-radius: 0 4px 4px 0;
+						}
+					}
+				}
+			}	
+		}
+	}
+}

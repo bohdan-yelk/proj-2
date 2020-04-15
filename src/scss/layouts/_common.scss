@@ -34,15 +34,35 @@ body {
 
 #main {
     &.shop {
-        // background: url('/images/shop-bg.png'),linear-gradient(360deg, #F5F7FA 13%, rgba(245, 247, 250, 0.5) 100%);
-        // background-repeat: no-repeat;
-        // background-position: top center;
-        // background-size: contain;
         background-image: url('/images/shop-bg.png');
         background-color: $light-blue;
         background-repeat: no-repeat;
         background-position: top center;
         background-size: contain;
+    }
+}
+
+nav {
+    &.scenario-nav {
+        padding: 24px 0;
+
+        p,
+        a {
+            margin: 0;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        a {
+            padding: 0 8px;
+            text-decoration: underline;
+            text-transform: uppercase;
+
+            &:hover {
+                color: $dark-blue;
+                text-decoration: none;
+            }
+        }
     }
 }
 
@@ -649,7 +669,12 @@ span.bg-title {
 .block-abc {
     margin: 0 0 24px;
 
-
+    &.no-click {
+        a {
+            cursor: none;
+            pointer-events: none;
+        }
+    }
 
     &.top {
         border-bottom: none;
@@ -774,15 +799,99 @@ span.bg-title {
             left: 50%;
             width: 76px;
             height: 76px;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             background-color: rgba(0, 203, 118, 0.15);
-            border-radius: 50%;            
+            border-radius: 50%;
         }
     }
 
-    &-content{
+    &-content {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+}
+
+// custom select 
+
+.custom-select {
+    position: relative;
+    font-family: $base-font-sans-serif;
+
+    select {
+        display: none;
+    }
+
+    .select-selected {
+        background-color: $blue;
+
+        &:after {
+            position: absolute;
+            content: '';
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: $white transparent transparent transparent;
+        }
+
+        &.select-arrow-active {
+            &:after {
+                border-color: transparent transparent #fff transparent;
+                top: 7px;
+            }
+        }
+    }
+
+    .select-items {
+        position: absolute;
+        background-color: DodgerBlue;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+
+        div,
+        .select-selected {
+            color: #ffffff;
+            padding: 8px 16px;
+            border: 1px solid transparent;
+            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+            cursor: pointer;
+        }
+
+        div:hover,
+        .same-as-selected {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .select-hide {
+        display: none;
+    }
+}
+
+// surname search abc
+
+.hidden-item {
+    display: none;
+}
+
+.info-alert {
+    color: red;
+
+    &--hidden {
+        display: none;
+    }
+}
+
+// surname tabs abc 
+
+.tabs-content {
+    display: none;
+
+    &.active {
+        display: block;
     }
 }
