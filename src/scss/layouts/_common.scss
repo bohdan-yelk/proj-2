@@ -162,6 +162,17 @@ a {
     border: 1px solid $blue;
     background-color: $blue;
 
+    &.in-cart {
+        background-color: transparent;
+        border-color: $blue;
+        color: $blue;
+        pointer-events: none;
+
+        &:before {
+            color: $blue;
+        }
+    }
+
     &:hover {
         background-color: $dark-blue;
         border-color: $dark-blue;
