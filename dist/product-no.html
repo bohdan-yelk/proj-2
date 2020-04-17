@@ -8,8 +8,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700|Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
   <title>Product No</title>
-  <link href="./css/libs.css?741bb53f2ef4506bd8e2" rel="stylesheet">
-  <link href="./css/app.css?741bb53f2ef4506bd8e2" rel="stylesheet">
+  <link href="./css/libs.css?eb1db86f16077f7f27bf" rel="stylesheet">
+  <link href="./css/app.css?eb1db86f16077f7f27bf" rel="stylesheet">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             </form>
           </div>
           <div class="col-1">
-            <a class="cart has-product" href="#"><i class="icon-basket"></i></a>
+            <a class="cart" href="#"><i class="icon-basket"></i></a>
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@
       <section class="product-main-section">
         <div class="container">
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col-12">
               <div class="breadcrumbs">
                 <ul>
                   <li><a href="#">Home</a></li>
@@ -164,6 +164,8 @@
                   <li class="disabled"><a href="#">Noname</a></li>
                 </ul>
               </div>
+            </div>
+            <div class="col-6">
               <div class="block-image">
                 <picture id="chaneColor">
                   <img src="images/main-prod-1.png" alt="">
@@ -186,10 +188,6 @@
             </div>
             <div class="col-5">
               <div class="block-content">
-                <nav class="scenario-nav">
-                  <p>CoA: <a href="#">Start</a> <a href="#">Yes</a> <a href=#">No</a> <a href=#">Rough</a> (not design
-                    element. only for prototype)</p>
-                </nav>
                 <h1>Coat of Arms T-Shirt Unisex</h1>
                 <div class="price-wrapper">
                   <span class="price-old">$19.95</span>
@@ -217,7 +215,8 @@
                   </div>
                   <div class="form-row form-row-message">
                     <p>We're sorry, but there's no coat of arms for that last name in our database.
-                      But you can order a <a href="#">Genealogy research</a> and we'll find out everything about
+                      But you can order a <a href="#">Genealogy research</a> and we'll find out
+                      everything about
                       the history of your name.</p>
                   </div>
                   <div class="form-row form-row-submit">
@@ -372,6 +371,24 @@
           </div>
         </div>
       </div>
+      <div id="genealogyPopup" class="popup active">
+        <div class="overlay">
+          <div class="popup-wrapper">
+            <a href="#" class="btn btn-close"><i class="icon-close"></i></a>
+            <div class="block-img">
+              <picture>
+                <img src="images/genealogy-popup.svg" alt="">
+              </picture>
+            </div>
+            <div class="block-content">
+              <h2>We're sorry, but there's no coat of arms for that last name in our database.</h2>
+              <p>But you can order a genealogy report to find out who your ancestors were and learn more
+                about your family's history and surname.</p>
+              <a href="#" class="btn btn-blue">Genealogy Research</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- <div id="shopSearch" class="block-shop-search">
                 <div class="container">
                     <div class="inner-wrapper">
@@ -393,8 +410,8 @@
     </footer>
   </div>
 
-  <script type="text/javascript" src="./js/libs.js?741bb53f2ef4506bd8e2"></script>
-  <script type="text/javascript" src="./js/app.js?741bb53f2ef4506bd8e2"></script>
+  <script type="text/javascript" src="./js/libs.js?eb1db86f16077f7f27bf"></script>
+  <script type="text/javascript" src="./js/app.js?eb1db86f16077f7f27bf"></script>
 </body>
 
 </html>

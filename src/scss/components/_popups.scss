@@ -17,7 +17,7 @@
         right: 0;
         bottom: 0;
         background-color: rgba(48, 48, 48, .8);
-        z-index: 1000;    
+        z-index: 1000;
     }
 
     .popup-wrapper {
@@ -75,17 +75,17 @@
                 padding: 80px 65px;
                 overflow: hidden;
                 background-color: $light-blue;
-    
+
                 .item {
                     display: flex;
                     justify-content: center;
                 }
-    
+
                 img {
                     margin: 0 auto;
                 }
             }
-    
+
             &-content {
                 position: relative;
                 padding: 80px 80px 32px;
@@ -98,7 +98,7 @@
             align-items: center;
             padding: 0 0 73px;
         }
-    
+
         .price {
             font-family: $base-font-sans-serif;
             font-size: 32px;
@@ -111,7 +111,7 @@
             min-width: 284px;
             padding: 20px 65px 19px;
             box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
-    
+
             &:before {
                 left: 40px;
             }
@@ -123,25 +123,25 @@
             justify-content: space-between;
             padding: 33px 0 0;
             border-top: 1px solid $light-blue;
-    
+
             p {
                 margin: 0;
             }
-    
+
             ul {
                 display: flex;
                 margin: 0 -18px;
                 padding: 0;
                 list-style: none;
             }
-    
+
             li {
                 padding: 0 18px;
-                
+
                 a {
                     font-size: 24px;
                     color: $dark-blue;
-    
+
                     &:hover {
                         color: $blue;
                     }
@@ -153,6 +153,7 @@
             &-arrow {
                 top: calc(50% - 16px);
                 z-index: 10;
+
                 &:before {
                     padding: 10px;
                     font-family: 'icomoon';
@@ -164,24 +165,26 @@
                     transition: opacity .3s ease;
                     box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
                 }
-    
+
                 &:hover {
                     &:before {
                         color: $dark-blue;
                     }
                 }
             }
-    
+
             &-prev {
                 left: -30px;
+
                 &:before {
                     content: "\e902";
-                    
+
                 }
             }
-    
+
             &-next {
                 right: -20px;
+
                 &:before {
                     content: "\e901";
                 }
@@ -203,7 +206,8 @@
             // position: relative;
             margin: 0;
         }
-        span {            
+
+        span {
             font-family: $base-font-sans-serif;
 
             &.main-title {
@@ -242,9 +246,9 @@
             }
 
             .file {
-               font-size: 16px;
-               font-weight: normal;
-               color: $gray-100;
+                font-size: 16px;
+                font-weight: normal;
+                color: $gray-100;
             }
         }
 
@@ -287,7 +291,7 @@
                     font-size: 22px;
                     color: $blue;
                 }
-                        
+
                 &:first-of-type {
                     &:before {
                         content: '\e906';
@@ -359,6 +363,59 @@
             border: none;
             background-color: $light-blue;
             border-radius: 50%;
+        }
+    }
+
+    &#digitalPopup,
+    &#genealogyPopup {
+        .popup-wrapper {
+            display: flex;
+            align-items: center;
+            padding: 80px;
+        }
+
+        h2 {
+            margin: 0 0 32px;
+            font-size: 32px;
+            line-height: 43px;
+            color: $gray-800;
+        }
+
+        p {
+            margin: 0 0 32px;
+            font-size: 18px;
+            line-height: 36px;
+        }
+
+        .btn-blue {
+            display: block;
+            width: 100%;
+            text-transform: uppercase;
+
+            &:hover {
+                color: $white;
+                background-color: $dark-blue;
+                border-color: $dark-blue;
+                &:after {
+                    right: 19%;
+                }
+            }
+
+            &:after {
+                right: 20%;
+            }
+        }
+
+        .block {
+            &-img {
+                margin: 0 100px 0 0;
+
+                picture {
+                    display: block;
+                    width: 400px;
+                    height: 400px;
+                }
+            }
         }
     }
 }

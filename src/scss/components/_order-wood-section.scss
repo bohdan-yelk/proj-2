@@ -1,0 +1,71 @@
+.order-wood-section {
+    padding: 120px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    h2 {
+        margin: 0 0 24px;
+        color: $dark-blue;
+    }
+
+    h3 {
+        margin: 0 0 16px;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 32px;
+        color: $white;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none
+    }
+
+    li {
+        margin: 0 0 30px;
+        color: $white;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .block {
+        &-form {
+            padding: 65px;
+            background-color: $white;
+            box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
+            border-radius: 8px;
+
+            p,input {
+                margin: 0 0 24px;
+            }
+
+            input {
+                &[type="submit"] {
+                    margin: 0;
+                    text-transform: uppercase;
+                    box-shadow: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $dark-blue;
+                        border-color: $dark-blue;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+.title-wood-section {
+    padding: 0 0 136px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    h1 {
+        margin: 0;
+        padding: 69px 0 0;
+        color: $white;
+    }
+
+    .breadcrumbs {
+        a {
+            color: $white;
+
+            &:hover {
+                color: #ccc;
+            }
+
+            &:before,
+            &:after {
+                color: #ccc;
+            }
+        }
+
+        li {
+            &.disabled {
+                a {
+                    color: #ccc;
+                }
+            }
+        }
+    }
+}

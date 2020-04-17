@@ -42,30 +42,6 @@ body {
     }
 }
 
-nav {
-    &.scenario-nav {
-        padding: 24px 0;
-
-        p,
-        a {
-            margin: 0;
-            font-size: 14px;
-            line-height: 16px;
-        }
-
-        a {
-            padding: 0 8px;
-            text-decoration: underline;
-            text-transform: uppercase;
-
-            &:hover {
-                color: $dark-blue;
-                text-decoration: none;
-            }
-        }
-    }
-}
-
 img {
     max-width: 100%;
 }
@@ -255,6 +231,7 @@ input[type="submit"] {
 input[type="search"],
 input[type="email"],
 input[type="text"],
+input[type="tel"],
 textarea,
 select {
     padding: 20px 24px 19px;
