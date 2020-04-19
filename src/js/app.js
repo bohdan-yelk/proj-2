@@ -92,6 +92,38 @@ import {log} from './utils'
 
   choiceCoaProd()
 
+  // ---- dropdown accordion on FAQ page ----
+
+  function dropList() {
+    var $dropItem = $('.faq-list li')
+    var $dropLink = $('.dropLink')
+    var $dropContent = $('.drop-content')
+
+    $dropContent.hide()
+
+    $dropLink.on('click', function (e) {
+      e.preventDefault()
+
+      $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide('slow')
+
+      if (!$(this).hasClass('clicked')) {
+        $(this).addClass('clicked')
+        $(this).parent($dropItem).addClass('active').find($dropContent).show('slow')
+      } else {
+        $(this).removeClass('clicked')
+        $(this).parent($dropItem).removeClass('active').find($dropContent).hide('slow')
+      }
+      // $(this).parent($dropItem).addClass('active').find($dropContent).show('slow')
+
+      if ($(this).hadClass('clicked')) {
+        $(this).removeClass('clicked')
+        $(this).parent($dropItem).find($dropContent).hide('slow')
+      }
+    })
+  }
+
+  dropList()
+
   // ---- custom pagination(1/4) in slick slider on surname rough page  ----
 
   let $status = $('.pagingInfo')
