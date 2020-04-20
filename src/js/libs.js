@@ -1,6 +1,11 @@
 import jQuery from 'jquery'
 // Enable wow.js if it is needed
-import { WOW } from 'wowjs'
+import {WOW} from 'wowjs'
+import 'slick-carousel'
+import jQueryBridget from 'jquery-bridget'
+import Masonry from 'masonry-layout'
+
+jQueryBridget('masonry', Masonry)
 
 // Enable popper.js and bootstrap if they are needed
 // import 'popper.js'
@@ -14,4 +19,6 @@ new WOW({
   mobile: false
 }).init()
 
-import 'slick-carousel'
+var msnry = new Masonry('.grid', {
+  horizontalOrder: true
+})

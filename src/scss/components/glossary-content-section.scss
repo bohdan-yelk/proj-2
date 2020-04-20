@@ -1,0 +1,73 @@
+.glossary-content-section {
+    
+    .glossary-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        padding: 0;
+        list-style: none;
+
+        li {
+            width: 33.3%;
+            padding: 0 15px;
+            margin: 0 0 30px;
+
+            &.active {
+                display: block;
+                width: 100%;
+                order: 1;
+
+                .btn {
+                    &.hide {
+                        display: block;
+                    }
+
+                    &.show {
+                        display: none;
+                    }
+                }
+            }
+
+            .item-wrapper {
+                display: flex;
+                align-items: center;
+                padding: 32px;
+                border: 1px solid $light-blue;
+                border-radius: 8px;
+            }
+            
+            h3 {
+                margin: 0 0 16px;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 24px;
+                color: $gray-800;
+            }
+
+            img {
+                width: 96px;
+                height: 96px;
+                margin: 0 40px 0 0;
+                border-radius: 4px;
+                overflow: hidden;
+                object-fit: cover;
+            }
+
+            p {
+                display: none;
+            }
+
+            
+
+            .btn {
+                display: block;
+                font-size: 14px;
+                line-height: 16px;
+
+                &.hide {
+                    display: none;
+                }
+            }
+        }
+    }
+}

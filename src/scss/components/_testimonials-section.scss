@@ -1,0 +1,70 @@
+.testimonials-section {
+
+    .reviews-list {
+        margin: 0 -15px 80;
+        // padding: 0 0 80px;
+        .item-width {
+            width: calc(50% - 30px);
+            margin-bottom: 30px;
+            float: left;
+        }
+
+        .review-wrapper {
+            padding: 32px;
+            background-color: $light-blue;
+            border-radius: 8px;
+        }
+
+        .block {
+
+            &-title {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                &:after {
+                    position: absolute;
+                    content: '\e910';
+                    top: 0;
+                    right: 0;
+                    font-family: 'icomoon';
+                    font-size: 18px;
+                    color: rgba(52, 90, 156, 0.15);
+                }
+
+                img {
+                    width: 96px;
+                    height: 96px;
+                    margin: 0 32px 0 0;
+                    box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
+                    border-radius: 4px;
+                    overflow: hidden;
+                    object-fit: cover;
+                }
+            }
+            
+            &-user {                
+                display: flex;
+                flex-direction: column;
+                font-family: $base-font-sans-serif;
+
+                
+
+                span {
+                    margin: 0 0 17px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    line-height: 21px;
+                    color: $dark-blue;
+                }
+
+                time {
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: $gray;
+                }
+            }
+            
+        }
+    }
+}

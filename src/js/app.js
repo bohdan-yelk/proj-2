@@ -92,6 +92,15 @@ import {log} from './utils'
 
   choiceCoaProd()
 
+  // ---- masonry on Testimonials page ----
+
+  $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    percentPosition: true,
+    gutter: 30
+  })
+
   // ---- dropdown accordion on FAQ page ----
 
   function dropList() {
