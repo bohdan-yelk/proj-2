@@ -1,0 +1,48 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    padding: 100px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    .logo-404 {
+        margin: 0 0 140px;
+    }
+
+    h1 {
+        margin: 0 0 16px;
+        font-size: 120px;
+        line-height: 160px;
+        font-weight: bold;
+        text-align: center;
+        color: $white;
+    }
+
+    p {
+        margin: 0 0 40px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 28px;
+        color: $white;
+    }
+
+    .btn {
+        display: block;
+        margin: 0 auto;
+
+        &:hover {
+            &:after {
+                right: 14%;
+            }
+        }
+
+        &:after {
+            right: 15%;
+        }
+    }
+}
