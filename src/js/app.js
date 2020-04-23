@@ -57,6 +57,25 @@ import {log} from './utils'
     infinite: false
   })
 
+  // ---- slider owner on about us page ----
+
+  $('#ownerSlider').slick({
+    dots: true,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  })
+
+  // ---- slider useful on about us page ----
+
+  $('#usefulSlider').slick({
+    dots: false,
+    arrows: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    variableWidth: true
+  })
+
   // ---- choice coa on internal product slider ----
 
   function choiceCoaProd() {

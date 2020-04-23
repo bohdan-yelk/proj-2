@@ -1,0 +1,98 @@
+.about-us-section {
+
+    h1 {
+        width: 100%;
+        margin: 40px 0 64px;
+        color: $gray-800;
+    }
+
+    h2 {
+        margin: 0 0 48px;
+    }
+
+    p {
+        margin: 0 0 30px;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    .block {
+        &-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 0 80px;
+
+            &-content,
+            &-img {
+                width: 50%;
+            }
+
+            &-img {
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-start;
+
+                .img-wrapper {
+                    position: relative;
+
+                    .logo-bg {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+
+        }
+
+        &-owner {
+            
+            &-slider {
+                display: flex;
+                flex-direction: column;
+
+                .slick {
+                    &-dots {
+                        bottom: -80px;
+                        z-index: 10;
+
+                        button {
+                            &:before {
+                                font-size: 25px;
+                                color: $blue;
+                                opacity: .5;
+                            }
+                        }
+
+
+                        li.slick-active {
+                            button {
+                                &:before {
+                                    font-size: 40px;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                span {
+                    align-self: center;
+                    font-family: $base-font-sans-serif;
+                    font-size: 16px;
+                    line-height: 19%;
+                    color: $gray-100;
+                }
+            }
+
+            &-content {
+                margin: 0 0 80px;
+            }
+
+        }
+    }
+}

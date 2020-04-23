@@ -256,6 +256,37 @@ a {
     }
 }
 
+.btn-book {
+    position: relative;
+    min-width: 238px;
+    display: block;
+    padding: 20px 24px 19px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: center;
+    color: $white;
+    border-radius: 4px;
+    border: 1px solid $blue;
+    background-color: $blue;
+
+    &:hover {
+        background-color: $dark-blue;
+        border-color: $dark-blue;
+    }
+
+    &:before {
+        position: absolute;
+        content: '\e917';
+        top: 50%;
+        transform: translateY(-50%);
+        left: 25px;
+        font-family: 'icomoon';
+        font-size: 16px;
+        transition: right .3s ease;
+    }
+}
+
 .btn-blue,
 input[type="submit"] {
     position: relative;

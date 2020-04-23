@@ -1,0 +1,123 @@
+.contact-us-section {
+    padding: 0 0 100px;
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    h1 {
+        margin: 40px 0 64px;
+        color: $gray-800;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 32px;
+        color: $dark-blue;
+    }
+
+    .btn-book {
+        min-width: 196px;
+    }
+
+    .block {
+        &-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 0 64px;
+
+            p {
+                &:first-child,
+                &:nth-child(2) {
+                    width: 50%;
+                    margin: 0 0 24px;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: $gray-100;
+
+                    a,span {
+                        display: block;
+                        margin: 8px 0 0;
+                        font-family: $base-font-sans-serif;
+                        font-size: 24px;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        line-height: 28px;
+                        color: $blue;
+                    }
+                }
+
+                &:last-child {
+                    width: 100%;
+                    margin: 0;
+                    color: $gray;
+                }
+            }
+        }
+
+        &-callback {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            background-color: $light-blue;
+            border-radius: 8px;
+        }
+
+        &-left {
+            padding: 40px;
+
+            h2 {
+                margin: 0 0 32px;
+            }
+        }
+
+        &-right {
+            padding: 40px 40px 0 0;
+        }
+    }
+
+    .form-wrapper {
+        width: 100%;
+        max-width: 400px;
+        padding: 40px;
+        border-radius: 8px;
+        background-color: $white;
+        box-shadow: 0px 16px 32px rgba(0, 148, 255, 0.25);
+
+        h2 {
+            margin: 0 0 16px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            max-width: 100%;
+            padding: 14px 24px 13px;
+        }
+
+        .btn {
+            text-transform: uppercase;
+            box-shadow: none;
+
+            &:hover {
+                background-color: $dark-blue;
+                border-color: $dark-blue;
+                color: $white;
+
+                &:after {
+                    right: 30%;
+                }
+            }
+
+            &:after {
+                right: 31%;
+            }
+        }
+
+        input,
+        textarea {
+            margin: 0 0 16px;
+        }
+    }
+}
