@@ -19,6 +19,11 @@ new WOW({
   mobile: false
 }).init()
 
-var msnry = new Masonry('.grid', {
-  horizontalOrder: true
-})
+function checkMas() {
+  var grid = document.getElementById('grid')
+  if (grid) {
+    var msnry = new Masonry('#grid', {})
+  }
+}
+
+checkMas()

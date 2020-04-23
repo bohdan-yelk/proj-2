@@ -1,0 +1,362 @@
+.service-section {
+    padding: 0 0 52px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+
+    h1,
+    h2 {
+        color: $gray-800;
+    }
+
+    h1 {
+        margin: 0 0 32px;
+    }
+
+    h2 {
+        margin: 0 0 48px;
+    }
+
+    .descr {
+        margin: 0 0 32px;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 27px;
+    }
+
+    .static-price {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        max-width: 165px;
+        margin: 0 0 48px;
+        padding: 16px 32px;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 28px;
+        color: $white;
+        border-radius: 30px;
+        background-color: $dark-blue;
+
+        span {
+            display: inline-block;
+            margin: 0 16px 0 0;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+        }
+    }
+
+    .block {
+        &-img {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 0 48px;
+
+            img {
+                border-radius: 8px;
+                overflow: hidden;
+            }
+        }
+
+        &-expert {
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            li {
+                position: relative;
+                margin: 0 0 48px;
+                padding: 0 0 0 88px;
+                font-family: $base-font-sans-serif;
+                font-size: 16px;
+                line-height: 32px;
+                color: $gray-100;
+
+                &:before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 64px;
+                    height: 64px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'icomoon';
+                    font-size: 32px;
+                    border-radius: 50%;
+                    background-color: $light-blue;
+                    color: $blue;
+                }
+
+                &:first-child {
+                    &:before {
+                        content: '\e916';
+                    }
+                }
+
+                &:nth-child(2) {
+                    &:before {
+                        content: '\e91b';
+                    }
+                }
+
+                &:last-child {
+                    &:before {
+                        content: '\e91f';
+                    }
+                }
+            }
+
+
+        }
+
+        &-steps {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+
+            p {
+                margin: 0 0 24px;
+                font-size: 16px;
+                line-height: 19px;
+                color: $gray-100;
+            }
+        }
+
+        &-steps-num {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0 0 24px;
+
+            span {
+                display: block;
+                margin: 0 16px 0 0;
+                font-family: $base-font-sans-serif;
+                font-size: 18px;
+                line-height: 21px;
+                color: $gray;
+            }
+
+            ul {
+                display: flex;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                margin: 0 16px 0 0;
+                font-family: $base-font-sans-serif;
+                font-size: 14px;
+                line-height: 16px;
+                color: $gray;
+                border-radius: 50%;
+                background-color: $light-blue;
+
+                &:last-child {
+                    margin: 0;
+                }
+
+                &.active {
+                    background-color: $blue;
+                    color: $white;
+                }
+            }
+        }
+
+        &-download {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 0 24px;
+            padding: 32px;
+            background: #F5F7FA;
+            border: 1px dashed #0094FF;
+            box-sizing: border-box;
+            border-radius: 4px;
+
+            span {
+                display: block;
+                margin: 0 0 16px;
+                font-family: $base-font-sans-serif;
+                font-size: 16px;
+                line-height: 19px;
+                color: $gray-100;
+            }
+        }
+
+        &-form {
+            input {
+                width: 100%;
+                margin: 0 0 16px;
+                padding: 14px 24px 13px;
+            }
+        }
+
+        &-payment {
+            .custom-check {
+                position: relative;
+                display: block;
+                margin: 0 0 16px;
+                padding: 18px 18px 17px 56px;
+                font-family: $base-font-sans-serif;
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 19px;
+                color: $gray;
+                border-radius: 4px;
+                border: 1px solid #eee;
+                cursor: pointer;
+                user-select: none;
+
+                &.active {
+                    border-color: $blue;
+                    color: $blue;
+                }
+
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    width: 0;
+                    height: 0;
+
+                    &:checked~.radiobtn:after {
+                        display: block;
+                    }
+                }
+
+                .radiobtn {
+                    position: absolute;
+                    top: 50%;
+                    left: 18px;
+                    transform: translateY(-50%);
+                    width: 20px;
+                    height: 20px;
+                    background-color: $light-blue;
+                    border: 1px solid #eee;
+                    border-radius: 50%;
+
+                    &:after {
+                        position: absolute;
+                        content: '\e904';
+                        font-family: 'icomoon';
+                        font-size: 20px;
+                        color: $blue;
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &-total {
+            p {
+                display: flex;
+                align-items: center;
+                font-size: 32px;
+                font-weight: bold;
+                line-height: 37px;
+                color: $gray-800;
+            }
+
+            span {
+                display: inline-block;
+                margin: 0 16px 0 0;
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 19px;
+            }
+        }
+    }
+
+    .btn {
+        display: block;
+        text-transform: uppercase;
+        padding: 18px 24px 17px;
+
+        &-blue {
+            box-shadow: none;
+
+            &:hover {
+                background-color: $dark-blue;
+                border-color: $dark-blue;
+                color: $white;
+
+                &:after {
+                    right: 29%;
+                }
+            }
+
+            &:after {
+                right: 30%;
+            }
+
+        }
+
+        &-browse {
+            position: relative;
+            padding: 11px 56px 10px 32px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19px;
+            color: $white;
+            border-radius: 4px;
+            background-color: $green;
+
+            &:hover {
+                background-color: $dark-blue;
+            }
+
+            &:after {
+                position: absolute;
+                content: '\e91c';
+                top: 50%;
+                transform: translateY(-50%);
+                right: 32px;
+                font-family: 'icomoon';
+                font-size: 16px;
+            }
+
+        }
+
+        &-checkout {
+
+            &:hover {
+                &:after {
+                    right: 24%;
+                }
+            }
+
+            &:after {
+                right: 25%;
+            }
+        }
+    }
+
+    .steps-wrapper {
+        width: 350px;
+        padding: 40px;
+        border-radius: 8px;
+        background-color: $white;
+        box-shadow: 0px 16px 32px rgba(0, 148, 255, 0.25);
+    }
+
+    .steps-content {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}

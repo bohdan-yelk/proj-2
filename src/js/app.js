@@ -94,7 +94,8 @@ import {log} from './utils'
 
   // ---- masonry on Testimonials page ----
 
-  $('.grid').masonry({
+  $('#grid').masonry({
+    horizontalOrder: true,
     itemSelector: '.grid-item',
     columnWidth: '.grid-sizer',
     percentPosition: true,
@@ -206,6 +207,64 @@ import {log} from './utils'
     $('#SurnamePopup').addClass('active')
   }, 5000)
 
+  // ---- payment steps on service page ----
+
+  function stepTabs() {
+    var $next = $('.btn-next')
+    var $prev = $('.btn-back')
+    var $currentIndex = 0
+    var $numStep = $('#stepsList li')
+    var $contentStep = $('.steps-content')
+    var cahngeConstVal = $currentIndex
+
+    $next.on('click', function (e) {
+      e.preventDefault()
+      $currentIndex++
+
+      $numStep.removeClass('active').eq($currentIndex).addClass('active')
+      $contentStep.removeClass('active').eq($currentIndex).addClass('active')
+    })
+
+    $prev.on('click', function (e) {
+      e.preventDefault()
+      $currentIndex--
+
+      $numStep.removeClass('active').eq($currentIndex).addClass('active')
+      $contentStep.removeClass('active').eq($currentIndex).addClass('active')
+    })
+  }
+
+  stepTabs()
+
+  // ---- choice payment method on service page ----
+
+  function choicePay() {
+    var $form = $('.block-payment form')
+    var $inputPay = $('.block-payment form input')
+
+    $inputPay.on('click', function () {
+      $inputPay.parents('label').removeClass('active')
+      if ($(this).prop('checked')) {
+        $(this).parents('label').addClass('active')
+      }
+    })
+  }
+
+  choicePay()
+
+  // ---- fixed steps block on scroll ----
+
+  $(function () {
+    $(window).scroll(
+      (function fix_element() {
+        $('#fixedOnScroll').css(
+          $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
+        )
+        return fix_element
+      })()
+    )
+  })
+
   // ---- submenu nav ----
 
   $('.has-submenu').on('click', function () {
@@ -219,6 +278,44 @@ import {log} from './utils'
       }
     })
   })
+
+  // ---- glossary page - show/hide details ----
+
+  function glossaryDetails() {
+    var $showBtn = $('#glossaryList .show')
+    var $hideBtn = $('#glossaryList .hide')
+    var $glossaryList = $('#glossaryList')
+
+    $glossaryList.children('li').removeClass('active')
+    $glossaryList.children('li').find('.content p').hide()
+
+    $showBtn.on('click', function (e) {
+      e.preventDefault()
+      $glossaryList.children('li').removeClass('active')
+      $(this).parents('li').addClass('active')
+
+      if ($glossaryList.children('li').hasClass('active')) {
+        $showBtn.parents('li').find('.content p').hide()
+        $(this).parents('li').find('.content p').show()
+        setTimeout(function () {
+          $(this).parents('li').find('.content p').show()
+        }, 4000)
+        console.log('hasClass')
+      }
+    })
+
+    $hideBtn.on('click', function (e) {
+      e.preventDefault()
+      $(this).parents('li').find('.content p').hide('slow')
+      $(this).parents('li').removeClass('active')
+    })
+
+    // $glossaryList.each(function () {
+
+    // })
+  }
+
+  glossaryDetails()
 
   // ---- color product ----
 

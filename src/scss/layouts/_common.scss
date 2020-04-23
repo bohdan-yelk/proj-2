@@ -223,6 +223,39 @@ a {
     }
 }
 
+.btn-back {
+    position: relative;
+    min-width: 238px;
+    padding: 20px 24px 19px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $gray;
+
+    &:hover {
+        background-color: transparent;
+        color: $gray-800;
+
+        &:before {
+            left: 28%;
+            box-shadow: none;
+        }
+    }
+
+    &:before {
+        position: absolute;
+        content: '\e902';
+        top: 50%;
+        transform: translateY(-50%);
+        left: 30%;
+        font-family: 'icomoon';
+        font-size: 11px;
+        transition: left .3s ease;
+    }
+}
+
 .btn-blue,
 input[type="submit"] {
     position: relative;

@@ -1,4 +1,7 @@
 .glossary-content-section {
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
     
     .glossary-list {
         display: flex;
@@ -11,11 +14,12 @@
             width: 33.3%;
             padding: 0 15px;
             margin: 0 0 30px;
+            transition: width .5s ease, order .5s ease;
 
             &.active {
                 display: block;
                 width: 100%;
-                order: 1;
+                order: -1;
 
                 .btn {
                     &.hide {
@@ -26,6 +30,10 @@
                         display: none;
                     }
                 }
+
+                // p {
+                //     display: block;
+                // }
             }
 
             .item-wrapper {
@@ -53,11 +61,9 @@
                 object-fit: cover;
             }
 
-            p {
-                display: none;
-            }
-
-            
+            // p {
+            //     display: none;
+            // }
 
             .btn {
                 display: block;
