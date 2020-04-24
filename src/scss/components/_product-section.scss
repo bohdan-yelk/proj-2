@@ -21,8 +21,18 @@
         }
     }
 
+    .btn {
+        box-shadow: none;
+    }
+
     &.blue {
         padding: 120px 0;
         background-color: $light-blue;
+    }
+
+    &.on-cart {
+        h2 {
+            color: $gray-800;
+        }
     }
 }
