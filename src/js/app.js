@@ -17,6 +17,34 @@ import {log} from './utils'
 ;($ => {
   log('Ready')
 
+  //  ---- NAVIGATION ----
+
+  //    1. main slider on homepage
+  //    2. reviews slider
+  //    3. gallery product slider on surname CoA page
+  //    4. popup slider on surname CoA page
+  //    5. slider coa on internal product page
+  //    6. slider owner on about us page
+  //    7. slider useful on about us page
+  //    8. choice coa on internal product slider
+  //    9. masonry on Testimonials page
+  //   10. dropdown accordion on FAQ page
+  //   11. custom pagination(1/4) in slick slider on surname rough page
+  //   12. animation picture at game-section on homepage
+  //   13. popup click
+  //   14. payment steps on service page
+  //   15. checkout steps tabs
+  //   16. choice payment method on service page
+  //   17. choice different address on checkout
+  //   18. fixed steps block on scroll
+  //   19. submenu nav
+  //   20. glossary page - show/hide details
+  //   21. color product
+  //   22. product +/-
+  //   23. tabs "abc" on surname page
+  //   24. suname search on Surname page
+  //   25. custom select
+
   // ---- main slider on homepage ----
 
   $('#mainSlider').slick({
@@ -255,6 +283,37 @@ import {log} from './utils'
 
   stepTabs()
 
+  // ---- checkout steps tabs ----
+
+  function stepCheckout() {
+    var $continue = $('.btn-continue')
+    var $currentStep = 0
+    var $itemStep = $('#checkoutStepList li')
+    var $itemStepLink = $('#checkoutStepList a')
+    var $tabCheck = $('.tab-checkout')
+
+    $continue.on('click', function (e) {
+      e.preventDefault()
+      $currentStep++
+
+      $itemStep.removeClass('active').eq($currentStep).addClass('active')
+      $tabCheck.removeClass('active').eq($currentStep).addClass('active')
+    })
+
+    $itemStepLink.on('click', function (e) {
+      e.preventDefault()
+
+      $currentStep = $(this).parents($itemStep).index()
+
+      $itemStep.removeClass('active').eq($currentStep).addClass('active')
+      $tabCheck.removeClass('active').eq($currentStep).addClass('active')
+
+      console.log($(this).parents($itemStep).index())
+    })
+  }
+
+  stepCheckout()
+
   // ---- choice payment method on service page ----
 
   function choicePay() {
@@ -270,6 +329,36 @@ import {log} from './utils'
   }
 
   choicePay()
+
+  // ---- choice different address on checkout ----
+
+  function differentAddress() {
+    var $form = $('.block-toggle-addres .toggle')
+    var $inputToggle = $('.block-toggle-addres .toggle input')
+
+    $('.form-hide').hide()
+    $inputToggle.on('click', function () {
+      $inputToggle.parents('label').removeClass('active')
+      if ($(this).prop('checked')) {
+        $(this).parents('label').addClass('active')
+      }
+
+      if ($(this).hasClass('show') && $(this).prop('checked')) {
+        $(this).parents('.block-toggle-addres').find('.form-hide').show('slow')
+        console.log('test')
+      } else if ($(this).hasClass('hide') && $(this).prop('checked')) {
+        $(this).parents('.block-toggle-addres').find('.form-hide').hide('slow')
+        console.log('test2')
+      } else {
+        console.log('test3')
+      }
+    })
+    console.log($inputToggle)
+  }
+
+  differentAddress()
+
+  // ---- show-hide
 
   // ---- fixed steps block on scroll ----
 
@@ -380,6 +469,8 @@ import {log} from './utils'
     $inputNum.change()
     return false
   })
+
+  // ---- tabs "abc" on Surname page ----
 
   $('ul.tabs-list').on('click', 'li:not(.active)', function (e) {
     e.preventDefault()
