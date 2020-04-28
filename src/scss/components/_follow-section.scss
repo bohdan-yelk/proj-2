@@ -6,6 +6,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @include media('<tablet') {
+            flex-direction: column;
+        }
     }
 
     h3 {
@@ -26,6 +30,15 @@
             border: 1.5px solid rgba(255, 255, 255, 0.25);
             border-radius: 4px;
             transition: border-color .3s ease;
+
+            @include media('<tablet') {
+                display: inline-block;
+                width: 50%;
+            }
+
+            @include media('<=small') {
+                width: 100%;
+            }
             
             &:hover {
                 border-color: $white;
@@ -44,6 +57,10 @@
 
         &.tel {
             margin-right: 24px;
+
+            @include media('<=small') {
+                margin: 0 0 24px;
+            }
 
             &:before {
                 content: '\e90d';
@@ -92,9 +109,27 @@
     }
 
     .block {
+
+        &-contacts {
+            @include media('<tablet') {
+                display: flex;
+                width: 100%;
+                margin: 0 0 24px;
+            }
+
+            @include media('<=small') {
+                flex-direction: column;
+            }
+        }
+        
         &-social {
             display: flex;
             align-items: center;
+
+            @include media('<=small') {
+                width: 100%;
+                justify-content: space-between;
+            }
         }
     }
 }

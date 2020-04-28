@@ -43,7 +43,8 @@ import {log} from './utils'
   //   22. product +/-
   //   23. tabs "abc" on surname page
   //   24. suname search on Surname page
-  //   25. custom select
+  //   25. burger button animation
+  //   26. custom select
 
   // ---- main slider on homepage ----
 
@@ -54,11 +55,23 @@ import {log} from './utils'
   // ---- reviews slider ----
 
   $('#reviewsSlider').slick({
-    dots: false,
+    dots: true,
     arrows: false,
     slidesToShow: 2,
     slidesToScroll: 1,
-    variableWidth: true
+    variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+          variableWidth: false
+        }
+      }
+    ]
   })
 
   // ---- gallery product slider on surname CoA page ----
@@ -376,6 +389,7 @@ import {log} from './utils'
   // ---- submenu nav ----
 
   $('.has-submenu').on('click', function () {
+    $(this).addClass('active')
     $(this).find('.submenu').addClass('active')
     $('#wrapper').addClass('active')
 
@@ -385,6 +399,11 @@ import {log} from './utils'
         $('#wrapper').removeClass('active')
       }
     })
+  })
+
+  $('.btn-close-submenu').on('click', function () {
+    $(this).parents('.has-submenu').removeClass('active')
+    $(this).parents('.submenu').removeClass('active')
   })
 
   // ---- glossary page - show/hide details ----
@@ -511,6 +530,36 @@ import {log} from './utils'
   if (input) {
     input.addEventListener('input', onInput)
   }
+
+  // ---- burger button animation ----
+
+  $('.burger').click(function () {
+    $('#header').toggleClass('active')
+    $('#nav').toggleClass('active')
+  })
+
+  $('.btn-close-menu').on('click', function () {
+    $('#header').removeClass('active')
+    $('#nav').removeClass('active')
+  })
+
+  // ---- Fixed header on scroll ----
+
+  // window.onscroll = function () {
+  //   myFunction()
+  // }
+
+  // var header = document.getElementById('header')
+
+  // var sticky = header.offsetTop
+
+  // function myFunction() {
+  //   if (window.pageYOffset > sticky) {
+  //     header.classList.add('sticky')
+  //   } else {
+  //     header.classList.remove('sticky')
+  //   }
+  // }
 
   // ---- custom select ----
 

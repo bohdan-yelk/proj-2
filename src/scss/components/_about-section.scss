@@ -1,8 +1,29 @@
 .about-section {
     padding: 150px 0;
 
+    @include media('<desktop') {
+        padding: 60px 0;
+    } 
+
     .history {
         padding: 0 0 155px;
+
+        .block {
+            &-img {
+                padding: 0 0 40px;
+            }
+        }
+
+        @include media('<desktop') {
+            margin: 0;
+            padding: 0 0 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include media('<=small') {
+            padding: 0 0 20px;
+        }
 
         picture {
             position: relative;
@@ -12,6 +33,16 @@
             background-position: center center;
             background-size: contain;
             background-repeat: no-repeat;
+
+            @include media('<desktop') {
+                margin: 0 auto;
+            }
+
+            @include media('<=small') {
+                width: 100%;
+                height: auto;
+                padding: 0 0 135px;
+            }
         }
 
         img {
@@ -20,29 +51,80 @@
             &:first-of-type {
                 top: 0;
                 left: 0;
+
+                @include media('<=small') {
+                    position: relative;
+                    width: 80%;
+                }
             }
 
             &:last-of-type {
                 right: 0px;
                 bottom: 0px;
                 max-width: 360px;
+
+                @include media('<=small') {
+                    bottom: -5px;
+                    width: 60%;
+                }
             }
         }
     }
 
     .about {
+        @include media('<desktop') {
+            margin: 0;
+        }
         .block {
             &-content {
                 padding: 0 111px 0 15px;
+
+                @include media('<desktop') {
+                    padding: 0;                    
+                }
+                
             }
 
             &-img {
+
+                @include media('<desktop') {
+                    padding: 0 0 70px;
+                }
+                
+                @include media('<=small') {
+                    padding: 0 0 40px;
+                }
 
                 .bg-title {
                     top: 0;
                     left: inherit;
                     right: -84px;
+
+                    @include media('<desktop') {
+                        display: none;
+                    }
+
+                    @include media('<=x-large') {
+                        right: 0;
+                    }
                 }
+            }
+        }
+
+        picture {
+            position: relative;
+            display: block;
+            height: 365px;
+            
+            @include media('<desktop') {
+                width: 70%;
+                margin: 0 auto;
+            }
+
+            @include media('<=small') {
+                width: 100%;
+                height: 275px;
+                margin: 0;
             }
         }
 
@@ -50,13 +132,21 @@
             position: absolute;
             right: 0;
             bottom: -54px;
-        }
 
-        picture {
-            position: relative;
-            display: block;
-            height: 365px;
-        }
+            @include media('<desktop') {
+                right: inherit;
+                left: 40px;
+                bottom: -35px;
+            }
+
+            @include media('<=small') {
+                width: 100%;
+                max-width: 295px;
+                bottom: inherit;
+                top: 90px;
+            }
+            
+        }        
 
         .square {
             position: absolute;
@@ -66,6 +156,11 @@
             height: 200px;
             border-radius: 8px;
             background: linear-gradient(83.13deg, #345A9C 0%, #0094FF 100%), #C4C4C4;
+
+            @include media('<=small') {
+                width: 125px;
+                height: 125px;
+            }
         }
     }
 
@@ -77,11 +172,24 @@
                 position: absolute;
                 top: -122px;
                 left: -84px;
+                
+                @include media('<desktop') {
+                    display: none;
+                }
+
+                @include media('<=x-large') {
+                    left: 0;
+                }
             }
         }
 
         &-content {
             padding: 0 0 0 110px;
+
+            @include media('<desktop') {
+                padding: 0;
+            }
+            
         }
     }
 

@@ -1,18 +1,38 @@
 //variables 
 
+//breakpoints
+
+$breakpoints: (
+    'xs': 320px,
+    'phone': 375px,
+    'small': 567px,
+    'tablet': 768px,
+    'desktop': 992px,
+    'large': 1024px,
+    'x-large': 1200px);
+
 //colors
-$white:       #fff;
-$black:       #000;
-$green:       #00CB76;
-$blue:        #0094FF;
-$light-blue:  #F5F7FA;
-$dark-blue:   #345A9C;
-$gray:        #999;
-$gray-100:    #777;
-$gray-700:    #3A4C5E;
-$gray-800:    #303030;
+$white: #fff;
+$black: #000;
+$green: #00CB76;
+$blue: #0094FF;
+$light-blue: #F5F7FA;
+$dark-blue: #345A9C;
+$gray: #999;
+$gray-100: #777;
+$gray-700: #3A4C5E;
+$gray-800: #303030;
 
 //fonts
 
-$base-font-sans-serif: 'Roboto', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
-$base-font-serif: 'Playfair Display', 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
+$base-font-sans-serif: 'Roboto',
+'Arial',
+'Helvetica Neue',
+'Helvetica',
+sans-serif;
+$base-font-serif: 'Playfair Display',
+'Times New Roman',
+'Times',
+'Baskerville',
+'Georgia',
+serif;

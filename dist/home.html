@@ -8,8 +8,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700|Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
   <title>Home</title>
-  <link href="./css/libs.css?01674dc5532999833e89" rel="stylesheet">
-  <link href="./css/app.css?01674dc5532999833e89" rel="stylesheet">
+  <link href="./css/libs.css?eaa60c0fbbc228f32d6a" rel="stylesheet">
+  <link href="./css/app.css?eaa60c0fbbc228f32d6a" rel="stylesheet">
 </head>
 
 <body>
@@ -17,28 +17,55 @@
     <header id="header">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-2">
+          <div class="logo-main-wrapper col-2 order-lg-0">
             <div class="logo"><a href="home.html"><img src="images/logo.svg" alt="CoadB.com"></a></div>
           </div>
-          <div class="col-9">
+          <div class="search-main-wrapper col-12 col-lg-9 order-4 order-lg-1">
             <form class="d-flex align-items-center">
               <button class="search"><i class="icon-search"></i></button>
               <input placeholder="Type your surname here to get started" type="search">
             </form>
           </div>
-          <div class="col-1">
+          <div class="cart-btn-wrapper col-1 order-lg-2 order-2">
             <a class="cart" href="#"><i class="icon-basket"></i></a>
           </div>
+          <div class="burger-btn-wrapper col d-lg-none d-block order-3">
+            <div class="burger">
+              <div class="burger-brick"></div>
+              <div class="burger-brick middle"></div>
+              <div class="burger-brick"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block-search-result">
+        <div class="container">
+          <ul>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+          </ul>
         </div>
       </div>
     </header>
     <nav id="nav">
+      <div class="mob-title">
+        <h4>Menu</h4>
+      </div>
       <div class="container">
-        <ul class="d-flex align-items-center justify-content-start">
+        <ul>
           <li><a href="#">Surname list</a></li>
           <li class="has-submenu">
             <a href="#">Shop</a>
             <ul class="submenu submenu-shop">
+              <div class="mob-subtitle">
+                <h4>Shop</h4>
+              </div>
               <li>
                 <a href="#">
                   <picture>
@@ -98,11 +125,17 @@
               <li class="last">
                 <a class="btn btn-more" href="#">View All</a>
               </li>
+              <div class="mob-close">
+                <a href="#" class="btn btn-close-submenu">Back</a>
+              </div>
             </ul>
           </li>
           <li class="has-submenu">
             <a href="#">Services</a>
             <ul class="submenu submenu-services">
+              <div class="mob-subtitle">
+                <h4>Services</h4>
+              </div>
               <li>
                 <a href="#">
                   <i class="icon-guidance"></i>
@@ -115,6 +148,9 @@
                   <span>Indification services</span>
                 </a>
               </li>
+              <div class="mob-close">
+                <a href="#" class="btn btn-close-submenu">Back</a>
+              </div>
             </ul>
           </li>
           <li class="has-submenu">
@@ -150,6 +186,9 @@
           <li><a href="#">About Us</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
+      </div>
+      <div class="mob-close">
+        <a href="#" class="btn btn-close-menu">Close</a>
       </div>
     </nav>
     <main id="main">
@@ -199,14 +238,14 @@
       <section class="about-section">
         <div class="container">
           <div class="row history">
-            <div class="block-img col-6">
+            <div class="block-img col-lg-6 col-`1">
               <span class="bg-title">History</span>
               <picture style="background-image: url(images/coat-bg.svg);">
                 <img class="wow fadeInDown" src="images/coat-1.png" alt="image description">
                 <img class="wow fadeInUp" src="images/coat-2.png" alt="image description">
               </picture>
             </div>
-            <div class="block-content col-6">
+            <div class="block-content col-lg-6 col-12">
               <h2 class="h1">What is<br> Coat of Arms?</h2>
               <p>Some time in the late 12th century when knighthood became prestigious, the concept of coat of arms was
                 born – a heraldric emblem on a shield that celebrates the name and accomplishments of a person, a family
@@ -217,15 +256,15 @@
               <a id="watchVideo" class="btn btn-watch show-popup" href="#">Watch Video</a>
             </div>
           </div>
-          <div class="row flex-row-reverse about">
-            <div class="block-img col-6">
+          <div class="row flex-column flex-lg-row-reverse about">
+            <div class="block-img col-12 col-lg-6">
               <span class="bg-title">About</span>
               <picture>
                 <div class="square wow fadeInLeft"></div>
                 <img class="wow fadeInRight" src="images/about-1.png" alt="image description">
               </picture>
             </div>
-            <div class="block-content col-6">
+            <div class="block-content col-12 col-lg-6">
               <h2 class="h1">Who we are?</h2>
               <p>Welcome to COADB – world’s premier research and retail website for coats of arms (sometimes known as
                 family crests) and all things related: heraldry, surname history and genealogy.
@@ -325,7 +364,7 @@
       <section class="advantages-section">
         <div class="container">
           <div id="counter" class="row">
-            <div class="col-4">
+            <div class="col-12 col-md-4 col-lg-4">
               <div class="item">
                 <div class="block-img">
                   <img src="images/advant-1.svg" alt="image description">
@@ -336,7 +375,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4 col-lg-4">
               <div class="item">
                 <div class="block-img">
                   <img src="images/advant-2.svg" alt="image description">
@@ -347,7 +386,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4 col-lg-4">
               <div class="item">
                 <div class="block-img">
                   <img src="images/advant-3.svg" alt="image description">
@@ -585,7 +624,7 @@
 
       <!-- popup on Surname CoA page -->
 
-      <div id="SurnamePopup" class="popup">
+      <!-- <div id="SurnamePopup" class="popup">
         <div class="overlay">
           <div class="popup-wrapper">
             <div class="row">
@@ -641,7 +680,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- popup on Product Rough page -->
 
@@ -687,8 +726,8 @@
     </footer>
   </div>
 
-  <script type="text/javascript" src="./js/libs.js?01674dc5532999833e89"></script>
-  <script type="text/javascript" src="./js/app.js?01674dc5532999833e89"></script>
+  <script type="text/javascript" src="./js/libs.js?eaa60c0fbbc228f32d6a"></script>
+  <script type="text/javascript" src="./js/app.js?eaa60c0fbbc228f32d6a"></script>
 </body>
 
 </html>

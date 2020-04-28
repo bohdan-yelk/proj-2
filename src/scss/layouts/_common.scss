@@ -26,6 +26,10 @@ body {
     max-width: 1110px;
     margin: 0 auto;
     padding: 0;
+
+    @include media('<=x-large') {
+        padding: 0 15px;
+    }
 }
 
 .inner-wrapper {
@@ -367,6 +371,14 @@ span.bg-title {
     background-color: $white;
     transition: padding .3s ease, box-shadow .3s ease;
 
+    @include media('<=small') {
+        padding: 16px;
+    }
+
+    @include media('<phone') {
+        padding: 32px 32px;
+    }
+
     picture {
         max-width: 222px;
         max-height: 222px;
@@ -387,6 +399,14 @@ span.bg-title {
         box-shadow: 0px 8px 16px rgba(0, 203, 118, 0.25);
         border-radius: 8px;
         z-index: 10;
+
+        @include media('<=small') {
+            top: 16px;
+            left: 16px;
+            padding: 0 7px;
+            font-size: 14px;
+            border-radius: 10px;
+        }
     }
 
     p {
@@ -425,6 +445,15 @@ span.bg-title {
         width: 100%;
         margin: auto 0 0;
         cursor: pointer;
+
+        @include media('<=small') {
+            min-width: inherit;
+            width: 100%;
+            
+            &:after {
+                display: none;
+            }
+        }
 
         &:hover {
             background-color: $dark-blue;

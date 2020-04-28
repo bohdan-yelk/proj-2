@@ -32,6 +32,13 @@ h1, .h1 {
   line-height: 64px;
 }
 
+.h1 {
+  @include media('<=small') {
+    font-size: 32px;
+    line-height: 43px;
+  }
+}
+
 h2 {
   font-size: 32px;
   font-weight: bold;
@@ -39,7 +46,7 @@ h2 {
   color: $gray-800;
 
   .h1 {
-    color: $dark-blue;
+    color: $dark-blue;    
   }
 }  
 

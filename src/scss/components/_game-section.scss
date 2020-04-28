@@ -1,6 +1,22 @@
 .game-section {
     padding: 100px 0;
 
+    @include media('<desktop') {
+        position: relative;
+        background-image: url('/images/game-bg.jpg');
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background: linear-gradient(262.18deg, rgba(0, 148, 255, 0.5) 0%, rgba(52, 90, 156, 0.5) 100%)
+        }
+    }
+
     .inner-wrapper {
         display: flex;
         align-items: center;
@@ -13,10 +29,25 @@
 
         &-animation {
             padding: 0 0 0 65px;
+
+            @include media('<desktop') {
+                display: none;
+            }
         }
 
         &-content {
             padding: 0 0 0 110px;
+
+            @include media('<desktop') {
+                position: relative;
+                width: 100%;
+                padding: 0;
+                z-index: 1;
+            }
+
+            @include media('<=small') {
+                padding: 0 20px;
+            }
         }
     }
 
@@ -24,6 +55,10 @@
         margin: 0 0 40px;
         // padding: 0 20px 0 0;
         color: $dark-blue;
+
+        @include media('<desktop') {
+            color: $white;
+        }
     }
 
     .btn-blue {
@@ -35,12 +70,19 @@
             border-color: $dark-blue;
             color: $white;
         }
+
+        @include media('<=small') {
+            width: 100%;
+            padding: 20px 50px 19px;
+        }
     }
 
     .animation-wrapper {
         position: relative;
         width: 380px;
         height: 500px;
+
+        
     }
 
     .picture {

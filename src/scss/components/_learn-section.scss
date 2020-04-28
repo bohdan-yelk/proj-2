@@ -3,11 +3,20 @@
     display: flex;
     padding: 190px 0;
 
+    @include media('<=desktop') {
+        flex-direction: column;
+        padding: 60px 0 120px;
+    }
+
     .container {
         position: relative;
         display: flex;
         justify-content: flex-start;
         z-index: 10;
+
+        @include media('<=desktop') {
+            position: static;
+        }
     }
 
     .inner-wrapper {
@@ -15,6 +24,10 @@
         flex-direction: column;
         align-items: flex-start;
         width: 50%;
+
+        @include media('<=desktop') {
+            width: 100%;
+        }
     }
 
     h2 {
@@ -24,10 +37,37 @@
         font-weight: bold;
         line-height: 53px;
         color: $white;
+
+        @include media('<=desktop') {
+            padding: 0;
+        }
     }
 
     .btn-blue {
         padding: 20px 80px 19px;
+
+        @include media('<=desktop') {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 60px;
+        }
+
+        @include media('<=small') {
+            width: calc(100% - 20px);
+            padding: 20px 50px 19px;
+
+            &:hover {
+                &:after {
+                    right: -18px;
+                }
+            }
+
+            &:after {
+                position: relative;
+                right: -15px;
+            }
+        }
     }
 
     .block {
@@ -37,6 +77,11 @@
             top: 0;
             bottom: 0;
             width: 50%;
+
+            @include media('<=desktop') {
+                // position: relative;
+                width: 100%;
+            }
         }
 
         &-left {
@@ -44,6 +89,10 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+
+            @include media('<=desktop') {
+                z-index: 1;
+            }
             
             .bg-color {
                 position: absolute;
@@ -61,6 +110,15 @@
             flex-wrap: wrap;
             right: 0;
 
+            @include media('<=desktop') {
+                position: relative;
+                z-index: 2;
+            }
+
+            @include media('<=small') {
+                justify-content: space-between;
+            }
+
             .item {
                 position: relative;
                 width: 50%;
@@ -68,6 +126,20 @@
                 background-position: center center;
                 background-repeat: no-repeat;
                 // z-index: 0;
+
+                @include media('<=desktop') {
+                    width: 47%;
+                    margin: 0 10px 20px;                    
+                    border-radius: 4px;
+                }
+
+                @include media('<=small') {
+                    width: 44.5%;
+                }
+
+                @include media('<phone') {
+                    width: 43.5%;
+                }
 
                 &:last-of-type {
                     width: 100%;
@@ -90,6 +162,16 @@
                 z-index: 10;
                 background: linear-gradient(0deg, rgba(48, 48, 48, 0.75), rgba(48, 48, 48, 0.75));
                 transition: background .3s ease;
+
+                @include media('<=desktop') {
+                    position: relative;
+                    padding: 60px 0;
+                }
+
+                @include media('<=small') {
+                    padding: 39px 0;
+                    border-radius: 4px;
+                }
             }
 
             span {
@@ -103,6 +185,16 @@
                 line-height: 21px;
                 text-align: center;
                 color: $white;
+
+                @include media('<=desktop') {
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                @include media('<=small') {
+                    font-size: 16px;
+                    width: 100%;
+                }
             }
         }
     }
