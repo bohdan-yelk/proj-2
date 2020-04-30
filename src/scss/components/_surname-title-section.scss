@@ -4,12 +4,26 @@
     background-size: cover;
     padding: 0 0 70px;
 
+    @include media('<tablet') {
+        padding: 0 0 10px;
+    }
+
+    .inner-wrapper {
+        @include media('<tablet') {
+            flex-direction: column;
+        }
+    }
+
     .block {
         &-content,
         &-img {
             display: flex;
             align-items: center;
             width: 50%;
+
+            @include media('<tablet') {
+                width: 100%;
+            }
         }
 
         &-img {
@@ -31,6 +45,12 @@
 
     h1 {
         color: $gray-800;
+
+        @include media('<=small') {
+            margin-top: 0;
+            font-size: 32px;
+            line-height: 43px;
+        }
     }
 
     &.with-abc {position: relative;

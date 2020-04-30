@@ -11,10 +11,26 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         margin: 0 -15px;
+
+        @include media ('<=small') {
+            margin: 0 -10px;
+        } 
     }
 
     .card {        
         padding: 0 15px 30px;
+
+        @include media ('<=desktop') {
+            width: 50%;
+        }
+
+        @include media ('<=small') {
+            padding: 0 10px 20px;
+        }
+
+        @include media ('<phone') {
+            width: 100%;
+        }
 
         .content-wrapper {
             background-color: $white;

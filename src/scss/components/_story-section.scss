@@ -1,6 +1,10 @@
 .story-section {
     padding: 0 0 100px;
 
+    @include media ('<=desktop') {
+        position: relative;
+    }
+
     .inner-wrapper {
         display: flex;
         align-items: center;
@@ -9,29 +13,88 @@
         box-shadow: 0px 16px 32px rgba(0, 148, 255, 0.2);
         border-radius: 8px;
         color: $white;
+
+        @include media ('<=desktop') {
+            flex-direction: column;
+            min-height: 355px;
+        }
+
+        @include media ('<=small') {
+            overflow: hidden;
+        }
     }
 
     .block {
         &-img {
             padding: 0 78px 0 0;
+            
+            @include media ('<=desktop') {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                padding: 0;
+                z-index: 0;
+
+                &:before {
+                    position: absolute;
+                    content: '';
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    background: linear-gradient(0deg, rgba(52, 90, 156, 0.75), rgba(52, 90, 156, 0.75));
+                }
+            }
+
+            
         }
 
         &-content {
             padding: 0 72px 0 0;
+
+            @include media ('<=desktop') {
+                padding: 0;
+                margin: 0 0 24px;
+                z-index: 1;
+            }
+            
         }
 
         &-btn {
             padding: 0 33px 0 0;
+
+            @include media ('<=desktop') {
+                padding: 0;
+                margin: auto 0 0;
+                z-index: 1;
+            }
         }
     }
 
     h2 {
         margin: 0 0 24px;
         color: $white;
+
+        @include media ('<=desktop') {
+            text-align: center;
+        }
+
+        @include media ('<=small') {
+            text-align: left;
+        }
     }
 
     p {
         margin: 0;
+
+        @include media ('<=desktop') {
+            text-align: center;
+        }
+
+        @include media ('<=small') {
+            text-align: left;
+        }
     }
 
     .btn-blue {

@@ -4,10 +4,20 @@
     background-position: center center;
     background-size: cover;
 
+    @include media ('<=small') {
+        padding: 0 0 107px;
+    }
+
     h1 {
         margin: 0;
         padding: 69px 0 0;
         color: $white;
+
+        @include media ('<=small') {
+            padding: 36px 0 0;
+            font-size: 32px;
+            line-height: 43px;
+        }
     }
 
     .breadcrumbs {

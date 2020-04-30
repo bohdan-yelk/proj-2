@@ -3,6 +3,10 @@
     nav {
         border-top: 1px solid #eee;
 
+        @include media('<desktop') {
+            overflow-x: scroll;
+        }
+
         ul {
             display: flex;
             align-items: center;
@@ -13,6 +17,8 @@
 
         li {
             padding: 22px 16px;
+            
+            
 
             &.active {
                 a {
@@ -30,6 +36,10 @@
             font-size: 16px;
             line-height: 19px;
             color: $gray-100;
+
+            @include media('<desktop') {
+                white-space: nowrap;
+            }
 
             &:hover {
                 color: $blue;
@@ -50,6 +60,22 @@
 
     h2 {
         margin: 0 0 48px;
+
+        @include media('<=small') {
+            margin: 0 0 24px;
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+
+    .gallery-slider {
+        @include media('<=small') {
+            position: absolute;
+            top: 75px;
+            left: 20px;
+            width: 100%;
+            height: 410px;
+        }
     }
 
     .block {
@@ -57,11 +83,54 @@
             padding: 80px 0 150px;
             background-color: $light-blue;
 
+            @include media('<=desktop') {
+                padding: 60px 0 20px;
+            }
+
+            .container {
+                @include media('<=small') {
+                    position: relative;
+                    height: 510px;
+                }
+            }
+
             .item {
                 display: flex !important;
                 justify-content: space-between;
                 margin: 0 -15px;
                 padding: 0 5px 50px;
+
+                @include media('<=desktop') {
+                    margin: 0 -10px;
+                }
+
+                .card {
+                    @include media('<desktop') {
+                        width: 33.3%;
+                        
+                        &:first-child {
+                            display: none;
+                        }
+                    }
+
+                    @include media('<tablet') {
+                        width: 50%;
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                    }
+
+                    @include media('<=small') {
+                        width: 100%;
+                        &:nth-child(2),
+                        &:nth-child(3) {
+                            display: none;
+                        }
+                    }
+                }
+
+                    
+                           
             }
 
             .slick {
@@ -141,6 +210,10 @@
             margin: -83px 0 0;
             padding: 0 0 80px;
 
+            @include media('<=desktop') {
+                margin: 0;
+            }
+
             .content-wrapper {
                 display: flex;
                 align-items: center;
@@ -149,22 +222,58 @@
                 box-shadow: 0px 16px 32px rgba(0, 148, 255, 0.2);
                 border-radius: 8px;
                 color: $white;
+
+                @include media('<desktop') {
+                    flex-wrap: wrap;
+
+                }
+
+                @include media('<=small') {
+                    padding: 40px;
+                }
             }
 
             h2 {
                 margin: 0 80px 0 0;
                 color: $white;
+
+                @include media('<desktop') {
+                    width: 100%;
+                    margin: 0 0 24px;
+                }
             }
 
             p {
                 margin: 0 42px 0 0;
                 padding: 0;
+
+                @include media('<desktop') {
+                    width: 50%;
+                    margin: 0;
+                }
+
+                @include media('<=small') {
+                    width: 100%;
+                    margin: 0 0 24px;
+                }
             }
 
             .btn-blue {
                 padding: 20px 48px 19px;
                 min-width: inherit;
                 white-space: nowrap;
+
+                @include media('<desktop') {
+                    margin: 0 0 0 auto;
+                }
+
+                @include media('<=small') {
+                    margin: 0 auto;
+                }
+
+                @include media('<=phone') {
+                    width: 100%;
+                }
 
                 &:hover {
                     &:after {
@@ -181,6 +290,10 @@
         &-post {
             padding: 0 0 80px;
 
+            @include media('<=desktop') {
+                padding: 0 0 60px;
+            }
+
             h2 {
                 margin: 0 0 32px;
                 padding: 0;
@@ -190,6 +303,12 @@
                 margin: 0 0 32px;
                 font-weight: bold;
                 color: $dark-blue;
+
+                @include media('<=small') {
+                    margin: 0 0 24px;
+                    font-size: 18px;
+                    line-height: 24px;
+                }
             }
 
             p,
@@ -197,10 +316,19 @@
                 font-size: 18px;
                 line-height: 36px;
                 color: $gray-100;
+
+                @include media('<=small') {
+                    font-size: 16px;
+                    line-height: 32px;
+                }
             }
 
             p {
                 margin: 0 0 48px;
+
+                @include media('<=small') {
+                    margin: 0 0 24px;
+                }
 
                 &:last-child {
                     margin: 0;
@@ -233,14 +361,23 @@
                     text-align: left;
                     color: $gray-100;
 
+                    @include media('<=small') {
+                        margin: 0 0 24px;
+                    }
+
                     &:last-child {
                         margin: 0;
                     }
                 }
 
                 &.rows-list {
+
                     li {
                         width: 25%;
+
+                        @include media('<tablet') {
+                            width: 100%;
+                        }
 
                         &:last-child {
                             margin: 0 0 32px;
@@ -277,11 +414,60 @@
             &.popular {
                 padding: 0 0 80px;
 
+                @include media('<=desktop') {
+                    padding: 0 0 60px;
+                }
+
+                .container {
+                    @include media('<large') {
+                        position: relative;
+                        padding: 0;
+                        height: 500px;                        
+                    }
+                }
+
                 .cards-wrapper {
                     display: flex;
                     justify-content: space-between;
                     margin: 0 -15px;
+
+                    @include media('<=large') {
+                        margin: 0 10px;
+                    }         
+                    
+                    @include media('<large') {
+                        position: absolute;
+                        top: 95px;
+                        left: 20px;
+                        width: 100%;
+                        margin: 0 -20px;
+                        overflow-x: scroll;
+                        padding: 0 20px 60px;
+                    }
                 }
+
+                .card {
+
+                    @include media('<=large') {
+                        padding: 0 10px;
+                    }
+
+                    @include media('<large') {
+                        width: auto;
+                        white-space: nowrap;
+                        padding: 0 20px 0 0;
+                    }
+                    
+                }
+
+                .content-wrapper {
+
+                    @include media('<=large') {
+                        padding: 16px;
+                    }
+                    
+                }
+
             }
         }
 
@@ -297,6 +483,12 @@
 
             .btn-more {
                 padding: 0 30px 0 0;
+
+                @include media('<tablet') {
+                    position: absolute;
+                    left: 20px;
+                    bottom: 0;
+                }
 
                 &:hover {
                     &:after {
@@ -314,7 +506,7 @@
             .container {
                 padding: 40px 0;
                 border-top: 1px solid #eee;
-            }
+            }           
         }
     }
 }

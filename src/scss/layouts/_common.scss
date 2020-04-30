@@ -44,6 +44,10 @@ body {
         background-position: top center;
         background-size: contain;
     }
+
+    @include media('<desktop') {
+        margin: 124px 0 0;
+    }
 }
 
 img {
@@ -484,6 +488,42 @@ span.bg-title {
             border-radius: 8px;
             background-color: $white;
             transition: box-shadow .3s ease;
+
+            @include media ('<=small') {
+                padding: 16px;
+            }
+
+            @include media ('<phone') {
+                padding: 32px;
+            }
+        }
+
+        img {
+            width: 191px;
+            height: 191px;
+
+            @include media ('<=large') {
+                width: 100%;
+                max-width: 140px;
+                height: auto;
+            }
+
+            @include media ('<small') {
+                width: 100%;
+                height: auto;
+            }
+
+            @include media ('<phone') {
+                width: 145px;
+                height: 145px;
+            }
+        }
+
+        p {
+
+            @include media ('<=desktop') {
+                max-width: 165px;
+            }            
         }
 
         .pic {
@@ -537,6 +577,7 @@ span.bg-title {
             img {
                 display: block;
                 margin: 0 auto;
+                width: 191px;
                 height: 191px;
             }
         }
@@ -571,6 +612,7 @@ span.bg-title {
     }
 
     &.small {
+        
         .content-wrapper {
             background-color: $light-blue;
         }
@@ -595,6 +637,19 @@ span.bg-title {
 
             &:after {
                 right: 30px;
+            }
+        }
+    }
+
+    &.add-cart {
+
+        @include media('<=large') {
+            padding: 0 10px;
+        }
+
+        .content-wrapper {
+            @include media('<=large') {
+                padding: 16px;
             }
         }
     }
@@ -663,6 +718,11 @@ span.bg-title {
     .container {
         display: flex;
         justify-content: space-between;
+
+        @include media('<tablet') {
+            flex-wrap: wrap;
+            padding: 24px 0 60px;
+        }
     }
 
     .block {
@@ -671,6 +731,16 @@ span.bg-title {
         &-next {
             display: flex;
             align-items: center;
+
+            @include media('<tablet') {
+                width: 50%;
+            }
+
+            img {
+                @include media('<tablet') {
+                    display: none;
+                }
+            }
 
             a {
                 position: relative;
@@ -714,6 +784,10 @@ span.bg-title {
         }
 
         &-prev {
+
+            @include media('<tablet') {
+                order: 2;
+            }
             a {
                 padding: 0 0 0 30px;
 
@@ -729,6 +803,11 @@ span.bg-title {
         }
 
         &-next {
+
+            @include media('<tablet') {
+                order: 3;
+                justify-content: flex-end;
+            }
             a {
                 padding: 0 30px 0 0;
 
@@ -747,9 +826,34 @@ span.bg-title {
             display: flex;
             flex-direction: column;
 
+            @include media('<tablet') {
+                position: relative;
+                width: 100%;
+                order: 1;
+                padding: 0 0 24px;
+            }
+
+            &:after {
+                @include media('<tablet') {
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    height: 4px;
+                    border-radius: 4px;
+                    background-color: #eee;
+                }
+            }
+
             h3 {
                 font-weight: bold;
                 color: $gray-800;
+
+                @include media('<tablet') {
+                    text-align: center;
+                    margin: 0 0 24px;
+                }
             }
 
             ul {
@@ -795,12 +899,17 @@ span.bg-title {
         .container {
             border-top: 1px solid #eee;
             border-bottom: none;
+            
+            @include media ('<=x-large') {
+                padding: 24px 20px;
+            }
         }
     }
 
     .container {
         padding: 24px 0;
         border-bottom: 1px solid #eee;
+
     }
 
     ul {
@@ -810,6 +919,14 @@ span.bg-title {
         margin: 0;
         padding: 0;
         list-style: none;
+
+        @include media ('<=large') {
+            flex-wrap: wrap;
+        }
+
+        @include media ('<tablet') {
+            margin: 0 -12px;
+        }
 
         a {
             font-family: $base-font-serif;
@@ -825,6 +942,10 @@ span.bg-title {
         }
 
         li {
+
+            @include media ('<tablet') {
+                padding: 0 12px;
+            }
             &.active {
                 a {
                     color: $blue;
@@ -846,9 +967,26 @@ span.bg-title {
     color: white;
     font-family: $base-font-sans-serif;
 
+    @include media ('<x-large') {
+        padding: 40px 25px;
+    }
+
+    @include media ('<tablet') {
+        position: relative;
+        flex-direction: column;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
     h2 {
         margin: 0 0 24px;
         color: $white;
+
+        @include media ('<=small') {
+            font-size: 24px;
+            line-height: 32px;
+        }
     }
 
     .btn-blue {
@@ -856,13 +994,40 @@ span.bg-title {
         min-width: auto;
         padding: 20px 55px 19px;
 
+        @include media ('<tablet') {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 40px;
+            width: 100%;
+            max-width: 255px;
+            z-index: 1;
+        }
+        
+        @include media('<=425px') {
+            max-width: inherit;
+            width: auto;
+            left: 40px;
+            right: 40px;
+            transform: translateX(0)
+        }
+
         &:after {
             right: 30px;
+
+            @include media ('<tablet') {
+                position: relative;
+                right: -10px;
+            }
         }
 
         &:hover {
             &:after {
                 right: 27px;
+                
+                @include media ('<tablet') {
+                    right: -13px;
+                }
             }
         }
     }
@@ -876,6 +1041,17 @@ span.bg-title {
         font-weight: bold;
         line-height: 37px;
 
+        @include media ('<tablet') {
+            max-width: inherit;
+            width: 100%;
+            padding: 0 0 100px;
+        }
+
+        @include media ('<=small') {
+            font-size: 18px;
+            line-height: 21px;
+        }
+
         &:before {
             position: absolute;
             content: '\e910';
@@ -884,6 +1060,10 @@ span.bg-title {
             font-family: 'icomoon';
             font-size: 20px;
             color: $green;
+
+            @include media ('<tablet') {
+                display: none;
+            }
         }
     }
 
@@ -901,6 +1081,15 @@ span.bg-title {
         box-shadow: 0px 0px 32px 10px rgba(0, 203, 118, 0.5);
         transition: box-shadow .3s ease;
 
+        @include media ('<=tablet') {
+            width: 65px;
+            height: 55px;
+        }
+
+        @include media ('<tablet') {
+            display: none;
+        }
+
         &:hover {
             box-shadow: none;
         }
@@ -915,6 +1104,17 @@ span.bg-title {
             transform: translate(-50%, -50%);
             background-color: rgba(0, 203, 118, 0.15);
             border-radius: 50%;
+
+            @include media ('<=tablet') {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }
+
+    &-title {
+        @include media ('<tablet') {
+            position: static;
         }
     }
 

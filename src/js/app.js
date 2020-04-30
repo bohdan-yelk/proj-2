@@ -77,7 +77,24 @@ import {log} from './utils'
   // ---- gallery product slider on surname CoA page ----
 
   $('#gallerySlider').slick({
-    dots: true
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 568,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false,
+          variableWidth: true
+        }
+      }
+    ]
   })
 
   // ---- popup slider on surname CoA page ----

@@ -1,6 +1,11 @@
 .about-wood-section {
     padding: 120px 0;
 
+    @include media ('<=desktop') {
+        padding: 40px 0 60px;
+        background-color: $light-blue;
+    }
+
     h2 {
         margin: 0 0 32px;
     }
@@ -9,14 +14,29 @@
         margin: 0 0 32px;
     }
 
-    span {
-        
+
+    .row {
+        @include media ('<=tablet') {
+            flex-direction: column;
+        }
+    }
+
+    .video-wrapper {
+       img {
+        @include media ('<=tablet') {
+            width: 100%;
+        }
+       }
     }
 
     .block {
         &-author {
             display: flex;
             align-items: center;
+
+            @include media ('<=tablet') {
+                margin-bottom: 32px;
+            }
 
             img {
                 margin: 0 24px 0 0;

@@ -4,10 +4,12 @@
     background-position: center center;
     background-size: cover;
 
-    @include media('<desktop') {
-       
-        margin: 124px 0 0;
+    @include media('<desktop') {       
         padding: 40px 0;
+    }
+
+    @include media('<=small') {
+        background-position: 35% top;
     }
 
     .tag {

@@ -63,6 +63,14 @@
             margin: 0 0 32px;
             padding: 0;
 
+            @include media ('<=large') {
+                width: 25%;
+            }
+
+            @include media ('<=small') {
+                width: 50%;
+            }
+
             &.active {
                 a {
                     color: $blue;
