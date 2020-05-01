@@ -1,9 +1,33 @@
 .product-main-section {
 
+	&.no-quantity {
+		.block-content {
+			.form-row {
+				&-size,
+				&-submit {
+					@include media('<=small') {
+						width: 100%;
+						flex-grow: 0;
+						padding: 0;
+					}
+				}
+			}
+		}
+	}
+
 	h1 {
 		margin: 0 0 24px;
 		padding: 0 95px 0 0;
 		color: $gray-800;
+
+		@include media('<=desktop') {
+			width: 50%;
+			padding: 0 20px 0 0;
+		}
+
+		@include media('<=tablet') {
+			width: 100%;
+		}
 	}
 
 	span,
@@ -71,6 +95,20 @@
 			display: flex;
 			align-items: center;
 			margin: 0 -8px 32px;
+
+			@include media('<=desktop') {
+				position: absolute;
+				top: 150px;
+				width: 50%;
+				margin: 0 -8px 24px;
+			}
+
+			@include media('<=tablet') {
+				position: relative;
+				top: inherit;
+				width: 100%;
+			}
+
 		}
 		
 		&-old,
@@ -99,12 +137,20 @@
 			border-radius: 8px;
 			overflow: hidden;
 
+			@include media('<=large') {
+				margin: 0 0 32px;
+			}
+
 			picture {
 				display: flex;
 				justify-content: center;
 				width: 507px;
 				height: 507px;
 				background-color: $light-blue;
+
+				@include media('<=large') {
+					margin: 0 auto;
+				}
 			}
 
 			.color-list {
@@ -114,10 +160,47 @@
 				margin: 0 -4px;
 				padding: 25px 0 32px;
 				list-style: none;
+
+				@include media('<=small') {
+					margin: 0 -12px;
+					padding: 25px 68px 32px;
+				}
+
+				.slick {
+
+					&-arrow {
+						top: 44%;
+						z-index: 10;
+						&:before {
+							font-family: 'icomoon';
+							font-size: 12px;
+							color: $blue;
+						}
+					}
+
+					&-prev {
+						left: 35px;
+						&:before {
+							content: '\e902';
+						}
+					}
+
+					&-next {
+						right: 35px;
+						&:before {
+							content: '\e901';
+						}
+						
+					}
+				}
 			}
 
 			li {
 				padding: 0 4px;
+
+				@include media('<=small') {
+					padding: 0 12px;
+				}
 
 				&.active {
 					a {
@@ -230,12 +313,32 @@
 
 		&-content {
 
+			@include media('<=desktop') {
+				display: flex;
+			}
+
+			@include media('<=tablet') {
+				flex-wrap: wrap;
+			}
+
 			form {
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
 				margin: 0 -12px;
 				overflow: hidden;
+
+				@include media('<=desktop') {
+					width: 50%;
+				}
+
+				@include media('<=tablet') {
+					width: 100%;
+				}
+
+				@include media('<=small') {
+					margin: 0 auto;
+				}
 			}
 
 			.form-row {
@@ -244,12 +347,58 @@
 				margin: 0 0 32px;
 				padding: 0 12px;
 
+				@include media('<=small') {
+					padding: 0 10px;
+					// margin: 0 -10px 32px;
+				}
+
+				@include media('<phone') {
+					padding: 0 5px;
+					// margin: 0 -5px 32px;
+				}
+
 				&-surname,
 				&-submit {
 					flex-grow: 1;
 				}
 
+				&-size {
+
+					@include media('<=small') {
+						width: 60%;
+						order: 3;
+					}
+					
+					@include media('<=phone') {
+						margin: 0 0 32px;
+					}
+
+					// @include media('<=desktop') {
+					// 	width: 20%;
+					// 	flex-grow: 0;
+					// 	max-width: inherit;
+					// }
+
+					.custom-select {
+						@include media('<=small') {
+							width: 100%;
+						}
+					}
+				}
+
 				&-surname {
+
+					@include media('<=small') {
+						order: 1;
+						width: 100%;
+						padding: 0;
+					}
+
+					// @include media('<=desktop') {
+					// 	width: 30%;
+					// 	flex-grow: 0;
+					// }
+
 					&.valid {
 						position: relative;
 						
@@ -280,6 +429,16 @@
 				}
 
 				&-submit {
+					justify-content: flex-end;
+
+					@include media('<=small') {
+						width: 100%;
+						order: 6;
+					}
+					// @include media('<=desktop') {
+					// 	width: 30%;
+					// 	flex-grow: 0;
+					// }
 					.btn-cart {
 						text-transform: uppercase;
 						&:before {
@@ -291,9 +450,15 @@
 					.btn-blue {
 						text-transform: uppercase;
 						box-shadow: 0px 16px 12px rgba(52, 90, 156, 0.25);
+
 						&:after {
 							right: 20%;
+
+							@include media('<=small') {
+								display: none;
+							}
 						}
+						
 						&:hover {
 							background-color: $dark-blue;
 							border-color: $dark-blue;
@@ -316,6 +481,14 @@
 					position: relative;					
 					margin: 0 -7px;
 					overflow: hidden;
+
+					@include media('<=small') {
+						order: 2;
+					}
+
+					@include media('<phone') {
+						margin: 0 -5px;
+					}
 
 					&.hide {
 						
@@ -346,6 +519,11 @@
 						align-items: center;
 						justify-content: space-between;
 						margin: 0 0 16px;
+						
+						@include media('<phone') {
+							flex-direction: column;
+							align-items: flex-start;
+						}
 
 						span {
 							font-size: 16px;
@@ -423,8 +601,27 @@
 				}
 
 				&-num {
+
+					@include media('<=small') {
+						justify-content: flex-end;
+						width: 40%;
+						order: 5;
+					}
+
+					@include media('<=phone') {
+						margin: 0 0 32px;
+					}
+
+					// @include media('<=desktop') {
+					// 	width: 20%;
+					// }
+
 					.num-block {
 						width: 104px;
+
+						@include media('<=small') {
+							width: 100%;
+						}
 					}
 
 					.num-in {
@@ -437,6 +634,11 @@
 						border-left: 1px solid transparent;
 						border-right: 1px solid transparent;
 						outline: none;
+
+						@include media('<=small') {
+							width: 60%;
+							text-align: center;
+						}
 					}
 
 					span {
@@ -450,6 +652,10 @@
 						background-color: $light-blue;
 						border: 1px solid #eee;						
 						cursor: pointer;
+
+						@include media('<=small') {
+							width: 20%;
+						}
 
 						&:hover {
 							color: $gray-800;

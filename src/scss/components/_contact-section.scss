@@ -1,5 +1,12 @@
 .contact-section {
     padding: 80px 0 100px;
+
+    .row {
+        @include media('<=large') {
+            margin: 0;
+        }  
+    }
+
     .block {
         
         &-content {
@@ -7,9 +14,24 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 0 80px;
+
+            @include media('<=large') {
+                flex-direction: column;
+                justify-content: center;
+                // align-items: flex-start;
+            }
+
+            @include media('<=small') {
+                padding: 0 0 25px;
+            }
+
             picture {
                 min-width: 260px;
-                margin: 0 45px 0 0;   
+                margin: 0 45px 0 0;
+                
+                @include media('<=large') {
+                    margin: 0;
+                }
             }
         }
 
@@ -23,11 +45,26 @@
             width: 100%;
             padding: 40px 0 0;  
             border-top: 1px solid #eee;
+            
+
+            @include media('<=tablet') {
+                flex-wrap: wrap;
+            }
         }
     }
 
     h2 {
         color: $dark-blue;
+
+        @include media('<=large') {
+            text-align: center;
+        }
+
+        @include media('<=small') {
+            text-align: left;
+            font-size: 24px;
+            line-height: 32px;
+        }
     }
 
     form {
@@ -35,6 +72,15 @@
         flex-direction: column;
         align-items: flex-end;
         width: 100%;
+
+        @include media('<=large') {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        @include media('<=small') {
+            max-width: inherit;
+        }
     }
 
     input,
@@ -44,6 +90,10 @@
         max-width: 300px;
         margin: 0 0 16px;
         padding: 18px 24px 17px;
+
+        @include media('<=small') {
+            max-width: inherit;
+        }
     }
 
     select {
@@ -58,6 +108,47 @@
             background-color: $dark-blue;
             border-color: $dark-blue;
             color: $white;
+        }
+    }
+
+    .custom-select {
+        width: 100%;
+        margin: 0 0 16px;
+
+        .select-selected {
+            padding: 17px 24px 16px;
+            background-color: $light-blue;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            font-size: 16px;
+            line-height: 19px;
+            color: $gray;
+
+            &:after {
+                top: 50%;
+                right: 24px;
+                transform: translateY(-50%);
+                content: '\e900';
+                width: 10px;
+                height: 20px;
+                font-family: 'icomoon';
+                color: $gray;
+                border: none;
+                font-size: 8px;
+            }
+        }
+
+        .select-items {
+            top: 95%;
+            background-color: $light-blue;
+            border: 1px solid #eee;
+            border-top: 1px solid transparent;
+            border-radius: 0 0 4px 4px;
+
+            div {
+                color: $gray-100;
+                border: none;
+            }
         }
     }
     

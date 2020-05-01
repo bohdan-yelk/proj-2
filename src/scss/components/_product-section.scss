@@ -44,6 +44,10 @@
     &.blue {
         padding: 120px 0;
         background-color: $light-blue;
+
+        @include media('<=desktop') {
+            padding: 60px 0;
+        }
     }
 
     &.on-cart {

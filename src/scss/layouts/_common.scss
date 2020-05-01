@@ -737,6 +737,10 @@ span.bg-title {
             }
 
             img {
+                width: 80px;
+                max-width: 80px;
+                min-width: 80px;
+
                 @include media('<tablet') {
                     display: none;
                 }
@@ -794,6 +798,10 @@ span.bg-title {
                 &:before {
                     content: '\e902';
                     left: 0;
+
+                    @include media('<=large') {
+                        left: 12px;
+                    }
                 }
             }
 
@@ -814,6 +822,10 @@ span.bg-title {
                 &:before {
                     content: '\e901';
                     right: 0;
+
+                    @include media('<=large') {
+                        right: 12px;
+                    }
                 }
             }
 

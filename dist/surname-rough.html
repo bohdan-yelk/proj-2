@@ -8,8 +8,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700|Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
   <title>Rough</title>
-  <link href="./css/libs.css?7bb55420df9061e3083b" rel="stylesheet">
-  <link href="./css/app.css?7bb55420df9061e3083b" rel="stylesheet">
+  <link href="./css/libs.css?cb661da738b2142ae3d1" rel="stylesheet">
+  <link href="./css/app.css?cb661da738b2142ae3d1" rel="stylesheet">
 </head>
 
 <body>
@@ -17,28 +17,55 @@
     <header id="header">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-2">
+          <div class="logo-main-wrapper col-2 order-lg-0">
             <div class="logo"><a href="home.html"><img src="images/logo.svg" alt="CoadB.com"></a></div>
           </div>
-          <div class="col-9">
+          <div class="search-main-wrapper col-12 col-lg-9 order-4 order-lg-1">
             <form class="d-flex align-items-center">
               <button class="search"><i class="icon-search"></i></button>
               <input placeholder="Type your surname here to get started" type="search">
             </form>
           </div>
-          <div class="col-1">
+          <div class="cart-btn-wrapper col-1 order-lg-2 order-2">
             <a class="cart" href="#"><i class="icon-basket"></i></a>
           </div>
+          <div class="burger-btn-wrapper col d-lg-none d-block order-3">
+            <div class="burger">
+              <div class="burger-brick"></div>
+              <div class="burger-brick middle"></div>
+              <div class="burger-brick"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block-search-result">
+        <div class="container">
+          <ul>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+            <li>Surname</li>
+          </ul>
         </div>
       </div>
     </header>
     <nav id="nav">
+      <div class="mob-title">
+        <h4>Menu</h4>
+      </div>
       <div class="container">
-        <ul class="d-flex align-items-center justify-content-start">
+        <ul>
           <li><a href="#">Surname list</a></li>
           <li class="has-submenu">
             <a href="#">Shop</a>
             <ul class="submenu submenu-shop">
+              <div class="mob-subtitle">
+                <h4>Shop</h4>
+              </div>
               <li>
                 <a href="#">
                   <picture>
@@ -98,11 +125,17 @@
               <li class="last">
                 <a class="btn btn-more" href="#">View All</a>
               </li>
+              <div class="mob-close">
+                <a href="#" class="btn btn-close-submenu">Back</a>
+              </div>
             </ul>
           </li>
           <li class="has-submenu">
             <a href="#">Services</a>
             <ul class="submenu submenu-services">
+              <div class="mob-subtitle">
+                <h4>Services</h4>
+              </div>
               <li>
                 <a href="#">
                   <i class="icon-guidance"></i>
@@ -115,6 +148,9 @@
                   <span>Indification services</span>
                 </a>
               </li>
+              <div class="mob-close">
+                <a href="#" class="btn btn-close-submenu">Back</a>
+              </div>
             </ul>
           </li>
           <li class="has-submenu">
@@ -151,6 +187,9 @@
           <li><a href="#">Contact Us</a></li>
         </ul>
       </div>
+      <div class="mob-close">
+        <a href="#" class="btn btn-close-menu">Close</a>
+      </div>
     </nav>
     <main id="main">
       <section class="surname-title-section rough" style="background-image: linear-gradient(360deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%), url(images/bg-surname-title.png);">
@@ -174,7 +213,7 @@
       <section class="crest-section">
         <div class="container">
           <div class="row justify-content-between">
-            <div class="block-slider col-4">
+            <div class="block-slider col-12 col-lg-6 col-xl-4">
               <h2>Family Crest</h2>
               <div id="crestSlider" class="crest-slider">
                 <div class="item">
@@ -209,7 +248,7 @@
               </div>
               <span class="pagingInfo"></span>
             </div>
-            <div class="block-content col-7">
+            <div class="block-content col-12 col-lg-6 col-xl-7">
               <h2>Blazon description</h2>
               <p>Milan - Parti au 1 d'or à une hure de sanglier de sable emmuselée et défendue d'argent au
                 2
@@ -237,21 +276,23 @@
       <section class="contact-section">
         <div class="container">
           <div class="row justify-content-between">
-            <div class="block-content col-8">
+            <div class="block-content col-12 col-md-6 col-xl-8">
               <picture>
                 <img src="images/contact-section.svg" alt="">
               </picture>
               <h2>Receive free information about this surname, family, or coat of arms.</h2>
             </div>
-            <div class="block-form col-4">
+            <div class="block-form col-12 col-md-6 col-xl-4">
               <form>
                 <input placeholder="First and Last Name" type="text">
                 <input placeholder="Year of Birth" type="text">
-                <select>
-                  <option selected>Country of birth</option>
-                  <option value="USA">USA</option>
-                  <option value="UK">UK</option>
-                </select>
+                <div class="custom-select">
+                  <select>
+                    <option selected>Country of birth</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                  </select>
+                </div>
                 <input placeholder="Email Address" type="email">
                 <button class="btn btn-blue">Receive information</button>
               </form>
@@ -315,8 +356,8 @@
     </footer>
   </div>
 
-  <script type="text/javascript" src="./js/libs.js?7bb55420df9061e3083b"></script>
-  <script type="text/javascript" src="./js/app.js?7bb55420df9061e3083b"></script>
+  <script type="text/javascript" src="./js/libs.js?cb661da738b2142ae3d1"></script>
+  <script type="text/javascript" src="./js/app.js?cb661da738b2142ae3d1"></script>
 </body>
 
 </html>

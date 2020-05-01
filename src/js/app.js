@@ -44,7 +44,8 @@ import {log} from './utils'
   //   23. tabs "abc" on surname page
   //   24. suname search on Surname page
   //   25. burger button animation
-  //   26. custom select
+  //   27. color slider mobile only on product page
+  //   28. custom select
 
   // ---- main slider on homepage ----
 
@@ -467,19 +468,46 @@ import {log} from './utils'
     let $colorLink = $('#colorList li a')
     let $colorItem = $('#colorList li')
 
+    
+
     $colorLink.on('click', function (e) {
+      
       e.preventDefault()
       $colorItem.removeClass('active')
       $(this).parent().addClass('active')
+      
 
       let $colorValue = $(this).css('background-color')
       console.log($colorValue)
 
       $('#chaneColor').find('img').css('background-color', $colorValue)
     })
+
   }
 
   changeColor()
+
+  $('#colorList').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 9999,
+        settings: 'unslick'
+      },
+      {
+        breakpoint: 568,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: true,
+          // variableWidth: true,
+          dots: false
+        }
+      }
+    ]
+  })
 
   // ---- product +/- ----
 
@@ -560,23 +588,9 @@ import {log} from './utils'
     $('#nav').removeClass('active')
   })
 
-  // ---- Fixed header on scroll ----
+  // ---- color slider mobile only on product page ----
 
-  // window.onscroll = function () {
-  //   myFunction()
-  // }
-
-  // var header = document.getElementById('header')
-
-  // var sticky = header.offsetTop
-
-  // function myFunction() {
-  //   if (window.pageYOffset > sticky) {
-  //     header.classList.add('sticky')
-  //   } else {
-  //     header.classList.remove('sticky')
-  //   }
-  // }
+  
 
   // ---- custom select ----
 
