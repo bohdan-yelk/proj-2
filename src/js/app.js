@@ -132,7 +132,18 @@ import {log} from './utils'
     arrows: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    variableWidth: true
+    variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 568,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: false,
+          arrows: true
+        }
+      }
+    ]
   })
 
   // ---- choice coa on internal product slider ----
@@ -314,6 +325,35 @@ import {log} from './utils'
 
   stepTabs()
 
+  // ---- payment steps(on mobile) on service page ----
+
+  function stepTabsBottomMob() {
+    var $nextMob = $('#stepsBottomMob .btn-next')
+    var $prevMob = $('#stepsBottomMob .btn-back')
+    var $currentIndexMob = 0
+    var $numStepMob = $('#stepsBottomMob #stepsList li')
+    var $contentStepMob = $('#stepsBottomMob .steps-content')
+    var cahngeConstValMob = $currentIndexMob
+
+    $nextMob.on('click', function (e) {
+      e.preventDefault()
+      $currentIndexMob++
+
+      $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+      $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+    })
+
+    $prevMob.on('click', function (e) {
+      e.preventDefault()
+      $currentIndexMob--
+
+      $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+      $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+    })
+  }
+
+  stepTabsBottomMob()
+
   // ---- checkout steps tabs ----
 
   function stepCheckout() {
@@ -468,21 +508,16 @@ import {log} from './utils'
     let $colorLink = $('#colorList li a')
     let $colorItem = $('#colorList li')
 
-    
-
     $colorLink.on('click', function (e) {
-      
       e.preventDefault()
       $colorItem.removeClass('active')
       $(this).parent().addClass('active')
-      
 
       let $colorValue = $(this).css('background-color')
       console.log($colorValue)
 
       $('#chaneColor').find('img').css('background-color', $colorValue)
     })
-
   }
 
   changeColor()
@@ -589,8 +624,6 @@ import {log} from './utils'
   })
 
   // ---- color slider mobile only on product page ----
-
-  
 
   // ---- custom select ----
 

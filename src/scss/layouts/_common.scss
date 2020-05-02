@@ -281,6 +281,7 @@ a {
     &:hover {
         background-color: $dark-blue;
         border-color: $dark-blue;
+        color: $white;
     }
 
     &:before {
@@ -938,6 +939,7 @@ span.bg-title {
 
         @include media ('<tablet') {
             margin: 0 -12px;
+            justify-content: flex-start;
         }
 
         a {

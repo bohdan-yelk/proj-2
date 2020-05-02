@@ -4,6 +4,10 @@
     background-position: center top;
     background-size: contain;
 
+    @include media ('<=small') {
+        padding: 0;
+    }
+
     h1,
     h2 {
         color: $gray-800;
@@ -11,6 +15,12 @@
 
     h1 {
         margin: 0 0 32px;
+
+        @include media ('<=tablet') {
+            margin: 0 0 24px;
+            font-size: 32px;
+            line-height: 43px;
+        }
     }
 
     h2 {
@@ -22,6 +32,12 @@
         font-size: 18px;
         font-weight: bold;
         line-height: 27px;
+
+        @include media ('<=tablet') {
+            margin: 0 0 24px;
+            font-size: 16px;
+            line-height: 32px;
+        }
     }
 
     .static-price {
@@ -48,23 +64,76 @@
     }
 
     .block {
+
+        &-content {
+            @include media ('<large') {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        }
+
+        &-content-title {
+            @include media ('<large') {
+                width: 100%;
+            }     
+        }
+
         &-img {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             margin: 0 0 48px;
 
+            @include media ('<desktop') {
+                width: 50%;
+            }
+
+            @include media ('<tablet') {
+                width: 100%;
+            }
+
+            &:last-of-type {
+
+                @include media ('<desktop') {
+                    width: 100%;
+                }
+
+                img {
+                    @include media ('<=large') {
+                        width: 49%;
+                    }
+                }
+            }
+
             img {
                 border-radius: 8px;
                 overflow: hidden;
+
+                @include media ('<=tablet') {
+                    display: block;
+                    margin: 0 auto;
+                }
             }
         }
 
         &-expert {
+
+            h2 {
+                @include media ('<large') {
+                    width: 100%;
+                }
+            }
             ul {
                 margin: 0;
                 padding: 0;
                 list-style: none;
+
+                @include media ('<desktop') {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
             }
 
             li {
@@ -75,6 +144,18 @@
                 font-size: 16px;
                 line-height: 32px;
                 color: $gray-100;
+
+                @include media ('<desktop') {
+                    width: 49%;
+                }
+
+                @include media ('<=tablet') {
+                    width: 100%;
+                }
+
+                @include media ('<=small') {
+                    padding: 88px 0 0;
+                }
 
                 &:before {
                     position: absolute;
@@ -90,9 +171,17 @@
                     border-radius: 50%;
                     background-color: $light-blue;
                     color: $blue;
+
+                    @include media ('<=small') {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
                 }
 
                 &:first-child {
+                    @include media ('<desktop') {
+                        width: 100%;
+                    }
                     &:before {
                         content: '\e916';
                     }
@@ -104,7 +193,8 @@
                     }
                 }
 
-                &:last-child {
+                &:last-child {             
+
                     &:before {
                         content: '\e91f';
                     }
@@ -125,6 +215,21 @@
                 line-height: 19px;
                 color: $gray-100;
             }
+        }
+
+        &-steps-mob {
+            margin: 0 0 60px;
+
+            @include media ('<large') {
+                width: 50%;
+                justify-content: flex-start;
+            }
+
+            @include media ('<tablet') {
+                width: 100%;
+                justify-content: center;
+            }
+            
         }
 
         &-steps-num {
@@ -193,6 +298,10 @@
                 font-size: 16px;
                 line-height: 19px;
                 color: $gray-100;
+
+                @include media ('<x-large') {
+                    display: none;
+                }
             }
         }
 

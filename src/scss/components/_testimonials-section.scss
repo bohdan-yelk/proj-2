@@ -1,12 +1,16 @@
 .testimonials-section {
 
     .reviews-list {
-        margin: 0 -15px 80;
+        margin: 0;
         // padding: 0 0 80px;
         .item-width {
             width: calc(50% - 30px);
             margin-bottom: 30px;
             float: left;
+
+            @include media('<tablet') {
+                width: 100%;
+            }
         }
 
         .review-wrapper {
@@ -30,6 +34,10 @@
                     font-family: 'icomoon';
                     font-size: 18px;
                     color: rgba(52, 90, 156, 0.15);
+
+                    @include media('<=small') {
+                        display: none;
+                    }
                 }
 
                 img {
@@ -40,6 +48,11 @@
                     border-radius: 4px;
                     overflow: hidden;
                     object-fit: cover;
+
+                    @include media('<=small') {
+                        width: 80px;
+                        height: 80px;
+                    }
                 }
             }
             

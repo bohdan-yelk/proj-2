@@ -4,10 +4,22 @@
         width: 100%;
         margin: 40px 0 64px;
         color: $gray-800;
+
+        @include media ('<=tablet') {
+            margin: 0 0 24px;
+            font-size: 32px;
+            line-height: 43px;
+        }
     }
 
     h2 {
         margin: 0 0 48px;
+
+        @include media ('<=tablet') {
+            margin: 0 0 32px;
+            font-size: 24px;
+            line-height: 32px;
+        }
     }
 
     p {
@@ -25,15 +37,33 @@
             justify-content: space-between;
             margin: 0 0 80px;
 
+            @include media ('<desktop') {
+                margin: 0 0 60px;
+            }
+
             &-content,
             &-img {
                 width: 50%;
+
+                @include media ('<desktop') {
+                    width: 100%;
+                } 
+            }
+
+            &-content {
+                @include media ('<desktop') {
+                    margin: 0 0 40px;
+                }
             }
 
             &-img {
                 display: flex;
                 justify-content: flex-end;
                 align-items: flex-start;
+
+                @include media ('<desktop') {
+                    justify-content: center;
+                } 
 
                 .img-wrapper {
                     position: relative;
@@ -54,6 +84,24 @@
             &-slider {
                 display: flex;
                 flex-direction: column;
+
+                @include media ('<desktop') {
+                    padding: 0 0 80px;
+                } 
+
+                @include media ('<=small') {
+                    padding: 0 20px 80px;
+                }
+                
+                .item {
+
+                    img {
+                        @include media ('<desktop') {
+                            margin: 0 auto;
+                        }
+                    }
+                    
+                }
 
                 .slick {
                     &-dots {
@@ -91,6 +139,10 @@
 
             &-content {
                 margin: 0 0 80px;
+
+                @include media ('<=desktop') {
+                    margin: 0 0 60px;
+                }
             }
 
         }
