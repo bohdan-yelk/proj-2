@@ -7,6 +7,12 @@
     h1 {
         margin: 0 0 48px;
         color: $gray-800;
+        
+        @include media('<=tablet') {
+            margin: 0 0 24px;
+            font-size: 32px;
+            line-height: 43px;
+        }
     }
 
     h4 {
@@ -24,6 +30,10 @@
             .row {
                 &-title {
                     margin: 0 0 16px;
+
+                    @include media('<large') {
+                        display: none;
+                    }
                 }
 
                 &-item {
@@ -33,6 +43,11 @@
                     padding: 10px;
                     background-color: $white;
                     border-radius: 4px;
+
+                    @include media('<large') {
+                        position: relative;
+                        flex-wrap: wrap;
+                    }
 
                     &:last-child {
                         margin: 0;
@@ -44,8 +59,28 @@
                 padding: 0;
                 // outline: 1px solid black;
 
+                &-title {
+                    @include media('<large') {
+                        flex: inherit;
+                        width: 100%;
+                        max-width: inherit;
+                    }
+                }
+
                 &-close {
                     margin: 0 0 0 auto;
+
+                    @include media('<large') {
+                        position: absolute;
+                        top: 19px;
+                        right: 19px;
+                    }
+
+                    a {
+                        @include media('<large') {
+                            margin: 0 0 0 auto;
+                        }
+                    }
                 }
 
                 &-total,
@@ -58,6 +93,45 @@
                         line-height: 19px;
                         color: $gray-800;
                         text-align: center;
+                    }
+                }
+
+                &-total {
+                    @include media('<large') {
+                        width: 50%;
+                        flex: inherit;
+                        display: flex;
+                        max-width: inherit;
+                        justify-content: flex-end;
+                    }
+
+                    @include media('<tablet') {
+                        justify-content: flex-start;
+                    }
+
+                    @include media('<small') {
+                        justify-content: flex-end;
+                    }
+                }
+
+                &-num {
+                    @include media('<large') {
+                        width: 50%;
+                        flex: inherit;
+                        display: flex;
+                        max-width: inherit;
+                        justify-content: flex-start;
+                        padding: 0 0 0 50px;
+                    }
+
+                    @include media('<=tablet') {
+                        padding: 0 0 0 108px;
+                    }
+                }
+
+                &-price {
+                    @include media('<large') {
+                        display: none;
                     }
                 }
 
@@ -126,6 +200,10 @@
                 justify-content: space-between;
                 margin: 0 auto;
 
+                @include media('<tablet') {
+                    margin: 0;
+                }
+
                 input {
                     display: block;
                     width: 25px;
@@ -167,8 +245,31 @@
             box-shadow: 0px 16px 32px rgba(0, 148, 255, 0.25);
             z-index: 100;
 
+            @include media('<=large') {
+                max-width: 311px;
+            }
+
+            @include media('<tablet') {
+                margin: 0 auto;
+            }
+
+            @include media('<=tablet') {
+                position: relative !important;
+                top: inherit !important;
+            }
+
+            @include media('<=phone') {
+                max-width: inherit;
+            }
+
             h2 {
                 margin: 0 0 16px;
+
+                @include media('<=tablet') {
+                    margin: 0;
+                    font-size: 24px;
+                    line-height: 32xp;
+                }
             }
 
             ul {
@@ -275,6 +376,12 @@
     .btn {
         display: block;
         padding: 0 0 0 30px;
+
+        &-more {
+            @include media('<tablet') {
+                display: none;
+            }
+        }
 
         &:hover {
 

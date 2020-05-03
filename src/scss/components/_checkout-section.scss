@@ -8,10 +8,22 @@
     h1 {
         margin: 0 0 48px;
         color: $gray-800;
+
+        @include media('<=desktop') {
+            margin: 0 0 24px;
+            font-size: 32px;
+            line-height: 43px;
+        }
     }
 
     h2 {
         margin: 0 0 40px;
+
+        @include media('<desktop') {
+            margin: 0 0 24px;
+            font-size: 24px;
+            line-height: 32px;
+        }
     }
 
     h3 {
@@ -137,6 +149,10 @@
             margin: 0 32px 0 0;
             padding: 0 0 0 40px;
 
+            @include media('<desktop') {
+                margin: 0 16px 0 0;
+            }
+
             &:last-child {
                 margin: 0;
             }
@@ -144,6 +160,11 @@
             &.active {
                 a {
                     color: $blue;
+
+                    @include media('<desktop') {
+                        font-size: 16px;
+                        height: inherit;
+                    }
                 }
 
                 span {
@@ -158,6 +179,12 @@
             font-size: 16px;
             line-height: 19px;
             color: $gray;
+
+            @include media('<desktop') {
+                display: block;
+                height: 19px;
+                font-size: 0;
+            }
 
             &:hover {
                 color: $blue;
@@ -174,6 +201,7 @@
             justify-content: center;
             width: 32px;
             height: 32px;
+            font-size: 16px;
             color: $gray;
             background-color: $light-blue;
             border-radius: 50%;
@@ -223,12 +251,24 @@
             padding: 40px;
             border-radius: 4px;
             background-color: $white;
+
+            @include media('<desktop') {
+                padding: 32px 20px;
+            }
+
+            @include media('<tablet') {
+                margin: 0 0 40px;
+            }
         }
 
         &-cart-sum {
             padding: 40px 30px;
             border-radius: 8px;
             background-color: $white;
+
+            @include media('<desktop') {
+                padding: 32px 20px;
+            }
 
             ul {
                 margin: 0;
@@ -249,11 +289,6 @@
                 margin: 0 16px 0 0;
                 border-radius: 4px;
             }
-
-            // .content {
-            //     display: flex;
-            //     flex-wrap: wrap;
-            // }
 
             span {
                 display: inline-block;
@@ -309,6 +344,11 @@
                 justify-content: space-between;
                 margin: 0;
 
+                @include media('<desktop') {
+                    max-width: 100px;
+                    width: 100%;
+                }
+
                 input {
                     display: block;
                     width: 25px;
@@ -352,6 +392,10 @@
                 line-height: 19px;
                 color: $gray-100;
 
+                @include media('<desktop') {
+                    display: inherit;
+                }
+
                 a {
                     display: inline-block;
                     margin-left: 5px;
@@ -381,6 +425,16 @@
                 padding: 24px 24px 24px 26px;
                 border: 1px solid #eee;
                 border-radius: 4px;
+
+                @include media('<desktop') {
+                    padding: 16px;
+                }
+
+                img {
+                    @include media('<=tablet') {
+                        display: none;
+                    } 
+                }
             }
 
             label {
@@ -427,10 +481,18 @@
                 padding: 24px 0 0;
                 border-top: 1px solid #eee;
 
+                @include media('<=tablet') {
+                    flex-wrap: wrap
+                }
+
                 .form-row {
                     display: flex;
                     flex-direction: column;
-                    margin: 0 24px 0 0;
+                    margin: 0 24px 0 0;    
+                    
+                    @include media('<desktop') {
+                        margin: 0 0 24px;
+                    }
 
                     label {
                         display: block;
@@ -449,14 +511,33 @@
 
                     &-number {
                         max-width: 246px;
+
+                        @include media('<desktop') {
+                            max-width: inherit;
+                            width: 100%;
+                        }
                     }
 
                     &-data {
                         max-width: 103px;
+
+                        @include media('<desktop') {
+                            max-width: inherit;
+                            width: 100%;
+                        }
                     }
 
                     &-cvv {
                         max-width: 80px;
+
+                        @include media('<desktop') {
+                            max-width: inherit;
+                            width: 100%;
+                        }
+
+                        @include media('<desktop') {
+                            margin: 0;
+                        }
                     }
                 }
             }
@@ -489,9 +570,17 @@
         &.toggle {
             display: flex;
             justify-content: space-between;
+            
+            @include media('<=tablet') {
+                flex-wrap: wrap;
+            }
 
             label {
                 width: 48.5%;
+
+                @include media('<=tablet') {
+                    width: 100%;
+                }
             }
         }
 
@@ -509,11 +598,19 @@
             width: 48.5%;
             margin: 0 0 20px;
 
+            @include media('<desktop') {
+                width: 100%;
+            }
+
         }
 
         .form-row {
             display: flex;
             justify-content: space-between;
+
+            @include media('<desktop') {
+                flex-wrap: wrap;
+            }
 
             &-first,
             &-second,
@@ -533,6 +630,14 @@
             &-first,
             &-last {
                 padding: 0 0 24px;
+            }
+
+            input {
+                &:first-child {
+                    @include media('<desktop') {
+                        margin: 0 0 24px;
+                    }
+                }
             }
         }
     }
