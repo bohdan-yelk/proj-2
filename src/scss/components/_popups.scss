@@ -3,7 +3,6 @@
     visibility: hidden;
     opacity: 0;
     z-index: -100;
-    
 
     &.active {
         visibility: visible;
@@ -203,12 +202,45 @@
 
     &#SurnamePopup {
 
+        .popup-wrapper {
+
+            @include media ('<=large') {
+                width: 95%;
+            }
+
+            @include media ('<=tablet') {
+                position: relative;
+            }
+        }
+
+        p {
+            @include media ('<tablet') {
+                margin: 0 0 24px;
+            }
+
+            @include media ('<=small') {
+                font-size: 16px;
+                line-height: 19px;
+            }
+        }
+
         .btn-close {
-            right: 34px;
+            right: 34px;        
+            
+            @include media ('<=tablet') {
+                top: 20px;
+                right: 20px;
+            }
         }
 
         h2 {
             margin: 0 0 48px;
+
+            @include media ('<large') {
+                margin: 0 0 24px;
+                font-size: 32px;
+                line-height: 43px;
+            }
         }
 
         .row {
@@ -235,6 +267,20 @@
                 background-color: $green;
                 writing-mode: vertical-rl;
                 z-index: -1;
+
+                @include media ('<large') {
+                    padding: 0 20px 0 25px;
+                }
+
+                @include media ('<=tablet') {
+                    width: 100%;
+                    padding: 14px 0;
+                    text-align: center;
+                    font-size: 24px;
+                    line-height: 32px;
+                    transform: rotate(0);
+                    writing-mode: inherit;
+                }
             }
 
             &.title {
@@ -244,6 +290,12 @@
                 font-weight: bold;
                 line-height: 21px;
                 color: $dark-blue;
+
+                @include media ('<tablet') {
+                    margin: 0 0 5px;
+                    font-size: 16px;
+                    line-height: 19px;
+                }
             }
 
             &.price {
@@ -252,6 +304,11 @@
                 font-weight: bold;
                 line-height: 28px;
                 color: $blue;
+
+                @include media ('<tablet') {
+                    font-size: 18px;
+                    background-image: 21px;
+                }
             }
 
             .file {
@@ -268,18 +325,38 @@
             margin: 0 -10px 32px;
             padding: 0;
             list-style: none;
+
+            @include media ('<tablet') {
+                flex-wrap: wrap;
+                margin: 0 0 24px;
+            }
+
+            @include media ('<=small') {
+                margin: 0 0 17px;
+            }
         }
 
         .price-list {
+
             li {
                 width: 33.3%;
                 padding: 0 10px;
+
+                @include media ('<=small') {
+                    width: 100%;
+                    margin: 0 0 10px;
+                    padding: 0;
+                }
             }
 
             .wrapper {
                 padding: 24px 24px;
                 border-radius: 4px;
                 background-color: $light-blue;
+
+                @include media ('<tablet') {
+                    padding: 16px;
+                }
             }
         }
 
@@ -287,9 +364,18 @@
             margin: 0 0;
             padding: 0 0 50px;
 
+            @include media ('<tablet') {
+                padding: 0;
+            }
+
             li {
                 position: relative;
                 padding: 0 0;
+
+                @include media ('<=small') {
+                    width: 100%;
+                    margin: 0 0 20px;
+                }
 
                 &:before {
                     position: absolute;
@@ -331,12 +417,22 @@
                 font-weight: bold;
                 line-height: 21px;
                 color: $dark-blue;
+
+                @include media ('<tablet') {
+                    margin: 0 0 5px;
+                    font-size: 16px;
+                    line-height: 19px;
+                }
             }
 
             span {
                 font-size: 16px;
                 font-weight: normal;
                 color: $gray-100;
+
+                @include media ('<tablet') {
+                    font-size: 14px;
+                }
             }
         }
 
@@ -350,10 +446,42 @@
 
             &-content {
                 padding: 50px 80px 20px 20px;
+
+                @include media ('<=large') {
+                    padding: 20px 20px;
+                }
+
+                @include media ('<large') {
+                    margin: 0 0 0 20px;
+                }
+
+                @include media ('<=tablet') {
+                    margin: 0;
+                    padding: 70px 20px 20px;
+                }
             }
 
             &-img {
                 padding: 20px 0 20px 20px;
+
+                @include media ('<large') {
+                    width: 15% !important;
+                    flex: 0 0 auto;
+                }
+
+                @include media ('<=tablet') {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100% !important;
+                    height: 60px;
+                }
+
+                img {
+                    @include media ('<large') {
+                        display: none;
+                    }
+                }
             }
         }
     }

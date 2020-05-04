@@ -472,6 +472,7 @@ span.bg-title {
         width: 25%;
         padding: 0 15px;
         background-color: transparent;
+        text-align: center;
 
         &:hover {
             .content-wrapper {
@@ -533,6 +534,7 @@ span.bg-title {
             width: 191px;
             height: 191px;
             margin: 0 0 24px;
+            
 
             &:hover {
 
@@ -580,6 +582,7 @@ span.bg-title {
                 margin: 0 auto;
                 width: 191px;
                 height: 191px;
+                object-fit: cover;
             }
         }
 

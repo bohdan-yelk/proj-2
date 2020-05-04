@@ -290,6 +290,26 @@
         &-post {
             padding: 0 0 80px;
 
+            dl {
+                float: left;
+                margin: 0 24px 24px 0;
+
+                @include media('<small') {
+                    float: none;
+                }
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                dd {
+                    display: block;
+                    margin: 16px 0 0;
+                    text-align: center;
+                }
+            }
+
             @include media('<=desktop') {
                 padding: 0 0 60px;
             }

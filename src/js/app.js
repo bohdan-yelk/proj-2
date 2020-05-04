@@ -280,8 +280,14 @@ import {log} from './utils'
 
   // ---- popup click ----
 
-  $('a.pic').on('click', function () {
-    $('#CoaZoomPopup').addClass('active')
+  $('a.pic').on('click', function (e) {
+    e.preventDefault()
+    var $coaPopup = $('#CoaZoomPopup')
+    var $coaSlider = $('#coaZoomSlider')
+    var $coaIndex = $(this).attr('data-ind')
+
+    $coaSlider.slick('slickGoTo', $coaIndex)
+    $coaPopup.addClass('active')
   })
 
   $('#btnVideo').on('click', function () {
@@ -467,9 +473,9 @@ import {log} from './utils'
   // ---- glossary page - show/hide details ----
 
   function glossaryDetails() {
-    var $showBtn = $('#glossaryList .show')
-    var $hideBtn = $('#glossaryList .hide')
-    var $glossaryList = $('#glossaryList')
+    var $showBtn = $('.glossary-list .show')
+    var $hideBtn = $('.glossary-list .hide')
+    var $glossaryList = $('.glossary-list')
 
     $glossaryList.children('li').removeClass('active')
     $glossaryList.children('li').find('.content p').hide()
