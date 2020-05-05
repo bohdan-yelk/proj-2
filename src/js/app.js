@@ -577,7 +577,7 @@ import {log} from './utils'
 
   // ---- tabs "abc" on Surname page ----
 
-  $('ul.tabs-list').on('click', 'li:not(.active)', function (e) {
+  $('ul.tabs-list-glossary').on('click', 'li:not(.active)', function (e) {
     e.preventDefault()
     $(this)
       .addClass('active')
@@ -593,7 +593,7 @@ import {log} from './utils'
   // ---- suname search on Surname page ----
 
   var input = document.getElementById('searchInput')
-  var surnameItems = document.querySelectorAll('#surnameList li')
+  var surnameItems = document.getElementsByClassName('loaded-surname')
   var alert = document.getElementById('infoAlert')
 
   function onInput(event) {
@@ -630,6 +630,15 @@ import {log} from './utils'
   })
 
   // ---- color slider mobile only on product page ----
+
+  // ---- anchor links Surname CoA page ----
+  $('.coa-section nav li a').on('click', function (e) {
+    e.preventDefault()
+    var fixed_offset = 130
+    $('html, body')
+      .stop()
+      .animate({scrollTop: $(this.hash).offset().top - fixed_offset}, 1000)
+  })
 
   // ---- custom select ----
 
