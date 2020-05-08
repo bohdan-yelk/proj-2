@@ -450,6 +450,44 @@ import {log} from './utils'
     )
   })
 
+  // function stopFixed() {
+  //   var areaScroll = $('section.cart-section').height()
+  //   var blockScroll = $('#fixedOnScroll')
+
+  //   // console.log($('.product-section.on-cart').offset(), 'product pos')
+  //   // console.log(blockScroll.offset(), 'start steps pos')
+
+  //   // console.log(blockScroll.scrollTop())
+
+  //   $(window).scroll(function () {
+      
+  //     console.log(blockScroll.offset(), 'block pos')
+  //     console.log($('.product-section.on-cart').offset(), 'product pos')
+      
+  //     if (blockScroll.offset() === $('.product-section.on-cart').offset() ) {
+  //       console.log('stop scroll')
+  //     }
+  //   })
+  // }
+
+  // stopFixed()
+
+  // function stopFixed() {
+  //   var heightAreaScroll = $('section.cart-section').height()
+  //   var heightCounter = 0
+
+  //   var scroll = $(window).scrollTop() + $(window).height()
+  //   var offset = $element.offset().top
+
+  //   console.log(heightAreaScroll)
+
+  //   $(window).scroll(function () {
+
+  //   })
+  // }
+
+  // stopFixed()
+
   // ---- submenu nav ----
 
   $('.has-submenu').on('click', function () {
@@ -528,27 +566,27 @@ import {log} from './utils'
 
   changeColor()
 
-  $('#colorList').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 9999,
-        settings: 'unslick'
-      },
-      {
-        breakpoint: 568,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          infinite: false,
-          arrows: true,
-          // variableWidth: true,
-          dots: false
-        }
-      }
-    ]
-  })
+  // $('#colorList').slick({
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  //   responsive: [
+  //     {
+  //       breakpoint: 9999,
+  //       settings: 'unslick'
+  //     },
+  //     {
+  //       breakpoint: 568,
+  //       settings: {
+  //         slidesToShow: 4,
+  //         slidesToScroll: 1,
+  //         infinite: false,
+  //         arrows: true,
+  //         // variableWidth: true,
+  //         dots: false
+  //       }
+  //     }
+  //   ]
+  // })
 
   // ---- product +/- ----
 
@@ -593,21 +631,24 @@ import {log} from './utils'
   // ---- suname search on Surname page ----
 
   var input = document.getElementById('searchInput')
-  var surnameItems = document.getElementsByClassName('loaded-surname')
+  var glossaryList = document.getElementById('glossaryList')
+  var glossaryItems = glossaryList.querySelectorAll('h3')
   var alert = document.getElementById('infoAlert')
+
+  console.log(glossaryItems, 'glossaryItems')
 
   function onInput(event) {
     var isEmptyList = true
 
-    for (var i = 0; i < surnameItems.length; i += 1) {
-      if (surnameItems[i].textContent.trim().toLowerCase().indexOf(event.target.value.toLowerCase()) === 0) {
-        surnameItems[i].classList.remove('hidden-item')
+    for (var i = 0; i < glossaryItems.length; i += 1) {
+      if (glossaryItems[i].textContent.trim().toLowerCase().indexOf(event.target.value.toLowerCase()) === 0) {
+        glossaryItems[i].closest('li').classList.remove('hidden-item')
 
         if (isEmptyList) {
           isEmptyList = false
         }
-      } else {
-        surnameItems[i].classList.add('hidden-item')
+      } else { 
+        glossaryItems[i].closest('li').classList.add('hidden-item')
       }
     }
 
@@ -632,13 +673,23 @@ import {log} from './utils'
   // ---- color slider mobile only on product page ----
 
   // ---- anchor links Surname CoA page ----
-  $('.coa-section nav li a').on('click', function (e) {
+  $('.coa-section nav ul li a').on('click', function (e) {
     e.preventDefault()
-    var fixed_offset = 130
+    var fixedOffset = 130
     $('html, body')
       .stop()
-      .animate({scrollTop: $(this.hash).offset().top - fixed_offset}, 1000)
+      .animate({scrollTop: $(this.hash).offset().top - fixedOffset}, 1000)
   })
+
+  function removeExcessNavItem() {
+    $('section.coa-section nav ul li a').each(function () {
+      if ($(this).attr('href') === '#') {
+        $(this).hide()
+      }
+    })
+  }
+
+  removeExcessNavItem()
 
   // ---- custom select ----
 

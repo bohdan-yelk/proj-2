@@ -134,9 +134,36 @@
             padding: 32px 20px;
         }
 
+        form {
+            position: relative;
+        }
+
         h2 {
             margin: 0 0 16px;
         }
+
+        .ajax-loader {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .wpcf7-form-control-wrap {
+            display: block;
+        }
+
+        div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+            position: absolute;
+            bottom: -43px;
+        }
+
+        span.wpcf7-not-valid-tip {
+            position: absolute;
+            display: block;
+            top: -26px;
+        }
+
+
 
         input,
         textarea,
@@ -167,7 +194,7 @@
 
         input,
         textarea {
-            margin: 0 0 16px;
+            margin: 0 0 30px;
         }
     }
 }

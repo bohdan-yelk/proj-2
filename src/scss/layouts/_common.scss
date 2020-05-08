@@ -376,6 +376,69 @@ span.bg-title {
     background-color: $white;
     transition: padding .3s ease, box-shadow .3s ease;
 
+    &.printable {
+        picture {
+            position: relative;
+
+            img {
+                &:first-child {
+                    height: auto;
+                }
+            }
+
+            img.top__image {
+                position: absolute;
+                z-index: 10;
+                width: auto;
+                height: auto;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &.product-pillow {
+            img.top__image {
+                top: calc(50% - 5px);
+                width: 40px;
+            }
+        }
+
+        &.product-poster {
+            img.top__image {
+                // top: calc(50% + 30px);
+                // width: 87px;
+                top: 63%;
+                width: 39%;
+            }
+        }
+
+        &.product-tshirt {
+            img.top__image {
+                // top: calc(50% - 5px);
+                // width: 40px;
+                top: 50%;
+                width: 20%;
+            }
+        }
+
+        &.product-canvas {
+            img.top__image {
+                top: calc(50% - -18px);
+                width: 37px;
+            }
+        }
+
+        &.product-mug {
+            img.top__image {
+                // left: calc(50% - -13px);
+                // width: 50px;
+                left: 57%;
+                width: 22%;
+            }
+        }
+    }
+
     @include media('<=small') {
         padding: 16px;
     }
@@ -454,7 +517,7 @@ span.bg-title {
         @include media('<=small') {
             min-width: inherit;
             width: 100%;
-            
+
             &:after {
                 display: none;
             }
@@ -477,6 +540,66 @@ span.bg-title {
         &:hover {
             .content-wrapper {
                 box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
+            }
+        }
+
+        &.printable {
+            picture {
+                position: relative;
+
+                img.top__image {
+                    position: absolute;
+                    z-index: 10;
+                    width: auto;
+                    height: auto;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            &.product-pillow {
+                img.top__image {
+                    // top: calc(50% - 5px);
+                    top: 47%;
+                    // width: 40px;
+                    width: 24%;
+                }
+            }
+
+            &.product-poster {
+                img.top__image {
+                    // top: calc(50% + 20px);
+                    // width: 64px;
+                    top: 62%;
+                    width: 39%;
+                    
+                }
+            }
+
+            &.product-tshirt {
+                img.top__image {
+                    // top: calc(50% - 5px);
+                    // width: 29px;
+                    top: 47%;
+                    width: 18%;
+                }
+            }
+
+            &.product-canvas {
+                img.top__image {
+                    // top: calc(50% - -18px);
+                    // width: 37px;
+                    top: 60%;
+                    width: 23%;
+                }
+            }
+
+            &.product-mug {
+                img.top__image {
+                    left: calc(50% - -11px);
+                    width: 37px;
+                }
             }
         }
 
@@ -525,7 +648,7 @@ span.bg-title {
 
             @include media ('<=desktop') {
                 max-width: 165px;
-            }            
+            }
         }
 
         .pic {
@@ -534,7 +657,7 @@ span.bg-title {
             width: 191px;
             height: 191px;
             margin: 0 0 24px;
-            
+
 
             &:hover {
 
@@ -616,9 +739,17 @@ span.bg-title {
     }
 
     &.small {
-        
+
         .content-wrapper {
             background-color: $light-blue;
+        }
+
+        picture {
+            img {
+                &:first-child {
+                    height: auto;
+                }
+            }
         }
 
         .price-wrapper {
@@ -796,6 +927,7 @@ span.bg-title {
             @include media('<tablet') {
                 order: 2;
             }
+
             a {
                 padding: 0 0 0 30px;
 
@@ -820,6 +952,7 @@ span.bg-title {
                 order: 3;
                 justify-content: flex-end;
             }
+
             a {
                 padding: 0 30px 0 0;
 
@@ -915,7 +1048,7 @@ span.bg-title {
         .container {
             border-top: 1px solid #eee;
             border-bottom: none;
-            
+
             @include media ('<=x-large') {
                 padding: 24px 20px;
             }
@@ -963,6 +1096,7 @@ span.bg-title {
             @include media ('<tablet') {
                 padding: 0 12px;
             }
+
             &.active {
                 a {
                     color: $blue;
@@ -1020,7 +1154,7 @@ span.bg-title {
             max-width: 255px;
             z-index: 1;
         }
-        
+
         @include media('<=425px') {
             max-width: inherit;
             width: auto;
@@ -1041,7 +1175,7 @@ span.bg-title {
         &:hover {
             &:after {
                 right: 27px;
-                
+
                 @include media ('<tablet') {
                     right: -13px;
                 }
@@ -1223,5 +1357,73 @@ span.bg-title {
 
     &.active {
         display: block;
+    }
+}
+
+// form on look like page
+
+.game-div {
+
+    #fbgame_form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 -3px;
+        width: 310px;
+    }
+
+    button,
+    input[type='submit'] {
+        cursor: pointer;
+
+        &:hover {
+            background-color: $dark-blue !important;
+            border-color: $dark-blue;
+            color: $white !important;
+        }
+    }
+
+    input[type='submit'] {
+        width: 47%;
+        min-width: inherit;
+        margin: 0 3px 5px;
+    }
+
+    label.load-file-label {
+        position: relative;
+        display: block;
+        width: 47%;
+        margin: 0 3px 5px;
+        padding: 21px 32px 20px 56px;
+        font-family: $base-font-sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19px;
+        color: $white;
+        border-radius: 4px;
+        background-color: $green;
+        cursor: pointer;
+        transition: color .3s ease, background .3s ease, border .3s ease;
+
+        &:hover {
+            background-color: $dark-blue;
+        }
+
+        &:after {
+            position: absolute;
+            content: '\e91c';
+            top: 50%;
+            transform: translateY(-50%);
+            left: 32px;
+            font-family: 'icomoon';
+            font-size: 16px;
+        }
+    }
+
+    input[type='file'] {
+        position: absolute;
+        width: 50%;
+        opacity: 0;
+        z-index: -1;
     }
 }
