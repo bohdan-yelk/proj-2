@@ -77,6 +77,49 @@ a {
     }
 }
 
+.btn-done {
+    position: relative;
+    display: block;
+    min-width: 191px;
+    padding: 20px 24px 19px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: center;
+    color: $white;
+    border-radius: 4px;
+    border: 1px solid $blue;
+    background-color: $blue;
+
+    &.in-cart {
+        background-color: transparent;
+        border-color: $blue;
+        color: $blue;
+        pointer-events: none;
+
+        &:before {
+            color: $blue;
+        }
+    }
+
+    &:hover {
+        background-color: $dark-blue;
+        border-color: $dark-blue;
+        color: $white;
+    }
+
+    &:before {
+        position: relative;
+        content: '\2714';
+        top: 50%;
+        transform: translateY(-50%);
+        left: -10px;
+        font-family: 'icomoon';
+        font-size: 13px;
+        transition: right .3s ease;
+    }
+}
+
 .btn-more {
     position: relative;
     font-size: 16px;

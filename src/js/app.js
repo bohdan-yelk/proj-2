@@ -24,26 +24,28 @@ import {log} from './utils'
   //    3. gallery product slider on surname CoA page
   //    4. popup slider on surname CoA page
   //    5. slider coa on internal product page
-  //    6. slider owner on about us page
-  //    7. slider useful on about us page
-  //    8. choice coa on internal product slider
-  //    9. masonry on Testimonials page
-  //   10. dropdown accordion on FAQ page
-  //   11. custom pagination(1/4) in slick slider on surname rough page
-  //   12. animation picture at game-section on homepage
-  //   13. popup click
-  //   14. payment steps on service page
-  //   15. checkout steps tabs
-  //   16. choice payment method on service page
-  //   17. choice different address on checkout
-  //   18. fixed steps block on scroll
-  //   19. submenu nav
-  //   20. glossary page - show/hide details
-  //   21. color product
-  //   22. product +/-
-  //   23. tabs "abc" on surname page
-  //   24. suname search on Surname page
-  //   25. burger button animation
+  //    6.  popup CoA slider on Shop page
+  //    7. slider owner on about us page
+  //    8. slider useful on about us page
+  //       choice coa on Shop page in popup slider
+  //    9. choice coa on internal product slider
+  //   10. masonry on Testimonials page
+  //   11. dropdown accordion on FAQ page
+  //   12. custom pagination(1/4) in slick slider on surname rough page
+  //   13. animation picture at game-section on homepage
+  //   14. popup click
+  //   15. payment steps on service page
+  //   16. checkout steps tabs
+  //   17. choice payment method on service page
+  //   18. choice different address on checkout
+  //   19. fixed steps block on scroll
+  //   20. submenu nav
+  //   21. glossary page - show/hide details
+  //   22. color product
+  //   23. product +/-
+  //   24. tabs "abc" on surname page
+  //   25. suname search on Surname page
+  //   26. burger button animation
   //   27. color slider mobile only on product page
   //   28. custom select
 
@@ -116,6 +118,16 @@ import {log} from './utils'
     infinite: false
   })
 
+  // ---- popup CoA slider on Shop page ----
+
+  $('#coaShopSlider').slick({
+    dots: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    variableWidth: true,
+    infinite: false
+  })
+
   // ---- slider owner on about us page ----
 
   $('#ownerSlider').slick({
@@ -145,6 +157,21 @@ import {log} from './utils'
       }
     ]
   })
+
+  // ---- choice coa on Shop page in popup slider ----
+
+  function choiceCoaPopupShop() {
+    var $coaItemPopup = $('#coaShopSlider .item')
+    var $coaLinkPopup = $('#coaShopSlider #radioCoaPopup')
+
+    $($coaLinkPopup).on('click', function (e) {
+      e.preventDefault()
+      $coaItemPopup.removeClass('active')
+      $(this).parent($coaItemPopup).addClass('active')
+    })
+  }
+
+  choiceCoaPopupShop()
 
   // ---- choice coa on internal product slider ----
 
@@ -450,24 +477,82 @@ import {log} from './utils'
     )
   })
 
-  // function stopFixed() {
-  //   var areaScroll = $('section.cart-section').height()
-  //   var blockScroll = $('#fixedOnScroll')
+  // function scrollFixed() {
+  //   var areaScroll = $('.cart-section').height()
+  //   var fixedBlock = $('#fixedOnScroll')
+  //   var bottomPosFixedBlock = fixedBlock.height().toFixed()
 
+  //   bottomPosFixedBlock = Number(bottomPosFixedBlock)
+
+  //   $(window).scroll(function(){
+  //     var x = fixedBlock.offset()
+
+  //     if ( $(window).scrollTop() > 220) {
+  //       fixedBlock.css({position: 'fixed', top: '10px'})
+  //     } else (
+  //       fixedBlock.css({position: 'relative', top: 'auto'})
+  //     )
+
+  //     if((x.top + bottomPosFixedBlock) >= areaScroll) {
+  //       fixedBlock.css({position: 'relative', top: 'auto'})
+  //     } else if ((x.top + bottomPosFixedBlock) < areaScroll) {
+  //       fixedBlock.css({position: 'fixed', top: '10px'})
+  //     }
+
+  //   })
+  // }
+
+  // scrollFixed()
+
+  // $(function () {
+  //   $(window).scroll(
+  //     (function fix_element() {
+        
+  //         if( (window).scrollTop() > 220 ) {
+  //           $('#fixedOnScroll').css({position: 'fixed', top: '10px'})
+  //         } else {
+  //           $('#fixedOnScroll').css({position: 'relative', top: 'auto'})
+  //         }
+  //       )
+  //       return fix_element
+  //     })()
+  //   )
+  // })
+
+  // function stopFixed() {
+  //   var areaScroll = $('.cart-section').height()
+  //   var fixedBlock = $('#fixedOnScroll')
+  //   var bottomPosFixedBlock = fixedBlock.height().toFixed()
+    
+  //   bottomPosFixedBlock = Number(bottomPosFixedBlock)
   //   // console.log($('.product-section.on-cart').offset(), 'product pos')
   //   // console.log(blockScroll.offset(), 'start steps pos')
 
   //   // console.log(blockScroll.scrollTop())
 
   //   $(window).scroll(function () {
-      
-  //     console.log(blockScroll.offset(), 'block pos')
-  //     console.log($('.product-section.on-cart').offset(), 'product pos')
-      
-  //     if (blockScroll.offset() === $('.product-section.on-cart').offset() ) {
+
+  //     var x = fixedBlock.offset()
+
+  //     console.log("height area", areaScroll)
+  //     console.log("height fixed block", bottomPosFixedBlock)
+  //     console.log("top fixed block", x.top)
+  //     console.log("bottom fixed block", x.top + bottomPosFixedBlock)
+  //     console.log("---------")
+
+  //     // fixedBlock.removeClass('stopFixed')
+
+  //     if ( (x.top + bottomPosFixedBlock) >= areaScroll) {
   //       console.log('stop scroll')
+  //       // fixedBlock.addClass('stopFixed')
+  //       fixedBlock.css( "position" , "absolute")
+  //     } else if ((x.top + bottomPosFixedBlock) < areaScroll) {
+  //       // fixedBlock.removeClass('stopFixed')
+  //       fixedBlock.css({"top": "10px", "position" : "fixed", "bottom" : "inherit"})
+  //       console.log('else')
   //     }
   //   })
+
   // }
 
   // stopFixed()
@@ -613,6 +698,14 @@ import {log} from './utils'
     return false
   })
 
+  function updateCartBtn() {
+    $('.in-num').on('change', function(){
+      $(this).parents('.block-shopping-list').find('.actions button[name="update_cart"]').removeAttr('disabled')
+    })
+  }
+
+  updateCartBtn()
+
   // ---- tabs "abc" on Surname page ----
 
   $('ul.tabs-list-glossary').on('click', 'li:not(.active)', function (e) {
@@ -630,32 +723,35 @@ import {log} from './utils'
 
   // ---- suname search on Surname page ----
 
-  var input = document.getElementById('searchInput')
-  var glossaryList = document.getElementById('glossaryList')
-  var glossaryItems = glossaryList.querySelectorAll('h3')
-  var alert = document.getElementById('infoAlert')
+  function searchSurname() {
+    console.log('test work')
+    if ($('#glossaryList').length) {
+      var input = document.getElementById('searchInput')
+      var glossaryList = document.getElementById('glossaryList')
+      var glossaryItems = glossaryList.querySelectorAll('h3')
+      var alert = document.getElementById('infoAlert')
 
-  console.log(glossaryItems, 'glossaryItems')
+      function onInput(event) {
+        var isEmptyList = true
 
-  function onInput(event) {
-    var isEmptyList = true
+        for (var i = 0; i < glossaryItems.length; i += 1) {
+          if (glossaryItems[i].textContent.trim().toLowerCase().indexOf(event.target.value.toLowerCase()) === 0) {
+            glossaryItems[i].closest('li').classList.remove('hidden-item')
 
-    for (var i = 0; i < glossaryItems.length; i += 1) {
-      if (glossaryItems[i].textContent.trim().toLowerCase().indexOf(event.target.value.toLowerCase()) === 0) {
-        glossaryItems[i].closest('li').classList.remove('hidden-item')
-
-        if (isEmptyList) {
-          isEmptyList = false
+            if (isEmptyList) {
+              isEmptyList = false
+            }
+          } else {
+            glossaryItems[i].closest('li').classList.add('hidden-item')
+          }
         }
-      } else { 
-        glossaryItems[i].closest('li').classList.add('hidden-item')
+
+        isEmptyList ? alert.classList.remove('info-alert--hidden') : alert.classList.add('info-alert--hidden')
+      }
+      if (input) {
+        input.addEventListener('input', onInput)
       }
     }
-
-    isEmptyList ? alert.classList.remove('info-alert--hidden') : alert.classList.add('info-alert--hidden')
-  }
-  if (input) {
-    input.addEventListener('input', onInput)
   }
 
   // ---- burger button animation ----
@@ -673,6 +769,7 @@ import {log} from './utils'
   // ---- color slider mobile only on product page ----
 
   // ---- anchor links Surname CoA page ----
+
   $('.coa-section nav ul li a').on('click', function (e) {
     e.preventDefault()
     var fixedOffset = 130
@@ -690,6 +787,24 @@ import {log} from './utils'
   }
 
   removeExcessNavItem()
+
+  $('.custom-select').on('click', function(){
+		var size = $('.select-selected').text();
+		$('#size').val(size);
+		$('#size').trigger('change');
+	});
+	$('#colorList li').on('click', function(){
+		var color = $(this).attr('data-color');
+		$('#color').val(color);
+		$('#color').trigger('change');
+	});
+	$('.custom-select, #colorList li').on('click', function(){
+        if( 0 < $('input.variation_id').val() && null != $('input.variation_id').val() ){
+            $('.price-new').html($('div.woocommerce-variation-price > span.price').html()).append('<p class="availability">'+$('div.woocommerce-variation-availability').html()+'</p>');
+        } else {
+            $('.price-new').html($('div.hidden-variable-price').html());
+        }
+    });
 
   // ---- custom select ----
 

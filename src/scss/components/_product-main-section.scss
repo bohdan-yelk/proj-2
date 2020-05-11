@@ -678,4 +678,12 @@
 			}	
 		}
 	}
+
+	table.variations {
+		display: none;
+	}
+
+	.single_variation_wrap .woocommerce-variation-description {
+		display: none;
+	}
 }

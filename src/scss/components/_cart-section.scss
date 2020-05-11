@@ -235,8 +235,9 @@
             }
         }
 
-        &-cart-totals {
+        &-cart-totals#fixedOnScroll {
             position: relative;
+            top: auto;
             max-width: 350px;
             width: 100%;
             padding: 40px 30px;
@@ -261,6 +262,17 @@
             @include media('<=phone') {
                 max-width: inherit;
             }
+
+            // &.addFixed {
+            //     position: fixed;
+            //     top: 10px;
+            // }
+
+            // &.stopFixed {
+            //     position: absolute;
+            //     top: inherit;
+            //     bottom: 0;
+            // }
 
             h2 {
                 margin: 0 0 16px;
