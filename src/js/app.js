@@ -178,7 +178,7 @@ import {log} from './utils'
   function choiceCoaProd() {
     var $coaSlider = $('#productSliderCoa')
     var $coaItem = $('#productSliderCoa .item')
-    var $coaLink = $('#productSliderCoa #radioCoa')
+    var $coaLink = $('#productSliderCoa .radioCoa')
 
     $coaLink.on('click', function (e) {
       e.preventDefault()

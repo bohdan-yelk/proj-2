@@ -4164,6 +4164,38 @@ span.bg-title {
     flex-grow: 0;
     padding: 0; } }
 
+.product-main-section .product_cat-merch picture {
+  position: relative; }
+  .product-main-section .product_cat-merch picture .woocommerce-product-gallery__image img {
+    height: auto; }
+
+.product-main-section .product_cat-merch .top__image {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.product-main-section .product_tag-tshirt .top__image {
+  top: 37%;
+  width: 19%; }
+
+.product-main-section .product_tag-canvas .top__image {
+  top: 48%;
+  width: 22%; }
+
+.product-main-section .product_tag-pillow .top__image {
+  top: 34%;
+  left: 49%;
+  width: 25%; }
+
+.product-main-section .product_tag-mug .top__image {
+  top: 39%;
+  left: 56%;
+  width: 22%; }
+
+.product-main-section .product_tag-poster .top__image {
+  top: 39%;
+  width: 42%; }
+
 .product-main-section h1 {
   margin: 0 0 24px;
   padding: 0 95px 0 0;
@@ -4498,6 +4530,8 @@ span.bg-title {
         outline: none; }
         .product-main-section .block-content .form-row-slider .item a:hover {
           box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25); }
+        .product-main-section .block-content .form-row-slider .item a img {
+          max-width: 66px; }
     .product-main-section .block-content .form-row-slider .slick-arrow {
       top: calc(50% - 16px);
       z-index: 11; }
@@ -4577,9 +4611,19 @@ span.bg-title {
 .product-main-section .single_variation_wrap .woocommerce-variation-description {
   display: none; }
 
+.product-main-section .single_variation_wrap {
+  width: 100%; }
+
+.product-main-section .quantity-button-wrapper {
+  display: flex;
+  align-items: flex-end; }
+
+.product-main-section .onsale {
+  display: none; }
+
 .product-descr-section {
   padding: 120px 0;
-  background-image: url("/images/abot-prod-bg.jpg");
+  background-image: url("../images/abot-prod-bg.jpg");
   background-repeat: no-repeat;
   background-size: 50% 545px;
   background-position: 120% 50px; }

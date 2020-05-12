@@ -243,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
   function choiceCoaProd() {
     var $coaSlider = $('#productSliderCoa');
     var $coaItem = $('#productSliderCoa .item');
-    var $coaLink = $('#productSliderCoa #radioCoa');
+    var $coaLink = $('#productSliderCoa .radioCoa');
     $coaLink.on('click', function (e) {
       e.preventDefault();
       $coaItem.removeClass('active');
@@ -479,17 +479,19 @@ __webpack_require__.r(__webpack_exports__);
 
   differentAddress(); // ---- show-hide
   // ---- fixed steps block on scroll ----
-  // $(function () {
-  //   $(window).scroll(
-  //     (function fix_element() {
-  //       $('#fixedOnScroll').css(
-  //         $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
-  //       )
-  //       return fix_element
-  //     })()
-  //   )
-  // })
-  // function scrollFixed() {
+
+  $(function () {
+    $(window).scroll(function fix_element() {
+      $('#fixedOnScroll').css($(window).scrollTop() > 220 ? {
+        position: 'fixed',
+        top: '10px'
+      } : {
+        position: 'relative',
+        top: 'auto'
+      });
+      return fix_element;
+    }());
+  }); // function scrollFixed() {
   //   var areaScroll = $('.cart-section').height()
   //   var fixedBlock = $('#fixedOnScroll')
   //   var bottomPosFixedBlock = fixedBlock.height().toFixed()
@@ -501,7 +503,11 @@ __webpack_require__.r(__webpack_exports__);
   //     } else (
   //       fixedBlock.css({position: 'relative', top: 'auto'})
   //     )
-  //     if
+  //     if((x.top + bottomPosFixedBlock) >= areaScroll) {
+  //       fixedBlock.css({position: 'relative', top: 'auto'})
+  //     } else if ((x.top + bottomPosFixedBlock) < areaScroll) {
+  //       fixedBlock.css({position: 'fixed', top: '10px'})
+  //     }
   //   })
   // }
   // scrollFixed()

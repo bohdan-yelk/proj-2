@@ -15,6 +15,63 @@
 		}
 	}
 
+	.product {
+		&_cat-merch {
+			picture {
+				position: relative;
+
+				.woocommerce-product-gallery__image {
+					img {
+						height: auto;
+					}
+				}
+			}
+
+			.top__image {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		&_tag-tshirt {
+			.top__image {
+				top: 37%;
+				width: 19%;
+			}
+		}
+
+		&_tag-canvas {
+			.top__image {
+				top: 48%;
+				width: 22%;
+			}
+		}
+
+		&_tag-pillow {
+			.top__image {
+				top: 34%;
+				left: 49%;
+				width: 25%;
+			}
+		}
+
+		&_tag-mug {
+			.top__image {
+				top: 39%;
+				left: 56%;
+				width: 22%;
+			}
+		}
+
+		&_tag-poster {
+			.top__image {
+				top: 39%;
+				width: 42%;
+			}
+		}
+	}
+
 	h1 {
 		margin: 0 0 24px;
 		padding: 0 95px 0 0;
@@ -554,6 +611,10 @@
 							&:hover {
 								box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
 							}
+
+							img {
+								max-width: 66px;
+							}
 						}
 					}
 
@@ -684,6 +745,19 @@
 	}
 
 	.single_variation_wrap .woocommerce-variation-description {
+		display: none;
+	}
+
+	.single_variation_wrap {
+		width: 100%;
+	}
+
+	.quantity-button-wrapper {
+		display: flex;
+		align-items: flex-end;
+	}
+
+	.onsale {
 		display: none;
 	}
 }
