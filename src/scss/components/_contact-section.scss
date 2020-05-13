@@ -84,7 +84,7 @@
     }
 
     input,
-    select,
+    .custom-select,
     .btn-blue {
         width: 100%;
         max-width: 300px;
@@ -113,6 +113,7 @@
 
     .custom-select {
         width: 100%;
+        max-width: 300px;
         margin: 0 0 16px;
 
         .select-selected {

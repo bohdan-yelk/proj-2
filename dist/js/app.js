@@ -739,7 +739,9 @@ __webpack_require__.r(__webpack_exports__);
   });
 
   function removeExcessNavItem() {
-    $('section.coa-section nav ul li a').each(function () {
+    var linkHref = $('section.coa-section nav ul li a');
+    $('section.coa-section').each(function () {});
+    linkHref.each(function () {
       if ($(this).attr('href') === '#') {
         $(this).hide();
       }

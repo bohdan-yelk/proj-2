@@ -52,6 +52,7 @@ body {
 
 img {
     max-width: 100%;
+    height: auto;
 }
 
 a,
@@ -393,6 +394,10 @@ select {
     &::placeholder {
         color: $gray;
     }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
 }
 
 span.bg-title {
@@ -846,6 +851,7 @@ span.bg-title {
 
     li {
         padding: 0 20px;
+        font-family: $base-font-sans-serif;
 
         &.disabled {
             a {
@@ -1469,4 +1475,15 @@ span.bg-title {
         opacity: 0;
         z-index: -1;
     }
+}
+
+// styles for which-coat-of-arms-is-mine page
+
+.wrapper {
+    margin: 61px auto 0;
+}
+
+.product-main-section .block-content .form-row.genealogy-btn,
+.product-main-section .block-content .form-row.info-message {
+    display: none;
 }
