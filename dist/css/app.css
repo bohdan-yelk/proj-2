@@ -1584,6 +1584,10 @@ span.bg-title {
   .tabs-content.active {
     display: block; }
 
+@media (max-width: 567px) {
+  .looklike-section h3 {
+    font-size: 18px; } }
+
 .game-div #fbgame_form {
   display: flex;
   flex-wrap: wrap;
@@ -1762,6 +1766,7 @@ span.bg-title {
     .popup#coaShop form.valid {
       position: relative; }
       .popup#coaShop form.valid:after {
+        position: absolute;
         content: '\e904';
         right: 33px;
         bottom: 19px;
@@ -4118,6 +4123,12 @@ span.bg-title {
       background-color: #F5F7FA;
       border-radius: 4px;
       transition: color .3s ease, background .3s ease; }
+      @media (max-width: 567px) {
+        .surname-search-section .pagination .page-numbers,
+        .glossary-content-section .pagination .page-numbers {
+          width: 35px;
+          height: 35px;
+          margin: 0 4px; } }
       .surname-search-section .pagination .page-numbers.current,
       .glossary-content-section .pagination .page-numbers.current {
         background-color: #0094FF;
@@ -4886,13 +4897,13 @@ span.bg-title {
       @media (max-width: 768px) {
         .faq-section .faq-list li {
           padding: 24px 0; } }
-      .faq-section .faq-list li.active a {
+      .faq-section .faq-list li.active a.dropLink {
         color: #0094FF; }
-        .faq-section .faq-list li.active a:before, .faq-section .faq-list li.active a:after {
+        .faq-section .faq-list li.active a.dropLink:before, .faq-section .faq-list li.active a.dropLink:after {
           background-color: #999; }
-        .faq-section .faq-list li.active a:after {
+        .faq-section .faq-list li.active a.dropLink:after {
           transform: translateY(-50%) rotate(90deg); }
-    .faq-section .faq-list a {
+    .faq-section .faq-list a.dropLink {
       position: relative;
       display: block;
       width: 100%;
@@ -4901,20 +4912,23 @@ span.bg-title {
       font-weight: bold;
       line-height: 24px;
       color: #303030; }
-      .faq-section .faq-list a:hover {
+      @media (max-width: 567px) {
+        .faq-section .faq-list a.dropLink {
+          padding-right: 30px; } }
+      .faq-section .faq-list a.dropLink:hover {
         color: #0094FF; }
-      .faq-section .faq-list a:before, .faq-section .faq-list a:after {
+      .faq-section .faq-list a.dropLink:before, .faq-section .faq-list a.dropLink:after {
         position: absolute;
         content: '';
         top: 50%;
         transform: translateY(-50%);
         background-color: #0094FF;
         transition: transform .2s ease; }
-      .faq-section .faq-list a:before {
+      .faq-section .faq-list a.dropLink:before {
         right: 0;
         width: 14px;
         height: 2px; }
-      .faq-section .faq-list a:after {
+      .faq-section .faq-list a.dropLink:after {
         right: 6px;
         width: 2px;
         height: 14px; }
@@ -5345,6 +5359,10 @@ span.bg-title {
         .service-section .block-download span {
           display: none; } }
   .service-section .block-form input {
+    width: 100%;
+    margin: 0 0 16px;
+    padding: 14px 24px 13px; }
+  .service-section .block-form select {
     width: 100%;
     margin: 0 0 16px;
     padding: 14px 24px 13px; }
@@ -5891,6 +5909,46 @@ span.bg-title {
           flex-wrap: wrap; } }
       .cart-section .block-shopping-list .row-item:last-child {
         margin: 0; }
+      .cart-section .block-shopping-list .row-item.tshirt .cart--image {
+        position: relative; }
+        .cart-section .block-shopping-list .row-item.tshirt .cart--image .top__image {
+          position: absolute;
+          top: 36%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 19%; }
+      .cart-section .block-shopping-list .row-item.poster .cart--image {
+        position: relative; }
+        .cart-section .block-shopping-list .row-item.poster .cart--image .top__image {
+          position: absolute;
+          top: 38%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 38%; }
+      .cart-section .block-shopping-list .row-item.coa .cart--image {
+        position: relative; }
+        .cart-section .block-shopping-list .row-item.coa .cart--image .top__image {
+          position: absolute;
+          top: 36%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 19%; }
+      .cart-section .block-shopping-list .row-item.pillow .cart--image {
+        position: relative; }
+        .cart-section .block-shopping-list .row-item.pillow .cart--image .top__image {
+          position: absolute;
+          top: 32%;
+          left: 49%;
+          transform: translateX(-50%);
+          width: 25%; }
+      .cart-section .block-shopping-list .row-item.mug .cart--image {
+        position: relative; }
+        .cart-section .block-shopping-list .row-item.mug .cart--image .top__image {
+          position: absolute;
+          top: 38%;
+          left: 55%;
+          transform: translateX(-50%);
+          width: 22%; }
     .cart-section .block-shopping-list .col {
       padding: 0; }
       @media (max-width: 1023px) {
@@ -5916,6 +5974,8 @@ span.bg-title {
         line-height: 19px;
         color: #303030;
         text-align: center; }
+      .cart-section .block-shopping-list .col-total .woocommerce-Price-currencySymbol, .cart-section .block-shopping-list .col-price .woocommerce-Price-currencySymbol {
+        display: inline-block; }
       @media (max-width: 1023px) {
         .cart-section .block-shopping-list .col-total {
           width: 50%;
@@ -5948,7 +6008,7 @@ span.bg-title {
     .cart-section .block-shopping-list img {
       width: 100%;
       max-width: 80px;
-      max-height: 80px; }
+      max-height: inherit; }
     .cart-section .block-shopping-list .descr {
       padding: 0 0 0 26px; }
       .cart-section .block-shopping-list .descr a {
@@ -5971,9 +6031,10 @@ span.bg-title {
           display: inline-block;
           width: 16px;
           height: 16px;
-          margin: 0 0 0 4px;
+          margin: 0 0 -3px 4px;
           border-radius: 50%;
-          background-color: #4B4F54; }
+          background-color: #4B4F54;
+          border: 1px solid #999; }
         .cart-section .block-shopping-list .descr p .size {
           display: inline-block;
           margin: 0 0 0 4px;

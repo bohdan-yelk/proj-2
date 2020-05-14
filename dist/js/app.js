@@ -282,26 +282,76 @@ __webpack_require__.r(__webpack_exports__);
     var $dropContent = $('.drop-content');
     $dropContent.hide();
     $dropLink.on('click', function (e) {
-      e.preventDefault();
+      e.preventDefault(); // $('html').animate({scrollTop: $(this).offset().top})
+      // $('html').scrollTop($(this).get(0).scrollIntoView({ behavior: 'smooth' }))
+      // $(this).on('transitionend', function(event) {
+      //   console.log(event, 'faq')
+      //   $(this).get(0).scrollIntoView({ behavior: 'smooth' })
+      // });
+      // $(this).one('transitionend', function(event) {
+      //   if (event.originalEvent.propertyName === 'transform') {
+      //     $(this).get(0).scrollIntoView({ behavior: 'smooth' });
+      // }
+      // });
+
       $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide('slow');
 
       if (!$(this).hasClass('clicked')) {
+        $dropLink.removeClass('clicked');
         $(this).addClass('clicked');
-        $(this).parent($dropItem).addClass('active').find($dropContent).show('slow');
+        $(this).parent($dropItem).addClass('active').find($dropContent).show({
+          duration: 'slow',
+          complete: function complete() {
+            $('html, body').animate({
+              scrollTop: $(this).parent().offset().top
+            });
+          }
+        });
       } else {
         $(this).removeClass('clicked');
         $(this).parent($dropItem).removeClass('active').find($dropContent).hide('slow');
-      } // $(this).parent($dropItem).addClass('active').find($dropContent).show('slow')
-
-
-      if ($(this).hadClass('clicked')) {
-        $(this).removeClass('clicked');
-        $(this).parent($dropItem).find($dropContent).hide('slow');
       }
     });
   }
 
-  dropList(); // ---- custom pagination(1/4) in slick slider on surname rough page  ----
+  dropList(); // function dropList() {
+  //   var $dropItem = $('.faq-list li')
+  //   var $dropLink = $('.dropLink')
+  //   var $dropContent = $('.drop-content')
+  //   $dropContent.hide()
+  //   $dropLink.on('click', function (e) {
+  //     e.preventDefault()
+  //     // $('html').animate({scrollTop: $(this).offset().top})
+  //     // $('html').scrollTop($(this).get(0).scrollIntoView({ behavior: 'smooth' }))
+  //     // $(this).on('transitionend', function(event) {
+  //     //   console.log(event, 'faq')
+  //     //   $(this).get(0).scrollIntoView({ behavior: 'smooth' })
+  //     // });
+  //     $(this).one('transitionend', function(event) {
+  //       if (event.originalEvent.propertyName === 'transform') {
+  //         $(this).get(0).scrollIntoView({ behavior: 'smooth' });
+  //     }
+  //     });
+  //     $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide('slow')
+  //     if (!$(this).hasClass('clicked')) {
+  //       $dropLink.removeClass('clicked')
+  //       $(this).addClass('clicked')
+  //       $(this).parent($dropItem).addClass('active').find($dropContent).show('slow')
+  //     } else {
+  //       $(this).removeClass('clicked')
+  //       $(this).parent($dropItem).removeClass('active').find($dropContent).hide('slow')
+  //     }
+  //   })
+  // }
+  // dropList()
+  // ---- change color on cart page in product row-item ---- 
+
+  function colorOnCart() {
+    var spanCartColor = $('.woocommerce-cart-form').find('.row-item.tshirt .color').attr('data-color');
+    $('.woocommerce-cart-form').find('.row-item.tshirt .color').css('background-color', '#' + spanCartColor);
+  }
+
+  colorOnCart(); // ---- custom pagination(1/4) in slick slider on surname rough page  ----
 
   var $status = $('.pagingInfo');
   var $slickElement = $('#crestSlider');
@@ -377,11 +427,16 @@ __webpack_require__.r(__webpack_exports__);
     var $numStep = $('#stepsList li');
     var $contentStep = $('.steps-content');
     var cahngeConstVal = $currentIndex;
+    console.log($currentIndex);
+    console.log($numStep.index());
+    console.log($contentStep.index());
     $next.on('click', function (e) {
       e.preventDefault();
       $currentIndex++;
       $numStep.removeClass('active').eq($currentIndex).addClass('active');
-      $contentStep.removeClass('active').eq($currentIndex).addClass('active');
+      $contentStep.removeClass('active').eq($currentIndex).addClass('active'); // console.log( $currentIndex)
+      // console.log( $numStep.index())
+      // console.log( $contentStep.index())
     });
     $prev.on('click', function (e) {
       e.preventDefault();
@@ -392,29 +447,28 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   stepTabs(); // ---- payment steps(on mobile) on service page ----
-
-  function stepTabsBottomMob() {
-    var $nextMob = $('#stepsBottomMob .btn-next');
-    var $prevMob = $('#stepsBottomMob .btn-back');
-    var $currentIndexMob = 0;
-    var $numStepMob = $('#stepsBottomMob #stepsList li');
-    var $contentStepMob = $('#stepsBottomMob .steps-content');
-    var cahngeConstValMob = $currentIndexMob;
-    $nextMob.on('click', function (e) {
-      e.preventDefault();
-      $currentIndexMob++;
-      $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active');
-      $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active');
-    });
-    $prevMob.on('click', function (e) {
-      e.preventDefault();
-      $currentIndexMob--;
-      $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active');
-      $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active');
-    });
-  }
-
-  stepTabsBottomMob(); // ---- checkout steps tabs ----
+  // function stepTabsBottomMob() {
+  //   var $nextMob = $('#stepsBottomMob .btn-next')
+  //   var $prevMob = $('#stepsBottomMob .btn-back')
+  //   var $currentIndexMob = 0
+  //   var $numStepMob = $('#stepsBottomMob #stepsList li')
+  //   var $contentStepMob = $('#stepsBottomMob .steps-content')
+  //   var cahngeConstValMob = $currentIndexMob
+  //   $nextMob.on('click', function (e) {
+  //     e.preventDefault()
+  //     $currentIndexMob++
+  //     $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+  //     $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+  //   })
+  //   $prevMob.on('click', function (e) {
+  //     e.preventDefault()
+  //     $currentIndexMob--
+  //     $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+  //     $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+  //   })
+  // }
+  // stepTabsBottomMob()
+  // ---- checkout steps tabs ----
 
   function stepCheckout() {
     var $continue = $('.btn-continue');
@@ -482,7 +536,7 @@ __webpack_require__.r(__webpack_exports__);
 
   $(function () {
     $(window).scroll(function fix_element() {
-      $('#fixedOnScroll').css($(window).scrollTop() > 220 ? {
+      $('#fixedOnScroll').parents('.wcopc').css($(window).scrollTop() > 220 ? {
         position: 'fixed',
         top: '10px'
       } : {
@@ -592,12 +646,19 @@ __webpack_require__.r(__webpack_exports__);
       $(this).parents('li').addClass('active');
 
       if ($glossaryList.children('li').hasClass('active')) {
+        var thisOffset = $glossaryList.position().top;
+        console.log(thisOffset);
         $showBtn.parents('li').find('.content p').hide();
         $(this).parents('li').find('.content p').show();
         setTimeout(function () {
           $(this).parents('li').find('.content p').show();
         }, 4000);
-        console.log('hasClass');
+
+        if ($(window).width() >= 1024) {
+          $('html,body').animate({
+            scrollTop: thisOffset
+          }, 'slow');
+        }
       }
     });
     $hideBtn.on('click', function (e) {

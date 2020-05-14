@@ -224,31 +224,80 @@ import {log} from './utils'
     var $dropItem = $('.faq-list li')
     var $dropLink = $('.dropLink')
     var $dropContent = $('.drop-content')
-
     $dropContent.hide()
-
     $dropLink.on('click', function (e) {
       e.preventDefault()
-
+      // $('html').animate({scrollTop: $(this).offset().top})
+      // $('html').scrollTop($(this).get(0).scrollIntoView({ behavior: 'smooth' }))
+      // $(this).on('transitionend', function(event) {
+      //   console.log(event, 'faq')
+      //   $(this).get(0).scrollIntoView({ behavior: 'smooth' })
+      // });
+      // $(this).one('transitionend', function(event) {
+      //   if (event.originalEvent.propertyName === 'transform') {
+      //     $(this).get(0).scrollIntoView({ behavior: 'smooth' });
+      // }
+      // });
       $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide('slow')
-
       if (!$(this).hasClass('clicked')) {
+        $dropLink.removeClass('clicked')
         $(this).addClass('clicked')
-        $(this).parent($dropItem).addClass('active').find($dropContent).show('slow')
+        $(this).parent($dropItem).addClass('active').find($dropContent).show({ duration: 'slow', complete: function() {
+              $('html, body').animate({scrollTop: $(this).parent().offset().top})
+          } })
       } else {
         $(this).removeClass('clicked')
         $(this).parent($dropItem).removeClass('active').find($dropContent).hide('slow')
       }
-      // $(this).parent($dropItem).addClass('active').find($dropContent).show('slow')
-
-      if ($(this).hadClass('clicked')) {
-        $(this).removeClass('clicked')
-        $(this).parent($dropItem).find($dropContent).hide('slow')
-      }
     })
   }
 
-  dropList()
+  dropList();
+
+  // function dropList() {
+  //   var $dropItem = $('.faq-list li')
+  //   var $dropLink = $('.dropLink')
+  //   var $dropContent = $('.drop-content')
+  //   $dropContent.hide()
+
+  //   $dropLink.on('click', function (e) {
+  //     e.preventDefault()
+  //     // $('html').animate({scrollTop: $(this).offset().top})
+  //     // $('html').scrollTop($(this).get(0).scrollIntoView({ behavior: 'smooth' }))
+  //     // $(this).on('transitionend', function(event) {
+  //     //   console.log(event, 'faq')
+  //     //   $(this).get(0).scrollIntoView({ behavior: 'smooth' })
+  //     // });
+
+  //     $(this).one('transitionend', function(event) {
+  //       if (event.originalEvent.propertyName === 'transform') {
+  //         $(this).get(0).scrollIntoView({ behavior: 'smooth' });
+  //     }
+  //     });
+
+  //     $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide('slow')
+
+  //     if (!$(this).hasClass('clicked')) {
+  //       $dropLink.removeClass('clicked')
+  //       $(this).addClass('clicked')
+  //       $(this).parent($dropItem).addClass('active').find($dropContent).show('slow')
+  //     } else {
+  //       $(this).removeClass('clicked')
+  //       $(this).parent($dropItem).removeClass('active').find($dropContent).hide('slow')
+  //     }
+  //   })
+  // }
+
+  // dropList()
+
+  // ---- change color on cart page in product row-item ---- 
+
+  function colorOnCart() {
+    var spanCartColor = $('.woocommerce-cart-form').find('.row-item.tshirt .color').attr('data-color')
+    $('.woocommerce-cart-form').find('.row-item.tshirt .color').css('background-color', '#'+spanCartColor)
+  }
+  
+  colorOnCart()
 
   // ---- custom pagination(1/4) in slick slider on surname rough page  ----
 
@@ -339,12 +388,23 @@ import {log} from './utils'
     var $contentStep = $('.steps-content')
     var cahngeConstVal = $currentIndex
 
+    console.log( $currentIndex)
+    console.log( $numStep.index())
+    console.log( $contentStep.index())
+
     $next.on('click', function (e) {
       e.preventDefault()
       $currentIndex++
+     
 
       $numStep.removeClass('active').eq($currentIndex).addClass('active')
       $contentStep.removeClass('active').eq($currentIndex).addClass('active')
+
+
+      // console.log( $currentIndex)
+      // console.log( $numStep.index())
+      // console.log( $contentStep.index())
+      
     })
 
     $prev.on('click', function (e) {
@@ -360,32 +420,32 @@ import {log} from './utils'
 
   // ---- payment steps(on mobile) on service page ----
 
-  function stepTabsBottomMob() {
-    var $nextMob = $('#stepsBottomMob .btn-next')
-    var $prevMob = $('#stepsBottomMob .btn-back')
-    var $currentIndexMob = 0
-    var $numStepMob = $('#stepsBottomMob #stepsList li')
-    var $contentStepMob = $('#stepsBottomMob .steps-content')
-    var cahngeConstValMob = $currentIndexMob
+  // function stepTabsBottomMob() {
+  //   var $nextMob = $('#stepsBottomMob .btn-next')
+  //   var $prevMob = $('#stepsBottomMob .btn-back')
+  //   var $currentIndexMob = 0
+  //   var $numStepMob = $('#stepsBottomMob #stepsList li')
+  //   var $contentStepMob = $('#stepsBottomMob .steps-content')
+  //   var cahngeConstValMob = $currentIndexMob
 
-    $nextMob.on('click', function (e) {
-      e.preventDefault()
-      $currentIndexMob++
+  //   $nextMob.on('click', function (e) {
+  //     e.preventDefault()
+  //     $currentIndexMob++
 
-      $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
-      $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
-    })
+  //     $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+  //     $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+  //   })
 
-    $prevMob.on('click', function (e) {
-      e.preventDefault()
-      $currentIndexMob--
+  //   $prevMob.on('click', function (e) {
+  //     e.preventDefault()
+  //     $currentIndexMob--
 
-      $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
-      $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
-    })
-  }
+  //     $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+  //     $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
+  //   })
+  // }
 
-  stepTabsBottomMob()
+  // stepTabsBottomMob()
 
   // ---- checkout steps tabs ----
 
@@ -469,7 +529,7 @@ import {log} from './utils'
   $(function () {
     $(window).scroll(
       (function fix_element() {
-        $('#fixedOnScroll').css(
+        $('#fixedOnScroll').parents('.wcopc').css(
           $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
         )
         return fix_element
@@ -507,7 +567,7 @@ import {log} from './utils'
   // $(function () {
   //   $(window).scroll(
   //     (function fix_element() {
-        
+
   //         if( (window).scrollTop() > 220 ) {
   //           $('#fixedOnScroll').css({position: 'fixed', top: '10px'})
   //         } else {
@@ -523,7 +583,7 @@ import {log} from './utils'
   //   var areaScroll = $('.cart-section').height()
   //   var fixedBlock = $('#fixedOnScroll')
   //   var bottomPosFixedBlock = fixedBlock.height().toFixed()
-    
+
   //   bottomPosFixedBlock = Number(bottomPosFixedBlock)
   //   // console.log($('.product-section.on-cart').offset(), 'product pos')
   //   // console.log(blockScroll.offset(), 'start steps pos')
@@ -609,12 +669,17 @@ import {log} from './utils'
       $(this).parents('li').addClass('active')
 
       if ($glossaryList.children('li').hasClass('active')) {
+        var thisOffset = $glossaryList.position().top
+        console.log(thisOffset)
         $showBtn.parents('li').find('.content p').hide()
         $(this).parents('li').find('.content p').show()
         setTimeout(function () {
           $(this).parents('li').find('.content p').show()
         }, 4000)
-        console.log('hasClass')
+        if( $(window).width() >= 1024) {
+          $('html,body').animate({scrollTop: thisOffset}, 'slow')
+        }
+       
       }
     })
 
@@ -699,7 +764,7 @@ import {log} from './utils'
   })
 
   function updateCartBtn() {
-    $('.in-num').on('change', function(){
+    $('.in-num').on('change', function () {
       $(this).parents('.block-shopping-list').find('.actions button[name="update_cart"]').removeAttr('disabled')
     })
   }
@@ -780,38 +845,37 @@ import {log} from './utils'
 
   function removeExcessNavItem() {
     var linkHref = $('section.coa-section nav ul li a')
-    
-    $('section.coa-section').each(function(){
 
-    })
+    $('section.coa-section').each(function () {})
 
     linkHref.each(function () {
       if ($(this).attr('href') === '#') {
         $(this).hide()
       }
     })
-    
   }
 
   removeExcessNavItem()
 
-  $('.custom-select').on('click', function(){
-		var size = $('.select-selected').text();
-		$('#size').val(size);
-		$('#size').trigger('change');
-	});
-	$('#colorList li').on('click', function(){
-		var color = $(this).attr('data-color');
-		$('#color').val(color);
-		$('#color').trigger('change');
-	});
-	$('.custom-select, #colorList li').on('click', function(){
-        if( 0 < $('input.variation_id').val() && null != $('input.variation_id').val() ){
-            $('.price-new').html($('div.woocommerce-variation-price > span.price').html()).append('<p class="availability">'+$('div.woocommerce-variation-availability').html()+'</p>');
-        } else {
-            $('.price-new').html($('div.hidden-variable-price').html());
-        }
-    });
+  $('.custom-select').on('click', function () {
+    var size = $('.select-selected').text()
+    $('#size').val(size)
+    $('#size').trigger('change')
+  })
+  $('#colorList li').on('click', function () {
+    var color = $(this).attr('data-color')
+    $('#color').val(color)
+    $('#color').trigger('change')
+  })
+  $('.custom-select, #colorList li').on('click', function () {
+    if (0 < $('input.variation_id').val() && null != $('input.variation_id').val()) {
+      $('.price-new')
+        .html($('div.woocommerce-variation-price > span.price').html())
+        .append('<p class="availability">' + $('div.woocommerce-variation-availability').html() + '</p>')
+    } else {
+      $('.price-new').html($('div.hidden-variable-price').html())
+    }
+  })
 
   // ---- custom select ----
 

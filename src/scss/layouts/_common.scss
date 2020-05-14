@@ -1411,7 +1411,16 @@ span.bg-title {
 
 // form on look like page
 
+.looklike-section {
+    h3 {
+        @include media('<=small') {
+            font-size: 18px;
+        }
+    }
+}
+
 .game-div {
+
 
     #fbgame_form {
         display: flex;

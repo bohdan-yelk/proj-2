@@ -96,6 +96,7 @@
                 position: relative;
                 
                 &:after {
+                    position: absolute;
                     content: '\e904';
                     right: 33px;
                     bottom: 19px;

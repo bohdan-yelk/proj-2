@@ -109,6 +109,12 @@
             border-radius: 4px;
             transition: color .3s ease, background .3s ease;
 
+            @include media('<=small') {
+                width: 35px;
+                height: 35px;
+                margin: 0 4px;
+            }
+
             &.current {
                 background-color: $blue;
                 color: $white;

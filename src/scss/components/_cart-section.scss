@@ -52,6 +52,71 @@
                     &:last-child {
                         margin: 0;
                     }
+
+                    &.tshirt {
+                        .cart--image {
+                            position: relative;
+                            .top__image {
+                                position: absolute;
+                                top: 36%;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 19%;
+                            }
+                        }
+                    }
+
+                    &.poster {
+                        .cart--image {
+                            position: relative;
+                            .top__image {
+                                position: absolute;
+                                top: 38%;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 38%;
+                            }
+                        }
+                    }
+
+                    &.coa {
+                        .cart--image {
+                            position: relative;
+                            .top__image {
+                                position: absolute;
+                                top: 36%;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 19%;
+                            }
+                        }
+                    }
+
+                    &.pillow {
+                        .cart--image {
+                            position: relative;
+                            .top__image {
+                                position: absolute;
+                                top: 32%;
+                                left: 49%;
+                                transform: translateX(-50%);
+                                width: 25%;
+                            }
+                        }
+                    }
+
+                    &.mug {
+                        .cart--image {
+                            position: relative;
+                            .top__image {
+                                position: absolute;
+                                top: 38%;
+                                left: 55%;
+                                transform: translateX(-50%);
+                                width: 22%;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -94,6 +159,10 @@
                         color: $gray-800;
                         text-align: center;
                     }
+
+                    .woocommerce-Price-currencySymbol {
+                        display: inline-block;
+                    }
                 }
 
                 &-total {
@@ -133,6 +202,7 @@
                     @include media('<large') {
                         display: none;
                     }
+
                 }
 
                 &-quantity {
@@ -142,11 +212,12 @@
                 }
             }
 
+            
 
             img {
                 width: 100%;
                 max-width: 80px;
-                max-height: 80px;
+                max-height: inherit;
             }
 
             .descr {
@@ -179,9 +250,10 @@
                         display: inline-block;
                         width: 16px;
                         height: 16px;
-                        margin: 0 0 0 4px;
+                        margin: 0 0 -3px 4px;
                         border-radius: 50%;
                         background-color: #4B4F54;
+                        border: 1px solid $gray;
                     }
 
                     .size {
