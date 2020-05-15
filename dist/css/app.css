@@ -432,7 +432,7 @@ h6 {
       padding: 0;
       background-color: #fff;
       list-style: none;
-      z-index: 100; }
+      z-index: 110; }
       #nav ul.submenu.active {
         display: flex; }
         @media (max-width: 991px) {
@@ -1407,7 +1407,7 @@ span.bg-title {
   display: flex;
   justify-content: space-between;
   padding: 65px 70px;
-  background: linear-gradient(0deg, rgba(52, 90, 156, 0.75), rgba(52, 90, 156, 0.75)), url("/images/wood-bg.png");
+  background: linear-gradient(0deg, rgba(52, 90, 156, 0.75), rgba(52, 90, 156, 0.75)), url("../images/wood-bg.png");
   box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
   border-radius: 8px;
   color: white;
@@ -1647,6 +1647,33 @@ span.bg-title {
 .product-main-section .block-content .form-row.genealogy-btn,
 .product-main-section .block-content .form-row.info-message {
   display: none; }
+
+.up-scroll {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.35); }
+  .up-scroll.active {
+    display: flex; }
+  .up-scroll:hover:before {
+    color: #345A9C; }
+  .up-scroll:before {
+    position: absolute;
+    content: '\e900';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-180deg);
+    font-family: 'icomoon';
+    font-size: 15px;
+    color: #0094FF;
+    transition: color .3s ease; }
 
 #footer {
   padding: 40px 0;
@@ -2851,6 +2878,15 @@ span.bg-title {
           top: 14px;
           right: inherit;
           left: 10px; } }
+  .reviews-section picture {
+    display: block;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    box-shadow: 0px 6px 9px rgba(52, 90, 156, 0.25); }
+    @media (max-width: 991px) {
+      .reviews-section picture {
+        box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25); } }
   .reviews-section .block-img {
     position: absolute;
     top: 32px;
@@ -2862,9 +2898,6 @@ span.bg-title {
     .reviews-section .block-img img {
       width: 96px;
       height: auto; }
-      @media (max-width: 991px) {
-        .reviews-section .block-img img {
-          box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25); } }
   .reviews-section span {
     display: block;
     font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif; }
@@ -2888,11 +2921,6 @@ span.bg-title {
       @media (max-width: 991px) {
         .reviews-section span.date {
           margin: 0 0 60px; } }
-  .reviews-section picture {
-    width: 96px;
-    height: 96px;
-    border-radius: 4px;
-    box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25); }
   .reviews-section .slick-slider {
     position: absolute;
     overflow: hidden;
@@ -3433,6 +3461,10 @@ span.bg-title {
       display: flex;
       flex-wrap: wrap;
       margin: 40px 0 0; } }
+  .crest-section .block-content .surname-rough-desc {
+    display: none; }
+    .crest-section .block-content .surname-rough-desc.active {
+      display: block; }
   .crest-section .block-content h2 {
     margin: 0 0 32px; }
     @media (max-width: 1024px) {
@@ -4032,6 +4064,10 @@ span.bg-title {
 .surname-search-section,
 .glossary-content-section {
   padding: 0 0 40px; }
+  .surname-search-section .info-alert,
+  .glossary-content-section .info-alert {
+    font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #777; }
   .surname-search-section form,
   .glossary-content-section form {
     position: relative;
@@ -5779,6 +5815,13 @@ span.bg-title {
       position: absolute;
       display: block;
       top: -26px; }
+    .contact-us-section .form-wrapper .wpcf7-validation-errors {
+      margin: 0;
+      font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+      border: 1px solid #eee;
+      background-color: #F5F7FA;
+      border-radius: 4px;
+      color: red; }
     .contact-us-section .form-wrapper input,
     .contact-us-section .form-wrapper textarea,
     .contact-us-section .form-wrapper button {
@@ -5787,7 +5830,8 @@ span.bg-title {
       padding: 14px 24px 13px; }
     .contact-us-section .form-wrapper .btn {
       text-transform: uppercase;
-      box-shadow: none; }
+      box-shadow: none;
+      outline: none; }
       .contact-us-section .form-wrapper .btn:hover {
         background-color: #345A9C;
         border-color: #345A9C;
@@ -5947,6 +5991,14 @@ span.bg-title {
           position: absolute;
           top: 38%;
           left: 55%;
+          transform: translateX(-50%);
+          width: 22%; }
+      .cart-section .block-shopping-list .row-item.canvas .cart--image {
+        position: relative; }
+        .cart-section .block-shopping-list .row-item.canvas .cart--image .top__image {
+          position: absolute;
+          top: 46%;
+          left: 50%;
           transform: translateX(-50%);
           width: 22%; }
     .cart-section .block-shopping-list .col {

@@ -242,9 +242,16 @@ import {log} from './utils'
       if (!$(this).hasClass('clicked')) {
         $dropLink.removeClass('clicked')
         $(this).addClass('clicked')
-        $(this).parent($dropItem).addClass('active').find($dropContent).show({ duration: 'slow', complete: function() {
+        $(this)
+          .parent($dropItem)
+          .addClass('active')
+          .find($dropContent)
+          .show({
+            duration: 'slow',
+            complete: function () {
               $('html, body').animate({scrollTop: $(this).parent().offset().top})
-          } })
+            }
+          })
       } else {
         $(this).removeClass('clicked')
         $(this).parent($dropItem).removeClass('active').find($dropContent).hide('slow')
@@ -252,7 +259,7 @@ import {log} from './utils'
     })
   }
 
-  dropList();
+  dropList()
 
   // function dropList() {
   //   var $dropItem = $('.faq-list li')
@@ -290,13 +297,15 @@ import {log} from './utils'
 
   // dropList()
 
-  // ---- change color on cart page in product row-item ---- 
+  // ---- change color on cart page in product row-item ----
 
   function colorOnCart() {
     var spanCartColor = $('.woocommerce-cart-form').find('.row-item.tshirt .color').attr('data-color')
-    $('.woocommerce-cart-form').find('.row-item.tshirt .color').css('background-color', '#'+spanCartColor)
+    $('.woocommerce-cart-form')
+      .find('.row-item.tshirt .color')
+      .css('background-color', '#' + spanCartColor)
   }
-  
+
   colorOnCart()
 
   // ---- custom pagination(1/4) in slick slider on surname rough page  ----
@@ -388,23 +397,20 @@ import {log} from './utils'
     var $contentStep = $('.steps-content')
     var cahngeConstVal = $currentIndex
 
-    console.log( $currentIndex)
-    console.log( $numStep.index())
-    console.log( $contentStep.index())
+    // console.log($currentIndex)
+    // console.log($numStep.index())
+    // console.log($contentStep.index())
 
     $next.on('click', function (e) {
       e.preventDefault()
       $currentIndex++
-     
 
       $numStep.removeClass('active').eq($currentIndex).addClass('active')
       $contentStep.removeClass('active').eq($currentIndex).addClass('active')
 
-
       // console.log( $currentIndex)
       // console.log( $numStep.index())
       // console.log( $contentStep.index())
-      
     })
 
     $prev.on('click', function (e) {
@@ -472,7 +478,7 @@ import {log} from './utils'
       $itemStep.removeClass('active').eq($currentStep).addClass('active')
       $tabCheck.removeClass('active').eq($currentStep).addClass('active')
 
-      console.log($(this).parents($itemStep).index())
+      // console.log($(this).parents($itemStep).index())
     })
   }
 
@@ -509,15 +515,13 @@ import {log} from './utils'
 
       if ($(this).hasClass('show') && $(this).prop('checked')) {
         $(this).parents('.block-toggle-addres').find('.form-hide').show('slow')
-        console.log('test')
+        // console.log('test')
       } else if ($(this).hasClass('hide') && $(this).prop('checked')) {
         $(this).parents('.block-toggle-addres').find('.form-hide').hide('slow')
-        console.log('test2')
-      } else {
-        console.log('test3')
+        // console.log('test2')
       }
     })
-    console.log($inputToggle)
+    // console.log($inputToggle)
   }
 
   differentAddress()
@@ -529,13 +533,74 @@ import {log} from './utils'
   $(function () {
     $(window).scroll(
       (function fix_element() {
-        $('#fixedOnScroll').parents('.wcopc').css(
-          $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
-        )
+        $('#fixedOnScroll')
+          .parents('.wcopc')
+          .css($(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'})
+        if (!$('#fixedOnScroll').parents('.wcopc').length) {
+          $('#fixedOnScroll').css(
+            $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
+          )
+        }
         return fix_element
       })()
     )
   })
+
+  // ---- change content on crest-setcion
+
+  function crestContent() {
+    var crestContent = $('.crest-section .block-content').find('.surname-rough-desc')
+    var contentAttr = crestContent.attr('id')
+
+    $('#crestSlider').on('afterChange', function(currentSlide){
+
+      var slideAttr = $('.slick-current').find('.item').attr('data-id')
+
+      $('.surname-rough-descriptions').each(function(index){
+
+        contentAttr = slideAttr
+
+        crestContent.removeClass('active')
+
+        if(slideAttr === contentAttr) {
+          $('#'+contentAttr).addClass('active')
+        }
+      })
+    })
+
+
+
+    // var $crestSlider = $('.crest-section').find('#crestSlider')
+    // var $crestContent = $('.crest-section .block-content').find('.surname-rough-desc')
+    // // var $crestSlideId = $crestSlider.find('.item').attr('data-id')
+    // // var $crestContentId = $crestContent.attr('id')
+    // var slideIdCurrent
+    // var contentIdCurrent
+
+    // $crestSlider.on('afterChange', function () {
+    //   // slideIdCurrent = $crestSlideId
+    //   // contentIdCurrent = $crestContentId
+
+      
+      
+    //   $('.crest-section').each(function () {
+    //     slideIdCurrent = $(this).find('.item').attr('data-id')
+    //     contentIdCurrent = $(this).parents('.crest-section').find('.surname-rough-desc').attr('id')
+        
+    //     console.log(slideIdCurrent)
+    //     console.log(contentIdCurrent)
+
+    //     $crestContent.removeClass('active')
+
+    //     if (slideIdCurrent === contentIdCurrent) {
+    //       $(this).parents('.crest-setcion').find('.surname-rough-desc').addClass('active')
+    //       console.log('afterChange')
+    //     }
+    //   })
+    // })
+  }
+
+  crestContent()
 
   // function scrollFixed() {
   //   var areaScroll = $('.cart-section').height()
@@ -670,16 +735,15 @@ import {log} from './utils'
 
       if ($glossaryList.children('li').hasClass('active')) {
         var thisOffset = $glossaryList.position().top
-        console.log(thisOffset)
+        // console.log(thisOffset)
         $showBtn.parents('li').find('.content p').hide()
         $(this).parents('li').find('.content p').show()
         setTimeout(function () {
           $(this).parents('li').find('.content p').show()
         }, 4000)
-        if( $(window).width() >= 1024) {
+        if ($(window).width() >= 1024) {
           $('html,body').animate({scrollTop: thisOffset}, 'slow')
         }
-       
       }
     })
 
@@ -708,7 +772,7 @@ import {log} from './utils'
       $(this).parent().addClass('active')
 
       let $colorValue = $(this).css('background-color')
-      console.log($colorValue)
+      // console.log($colorValue)
 
       $('#chaneColor').find('img').css('background-color', $colorValue)
     })
@@ -789,7 +853,7 @@ import {log} from './utils'
   // ---- suname search on Surname page ----
 
   function searchSurname() {
-    console.log('test work')
+    // console.log('test work')
     if ($('#glossaryList').length) {
       var input = document.getElementById('searchInput')
       var glossaryList = document.getElementById('glossaryList')
@@ -819,6 +883,30 @@ import {log} from './utils'
     }
   }
 
+  searchSurname()
+
+  function upScroll() {
+    var uplink = $('body').find('a.up-scroll')
+
+    uplink.on('click', function(){
+      $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 500)
+      console.log('up')
+    })
+
+    $(window).scroll(function(){
+      var scrollVar = $(window).scrollTop()
+      var winHeight =  $(window).height()
+
+      if(scrollVar > winHeight) {
+        uplink.addClass('active')
+      } else {
+        uplink.removeClass('active')
+      }
+    })
+  }
+
+  upScroll()
+
   // ---- burger button animation ----
 
   $('.burger').click(function () {
@@ -844,15 +932,27 @@ import {log} from './utils'
   })
 
   function removeExcessNavItem() {
-    var linkHref = $('section.coa-section nav ul li a')
+    var navEach = $('section.coa-section nav ul')
+    var sectionCoa = $('section.coa-section')
+    var navLink = $('section.coa-section nav ul li a')
 
-    $('section.coa-section').each(function () {})
+    sectionCoa.each(function(){
+      var navLinkAttr = navLink.attr('href')
+      var elemIdAttr = sectionCoa.find('*').attr('id')
 
-    linkHref.each(function () {
-      if ($(this).attr('href') === '#') {
-        $(this).hide()
-      }
+      if(navLinkAtrr === '#' || elemIdAttr != navLinkAttr)
     })
+
+
+    // $('section.coa-section').each(function () {
+
+    // })
+
+    // linkHref.each(function () {
+    //   if ($(this).attr('href') === '#') {
+    //     $(this).parents('li').removeClass('active').hide()
+    //   }
+    // })
   }
 
   removeExcessNavItem()

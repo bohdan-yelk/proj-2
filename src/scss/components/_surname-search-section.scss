@@ -2,6 +2,11 @@
 .glossary-content-section {
     padding: 0 0 40px;
 
+    .info-alert {
+        font-family: $base-font-sans-serif;
+        color: $gray-100;
+    }
+
     form {
         position: relative;
         padding: 0 0 64px;

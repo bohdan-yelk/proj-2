@@ -163,7 +163,14 @@
             top: -26px;
         }
 
-
+        .wpcf7-validation-errors {
+            margin: 0;
+            font-family: $base-font-sans-serif;
+            border: 1px solid #eee;
+            background-color: $light-blue;
+            border-radius: 4px;
+            color: red;
+        }
 
         input,
         textarea,
@@ -176,6 +183,7 @@
         .btn {
             text-transform: uppercase;
             box-shadow: none;
+            outline: none;
 
             &:hover {
                 background-color: $dark-blue;

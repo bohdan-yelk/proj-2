@@ -117,6 +117,19 @@
                             }
                         }
                     }
+
+                    &.canvas {
+                        .cart--image {
+                            position: relative;
+                            .top__image {
+                                position: absolute;
+                                top: 46%;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 22%;
+                            }
+                        }
+                    }
                 }
             }
 

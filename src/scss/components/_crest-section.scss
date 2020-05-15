@@ -141,6 +141,15 @@
                 flex-wrap: wrap;
                 margin: 40px 0 0;
             }
+
+            .surname-rough-desc {
+                display: none;
+
+                &.active {
+                    display: block;
+                }
+            }
+
             h2 {
                 margin: 0 0 32px;
 
