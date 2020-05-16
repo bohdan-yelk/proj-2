@@ -142,9 +142,12 @@ import {log} from './utils'
   $('#usefulSlider').slick({
     dots: false,
     arrows: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: 2,
+    // slidesToScroll: 1,
     variableWidth: true,
+    // infinite: false,
+    // swipeToSlide: true,
+    // draggable: true,
     responsive: [
       {
         breakpoint: 568,
@@ -931,39 +934,46 @@ import {log} from './utils'
       .animate({scrollTop: $(this.hash).offset().top - fixedOffset}, 1000)
   })
 
-  function removeExcessNavItem() {
-    var navEach = $('section.coa-section nav ul')
-    var sectionCoa = $('section.coa-section')
-    var navLink = $('section.coa-section nav ul li a')
+  // function removeExcessNavItem() {
+  //   var navEach = $('section.coa-section nav ul')
+  //   var sectionCoa = $('section.coa-section')
+  //   var navLink = $('section.coa-section nav ul li a')
 
-    sectionCoa.each(function(){
-      var navLinkAttr = navLink.attr('href')
-      var elemIdAttr = sectionCoa.find('*').attr('id')
+  //   sectionCoa.each(function(){
+  //     var navLinkAttr = navLink.attr('href')
+  //     var elemIdAttr = sectionCoa.find('*').attr('id')
 
-      if(navLinkAtrr === '#' || elemIdAttr != navLinkAttr)
-    })
+  //     if(navLinkAtrr === '#' || elemIdAttr != navLinkAttr) {
+        
+  //     }
+  //   })
 
 
-    // $('section.coa-section').each(function () {
+  //   // $('section.coa-section').each(function () {
 
-    // })
+  //   // })
 
-    // linkHref.each(function () {
-    //   if ($(this).attr('href') === '#') {
-    //     $(this).parents('li').removeClass('active').hide()
-    //   }
-    // })
-  }
+  //   // linkHref.each(function () {
+  //   //   if ($(this).attr('href') === '#') {
+  //   //     $(this).parents('li').removeClass('active').hide()
+  //   //   }
+  //   // })
+  // }
 
-  removeExcessNavItem()
+  // removeExcessNavItem()
 
   $('.custom-select').on('click', function () {
     var size = $('.select-selected').text()
     $('#size').val(size)
     $('#size').trigger('change')
   })
+
+  var color = $('#colorList li').attr('data-color')
+    $('#color').val(color)
+    $('#color').trigger('change')
+
   $('#colorList li').on('click', function () {
-    var color = $(this).attr('data-color')
+    color = $(this).attr('data-color')
     $('#color').val(color)
     $('#color').trigger('change')
   })
@@ -976,6 +986,30 @@ import {log} from './utils'
       $('.price-new').html($('div.hidden-variable-price').html())
     }
   })
+
+
+  // --- fly cart --- 
+
+  // function customFly() {
+  //   var flyCart = $('#xt_woofc')
+  //   var flyClose = $('.xt_woofc-cart-opened .xt_woofc-trigger')
+  //   var flyOpen = $('.xt_woofc-trigger')
+
+  //   xt_woofc_is_cart_open() 
+
+  //   flyOpen.on('click', function(){
+  //     flyCart.each(function(){
+
+  //       if(xt_woofc_is_cart_open()) {
+  //         console.log('testconsole')
+  //         // flyClose.addClass('testclass')
+  //         // flyClose.find('.xt_woofc-trigger-close-icon').text('Continue shopping')
+  //       }
+  //     })
+  //   })
+  // }
+
+  customFly()
 
   // ---- custom select ----
 

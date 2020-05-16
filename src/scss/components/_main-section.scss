@@ -148,7 +148,10 @@
         }
         
         &-arrow {
+            width: 50px;
+            height: 50%;
             top: calc(50% - 16px);
+            
             &:before {
                 padding: 16px;
                 font-family: 'icomoon';

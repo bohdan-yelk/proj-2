@@ -12,6 +12,15 @@
         }
     }
 
+    .block-contacts {
+        display: flex;
+        align-items: center;
+
+        a {
+            display: block;
+        }
+    }
+
     h3 {
         margin: 0 24px 0 0;
         font-family: $base-font-sans-serif;
