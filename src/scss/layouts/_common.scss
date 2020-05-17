@@ -662,6 +662,10 @@ span.bg-title {
             background-color: $white;
             transition: box-shadow .3s ease;
 
+            @include media ('<=large') {
+                width: 100%;
+            }
+
             @include media ('<=small') {
                 padding: 16px;
             }

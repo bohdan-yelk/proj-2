@@ -44,7 +44,10 @@
     }
 
     .logo-main-wrapper {
-        @include media('<desktop') {}
+        @include media('<desktop') {
+            flex: inherit;
+            max-width: 28% !important;
+        }
     }
 
     .cart-btn-wrapper {

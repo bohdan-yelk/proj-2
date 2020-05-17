@@ -1,6 +1,10 @@
 .story-section {
     padding: 0 0 100px;
 
+    @include media ('<=large') {
+        padding: 0 0 60px;
+    }
+
     @include media ('<=desktop') {
         position: relative;
     }
@@ -16,7 +20,7 @@
 
         @include media ('<=desktop') {
             flex-direction: column;
-            min-height: 355px;
+            min-height: auto;
         }
 
         @include media ('<=small') {
@@ -66,7 +70,7 @@
 
             @include media ('<=desktop') {
                 padding: 0;
-                margin: auto 0 0;
+                margin: 0;
                 z-index: 1;
             }
         }

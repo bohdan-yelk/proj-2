@@ -7,7 +7,7 @@
     }
 
     @include media ('<=tablet') {
-        min-height: 470px;
+        min-height: 550px;
     }
 
     @include media ('<=small') {
@@ -46,14 +46,13 @@
             left: 20px;
         }
 
-        @include media ('<=tablet') {
-            top: 65px;
-        }
+        
 
         @include media ('<=small') {
             position: relative;
             top: inherit;
             left: inherit;
+            right: inherit;
         }
 
         .item {
@@ -110,6 +109,15 @@
 
     .slick {
 
+        &-slide {
+            @include media ('<=small') {
+                img {
+                    width: 100%;
+                }
+            }
+            
+        }
+
         &-list {
             padding: 0 0 60px;
         }
@@ -119,6 +127,10 @@
             height: 50px;
             top: calc(50% - 45px);
             z-index: 10;
+
+            @include media ('<=small') {
+                top: calc(50% - 30px);
+            }
 
             &:before {
                 padding: 16px;
@@ -141,8 +153,12 @@
         &-prev {
             left: -110px;
 
+            @include media ('<=x-large') {
+                left: 5px;
+            }
+
             @include media ('<=small') {
-                left: 15px;
+                left: 5px;
             }
             
             &:before {
@@ -155,9 +171,29 @@
             right: inherit;
             left: 1180px;
 
+            @include media ('<=x-large') {
+                left: 50%;
+            }
+
+            @include media ('<=large') {
+                left: 46.7%;
+            }
+
+            @include media ('<=desktop') {
+                left: 45.7%;
+            }
+
+            @include media ('<=tablet') {
+                left: 38.4%;
+            }
+
+            @include media ('<tablet') {
+                left: 36.5%;
+            }
+
             @include media ('<=small') {
                 left: inherit;
-                right: 43px;
+                right: 5px;
             }
 
             &:before {

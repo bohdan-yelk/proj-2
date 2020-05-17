@@ -21,11 +21,12 @@
         padding: 0 15px 30px;
 
         @include media ('<=desktop') {
-            width: 50%;
+            width: 33.3%;
         }
 
         @include media ('<=small') {
             padding: 0 10px 20px;
+            width: 50%;
         }
 
         @include media ('<phone') {

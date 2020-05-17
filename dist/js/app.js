@@ -159,7 +159,8 @@ __webpack_require__.r(__webpack_exports__);
         slidesToScroll: 1,
         infinite: true,
         dots: true,
-        variableWidth: false
+        variableWidth: false,
+        adaptiveHeight: true
       }
     }]
   }); // ---- gallery product slider on surname CoA page ----

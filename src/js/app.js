@@ -71,7 +71,8 @@ import {log} from './utils'
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-          variableWidth: false
+          variableWidth: false,
+          adaptiveHeight: true
         }
       }
     ]
