@@ -7,6 +7,22 @@
         search_surname_in_listing();
         shop_page_popup();
         surname_rough_page();
+        removeExcessNavItem();
+
+        $('a.cart').on('click', function(e){
+        	e.preventDefault();
+        	if(xt_woofc_is_cart_open() == false){
+        		xt_woofc_open_cart();
+        	}else{
+        		xt_woofc_close_cart();
+        	}
+        });
+
+        $('a.continue-shopping').on('click', function(e){
+            e.preventDefault();
+            xt_woofc_close_cart();
+        });
+
 
         $('.radioCoa').on('click', function(){
             let coa_url = $(this).find('img').attr('src');
@@ -26,7 +42,19 @@
 
         $(document).on('click','.add_to_cart_div',function(e){
             e.preventDefault();
-        })
+        });
+
+        $('.product .summary form.cart').on('submit',function(){
+            
+            let product_options = $(this).find('input[name=product_options]').val(),
+                product_img = $(this).find('input[name=coat_of_arm_img]').val();
+                    
+            if(!product_options || !product_img){
+                alert('Please select image before adding this product to your cart');
+                return false;
+            }
+            
+        });
 
     });
 
@@ -179,8 +207,7 @@
     }
 
     function jpeg_popup_cart(){
-
-        $('#CoaZoomPopup .slick-arrow').on('click', function(){
+        $('#coaZoomSlider').on('afterChange', function(){
             set_popup_data();
         });
 
@@ -259,7 +286,7 @@
     }
 
     function shop_page_popup(){
-        if( !getCookie('coa-url1') && $('#coaShop').length > 0){
+        if( !getCookie('coa-url') && $('#coaShop').length > 0){
             $('#coaShop').addClass('active');
             $('#coaShop p.warn').hide();
             $('#coaShop .btn-done').hide();
@@ -339,13 +366,19 @@
             let value = $('.crest-slider .slick-active .item img').data('rating');
             if(value){
                 change_digitalization_value(value);
+                $('.digital-wrapper').show();
+            }else{
+                $('.digital-wrapper').hide();
             }
         }
 
-        $('#crestSlider .slick-arrow').on('click', function(){
+        $('#crestSlider').on('afterChange', function(){
             let value = $('.crest-slider .slick-active .item img').data('rating');
             if(value){
                 change_digitalization_value(value);
+                $('.digital-wrapper').show();
+            }else{
+                $('.digital-wrapper').hide();
             }
         });
     }
@@ -357,5 +390,26 @@
         let $option = $select.find('option:selected');
         $('.dig-add-to-cart span').html('$'+$option.data('price'));
     }
+
+    
+  function removeExcessNavItem() {
+
+    $('.coa-section nav li a').each(function(){
+      var navHref = $(this).attr('href');
+      
+      if(navHref === '#'){
+        $(this).parents('li').removeClass('active').hide();  
+      } else {
+          var elem = $(''+navHref);
+          if ( elem.length == 0) {
+            $(this).parents('li').removeClass('active').hide();
+          }
+      }
+
+    //   console.log(elem.length, navHref, elem);
+    });
+  }
+
+  
 
 })( jQuery );

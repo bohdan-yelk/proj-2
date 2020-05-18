@@ -21,8 +21,8 @@
                 // align-items: flex-start;
             }
 
-            @include media('<=small') {
-                padding: 0 0 25px;
+            @include media('<tablet') {
+                padding: 0;
             }
 
             picture {
@@ -39,6 +39,50 @@
             display: flex;
             justify-content: flex-end;
             padding: 0 0 80px;
+
+            div.wpcf7 {
+                @include media('<tablet') {
+                    width: 100%;
+                }
+
+                form {
+                    @include media('<tablet') {
+                        max-width: inherit;
+                        width: 100%;
+                    }
+                }
+
+                .wpcf7-form-control-wrap {
+                    @include media('<tablet') {
+                        width: 100%;
+                    }
+                }
+            }
+
+            p {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+
+                @include media('<tablet') {
+                    width: 100%;
+                }
+            }
+
+            .custom-select-rough {
+                width: 100%;
+                max-width: 300px;
+
+                @include media('<tablet') {
+                    max-width: inherit;
+                }
+
+                select {
+                    width: 100%;
+                    margin: 0 0 35px;
+                }
+            }
         }
 
         &-share-history {
@@ -68,6 +112,7 @@
     }
 
     form {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -81,17 +126,38 @@
         @include media('<=small') {
             max-width: inherit;
         }
+
+        span.wpcf7-not-valid-tip {
+            position: absolute;
+            bottom: 7px;
+        }
+
+        .wpcf7-response-output {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            margin: 0;
+            font-family: $base-font-sans-serif;
+            font-size: 16px;
+            line-height: 19px;
+            color: $gray;
+            border: 1px solid #eee;
+            background-color: $light-blue;
+            border-radius: 4px;
+        }
     }
 
     input,
-    .custom-select,
     .btn-blue {
         width: 100%;
         max-width: 300px;
-        margin: 0 0 16px;
+        margin: 0 0 35px;
         padding: 18px 24px 17px;
+        
 
-        @include media('<=small') {
+        @include media('<tablet') {
             max-width: inherit;
         }
     }

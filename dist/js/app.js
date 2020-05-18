@@ -674,10 +674,14 @@ __webpack_require__.r(__webpack_exports__);
         $('#wrapper').removeClass('active');
       }
     });
-  });
-  $('.btn-close-submenu').on('click', function () {
-    $(this).parents('.has-submenu').removeClass('active');
-    $(this).parents('.submenu').removeClass('active');
+  }); // $('.btn-close-submenu').on('click', function () {
+  //   $(this).parents('.has-submenu').removeClass('active')
+  //   $(this).parents('.submenu').removeClass('active')
+  // })
+
+  $('.menu-back-mob a').on('click', function () {
+    $(this).parents('.submenu').addClass('testclass');
+    console.log('test sub');
   }); // ---- glossary page - show/hide details ----
 
   function glossaryDetails() {
@@ -865,26 +869,7 @@ __webpack_require__.r(__webpack_exports__);
     $('html, body').stop().animate({
       scrollTop: $(this.hash).offset().top - fixedOffset
     }, 1000);
-  }); // function removeExcessNavItem() {
-  //   var navEach = $('section.coa-section nav ul')
-  //   var sectionCoa = $('section.coa-section')
-  //   var navLink = $('section.coa-section nav ul li a')
-  //   sectionCoa.each(function(){
-  //     var navLinkAttr = navLink.attr('href')
-  //     var elemIdAttr = sectionCoa.find('*').attr('id')
-  //     if(navLinkAtrr === '#' || elemIdAttr != navLinkAttr) {
-  //     }
-  //   })
-  //   // $('section.coa-section').each(function () {
-  //   // })
-  //   // linkHref.each(function () {
-  //   //   if ($(this).attr('href') === '#') {
-  //   //     $(this).parents('li').removeClass('active').hide()
-  //   //   }
-  //   // })
-  // }
-  // removeExcessNavItem()
-
+  });
   $('.custom-select').on('click', function () {
     var size = $('.select-selected').text();
     $('#size').val(size);
@@ -906,22 +891,18 @@ __webpack_require__.r(__webpack_exports__);
     }
   }); // --- fly cart --- 
   // function customFly() {
-  //   var flyCart = $('#xt_woofc')
-  //   var flyClose = $('.xt_woofc-cart-opened .xt_woofc-trigger')
-  //   var flyOpen = $('.xt_woofc-trigger')
-  //   xt_woofc_is_cart_open() 
-  //   flyOpen.on('click', function(){
-  //     flyCart.each(function(){
-  //       if(xt_woofc_is_cart_open()) {
-  //         console.log('testconsole')
-  //         // flyClose.addClass('testclass')
-  //         // flyClose.find('.xt_woofc-trigger-close-icon').text('Continue shopping')
-  //       }
-  //     })
-  //   })
+  //   $(".xt_woofc-product-image").find('a').on({
+  //     mouseenter: function () {
+  //       $(this).animate('slow').css('margin-left', '12px')
+  //       console.log('hover')
+  //     },
+  //     mouseleave: function () {
+  //       $(this).animate('slow').css('margin-left', '0')
+  //     }
+  // })
   // }
-
-  customFly(); // ---- custom select ----
+  // customFly()
+  // ---- custom select ----
 
   var x, i, j, selElmnt, a, b, c;
   /* Look for any elements with the class "custom-select": */

@@ -605,7 +605,7 @@
 
         }
 
-        .form-row {
+        .form-row:not(p) {
             display: flex;
             justify-content: space-between;
 
@@ -613,9 +613,12 @@
                 flex-wrap: wrap;
             }
 
+
             &-first,
             &-second,
             &-last {
+                flex-wrap: wrap;
+                
                 padding: 24px 0;
                 border-bottom: 1px solid #eee;
 
@@ -633,6 +636,11 @@
                 padding: 0 0 24px;
             }
 
+            &-first,
+            &-second {
+                width: 100%;
+            }
+
             input {
                 &:first-child {
                     @include media('<desktop') {
@@ -641,6 +649,16 @@
                 }
             }
         }
+
+        p.form-row {
+            width: 100%;
+        }
     }
 
+}
+
+.checkout-section {
+    form.checkout {
+        display: flex;
+    }
 }

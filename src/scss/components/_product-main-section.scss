@@ -748,7 +748,15 @@
 						}
 					}
 				}
-			}	
+			}
+
+			.woocommerce-variation-price {
+				display: none !important;
+			}
+
+			.availability {
+				display: none !important;
+			}
 		}
 	}
 
