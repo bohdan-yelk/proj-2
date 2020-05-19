@@ -491,10 +491,10 @@ import {log} from './utils'
 
   function choicePay() {
     var $form = $('.block-payment form')
-    var $inputPay = $('.block-payment form input')
+    var $inputPay = $('.block-payment .input-radio')
 
     $inputPay.on('click', function () {
-      $inputPay.parents('label').removeClass('active')
+      $inputPay.parents('.custom-check').removeClass('active')
       if ($(this).prop('checked')) {
         $(this).parents('label').addClass('active')
       }
@@ -534,19 +534,22 @@ import {log} from './utils'
   // ---- fixed steps block on scroll ----
 
   $(function () {
-    $(window).scroll(
-      (function fix_element() {
-        $('#fixedOnScroll')
-          .parents('.wcopc')
-          .css($(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'})
-        if (!$('#fixedOnScroll').parents('.wcopc').length) {
-          $('#fixedOnScroll').css(
-            $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
-          )
-        }
-        return fix_element
-      })()
-    )
+    if ($(window).width() > 992) {
+      $(window).scroll(
+        (function fix_element() {
+          $('#fixedOnScroll')
+            .parents('.wcopc')
+            .css($(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'})
+          if (!$('#fixedOnScroll').parents('.wcopc').length) {
+            $('#fixedOnScroll').css(
+              $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
+            )
+          }
+          return fix_element
+        })()
+      )
+    }
+    
   })
 
   // ---- change content on crest-setcion
@@ -722,7 +725,11 @@ import {log} from './utils'
   // })
 
   $('.menu-back-mob a').on('click', function() {
-    $(this).parents('.submenu').addClass('testclass')
+    // $(this).parents('.submenu').removeClass('active')
+    // $(this).parents('.submenu').addClass('testclass')
+    if($(this).parents('.submenu').hasClass('active')) {
+      $(this).parents('.submenu').removeClass('active')
+    }
     console.log('test sub')
   })
 

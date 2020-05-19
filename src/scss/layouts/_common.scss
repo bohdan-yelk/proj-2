@@ -1568,6 +1568,8 @@ span.bg-title {
         .xt_woofc-wrapper {
             right: inherit;
             background-color:$white;
+
+            
         }
     }
 
@@ -1585,6 +1587,10 @@ span.bg-title {
             height: inherit;
             max-height: inherit;
             margin: 0;     
+
+            @include media('<=desktop') {
+                z-index: 1000000;
+            }
         }
 
         &-wrapper {
@@ -1592,6 +1598,10 @@ span.bg-title {
             box-shadow: -16px 0px 32px rgba(52, 90, 156, 0.25);
             border-radius: 0;
             background-color: $white;
+
+            @include media('<=tablet') {
+                padding: 0 20px 20px;   
+            }
         }
 
         &-header,
@@ -1606,6 +1616,25 @@ span.bg-title {
             align-items: center;
             padding: 40px 0 0;
             border: none;
+
+            @include media('<=tablet') {
+                padding: 20px 0 0;
+            }
+        }
+        &-body {
+            height: calc(100% - 40px - 250px);
+
+            @include media('<=tablet') {
+                height: calc(100% - 40px - 195px);
+                margin-top: 0;
+                
+            }
+
+            .xt_woofc-list {
+                @include media('<=tablet') {
+                    padding: 20px 6px;
+                }
+            }
         }
 
         &-title {
@@ -1798,9 +1827,14 @@ span.bg-title {
         }
 
         &-footer {
+            position: relative;
             display: flex;
             flex-direction: column;
-            padding: 40px 40px;
+            padding: 40px 0;
+
+            @include media('<=tablet') {
+                padding: 20px 0;
+            }
 
             a.xt_woofc-checkout {
                 position: relative;
@@ -1853,6 +1887,10 @@ span.bg-title {
 
                 &.continue-shopping {
                     padding-left: 40px;
+
+                    @include media('<phone') {
+                        padding-left: 16px;
+                    }
                     
 
                     &:before {
@@ -1863,6 +1901,10 @@ span.bg-title {
 
                 &.view-cart {
                     padding-right: 40px;
+
+                    @include media('<phone') {
+                        padding-right: 16px;
+                    }
                     
                     &:before {
                         content: '\e901';
@@ -1903,6 +1945,10 @@ span.bg-title {
             font-weight: normal;
             line-height: 21px;
             color: $gray;
+
+            @include media('<=tablet') {
+                margin: 0 0 15px;
+            }
 
             span {                
                 position: relative;
