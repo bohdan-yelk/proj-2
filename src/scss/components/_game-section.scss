@@ -3,7 +3,7 @@
 
     @include media('<desktop') {
         position: relative;
-        background-image: url('/images/game-bg.jpg');
+        background-image: url('../../images/game-bg.jpg');
 
         &:before {
             position: absolute;

@@ -526,7 +526,83 @@
         }
 
         &-terms {
-            display: none;
+            p {
+                line-height: 25px;
+            }
+
+            .custom-check {
+                position: relative;
+                display: inline-block;
+                margin: 0 0 16px;
+                padding: 0 0 0 30px;
+                border: none;
+                border-radius: 0px;
+                font-family: $base-font-sans-serif;
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 19px;
+                color: $gray;
+                cursor: pointer;
+                user-select: none;
+        
+                &.active {
+                    border-color: $blue;
+                    color: $blue;
+                }
+        
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    width: 0;
+                    height: 0;
+        
+                    &:checked~.radiobtn:after,
+                    &:checked~.checkmark:after {
+                        display: block;
+                    }
+                }
+
+                .checkmark {
+                    position: absolute;
+                    top: 50%;
+                    left: 18px;
+                    transform: translateY(-50%);
+                    width: 20px;
+                    height: 20px;
+                    background-color: $light-blue;
+                    border: 1px solid #eee;
+                    border-radius: 50%;
+        
+                    &:after {
+                        position: absolute;
+                        content: '\e904';
+                        font-family: 'icomoon';
+                        font-size: 20px;
+                        color: $blue;
+                        display: none;
+                    }
+                }
+        
+                .checkmark {
+                    top: 11px;
+                    left: 0;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 4px;
+        
+                    &:after {
+                        content: '';
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 16px;
+                        height: 16px;
+                        background-color: $blue;
+                        border-radius: 4px;
+                    }
+                }
+            }
         }
     }
 

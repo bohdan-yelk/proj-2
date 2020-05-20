@@ -654,7 +654,7 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: 10;
+    z-index: 100;
     background-color: rgba(0, 0, 0, 0.5); }
 
 .container {
@@ -3315,7 +3315,7 @@ span.bg-title {
   @media (max-width: 991px) {
     .game-section {
       position: relative;
-      background-image: url("/images/game-bg.jpg"); }
+      background-image: url("../images/game-bg.jpg"); }
       .game-section:before {
         position: absolute;
         content: '';
@@ -4797,12 +4797,12 @@ span.bg-title {
       right: 35px; }
       .product-main-section .block-image .color-list .slick-next:before {
         content: '\e901'; }
-  .product-main-section .block-image li {
+  .product-main-section .block-image .color-item {
     padding: 0 4px; }
     @media (max-width: 567px) {
-      .product-main-section .block-image li {
+      .product-main-section .block-image .color-item {
         padding: 0 12px; } }
-    .product-main-section .block-image li.active a:before {
+    .product-main-section .block-image .color-item.active a:before {
       position: absolute;
       content: '\2714';
       top: 50%;
@@ -4819,31 +4819,31 @@ span.bg-title {
       border: 1px solid #0094FF;
       border-radius: 50%;
       background-color: #fff; }
-    .product-main-section .block-image li#color-1 a {
+    .product-main-section .block-image .color-item#color-1 a {
       background-color: #fff; }
-    .product-main-section .block-image li#color-2 a {
+    .product-main-section .block-image .color-item#color-2 a {
       background-color: #FF6E3F; }
-    .product-main-section .block-image li#color-3 a {
+    .product-main-section .block-image .color-item#color-3 a {
       background-color: #6D4F47; }
-    .product-main-section .block-image li#color-4 a {
+    .product-main-section .block-image .color-item#color-4 a {
       background-color: #050505; }
-    .product-main-section .block-image li#color-5 a {
+    .product-main-section .block-image .color-item#color-5 a {
       background-color: #FFA100; }
-    .product-main-section .block-image li#color-6 a {
+    .product-main-section .block-image .color-item#color-6 a {
       background-color: #FFC700; }
-    .product-main-section .block-image li#color-7 a {
+    .product-main-section .block-image .color-item#color-7 a {
       background-color: #00D89F; }
-    .product-main-section .block-image li#color-8 a {
+    .product-main-section .block-image .color-item#color-8 a {
       background-color: #A9BAC5; }
-    .product-main-section .block-image li#color-9 a {
+    .product-main-section .block-image .color-item#color-9 a {
       background-color: #4B4F54; }
-    .product-main-section .block-image li#color-10 a {
+    .product-main-section .block-image .color-item#color-10 a {
       background-color: #041E2F; }
-    .product-main-section .block-image li#color-11 a {
+    .product-main-section .block-image .color-item#color-11 a {
       background-color: #BF0A33; }
-    .product-main-section .block-image li#color-12 a {
+    .product-main-section .block-image .color-item#color-12 a {
       background-color: #9B2743; }
-    .product-main-section .block-image li a {
+    .product-main-section .block-image .color-item a {
       position: relative;
       display: block;
       width: 32px;
@@ -5962,8 +5962,66 @@ span.bg-title {
       display: none; }
   .service-section .block-checkout-payment .payment_box {
     display: none !important; }
-  .service-section .block-terms {
-    display: none; }
+  .service-section .block-terms p {
+    line-height: 25px; }
+  .service-section .block-terms .custom-check {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 16px;
+    padding: 0 0 0 30px;
+    border: none;
+    border-radius: 0px;
+    font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 19px;
+    color: #999;
+    cursor: pointer;
+    user-select: none; }
+    .service-section .block-terms .custom-check.active {
+      border-color: #0094FF;
+      color: #0094FF; }
+    .service-section .block-terms .custom-check input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      width: 0;
+      height: 0; }
+      .service-section .block-terms .custom-check input:checked ~ .radiobtn:after,
+      .service-section .block-terms .custom-check input:checked ~ .checkmark:after {
+        display: block; }
+    .service-section .block-terms .custom-check .checkmark {
+      position: absolute;
+      top: 50%;
+      left: 18px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-color: #F5F7FA;
+      border: 1px solid #eee;
+      border-radius: 50%; }
+      .service-section .block-terms .custom-check .checkmark:after {
+        position: absolute;
+        content: '\e904';
+        font-family: 'icomoon';
+        font-size: 20px;
+        color: #0094FF;
+        display: none; }
+    .service-section .block-terms .custom-check .checkmark {
+      top: 11px;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px; }
+      .service-section .block-terms .custom-check .checkmark:after {
+        content: '';
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        background-color: #0094FF;
+        border-radius: 4px; }
   .service-section .total-info {
     padding: 0;
     list-style: none; }
@@ -6771,7 +6829,7 @@ span.bg-title {
           color: #777;
           border: none; }
   .cart-section .btn {
-    display: block;
+    display: inline-block;
     padding: 0 0 0 30px; }
     @media (max-width: 767px) {
       .cart-section .btn-more {
@@ -7080,12 +7138,50 @@ span.bg-title {
       display: flex;
       align-items: flex-start;
       margin: 0 0 27px; }
+      .checkout-section .block-cart-sum li div,
+      .cta-sidebar .block-cart-sum li div {
+        position: relative;
+        margin: 0 16px 0 0; }
+      .checkout-section .block-cart-sum li.tshirt .top__image,
+      .cta-sidebar .block-cart-sum li.tshirt .top__image {
+        position: absolute;
+        top: 37%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20%; }
+      .checkout-section .block-cart-sum li.poster .top__image,
+      .cta-sidebar .block-cart-sum li.poster .top__image {
+        position: absolute;
+        top: 36%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 42%; }
+      .checkout-section .block-cart-sum li.mug .top__image,
+      .cta-sidebar .block-cart-sum li.mug .top__image {
+        position: absolute;
+        top: 40%;
+        left: 58%;
+        transform: translateX(-50%);
+        width: 23%; }
+      .checkout-section .block-cart-sum li.pillow .top__image,
+      .cta-sidebar .block-cart-sum li.pillow .top__image {
+        position: absolute;
+        top: 37%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 23%; }
+      .checkout-section .block-cart-sum li.canvas .top__image,
+      .cta-sidebar .block-cart-sum li.canvas .top__image {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 24%; }
     .checkout-section .block-cart-sum img,
     .cta-sidebar .block-cart-sum img {
       width: 100%;
       max-width: 64px;
       max-height: 64px;
-      margin: 0 16px 0 0;
       border-radius: 4px; }
     .checkout-section .block-cart-sum span,
     .cta-sidebar .block-cart-sum span {
@@ -7132,11 +7228,23 @@ span.bg-title {
         line-height: 14px;
         color: #303030; }
         .checkout-section .block-cart-sum span.price + p,
-        .cta-sidebar .block-cart-sum span.price + p {
-          margin-top: 0; }
+        .checkout-section .block-cart-sum span.price + p + p,
+        .cta-sidebar .block-cart-sum span.price + p,
+        .cta-sidebar .block-cart-sum span.price + p + p {
+          margin-top: 0;
+          display: inline-block; }
+          .checkout-section .block-cart-sum span.price + p .color,
+          .checkout-section .block-cart-sum span.price + p + p .color,
+          .cta-sidebar .block-cart-sum span.price + p .color,
+          .cta-sidebar .block-cart-sum span.price + p + p .color {
+            width: 15px;
+            height: 15px;
+            margin: 0 0 -2px;
+            border-radius: 50%;
+            border: 1px solid #eee; }
     .checkout-section .block-cart-sum .num-block,
     .cta-sidebar .block-cart-sum .num-block {
-      display: inline-block;
+      display: block;
       max-width: 65px;
       justify-content: space-between;
       margin: 0; }

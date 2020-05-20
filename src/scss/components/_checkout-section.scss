@@ -312,16 +312,76 @@
             }
 
             li {
+                
                 display: flex;
                 align-items: flex-start;
                 margin: 0 0 27px;
+
+                div {
+                    position: relative;
+                    margin: 0 16px 0 0;
+                }
+
+                &.tshirt {
+
+                    .top__image {
+                        position: absolute;
+                        top: 37%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 20%;
+                    }
+                }
+                
+                &.poster {
+
+                    .top__image {
+                        position: absolute;
+                        top: 36%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 42%;
+                    }
+                }
+                &.mug {
+
+                    .top__image {
+                        position: absolute;
+                        top: 40%;
+                        left: 58%;
+                        transform: translateX(-50%);
+                        width: 23%;
+                    }
+                }
+                &.pillow {
+
+                    .top__image {
+                        position: absolute;
+                        top: 37%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 23%;
+                    }
+                }
+
+                &.canvas {
+
+                    .top__image {
+                        position: absolute;
+                        top: 45%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 24%;
+                    }
+                }
+
+                
             }
 
             img {
                 width: 100%;
                 max-width: 64px;
-                max-height: 64px;
-                margin: 0 16px 0 0;
+                max-height: 64px;                
                 border-radius: 4px;
             }
 
@@ -371,14 +431,25 @@
                     line-height: 14px;
                     color: $gray-800;
 
-                    &+p {
+                    &+p,
+                    &+p+p {
                         margin-top: 0;
+                        display: inline-block;
+
+                        .color {
+                            width: 15px;
+                            height: 15px;
+                            margin: 0 0 -2px;
+                            border-radius: 50%;
+                            border: 1px solid #eee;
+                        }
                     }
+                    
                 }
             }
 
             .num-block {
-                display: inline-block;
+                display: block;
                 max-width: 65px;
                 justify-content: space-between;
                 margin: 0;

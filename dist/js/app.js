@@ -352,6 +352,8 @@ __webpack_require__.r(__webpack_exports__);
   function colorOnCart() {
     var spanCartColor = $('.woocommerce-cart-form').find('.row-item.tshirt .color').attr('data-color');
     $('.woocommerce-cart-form').find('.row-item.tshirt .color').css('background-color', '#' + spanCartColor);
+    var spanSummaryColor = $('.block-cart-sum').find('.content .color').attr('data-color');
+    $('.block-cart-sum').find('.content .color').css('background-color', '#' + spanSummaryColor);
   }
 
   colorOnCart(); // ---- custom pagination(1/4) in slick slider on surname rough page  ----
@@ -570,30 +572,28 @@ __webpack_require__.r(__webpack_exports__);
           $('#' + contentAttr).addClass('active');
         }
       });
-    }); // var $crestSlider = $('.crest-section').find('#crestSlider')
-    // var $crestContent = $('.crest-section .block-content').find('.surname-rough-desc')
-    // // var $crestSlideId = $crestSlider.find('.item').attr('data-id')
-    // // var $crestContentId = $crestContent.attr('id')
-    // var slideIdCurrent
-    // var contentIdCurrent
-    // $crestSlider.on('afterChange', function () {
-    //   // slideIdCurrent = $crestSlideId
-    //   // contentIdCurrent = $crestContentId
-    //   $('.crest-section').each(function () {
-    //     slideIdCurrent = $(this).find('.item').attr('data-id')
-    //     contentIdCurrent = $(this).parents('.crest-section').find('.surname-rough-desc').attr('id')
-    //     console.log(slideIdCurrent)
-    //     console.log(contentIdCurrent)
-    //     $crestContent.removeClass('active')
-    //     if (slideIdCurrent === contentIdCurrent) {
-    //       $(this).parents('.crest-setcion').find('.surname-rough-desc').addClass('active')
-    //       console.log('afterChange')
-    //     }
-    //   })
-    // })
+    });
   }
 
   crestContent(); // function scrollFixed() {
+  //   var windowTop = $(window).scrollTop()
+  //   var nextSection = $('.product-section')
+  //   var divHeight = $('.cart-section #fixedOnScroll').height()
+  //   var padding = $('#header').height()
+  //   divHeight = Math.floor(divHeight)
+  //   console.log(divHeight)
+  //   if( windowTop + divHeight > nextSection - padding ) {
+  //     $('.cart-section#fixedOnScroll').css({position: 'relative', top: 'auto'})
+  //   } else if ( windowTop + divHeight < nextSection.scrollTop()) {
+  //     $('.cart-section #fixedOnScroll').css({position: 'fixed', top: '10px'})
+  //   }
+  // }
+  // // scrollFixed()
+  // $(function(){
+  //   $(window).scroll(scrollFixed)
+  //   scrollFixed()
+  // })
+  // function scrollFixed() {
   //   var areaScroll = $('.cart-section').height()
   //   var fixedBlock = $('#fixedOnScroll')
   //   var bottomPosFixedBlock = fixedBlock.height().toFixed()
@@ -666,30 +666,30 @@ __webpack_require__.r(__webpack_exports__);
   // stopFixed()
   // ---- submenu nav ----
 
-  $('.has-submenu').on('click', function () {
-    $(this).addClass('active');
-    $(this).find('.submenu').addClass('active');
-    $('#wrapper').addClass('active');
-    $(document).mouseup(function (e) {
-      if (!$('.submenu').is(e.target) && $('.submenu').has(e.target).length === 0) {
-        $('.submenu').removeClass('active');
-        $('#wrapper').removeClass('active');
+  function navMob() {
+    $('.has-submenu a').on('click', function () {
+      $(this).parents('.has-submenu').addClass('active');
+      $(this).parents('.has-submenu').find('.submenu').addClass('active');
+      $('#wrapper').addClass('active');
+
+      if ($(window).width() > 991) {
+        $(document).mouseup(function (e) {
+          if (!$('.submenu').is(e.target) && $('.submenu').has(e.target).length === 0) {
+            $('.submenu').removeClass('active');
+            $('#wrapper').removeClass('active');
+          }
+        });
       }
     });
-  }); // $('.btn-close-submenu').on('click', function () {
-  //   $(this).parents('.has-submenu').removeClass('active')
-  //   $(this).parents('.submenu').removeClass('active')
-  // })
-
-  $('.menu-back-mob a').on('click', function () {
-    // $(this).parents('.submenu').removeClass('active')
-    // $(this).parents('.submenu').addClass('testclass')
-    if ($(this).parents('.submenu').hasClass('active')) {
+    $('.menu-back-mob a').on('click', function (e) {
+      e.stopPropagation();
+      console.log('test submenu');
       $(this).parents('.submenu').removeClass('active');
-    }
+      $(this).parents('.has-submenu').removeClass('active');
+    });
+  }
 
-    console.log('test sub');
-  }); // ---- glossary page - show/hide details ----
+  navMob(); // ---- glossary page - show/hide details ----
 
   function glossaryDetails() {
     var $showBtn = $('.glossary-list .show');
@@ -722,46 +722,53 @@ __webpack_require__.r(__webpack_exports__);
       e.preventDefault();
       $(this).parents('li').find('.content p').hide('slow');
       $(this).parents('li').removeClass('active');
-    }); // $glossaryList.each(function () {
-    // })
+    });
   }
 
   glossaryDetails(); // ---- color product ----
+  // function changeColor() {
+  //   $('#colorList .color-item a').on('click', function (e) {
+  //     e.preventDefault()
+  //     $('#colorList .color-item').removeClass('active')
+  //     $(this).parent().addClass('active')
+  //     var $colorValue = $(this).css('background-color')
+  //     $('#chaneColor').find('img').css('background-color', $colorValue)
+  //   })
+  // }
+  // changeColor()
 
   function changeColor() {
-    var $colorLink = $('#colorList li a');
-    var $colorItem = $('#colorList li');
-    $colorLink.on('click', function (e) {
+    $('#colorList').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [{
+        breakpoint: 9999,
+        settings: 'unslick'
+      }, {
+        breakpoint: 568,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: true,
+          // variableWidth: true,
+          dots: false
+        }
+      }]
+    });
+    $('#colorList .color-item a').on('click', function (e) {
       e.preventDefault();
-      $colorItem.removeClass('active');
+      $('#colorList .color-item').removeClass('active');
       $(this).parent().addClass('active');
-      var $colorValue = $(this).css('background-color'); // console.log($colorValue)
-
+      var $colorValue = $(this).css('background-color');
       $('#chaneColor').find('img').css('background-color', $colorValue);
     });
   }
 
-  changeColor(); // $('#colorList').slick({
-  //   slidesToShow: 4,
-  //   slidesToScroll: 1,
-  //   responsive: [
-  //     {
-  //       breakpoint: 9999,
-  //       settings: 'unslick'
-  //     },
-  //     {
-  //       breakpoint: 568,
-  //       settings: {
-  //         slidesToShow: 4,
-  //         slidesToScroll: 1,
-  //         infinite: false,
-  //         arrows: true,
-  //         // variableWidth: true,
-  //         dots: false
-  //       }
-  //     }
-  //   ]
-  // })
+  changeColor(); // $('#colorList').on('click', function(e){
+  //   var slideCLicked = $(e.currentSlide).attr('data-slick-index')
+  //   console.log(slideCLicked)
+  // });
   // ---- product +/- ----
 
   $('.num-in span').click(function () {
@@ -882,15 +889,15 @@ __webpack_require__.r(__webpack_exports__);
     $('#size').val(size);
     $('#size').trigger('change');
   });
-  var color = $('#colorList li').attr('data-color');
+  var color = $('#colorList .color-item').attr('data-color');
   $('#color').val(color);
   $('#color').trigger('change');
-  $('#colorList li').on('click', function () {
+  $('#colorList .color-item').on('click', function () {
     color = $(this).attr('data-color');
     $('#color').val(color);
     $('#color').trigger('change');
   });
-  $('.custom-select, #colorList li').on('click', function () {
+  $('.custom-select, #colorList .color-item').on('click', function () {
     if (0 < $('input.variation_id').val() && null != $('input.variation_id').val()) {
       $('.price-new').html($('div.woocommerce-variation-price > span.price').html()).append('<p class="availability">' + $('div.woocommerce-variation-availability').html() + '</p>');
     } else {
