@@ -4601,20 +4601,13 @@ span.bg-title {
     padding: 0 15px 30px; }
     @media (max-width: 992px) {
       .product-section .card {
-<<<<<<< HEAD
         width: 33.3%; } }
-    @media (max-width: 567px) {
-      .product-section .card {
-        padding: 0 10px 20px;
-=======
-        width: 50%; } }
     @media (max-width: 768px) {
       .product-section .card {
         width: 33.3%;
         padding: 0 10px 30px; } }
     @media (max-width: 567px) {
       .product-section .card {
->>>>>>> df670c3afab97f55f3c86b7f634945769a9d03b6
         width: 50%; } }
     @media (max-width: 374px) {
       .product-section .card {

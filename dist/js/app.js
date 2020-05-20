@@ -91,7 +91,6 @@
   !*** ./src/js/app.js ***!
   \***********************/
 /*! no exports provided */
-<<<<<<< HEAD
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -354,6 +353,8 @@ __webpack_require__.r(__webpack_exports__);
   function colorOnCart() {
     var spanCartColor = $('.woocommerce-cart-form').find('.row-item.tshirt .color').attr('data-color');
     $('.woocommerce-cart-form').find('.row-item.tshirt .color').css('background-color', '#' + spanCartColor);
+    var spanSummaryColor = $('.block-cart-sum').find('.content .color').attr('data-color');
+    $('.block-cart-sum').find('.content .color').css('background-color', '#' + spanSummaryColor);
   }
 
   colorOnCart(); // ---- custom pagination(1/4) in slick slider on surname rough page  ----
@@ -495,13 +496,37 @@ __webpack_require__.r(__webpack_exports__);
     });
   }
 
-  stepCheckout(); // ---- choice payment method on service page ----
+  stepCheckout();
+
+  function validFieldsCheckout() {
+    var RegExEmeil = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    var RegExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/;
+    var RegExPostcode = /^[A-Za-z0-9\s]+$/;
+    var formCheck = $('.tab-checkout .div--form');
+    var inputForm = formCheck.find('input');
+    inputForm.focusout(function () {
+      if (!$(this).val()) {
+        $(this).parents('.tab-checkout').find('.btn-continue').css({
+          'opacity': '0.6',
+          'pointerEvents': 'none'
+        });
+        $(this).parents('.tab-checkout').addClass('invalid');
+      } else {
+        $(this).parents('.tab-checkout').find('.btn-continue').css({
+          'opacity': '1',
+          'pointerEvents': 'inherit'
+        });
+      }
+    }); //
+  }
+
+  validFieldsCheckout(); // ---- choice payment method on service page ----
 
   function choicePay() {
     var $form = $('.block-payment form');
-    var $inputPay = $('.block-payment form input');
+    var $inputPay = $('.block-payment .input-radio');
     $inputPay.on('click', function () {
-      $inputPay.parents('label').removeClass('active');
+      $inputPay.parents('.custom-check').removeClass('active');
 
       if ($(this).prop('checked')) {
         $(this).parents('label').addClass('active');
@@ -534,27 +559,29 @@ __webpack_require__.r(__webpack_exports__);
   // ---- fixed steps block on scroll ----
 
   $(function () {
-    $(window).scroll(function fix_element() {
-      $('#fixedOnScroll').parents('.wcopc').css($(window).scrollTop() > 220 ? {
-        position: 'fixed',
-        top: '10px'
-      } : {
-        position: 'relative',
-        top: 'auto'
-      });
-
-      if (!$('#fixedOnScroll').parents('.wcopc').length) {
-        $('#fixedOnScroll').css($(window).scrollTop() > 220 ? {
+    if ($(window).width() > 992) {
+      $(window).scroll(function fix_element() {
+        $('#fixedOnScroll').parents('.wcopc').css($(window).scrollTop() > 220 ? {
           position: 'fixed',
           top: '10px'
         } : {
           position: 'relative',
           top: 'auto'
         });
-      }
 
-      return fix_element;
-    }());
+        if (!$('#fixedOnScroll').parents('.wcopc').length) {
+          $('#fixedOnScroll').css($(window).scrollTop() > 220 ? {
+            position: 'fixed',
+            top: '10px'
+          } : {
+            position: 'relative',
+            top: 'auto'
+          });
+        }
+
+        return fix_element;
+      }());
+    }
   }); // ---- change content on crest-setcion
 
   function crestContent() {
@@ -570,30 +597,28 @@ __webpack_require__.r(__webpack_exports__);
           $('#' + contentAttr).addClass('active');
         }
       });
-    }); // var $crestSlider = $('.crest-section').find('#crestSlider')
-    // var $crestContent = $('.crest-section .block-content').find('.surname-rough-desc')
-    // // var $crestSlideId = $crestSlider.find('.item').attr('data-id')
-    // // var $crestContentId = $crestContent.attr('id')
-    // var slideIdCurrent
-    // var contentIdCurrent
-    // $crestSlider.on('afterChange', function () {
-    //   // slideIdCurrent = $crestSlideId
-    //   // contentIdCurrent = $crestContentId
-    //   $('.crest-section').each(function () {
-    //     slideIdCurrent = $(this).find('.item').attr('data-id')
-    //     contentIdCurrent = $(this).parents('.crest-section').find('.surname-rough-desc').attr('id')
-    //     console.log(slideIdCurrent)
-    //     console.log(contentIdCurrent)
-    //     $crestContent.removeClass('active')
-    //     if (slideIdCurrent === contentIdCurrent) {
-    //       $(this).parents('.crest-setcion').find('.surname-rough-desc').addClass('active')
-    //       console.log('afterChange')
-    //     }
-    //   })
-    // })
+    });
   }
 
   crestContent(); // function scrollFixed() {
+  //   var windowTop = $(window).scrollTop()
+  //   var nextSection = $('.product-section')
+  //   var divHeight = $('.cart-section #fixedOnScroll').height()
+  //   var padding = $('#header').height()
+  //   divHeight = Math.floor(divHeight)
+  //   console.log(divHeight)
+  //   if( windowTop + divHeight > nextSection - padding ) {
+  //     $('.cart-section#fixedOnScroll').css({position: 'relative', top: 'auto'})
+  //   } else if ( windowTop + divHeight < nextSection.scrollTop()) {
+  //     $('.cart-section #fixedOnScroll').css({position: 'fixed', top: '10px'})
+  //   }
+  // }
+  // // scrollFixed()
+  // $(function(){
+  //   $(window).scroll(scrollFixed)
+  //   scrollFixed()
+  // })
+  // function scrollFixed() {
   //   var areaScroll = $('.cart-section').height()
   //   var fixedBlock = $('#fixedOnScroll')
   //   var bottomPosFixedBlock = fixedBlock.height().toFixed()
@@ -666,21 +691,30 @@ __webpack_require__.r(__webpack_exports__);
   // stopFixed()
   // ---- submenu nav ----
 
-  $('.has-submenu').on('click', function () {
-    $(this).addClass('active');
-    $(this).find('.submenu').addClass('active');
-    $('#wrapper').addClass('active');
-    $(document).mouseup(function (e) {
-      if (!$('.submenu').is(e.target) && $('.submenu').has(e.target).length === 0) {
-        $('.submenu').removeClass('active');
-        $('#wrapper').removeClass('active');
+  function navMob() {
+    $('.has-submenu a').on('click', function () {
+      $(this).parents('.has-submenu').addClass('active');
+      $(this).parents('.has-submenu').find('.submenu').addClass('active');
+      $('#wrapper').addClass('active');
+
+      if ($(window).width() > 991) {
+        $(document).mouseup(function (e) {
+          if (!$('.submenu').is(e.target) && $('.submenu').has(e.target).length === 0) {
+            $('.submenu').removeClass('active');
+            $('#wrapper').removeClass('active');
+          }
+        });
       }
     });
-  });
-  $('.btn-close-submenu').on('click', function () {
-    $(this).parents('.has-submenu').removeClass('active');
-    $(this).parents('.submenu').removeClass('active');
-  }); // ---- glossary page - show/hide details ----
+    $('.menu-back-mob a').on('click', function (e) {
+      e.stopPropagation();
+      console.log('test submenu');
+      $(this).parents('.submenu').removeClass('active');
+      $(this).parents('.has-submenu').removeClass('active');
+    });
+  }
+
+  navMob(); // ---- glossary page - show/hide details ----
 
   function glossaryDetails() {
     var $showBtn = $('.glossary-list .show');
@@ -713,46 +747,53 @@ __webpack_require__.r(__webpack_exports__);
       e.preventDefault();
       $(this).parents('li').find('.content p').hide('slow');
       $(this).parents('li').removeClass('active');
-    }); // $glossaryList.each(function () {
-    // })
+    });
   }
 
   glossaryDetails(); // ---- color product ----
+  // function changeColor() {
+  //   $('#colorList .color-item a').on('click', function (e) {
+  //     e.preventDefault()
+  //     $('#colorList .color-item').removeClass('active')
+  //     $(this).parent().addClass('active')
+  //     var $colorValue = $(this).css('background-color')
+  //     $('#chaneColor').find('img').css('background-color', $colorValue)
+  //   })
+  // }
+  // changeColor()
 
   function changeColor() {
-    var $colorLink = $('#colorList li a');
-    var $colorItem = $('#colorList li');
-    $colorLink.on('click', function (e) {
+    $('#colorList').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [{
+        breakpoint: 9999,
+        settings: 'unslick'
+      }, {
+        breakpoint: 568,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: true,
+          // variableWidth: true,
+          dots: false
+        }
+      }]
+    });
+    $('#colorList .color-item a').on('click', function (e) {
       e.preventDefault();
-      $colorItem.removeClass('active');
+      $('#colorList .color-item').removeClass('active');
       $(this).parent().addClass('active');
-      var $colorValue = $(this).css('background-color'); // console.log($colorValue)
-
+      var $colorValue = $(this).css('background-color');
       $('#chaneColor').find('img').css('background-color', $colorValue);
     });
   }
 
-  changeColor(); // $('#colorList').slick({
-  //   slidesToShow: 4,
-  //   slidesToScroll: 1,
-  //   responsive: [
-  //     {
-  //       breakpoint: 9999,
-  //       settings: 'unslick'
-  //     },
-  //     {
-  //       breakpoint: 568,
-  //       settings: {
-  //         slidesToShow: 4,
-  //         slidesToScroll: 1,
-  //         infinite: false,
-  //         arrows: true,
-  //         // variableWidth: true,
-  //         dots: false
-  //       }
-  //     }
-  //   ]
-  // })
+  changeColor(); // $('#colorList').on('click', function(e){
+  //   var slideCLicked = $(e.currentSlide).attr('data-slick-index')
+  //   console.log(slideCLicked)
+  // });
   // ---- product +/- ----
 
   $('.num-in span').click(function () {
@@ -867,63 +908,40 @@ __webpack_require__.r(__webpack_exports__);
     $('html, body').stop().animate({
       scrollTop: $(this.hash).offset().top - fixedOffset
     }, 1000);
-  }); // function removeExcessNavItem() {
-  //   var navEach = $('section.coa-section nav ul')
-  //   var sectionCoa = $('section.coa-section')
-  //   var navLink = $('section.coa-section nav ul li a')
-  //   sectionCoa.each(function(){
-  //     var navLinkAttr = navLink.attr('href')
-  //     var elemIdAttr = sectionCoa.find('*').attr('id')
-  //     if(navLinkAtrr === '#' || elemIdAttr != navLinkAttr) {
-  //     }
-  //   })
-  //   // $('section.coa-section').each(function () {
-  //   // })
-  //   // linkHref.each(function () {
-  //   //   if ($(this).attr('href') === '#') {
-  //   //     $(this).parents('li').removeClass('active').hide()
-  //   //   }
-  //   // })
-  // }
-  // removeExcessNavItem()
-
+  });
   $('.custom-select').on('click', function () {
     var size = $('.select-selected').text();
     $('#size').val(size);
     $('#size').trigger('change');
   });
-  var color = $('#colorList li').attr('data-color');
+  var color = $('#colorList .color-item').attr('data-color');
   $('#color').val(color);
   $('#color').trigger('change');
-  $('#colorList li').on('click', function () {
+  $('#colorList .color-item').on('click', function () {
     color = $(this).attr('data-color');
     $('#color').val(color);
     $('#color').trigger('change');
   });
-  $('.custom-select, #colorList li').on('click', function () {
+  $('.custom-select, #colorList .color-item').on('click', function () {
     if (0 < $('input.variation_id').val() && null != $('input.variation_id').val()) {
       $('.price-new').html($('div.woocommerce-variation-price > span.price').html()).append('<p class="availability">' + $('div.woocommerce-variation-availability').html() + '</p>');
     } else {
       $('.price-new').html($('div.hidden-variable-price').html());
     }
-  }); // --- fly cart --- 
+  }); // --- fly cart ---
   // function customFly() {
-  //   var flyCart = $('#xt_woofc')
-  //   var flyClose = $('.xt_woofc-cart-opened .xt_woofc-trigger')
-  //   var flyOpen = $('.xt_woofc-trigger')
-  //   xt_woofc_is_cart_open() 
-  //   flyOpen.on('click', function(){
-  //     flyCart.each(function(){
-  //       if(xt_woofc_is_cart_open()) {
-  //         console.log('testconsole')
-  //         // flyClose.addClass('testclass')
-  //         // flyClose.find('.xt_woofc-trigger-close-icon').text('Continue shopping')
-  //       }
-  //     })
-  //   })
+  //   $(".xt_woofc-product-image").find('a').on({
+  //     mouseenter: function () {
+  //       $(this).animate('slow').css('margin-left', '12px')
+  //       console.log('hover')
+  //     },
+  //     mouseleave: function () {
+  //       $(this).animate('slow').css('margin-left', '0')
+  //     }
+  // })
   // }
-
-  customFly(); // ---- custom select ----
+  // customFly()
+  // ---- custom select ----
 
   var x, i, j, selElmnt, a, b, c;
   /* Look for any elements with the class "custom-select": */
@@ -1043,11 +1061,9 @@ var log = function log() {
   for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
     args[_key] = arguments[_key];
   }
-=======
-/***/ (function(module, exports) {
->>>>>>> df670c3afab97f55f3c86b7f634945769a9d03b6
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: F:\\Bohdan\\CoadB\\proj-2\\src\\js\\app.js: Unexpected token, expected \";\" (504:20)\n\n\u001b[0m \u001b[90m 502 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 503 | \u001b[39m      \u001b[36mif\u001b[39m( \u001b[33m!\u001b[39minputForm\u001b[33m.\u001b[39mval()) {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 504 | \u001b[39m        \u001b[36mvar\u001b[39m console console\u001b[33m.\u001b[39mlog(\u001b[32m'invalid'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 505 | \u001b[39m      } \u001b[36melse\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 506 | \u001b[39m        \u001b[36mvar\u001b[39m console \u001b[33m=\u001b[39m console\u001b[33m.\u001b[39mlog(\u001b[32m'valid'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 507 | \u001b[39m      }\u001b[0m\n    at Parser.raise (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:3851:17)\n    at Parser.unexpected (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5165:16)\n    at Parser.semicolon (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5147:40)\n    at Parser.parseVarStatement (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7774:10)\n    at Parser.parseStatementContent (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7360:21)\n    at Parser.parseStatement (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7293:17)\n    at Parser.parseBlockOrModuleBlockBody (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7879:25)\n    at Parser.parseBlockBody (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7866:10)\n    at Parser.parseBlock (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7850:10)\n    at Parser.parseStatementContent (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7369:21)\n    at Parser.parseStatement (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7293:17)\n    at Parser.parseIfStatement (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7656:28)\n    at Parser.parseStatementContent (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7338:21)\n    at Parser.parseStatement (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7293:17)\n    at Parser.parseBlockOrModuleBlockBody (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7879:25)\n    at Parser.parseBlockBody (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7866:10)\n    at Parser.parseBlock (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7850:10)\n    at Parser.parseFunctionBody (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:6911:24)\n    at Parser.parseFunctionBodyAndFinish (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:6881:10)\n    at F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:8014:12\n    at Parser.withTopicForbiddingContext (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:7187:14)\n    at Parser.parseFunction (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:8013:10)\n    at Parser.parseFunctionExpression (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:6366:17)\n    at Parser.parseExprAtom (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:6279:21)\n    at Parser.parseExprSubscripts (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5916:23)\n    at Parser.parseMaybeUnary (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5896:21)\n    at Parser.parseExprOps (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5783:23)\n    at Parser.parseMaybeConditional (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5756:23)\n    at Parser.parseMaybeAssign (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5703:21)\n    at Parser.parseExprListItem (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:6979:18)\n    at Parser.parseCallExpressionArguments (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:6123:22)\n    at Parser.parseSubscript (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:6018:29)\n    at Parser.parseSubscripts (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5937:19)\n    at Parser.parseExprSubscripts (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5926:17)\n    at Parser.parseMaybeUnary (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5896:21)\n    at Parser.parseExprOps (F:\\Bohdan\\CoadB\\proj-2\\node_modules\\@babel\\parser\\lib\\index.js:5783:23)");
+  return (_console = console).info.apply(_console, ['%c[DEBUG]', 'color: #ffaa00'].concat(args));
+};
 
 /***/ }),
 

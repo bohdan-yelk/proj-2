@@ -309,9 +309,10 @@ import {log} from './utils'
       .find('.row-item.tshirt .color')
       .css('background-color', '#' + spanCartColor)
 
-    var spanSummaryColor = $('.block-cart-sum').find('.content .color').attr('data-color') 
-    $('.block-cart-sum').find('.content .color').css('background-color', '#' + spanSummaryColor)
-    
+    var spanSummaryColor = $('.block-cart-sum').find('.content .color').attr('data-color')
+    $('.block-cart-sum')
+      .find('.content .color')
+      .css('background-color', '#' + spanSummaryColor)
   }
 
   colorOnCart()
@@ -497,27 +498,19 @@ import {log} from './utils'
     const RegExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/
     const RegExPostcode = /^[A-Za-z0-9\s]+$/
     var formCheck = $('.tab-checkout .div--form')
+    var inputForm = formCheck.find('input')
 
-    formCheck.each(function(){
-      var inputForm = $(this).find('input')
+    inputForm.focusout(function () {
+      if (!$(this).val()) {
+        $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '0.6', 'pointerEvents': 'none'})
+        $(this).parents('.tab-checkout').addClass('invalid')
 
-      if( !inputForm.val()) {
-        var console console.log('invalid')
       } else {
-        var console = console.log('valid')
+        $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '1', 'pointerEvents': 'inherit'})
       }
-
-      return console
-      // } else if (!inputForm.is(':empty')) {
-      //   $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity':'1','pointerEvents': 'inherit'})
-      // }
-      
-      // if( inputForm.attr('name') === "billing_first_name" ) {
-      //   if()
-      // }
-
-      // console.log(inputForm)
     })
+
+    //
   }
 
   validFieldsCheckout()
@@ -584,7 +577,6 @@ import {log} from './utils'
         })()
       )
     }
-    
   })
 
   // ---- change content on crest-setcion
@@ -593,18 +585,16 @@ import {log} from './utils'
     var crestContent = $('.crest-section .block-content').find('.surname-rough-desc')
     var contentAttr = crestContent.attr('id')
 
-    $('#crestSlider').on('afterChange', function(currentSlide){
-
+    $('#crestSlider').on('afterChange', function (currentSlide) {
       var slideAttr = $('.slick-current').find('.item').attr('data-id')
 
-      $('.surname-rough-descriptions').each(function(index){
-
+      $('.surname-rough-descriptions').each(function (index) {
         contentAttr = slideAttr
 
         crestContent.removeClass('active')
 
-        if(slideAttr === contentAttr) {
-          $('#'+contentAttr).addClass('active')
+        if (slideAttr === contentAttr) {
+          $('#' + contentAttr).addClass('active')
         }
       })
     })
@@ -616,7 +606,7 @@ import {log} from './utils'
   //   var windowTop = $(window).scrollTop()
   //   var nextSection = $('.product-section')
   //   var divHeight = $('.cart-section #fixedOnScroll').height()
-    
+
   //   var padding = $('#header').height()
 
   //   divHeight = Math.floor(divHeight)
@@ -741,7 +731,7 @@ import {log} from './utils'
       $(this).parents('.has-submenu').find('.submenu').addClass('active')
       $('#wrapper').addClass('active')
 
-      if($(window).width() > 991) {
+      if ($(window).width() > 991) {
         $(document).mouseup(function (e) {
           if (!$('.submenu').is(e.target) && $('.submenu').has(e.target).length === 0) {
             $('.submenu').removeClass('active')
@@ -751,7 +741,7 @@ import {log} from './utils'
       }
     })
 
-    $('.menu-back-mob a').on('click', function(e){
+    $('.menu-back-mob a').on('click', function (e) {
       e.stopPropagation()
       console.log('test submenu')
       $(this).parents('.submenu').removeClass('active')
@@ -795,7 +785,6 @@ import {log} from './utils'
       $(this).parents('li').find('.content p').hide('slow')
       $(this).parents('li').removeClass('active')
     })
-
   }
 
   glossaryDetails()
@@ -817,7 +806,6 @@ import {log} from './utils'
   // changeColor()
 
   function changeColor() {
-
     $('#colorList').slick({
       slidesToShow: 4,
       slidesToScroll: 1,
@@ -852,8 +840,6 @@ import {log} from './utils'
   }
 
   changeColor()
-
-  
 
   // $('#colorList').on('click', function(e){
   //   var slideCLicked = $(e.currentSlide).attr('data-slick-index')
@@ -947,16 +933,16 @@ import {log} from './utils'
   function upScroll() {
     var uplink = $('body').find('a.up-scroll')
 
-    uplink.on('click', function(){
+    uplink.on('click', function () {
       $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 500)
       console.log('up')
     })
 
-    $(window).scroll(function(){
+    $(window).scroll(function () {
       var scrollVar = $(window).scrollTop()
-      var winHeight =  $(window).height()
+      var winHeight = $(window).height()
 
-      if(scrollVar > winHeight) {
+      if (scrollVar > winHeight) {
         uplink.addClass('active')
       } else {
         uplink.removeClass('active')
@@ -997,8 +983,8 @@ import {log} from './utils'
   })
 
   var color = $('#colorList .color-item').attr('data-color')
-    $('#color').val(color)
-    $('#color').trigger('change')
+  $('#color').val(color)
+  $('#color').trigger('change')
 
   $('#colorList .color-item').on('click', function () {
     color = $(this).attr('data-color')
@@ -1015,8 +1001,7 @@ import {log} from './utils'
     }
   })
 
-
-  // --- fly cart --- 
+  // --- fly cart ---
 
   // function customFly() {
   //   $(".xt_woofc-product-image").find('a').on({
