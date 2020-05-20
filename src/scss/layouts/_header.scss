@@ -8,7 +8,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 110;
+        z-index: 100000;
     }
 
     // &.sticky {
@@ -115,12 +115,21 @@
         }
     }
 
-    input[type="search"] {
+    input[type="search"],
+    input[type="text"] {
         width: calc(100% - 70px);
         padding: 20px 24px 19px 2px;
         border-left: none;
         border-radius: 0 4px 4px 0;
         outline: none;
+
+        @include media('<=large') {
+            border-radius: 0;
+            appearance: textfield;
+            -webkit-border-radius:0px;
+            appearance: none;
+            -webkit-appearance: none;
+        }
 
         @include media('<desktop') {
             width: 100%;
@@ -261,7 +270,7 @@
             background-color: $dark-blue;
             overflow-y: scroll;
             overflow-x: hidden;
-            z-index: 1000;
+            z-index: 100000;
             max-height: inherit;
         }
     }
@@ -339,7 +348,7 @@
 
         @include media('<desktop') {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-start !important;
             margin: 0;
             padding: 0 0 0 25px;
         }
@@ -355,7 +364,7 @@
             padding: 0;
             background-color: $white;
             list-style: none;
-            z-index: 110;
+            z-index: 100000;
 
             // @include media('<desktop') {
             //     position: relative;
@@ -387,6 +396,7 @@
                     // max-height: 100%
                 }
             }
+            
 
             &-services,
             &-learn {
@@ -402,6 +412,11 @@
                         align-items: center;
                         justify-content: center;
 
+                        @include media('<desktop') {
+                            width: fit-content;
+                            align-items: flex-end;
+                        }
+                        
                         i,
                         span {
                             color: $blue;
@@ -443,6 +458,32 @@
                     padding: 0 0 32px 40px;
                 }
 
+                &.menu-back-mob {
+                    display: none; 
+
+                    @include media('<desktop') {
+                        position: absolute;
+                        bottom: -40px;
+                        display: block;
+
+                        a {
+                            padding-left: 40px;
+
+                            &:hover {
+                                color: $white;
+                            }
+
+                            &:after {
+                                content: '\e902';
+                                right: inherit;
+                                left: 0;
+                                transform: translateY(-50%) rotate(0);
+                            }
+                        }
+                    }
+                    
+                }
+
                 &.last {
                     a {
                         top: 50%;
@@ -479,6 +520,10 @@
             &-services {
                 li {
                     width: 50%;
+
+                    @include media('<desktop') {
+                        width: 100%;
+                    }
                 }
             }
 

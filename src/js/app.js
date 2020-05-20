@@ -308,6 +308,10 @@ import {log} from './utils'
     $('.woocommerce-cart-form')
       .find('.row-item.tshirt .color')
       .css('background-color', '#' + spanCartColor)
+
+    var spanSummaryColor = $('.block-cart-sum').find('.content .color').attr('data-color') 
+    $('.block-cart-sum').find('.content .color').css('background-color', '#' + spanSummaryColor)
+    
   }
 
   colorOnCart()
@@ -488,14 +492,44 @@ import {log} from './utils'
 
   stepCheckout()
 
+  function validFieldsCheckout() {
+    const RegExEmeil = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
+    const RegExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/
+    const RegExPostcode = /^[A-Za-z0-9\s]+$/
+    var formCheck = $('.tab-checkout .div--form')
+
+    formCheck.each(function(){
+      var inputForm = $(this).find('input')
+
+      if( !inputForm.val()) {
+        var console console.log('invalid')
+      } else {
+        var console = console.log('valid')
+      }
+
+      return console
+      // } else if (!inputForm.is(':empty')) {
+      //   $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity':'1','pointerEvents': 'inherit'})
+      // }
+      
+      // if( inputForm.attr('name') === "billing_first_name" ) {
+      //   if()
+      // }
+
+      // console.log(inputForm)
+    })
+  }
+
+  validFieldsCheckout()
+
   // ---- choice payment method on service page ----
 
   function choicePay() {
     var $form = $('.block-payment form')
-    var $inputPay = $('.block-payment form input')
+    var $inputPay = $('.block-payment .input-radio')
 
     $inputPay.on('click', function () {
-      $inputPay.parents('label').removeClass('active')
+      $inputPay.parents('.custom-check').removeClass('active')
       if ($(this).prop('checked')) {
         $(this).parents('label').addClass('active')
       }
@@ -535,19 +569,22 @@ import {log} from './utils'
   // ---- fixed steps block on scroll ----
 
   $(function () {
-    $(window).scroll(
-      (function fix_element() {
-        $('#fixedOnScroll')
-          .parents('.wcopc')
-          .css($(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'})
-        if (!$('#fixedOnScroll').parents('.wcopc').length) {
-          $('#fixedOnScroll').css(
-            $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
-          )
-        }
-        return fix_element
-      })()
-    )
+    if ($(window).width() > 992) {
+      $(window).scroll(
+        (function fix_element() {
+          $('#fixedOnScroll')
+            .parents('.wcopc')
+            .css($(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'})
+          if (!$('#fixedOnScroll').parents('.wcopc').length) {
+            $('#fixedOnScroll').css(
+              $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
+            )
+          }
+          return fix_element
+        })()
+      )
+    }
+    
   })
 
   // ---- change content on crest-setcion
@@ -571,40 +608,34 @@ import {log} from './utils'
         }
       })
     })
-
-
-
-    // var $crestSlider = $('.crest-section').find('#crestSlider')
-    // var $crestContent = $('.crest-section .block-content').find('.surname-rough-desc')
-    // // var $crestSlideId = $crestSlider.find('.item').attr('data-id')
-    // // var $crestContentId = $crestContent.attr('id')
-    // var slideIdCurrent
-    // var contentIdCurrent
-
-    // $crestSlider.on('afterChange', function () {
-    //   // slideIdCurrent = $crestSlideId
-    //   // contentIdCurrent = $crestContentId
-
-      
-      
-    //   $('.crest-section').each(function () {
-    //     slideIdCurrent = $(this).find('.item').attr('data-id')
-    //     contentIdCurrent = $(this).parents('.crest-section').find('.surname-rough-desc').attr('id')
-        
-    //     console.log(slideIdCurrent)
-    //     console.log(contentIdCurrent)
-
-    //     $crestContent.removeClass('active')
-
-    //     if (slideIdCurrent === contentIdCurrent) {
-    //       $(this).parents('.crest-setcion').find('.surname-rough-desc').addClass('active')
-    //       console.log('afterChange')
-    //     }
-    //   })
-    // })
   }
 
   crestContent()
+
+  // function scrollFixed() {
+  //   var windowTop = $(window).scrollTop()
+  //   var nextSection = $('.product-section')
+  //   var divHeight = $('.cart-section #fixedOnScroll').height()
+    
+  //   var padding = $('#header').height()
+
+  //   divHeight = Math.floor(divHeight)
+
+  //   console.log(divHeight)
+
+  //   if( windowTop + divHeight > nextSection - padding ) {
+  //     $('.cart-section#fixedOnScroll').css({position: 'relative', top: 'auto'})
+  //   } else if ( windowTop + divHeight < nextSection.scrollTop()) {
+  //     $('.cart-section #fixedOnScroll').css({position: 'fixed', top: '10px'})
+  //   }
+  // }
+
+  // // scrollFixed()
+
+  // $(function(){
+  //   $(window).scroll(scrollFixed)
+  //   scrollFixed()
+  // })
 
   // function scrollFixed() {
   //   var areaScroll = $('.cart-section').height()
@@ -704,23 +735,31 @@ import {log} from './utils'
 
   // ---- submenu nav ----
 
-  $('.has-submenu').on('click', function () {
-    $(this).addClass('active')
-    $(this).find('.submenu').addClass('active')
-    $('#wrapper').addClass('active')
+  function navMob() {
+    $('.has-submenu a').on('click', function () {
+      $(this).parents('.has-submenu').addClass('active')
+      $(this).parents('.has-submenu').find('.submenu').addClass('active')
+      $('#wrapper').addClass('active')
 
-    $(document).mouseup(function (e) {
-      if (!$('.submenu').is(e.target) && $('.submenu').has(e.target).length === 0) {
-        $('.submenu').removeClass('active')
-        $('#wrapper').removeClass('active')
+      if($(window).width() > 991) {
+        $(document).mouseup(function (e) {
+          if (!$('.submenu').is(e.target) && $('.submenu').has(e.target).length === 0) {
+            $('.submenu').removeClass('active')
+            $('#wrapper').removeClass('active')
+          }
+        })
       }
     })
-  })
 
-  $('.btn-close-submenu').on('click', function () {
-    $(this).parents('.has-submenu').removeClass('active')
-    $(this).parents('.submenu').removeClass('active')
-  })
+    $('.menu-back-mob a').on('click', function(e){
+      e.stopPropagation()
+      console.log('test submenu')
+      $(this).parents('.submenu').removeClass('active')
+      $(this).parents('.has-submenu').removeClass('active')
+    })
+  }
+
+  navMob()
 
   // ---- glossary page - show/hide details ----
 
@@ -757,26 +796,56 @@ import {log} from './utils'
       $(this).parents('li').removeClass('active')
     })
 
-    // $glossaryList.each(function () {
-
-    // })
   }
 
   glossaryDetails()
 
   // ---- color product ----
 
-  function changeColor() {
-    let $colorLink = $('#colorList li a')
-    let $colorItem = $('#colorList li')
+  // function changeColor() {
+  //   $('#colorList .color-item a').on('click', function (e) {
+  //     e.preventDefault()
+  //     $('#colorList .color-item').removeClass('active')
+  //     $(this).parent().addClass('active')
 
-    $colorLink.on('click', function (e) {
+  //     var $colorValue = $(this).css('background-color')
+
+  //     $('#chaneColor').find('img').css('background-color', $colorValue)
+  //   })
+  // }
+
+  // changeColor()
+
+  function changeColor() {
+
+    $('#colorList').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 9999,
+          settings: 'unslick'
+        },
+        {
+          breakpoint: 568,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            infinite: false,
+            arrows: true,
+            // variableWidth: true,
+            dots: false
+          }
+        }
+      ]
+    })
+
+    $('#colorList .color-item a').on('click', function (e) {
       e.preventDefault()
-      $colorItem.removeClass('active')
+      $('#colorList .color-item').removeClass('active')
       $(this).parent().addClass('active')
 
-      let $colorValue = $(this).css('background-color')
-      // console.log($colorValue)
+      var $colorValue = $(this).css('background-color')
 
       $('#chaneColor').find('img').css('background-color', $colorValue)
     })
@@ -784,27 +853,13 @@ import {log} from './utils'
 
   changeColor()
 
-  // $('#colorList').slick({
-  //   slidesToShow: 4,
-  //   slidesToScroll: 1,
-  //   responsive: [
-  //     {
-  //       breakpoint: 9999,
-  //       settings: 'unslick'
-  //     },
-  //     {
-  //       breakpoint: 568,
-  //       settings: {
-  //         slidesToShow: 4,
-  //         slidesToScroll: 1,
-  //         infinite: false,
-  //         arrows: true,
-  //         // variableWidth: true,
-  //         dots: false
-  //       }
-  //     }
-  //   ]
-  // })
+  
+
+  // $('#colorList').on('click', function(e){
+  //   var slideCLicked = $(e.currentSlide).attr('data-slick-index')
+
+  //   console.log(slideCLicked)
+  // });
 
   // ---- product +/- ----
 
@@ -935,50 +990,22 @@ import {log} from './utils'
       .animate({scrollTop: $(this.hash).offset().top - fixedOffset}, 1000)
   })
 
-  // function removeExcessNavItem() {
-  //   var navEach = $('section.coa-section nav ul')
-  //   var sectionCoa = $('section.coa-section')
-  //   var navLink = $('section.coa-section nav ul li a')
-
-  //   sectionCoa.each(function(){
-  //     var navLinkAttr = navLink.attr('href')
-  //     var elemIdAttr = sectionCoa.find('*').attr('id')
-
-  //     if(navLinkAtrr === '#' || elemIdAttr != navLinkAttr) {
-        
-  //     }
-  //   })
-
-
-  //   // $('section.coa-section').each(function () {
-
-  //   // })
-
-  //   // linkHref.each(function () {
-  //   //   if ($(this).attr('href') === '#') {
-  //   //     $(this).parents('li').removeClass('active').hide()
-  //   //   }
-  //   // })
-  // }
-
-  // removeExcessNavItem()
-
   $('.custom-select').on('click', function () {
     var size = $('.select-selected').text()
     $('#size').val(size)
     $('#size').trigger('change')
   })
 
-  var color = $('#colorList li').attr('data-color')
+  var color = $('#colorList .color-item').attr('data-color')
     $('#color').val(color)
     $('#color').trigger('change')
 
-  $('#colorList li').on('click', function () {
+  $('#colorList .color-item').on('click', function () {
     color = $(this).attr('data-color')
     $('#color').val(color)
     $('#color').trigger('change')
   })
-  $('.custom-select, #colorList li').on('click', function () {
+  $('.custom-select, #colorList .color-item').on('click', function () {
     if (0 < $('input.variation_id').val() && null != $('input.variation_id').val()) {
       $('.price-new')
         .html($('div.woocommerce-variation-price > span.price').html())
@@ -992,25 +1019,18 @@ import {log} from './utils'
   // --- fly cart --- 
 
   // function customFly() {
-  //   var flyCart = $('#xt_woofc')
-  //   var flyClose = $('.xt_woofc-cart-opened .xt_woofc-trigger')
-  //   var flyOpen = $('.xt_woofc-trigger')
-
-  //   xt_woofc_is_cart_open() 
-
-  //   flyOpen.on('click', function(){
-  //     flyCart.each(function(){
-
-  //       if(xt_woofc_is_cart_open()) {
-  //         console.log('testconsole')
-  //         // flyClose.addClass('testclass')
-  //         // flyClose.find('.xt_woofc-trigger-close-icon').text('Continue shopping')
-  //       }
-  //     })
-  //   })
+  //   $(".xt_woofc-product-image").find('a').on({
+  //     mouseenter: function () {
+  //       $(this).animate('slow').css('margin-left', '12px')
+  //       console.log('hover')
+  //     },
+  //     mouseleave: function () {
+  //       $(this).animate('slow').css('margin-left', '0')
+  //     }
+  // })
   // }
 
-  customFly()
+  // customFly()
 
   // ---- custom select ----
 

@@ -24,8 +24,12 @@
             width: 33.3%;
         }
 
+        @include media ('<=tablet') {
+            width: 33.3%;
+            padding: 0 10px 30px;
+        }
+
         @include media ('<=small') {
-            padding: 0 10px 20px;
             width: 50%;
         }
 
@@ -35,6 +39,10 @@
 
         .content-wrapper {
             background-color: $white;
+
+            @include media ('<=tablet') {
+               width: 100%;
+            }
         }
     }
 

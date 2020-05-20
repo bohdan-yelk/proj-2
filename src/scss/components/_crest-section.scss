@@ -216,6 +216,16 @@
             width: 100%;
         }
 
+        .dig-add-to-cart {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            @include media('<small') {
+                flex-direction: column;
+            }
+        }
+
         .content {
             display: flex;
             justify-content: space-between;
