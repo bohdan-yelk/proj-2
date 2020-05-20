@@ -491,6 +491,36 @@ import {log} from './utils'
 
   stepCheckout()
 
+  function validFieldsCheckout() {
+    const RegExEmeil = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
+    const RegExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/
+    const RegExPostcode = /^[A-Za-z0-9\s]+$/
+    var formCheck = $('.tab-checkout .div--form')
+
+    formCheck.each(function(){
+      var inputForm = $(this).find('input')
+
+      if( !inputForm.val()) {
+        var console console.log('invalid')
+      } else {
+        var console = console.log('valid')
+      }
+
+      return console
+      // } else if (!inputForm.is(':empty')) {
+      //   $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity':'1','pointerEvents': 'inherit'})
+      // }
+      
+      // if( inputForm.attr('name') === "billing_first_name" ) {
+      //   if()
+      // }
+
+      // console.log(inputForm)
+    })
+  }
+
+  validFieldsCheckout()
+
   // ---- choice payment method on service page ----
 
   function choicePay() {
