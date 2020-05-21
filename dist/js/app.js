@@ -140,7 +140,17 @@ __webpack_require__.r(__webpack_exports__);
   //   26. burger button animation
   //   27. color slider mobile only on product page
   //   28. custom select
-  // ---- main slider on homepage ----
+
+  $('#searchFullInput').keypress(function (event) {
+    if (event.which == '13') {
+      event.preventDefault();
+    }
+  });
+  $('#searchInput').keypress(function (event) {
+    if (event.which == '13') {
+      event.preventDefault();
+    }
+  }); // ---- main slider on homepage ----
 
   $('#mainSlider').slick({
     dots: true
@@ -167,21 +177,60 @@ __webpack_require__.r(__webpack_exports__);
 
   $('#gallerySlider').slick({
     dots: true,
+    // variableWidth: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
     responsive: [{
-      breakpoint: 769,
+      breakpoint: 1024,
       settings: {
-        arrows: false
+        slidesToShow: 3
       }
     }, {
-      breakpoint: 568,
+      breakpoint: 769,
+      settings: {
+        // arrows: false,
+        slidesToShow: 3
+      }
+    }, {
+      breakpoint: 569,
       settings: {
         slidesToShow: 2,
+        slidesToScroll: 1 // arrows: false,
+        // variableWidth: true
+
+      }
+    }, {
+      breakpoint: 569,
+      settings: {
+        slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false,
-        variableWidth: true
+        arrows: true // variableWidth: true
+
       }
     }]
-  }); // ---- popup slider on surname CoA page ----
+  }); // limit dots on gallery slider 
+  // var dotsGallerySlider = $('#gallerySlider li')
+  // dotsGallerySlider.click(function(){
+  //   dotsGallerySlider.removeClass('before after')
+  //   $(this).prev().addClass('before').prev().addClass('before')
+  //   $(this).next().addClass('after').next().addClass('after')
+  //     if(!$(this).prev().length) {
+  //       $(this).next().next().next().addClass('after').next().addClass('after');
+  //     }
+  //     if(!$(this).prev().prev().length) {
+  //       $(this).next().next().next().addClass('after');
+  //     }
+  //     if(!$(this).next().length) {
+  //       $(this).prev().prev().prev().addClass('before').prev().addClass('before');
+  //     }
+  //     if(!$(this).next().next().length) {
+  //       $(this).prev().prev().prev().addClass('before')
+  //     }	
+  //   })
+  //   // dotsGallerySlider.eq(0).click()
+  // })
+  // Slick Selector.
+  // ---- popup slider on surname CoA page ----
 
   $('#coaZoomSlider').slick({
     dots: false,
@@ -500,6 +549,7 @@ __webpack_require__.r(__webpack_exports__);
   stepCheckout();
 
   function checkValidClass() {
+    $('#checkoutStepList').addClass('invalid');
     $('#checkoutStepList').each(function () {
       if (!$(this).hasClass('invalid')) {
         $(this).find('li a').css('pointer-events', 'inherit');
@@ -517,24 +567,47 @@ __webpack_require__.r(__webpack_exports__);
     var regExPostcode = /^[A-Za-z0-9\s]+$/;
     var formCheck = $('.tab-checkout .div--form');
     var inputForm = formCheck.find('input');
+
+    function setInvalid(el) {
+      $('.tab-checkout.active').find('.btn-continue').css({
+        'opacity': '0.6',
+        'pointerEvents': 'none'
+      });
+      $('.block-checkout').find('#checkoutStepList').addClass('invalid');
+      checkValidClass();
+    }
+
+    function setValid() {
+      $('.block-checkout').find('#checkoutStepList').removeClass('invalid');
+      $('.tab-checkout.active').find('.btn-continue').css({
+        'opacity': '1',
+        'pointerEvents': 'inherit'
+      });
+      checkValidClass();
+    }
+
     inputForm.focusout(function () {
-      if (!$(this).val() || !regInvalid()) {
-        $(this).parents('.tab-checkout').find('.btn-continue').css({
-          'opacity': '0.6',
-          'pointerEvents': 'none'
-        });
-        $(this).parents('.block-checkout').find('#checkoutStepList').addClass('invalid');
-        $(this).css('border-color', '#a00');
-        checkValidClass();
+      console.log(!$(this).val());
+      console.log(!regInvalid());
+
+      if (!$(this).val()) {
+        // $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '0.6', 'pointerEvents': 'none'})
+        // $(this).parents('.block-checkout').find('#checkoutStepList').addClass('invalid')
+        $(this).css('border-color', '#a00'); // checkValidClass()
       } else {
-        $(this).parents('.tab-checkout').find('.btn-continue').css({
-          'opacity': '1',
-          'pointerEvents': 'inherit'
-        });
-        $(this).parents('.block-checkout').find('#checkoutStepList').removeClass('invalid');
-        $(this).css('border-color', '#eee');
-        checkValidClass();
+        // $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '1', 'pointerEvents': 'inherit'})
+        // $(this).parents('.block-checkout').find('#checkoutStepList').removeClass('invalid')
+        $(this).css('border-color', '#eee'); // checkValidClass()
       }
+
+      $(this).parents('.tab-checkout.active .div--form').find('input').each(function () {
+        if ($(this).attr('id') === 'billing_phone' && !regExPhone.test($('#billing_phone').val()) || $(this).attr('id') === 'billing_email' && !regExEmeil.test($('#billing_email').val()) || $(this).attr('id') === 'billing_postcode' && !regExPostcode.test($('#billing_postcode').val()) || !$(this).val()) {
+          setInvalid();
+          return false;
+        }
+
+        setValid();
+      });
 
       function regInvalid() {
         if (regExPhone.test($('#billing_phone').val()) && regExEmeil.test($('#billing_email').val()) && regExPostcode.test($('#billing_postcode').val())) {
@@ -737,6 +810,7 @@ __webpack_require__.r(__webpack_exports__);
     $('.menu-back-mob a').on('click', function (e) {
       e.stopPropagation();
       console.log('test submenu');
+      $(this).parents('#wrapper').removeClass('active');
       $(this).parents('.submenu').removeClass('active');
       $(this).parents('.has-submenu').removeClass('active');
     });

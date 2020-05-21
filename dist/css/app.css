@@ -224,11 +224,16 @@ h6 {
     background-color: #0094FF; }
     #header .burger-btn-wrapper .burger {
       position: absolute;
-      top: calc(50% - 2px);
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 18px; }
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%; }
       #header .burger-btn-wrapper .burger-brick {
+        width: 100%;
         height: 2px;
         max-width: 18px;
         background: #fff;
@@ -2019,6 +2024,13 @@ span.bg-title {
   bottom: inherit;
   background-image: none; }
 
+.input-text {
+  transition: border-color .3s ease; }
+
+@media (max-width: 991px) {
+  .calendly-overlay {
+    margin: 124px 0 0; } }
+
 #footer {
   padding: 40px 0;
   background-color: #303030; }
@@ -2200,6 +2212,8 @@ span.bg-title {
       outline: none; }
       .popup#coaShop .item a:hover {
         box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25); }
+    .popup#coaShop .item img {
+      max-width: 60px; }
   .popup#coaShop .btn-done {
     margin: 0 0 24px;
     box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25); }
@@ -2651,9 +2665,10 @@ span.bg-title {
       border-color: #fff; }
       @media (max-width: 567px) {
         .main-section .btn-blue:hover:hover:after {
-          right: -13px; } }
+          right: -17px; } }
     .main-section .btn-blue:after {
-      right: 68px; }
+      position: relative;
+      right: -14px; }
       @media (max-width: 567px) {
         .main-section .btn-blue:after:after {
           position: relative;
@@ -4144,14 +4159,6 @@ span.bg-title {
       font-size: 24px;
       line-height: 32px; } }
 
-@media (max-width: 567px) {
-  .coa-section .gallery-slider {
-    position: absolute;
-    top: 75px;
-    left: 20px;
-    width: 100%;
-    height: 410px; } }
-
 .coa-section .block-gallery {
   padding: 80px 0 150px;
   background-color: #F5F7FA; }
@@ -4164,27 +4171,13 @@ span.bg-title {
       height: 510px; } }
   .coa-section .block-gallery .item {
     display: flex !important;
-    justify-content: space-between;
-    margin: 0 -15px;
-    padding: 0 5px 50px; }
-    @media (max-width: 992px) {
-      .coa-section .block-gallery .item {
-        margin: 0 -10px; } }
-    @media (max-width: 991px) {
-      .coa-section .block-gallery .item .card {
-        width: 33.3%; }
-        .coa-section .block-gallery .item .card:first-child {
-          display: none; } }
-    @media (max-width: 767px) {
-      .coa-section .block-gallery .item .card {
-        width: 50%; }
-        .coa-section .block-gallery .item .card:nth-child(2) {
-          display: none; } }
-    @media (max-width: 567px) {
-      .coa-section .block-gallery .item .card {
-        width: 100%; }
-        .coa-section .block-gallery .item .card:nth-child(2), .coa-section .block-gallery .item .card:nth-child(3) {
-          display: none; } }
+    margin: 0;
+    padding: 0 0 50px; }
+    .coa-section .block-gallery .item .card {
+      width: 100%; }
+      @media (max-width: 991px) {
+        .coa-section .block-gallery .item .card {
+          width: 100%; } }
   .coa-section .block-gallery .slick-slide > div {
     display: flex;
     justify-content: center; }
@@ -5329,15 +5322,52 @@ span.bg-title {
       position: absolute;
       left: 0;
       bottom: -30px; }
-    .order-wood-section .block-form input[type="submit"] {
-      margin: 0;
-      text-transform: uppercase;
-      box-shadow: none;
-      cursor: pointer; }
-      .order-wood-section .block-form input[type="submit"]:hover {
-        background-color: #345A9C;
-        border-color: #345A9C;
-        color: #fff; }
+    .order-wood-section .block-form span {
+      width: 100%; }
+    .order-wood-section .block-form select {
+      width: 100%; }
+      .order-wood-section .block-form select.wpcf7-list-item label {
+        position: relative;
+        display: block;
+        margin: 0 0 16px;
+        padding: 18px 18px 17px 56px;
+        font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 19px;
+        color: #999;
+        border-radius: 4px;
+        border: 1px solid #eee;
+        cursor: pointer;
+        user-select: none; }
+        .order-wood-section .block-form select.wpcf7-list-item label.active {
+          border-color: #0094FF;
+          color: #0094FF; }
+        .order-wood-section .block-form select.wpcf7-list-item label input[type="radio"] {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          width: 0;
+          height: 0; }
+          .order-wood-section .block-form select.wpcf7-list-item label input[type="radio"]:checked ~ .radiobtn:after {
+            display: block; }
+        .order-wood-section .block-form select.wpcf7-list-item label .radiobtn {
+          position: absolute;
+          top: 50%;
+          left: 18px;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          background-color: #F5F7FA;
+          border: 1px solid #eee;
+          border-radius: 50%; }
+          .order-wood-section .block-form select.wpcf7-list-item label .radiobtn:after {
+            position: absolute;
+            content: '\e904';
+            font-family: 'icomoon';
+            font-size: 20px;
+            color: #0094FF;
+            display: none; }
 
 .faq-section {
   padding: 0 0 52px;

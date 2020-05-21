@@ -189,6 +189,10 @@
                     box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
                 }
             }
+
+            img {
+                max-width: 60px;
+            }
         }
 
         .btn-done {

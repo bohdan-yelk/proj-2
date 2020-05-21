@@ -95,14 +95,15 @@
             @include media('<=small') {
                 &:hover {
                     &:after {
-                        right: -13px;
+                        right: -17px;
                     }
                 }
             }
         }
 
         &:after {
-            right: 68px;
+            position: relative;
+            right: -14px;
 
             @include media('<=small') {
                 &:after {

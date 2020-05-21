@@ -1980,3 +1980,13 @@ span.bg-title {
     }
 }
 
+.input-text  {
+    transition: border-color .3s ease;
+}
+
+
+.calendly-overlay {
+    @include media('<desktop') {
+        margin: 124px 0 0;
+    }
+}
