@@ -479,38 +479,70 @@ import {log} from './utils'
       $tabCheck.removeClass('active').eq($currentStep).addClass('active')
     })
 
+    
+
     $itemStepLink.on('click', function (e) {
       e.preventDefault()
-
       $currentStep = $(this).parents($itemStep).index()
-
+  
       $itemStep.removeClass('active').eq($currentStep).addClass('active')
       $tabCheck.removeClass('active').eq($currentStep).addClass('active')
+      
+      console.log('valid')
 
-      // console.log($(this).parents($itemStep).index())
     })
+
+    // console.log(inputForm)
   }
 
   stepCheckout()
 
+  function checkValidClass() {
+    $('#checkoutStepList').each(function(){
+      if( !$(this).hasClass('invalid') ) {
+        $(this).find('li a').css('pointer-events','inherit')
+        
+      } else {
+        $(this).find('li a').css('pointer-events','none')
+      }
+    })
+  }
+
+  checkValidClass()
+
   function validFieldsCheckout() {
-    const RegExEmeil = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
-    const RegExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/
-    const RegExPostcode = /^[A-Za-z0-9\s]+$/
+    const regExEmeil = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
+    const regExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/
+    const regExPostcode = /^[A-Za-z0-9\s]+$/
     var formCheck = $('.tab-checkout .div--form')
     var inputForm = formCheck.find('input')
 
-    inputForm.focusout(function () {
-      if (!$(this).val()) {
-        $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '0.6', 'pointerEvents': 'none'})
-        $(this).parents('.tab-checkout').addClass('invalid')
+    
 
+    inputForm.focusout(function () {
+      if (!$(this).val() || !regInvalid()) {
+        $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '0.6', 'pointerEvents': 'none'})
+        $(this).parents('.block-checkout').find('#checkoutStepList').addClass('invalid')
+        $(this).css('border-color', '#a00')
+        checkValidClass()
       } else {
         $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '1', 'pointerEvents': 'inherit'})
+        $(this).parents('.block-checkout').find('#checkoutStepList').removeClass('invalid')
+        $(this).css('border-color', '#eee')
+        checkValidClass()
+      }
+
+      function regInvalid() {
+        if( regExPhone.test($('#billing_phone').val()) && regExEmeil.test($('#billing_email').val()) && regExPostcode.test($('#billing_postcode').val())) {
+          // console.log('valid reg')
+          return true
+        } else {
+          // console.log('invalid reg')
+          return false
+        }
       }
     })
 
-    //
   }
 
   validFieldsCheckout()
