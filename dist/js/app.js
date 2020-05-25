@@ -691,7 +691,12 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     });
-  }
+  } // function genealogyPayment() {
+  //   var genealogyItem = $('#genealogy-checkout .payment_methods .payment-item .custom-check')
+  //   genealogyItem.on('click', function)
+  // }
+  // genealogyPayment()
+
 
   crestContent(); // function scrollFixed() {
   //   var windowTop = $(window).scrollTop()

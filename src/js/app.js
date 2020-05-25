@@ -701,6 +701,14 @@ import {log} from './utils'
     })
   }
 
+  // function genealogyPayment() {
+  //   var genealogyItem = $('#genealogy-checkout .payment_methods .payment-item .custom-check')
+
+  //   genealogyItem.on('click', function)
+  // }
+
+  // genealogyPayment()
+
   crestContent()
 
   // function scrollFixed() {

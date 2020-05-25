@@ -926,198 +926,235 @@
     }
   }
 
-  .block {
-    &-checkout-payment {
-      .payment-item {
-        display: flex;
+  .custom-check {
+    &.active {
+      & ~ .payment_method_paypalpro {
+        display: flex !important;
+      }
+    }
+  }
+
+  .payment_box {
+    label {
+      font-family: $base-font-sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+      color: #777;
+    }
+
+    input {
+      padding: 14px 24px 13px !important;
+      border: 1px solid #eee !important;
+      background-color: #f5f7fa !important;
+      border-radius: 4px !important;
+      color: #999 !important;
+    }
+    p.form-row {
+      display: flex;
+      flex-direction: column;
+
+      &:nth-of-type(3) {
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 0 0 24px;
-        padding: 24px 24px 24px 26px;
-        border: 1px solid #eee;
-        border-radius: 4px;
 
-        @include media('<desktop') {
-          padding: 16px;
-        }
-
-        img {
-          @include media('<=tablet') {
-            display: none;
-          }
-        }
-
-        label {
-          display: flex !important;
-          justify-content: space-between;
-          width: 100%;
-        }
-
-        .payment_box {
-          &.payment_method_paypal {
-            padding-top: 30px;
-          }
-
-          &.payment_method_paypalpro {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            width: 100%;
-
-            label {
-              font-size: 14px;
-              line-height: 16px;
-              color: $gray-100;
-            }
-
-            .form-row {
-              &.validate-required,
-              &-first {
-                width: 49%;
-                @include media('<desktop') {
-                  width: 100%;
-                }
-              }
-
-              &-first {
-                select[name='billing_expdatemonth'],
-                select[name='billing_expdateyear'] {
-                  width: 49%;
-
-                  @include media('<desktop') {
-                    width: 100%;
-                  }
-                }
-              }
-
-              select[name='billing_expdatemonth'] {
-                @include media('<desktop') {
-                  margin: 0 0 24px;
-                }
-              }
-
-              select[name='billing_expdatemonth'],
-              select[name='billing_expdateyear'],
-              select[name='billing_cardtype'] {
-                padding: 14px 24px 13px;
-              }
-            }
-          }
-        }
-      }
-
-      label {
-        font-size: 18px;
-        line-height: 21px;
-        color: $gray-800;
-
-        a.about_paypal {
-          display: none;
-        }
-      }
-
-      .custom-check {
-        display: inline-block;
-        margin: 0;
-        padding: 0 0 0 34px;
-        border: none;
-
-        .radiobtn {
-          top: calc(50% - 3px);
-          left: 0;
-        }
-      }
-
-      ul {
-        display: flex;
-        flex-direction: column;
-        margin: 0 -8px;
-        padding: 0;
-        list-style: none;
-
-        li {
-          width: 100%;
-          padding: 0 8px;
-        }
-      }
-
-      p {
-        margin: 16px 0 0 0;
-      }
-
-      p,
-      .requisites {
-        width: 100%;
-      }
-
-      .requisites {
-        display: flex;
-        margin: 24px 0 0;
-        padding: 24px 0 0;
-        border-top: 1px solid #eee;
-
-        @include media('<=tablet') {
-          flex-wrap: wrap;
-        }
-
-        .form-row {
-          display: flex;
-          flex-direction: column;
-          margin: 0 24px 0 0;
-
-          @include media('<desktop') {
-            margin: 0 0 24px;
-          }
-
-          label {
-            display: block;
-            margin: 0 0 8px;
-            font-family: $base-font-sans-serif;
-            font-size: 14px;
-            line-height: 16px;
-            color: $gray-100;
-          }
-
-          input {
-            width: 100%;
-            margin: 0;
-            padding: 14px 24px 13px;
-          }
-
-          &-number {
-            max-width: 246px;
-
-            @include media('<desktop') {
-              max-width: inherit;
-              width: 100%;
-            }
-          }
-
-          &-data {
-            max-width: 103px;
-
-            @include media('<desktop') {
-              max-width: inherit;
-              width: 100%;
-            }
-          }
-
-          &-cvv {
-            max-width: 80px;
-
-            @include media('<desktop') {
-              max-width: inherit;
-              width: 100%;
-            }
-
-            @include media('<desktop') {
-              margin: 0;
-            }
-          }
+        select {
+          display: inline-block;
+          width: 49%;
         }
       }
     }
   }
+
+  //   .block {
+  //     .payment-item {
+  //       display: flex;
+  //       flex-wrap: wrap;
+  //       justify-content: space-between;
+  //       margin: 0 0 24px;
+  //       padding: 24px 24px 24px 26px;
+  //       border: 1px solid #eee;
+  //       border-radius: 4px;
+
+  //       @include media('<desktop') {
+  //         padding: 16px;
+  //       }
+
+  //       img {
+  //         @include media('<=tablet') {
+  //           display: none;
+  //         }
+  //       }
+
+  //       label {
+  //         display: flex !important;
+  //         justify-content: space-between;
+  //         width: 100%;
+  //       }
+
+  //       .payment_box {
+  //         &.payment_method_paypal {
+  //           padding-top: 30px;
+  //         }
+
+  //         &.payment_method_paypalpro {
+  //           display: flex;
+  //           justify-content: space-between;
+  //           flex-wrap: wrap;
+  //           width: 100%;
+
+  //           label {
+  //             font-size: 14px;
+  //             line-height: 16px;
+  //             color: $gray-100;
+  //           }
+
+  //           .form-row {
+  //             &.validate-required,
+  //             &-first {
+  //               width: 49%;
+  //               @include media('<desktop') {
+  //                 width: 100%;
+  //               }
+  //             }
+
+  //             &-first {
+  //               select[name='billing_expdatemonth'],
+  //               select[name='billing_expdateyear'] {
+  //                 width: 49%;
+
+  //                 @include media('<desktop') {
+  //                   width: 100%;
+  //                 }
+  //               }
+  //             }
+
+  //             select[name='billing_expdatemonth'] {
+  //               @include media('<desktop') {
+  //                 margin: 0 0 24px;
+  //               }
+  //             }
+
+  //             select[name='billing_expdatemonth'],
+  //             select[name='billing_expdateyear'],
+  //             select[name='billing_cardtype'] {
+  //               padding: 14px 24px 13px;
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+
+  //     label {
+  //       font-size: 18px;
+  //       line-height: 21px;
+  //       color: $gray-800;
+
+  //       a.about_paypal {
+  //         display: none;
+  //       }
+  //     }
+
+  //     .custom-check {
+  //       display: inline-block;
+  //       margin: 0;
+  //       padding: 0 0 0 34px;
+  //       border: none;
+
+  //       .radiobtn {
+  //         top: calc(50% - 3px);
+  //         left: 0;
+  //       }
+  //     }
+
+  //     ul {
+  //       display: flex;
+  //       flex-direction: column;
+  //       margin: 0 -8px;
+  //       padding: 0;
+  //       list-style: none;
+
+  //       li {
+  //         width: 100%;
+  //         padding: 0 8px;
+  //       }
+  //     }
+
+  //     p {
+  //       margin: 16px 0 0 0;
+  //     }
+
+  //     p,
+  //     .requisites {
+  //       width: 100%;
+  //     }
+
+  //     .requisites {
+  //       display: flex;
+  //       margin: 24px 0 0;
+  //       padding: 24px 0 0;
+  //       border-top: 1px solid #eee;
+
+  //       @include media('<=tablet') {
+  //         flex-wrap: wrap;
+  //       }
+
+  //       .form-row {
+  //         display: flex;
+  //         flex-direction: column;
+  //         margin: 0 24px 0 0;
+
+  //         @include media('<desktop') {
+  //           margin: 0 0 24px;
+  //         }
+
+  //         label {
+  //           display: block;
+  //           margin: 0 0 8px;
+  //           font-family: $base-font-sans-serif;
+  //           font-size: 14px;
+  //           line-height: 16px;
+  //           color: $gray-100;
+  //         }
+
+  //         input {
+  //           width: 100%;
+  //           margin: 0;
+  //           padding: 14px 24px 13px;
+  //         }
+
+  //         &-number {
+  //           max-width: 246px;
+
+  //           @include media('<desktop') {
+  //             max-width: inherit;
+  //             width: 100%;
+  //           }
+  //         }
+
+  //         &-data {
+  //           max-width: 103px;
+
+  //           @include media('<desktop') {
+  //             max-width: inherit;
+  //             width: 100%;
+  //           }
+  //         }
+
+  //         &-cvv {
+  //           max-width: 80px;
+
+  //           @include media('<desktop') {
+  //             max-width: inherit;
+  //             width: 100%;
+  //           }
+
+  //           @include media('<desktop') {
+  //             margin: 0;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
 }
 
 .checkout-section {

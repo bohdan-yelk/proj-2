@@ -7812,135 +7812,31 @@ span.bg-title {
     .cta-sidebar .div--form p.form-row {
       width: 100%; } }
 
-.cta-sidebar .block-checkout-payment .payment-item {
+.cta-sidebar .custom-check.active ~ .payment_method_paypalpro {
+  display: flex !important; }
+
+.cta-sidebar .payment_box label {
+  font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #777; }
+
+.cta-sidebar .payment_box input {
+  padding: 14px 24px 13px !important;
+  border: 1px solid #eee !important;
+  background-color: #f5f7fa !important;
+  border-radius: 4px !important;
+  color: #999 !important; }
+
+.cta-sidebar .payment_box p.form-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 0 24px;
-  padding: 24px 24px 24px 26px;
-  border: 1px solid #eee;
-  border-radius: 4px; }
-  @media (max-width: 991px) {
-    .cta-sidebar .block-checkout-payment .payment-item {
-      padding: 16px; } }
-  @media (max-width: 768px) {
-    .cta-sidebar .block-checkout-payment .payment-item img {
-      display: none; } }
-  .cta-sidebar .block-checkout-payment .payment-item label {
-    display: flex !important;
-    justify-content: space-between;
-    width: 100%; }
-  .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypal {
-    padding-top: 30px; }
-  .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 100%; }
-    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro label {
-      font-size: 14px;
-      line-height: 16px;
-      color: #777; }
-    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row.validate-required, .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first {
+  flex-direction: column; }
+  .cta-sidebar .payment_box p.form-row:nth-of-type(3) {
+    flex-direction: row;
+    flex-wrap: wrap; }
+    .cta-sidebar .payment_box p.form-row:nth-of-type(3) select {
+      display: inline-block;
       width: 49%; }
-      @media (max-width: 991px) {
-        .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row.validate-required, .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first {
-          width: 100%; } }
-    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdatemonth'],
-    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdateyear'] {
-      width: 49%; }
-      @media (max-width: 991px) {
-        .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdatemonth'],
-        .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdateyear'] {
-          width: 100%; } }
-    @media (max-width: 991px) {
-      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdatemonth'] {
-        margin: 0 0 24px; } }
-    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdatemonth'],
-    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdateyear'],
-    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_cardtype'] {
-      padding: 14px 24px 13px; }
-
-.cta-sidebar .block-checkout-payment label {
-  font-size: 18px;
-  line-height: 21px;
-  color: #303030; }
-  .cta-sidebar .block-checkout-payment label a.about_paypal {
-    display: none; }
-
-.cta-sidebar .block-checkout-payment .custom-check {
-  display: inline-block;
-  margin: 0;
-  padding: 0 0 0 34px;
-  border: none; }
-  .cta-sidebar .block-checkout-payment .custom-check .radiobtn {
-    top: calc(50% - 3px);
-    left: 0; }
-
-.cta-sidebar .block-checkout-payment ul {
-  display: flex;
-  flex-direction: column;
-  margin: 0 -8px;
-  padding: 0;
-  list-style: none; }
-  .cta-sidebar .block-checkout-payment ul li {
-    width: 100%;
-    padding: 0 8px; }
-
-.cta-sidebar .block-checkout-payment p {
-  margin: 16px 0 0 0; }
-
-.cta-sidebar .block-checkout-payment p,
-.cta-sidebar .block-checkout-payment .requisites {
-  width: 100%; }
-
-.cta-sidebar .block-checkout-payment .requisites {
-  display: flex;
-  margin: 24px 0 0;
-  padding: 24px 0 0;
-  border-top: 1px solid #eee; }
-  @media (max-width: 768px) {
-    .cta-sidebar .block-checkout-payment .requisites {
-      flex-wrap: wrap; } }
-  .cta-sidebar .block-checkout-payment .requisites .form-row {
-    display: flex;
-    flex-direction: column;
-    margin: 0 24px 0 0; }
-    @media (max-width: 991px) {
-      .cta-sidebar .block-checkout-payment .requisites .form-row {
-        margin: 0 0 24px; } }
-    .cta-sidebar .block-checkout-payment .requisites .form-row label {
-      display: block;
-      margin: 0 0 8px;
-      font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
-      font-size: 14px;
-      line-height: 16px;
-      color: #777; }
-    .cta-sidebar .block-checkout-payment .requisites .form-row input {
-      width: 100%;
-      margin: 0;
-      padding: 14px 24px 13px; }
-    .cta-sidebar .block-checkout-payment .requisites .form-row-number {
-      max-width: 246px; }
-      @media (max-width: 991px) {
-        .cta-sidebar .block-checkout-payment .requisites .form-row-number {
-          max-width: inherit;
-          width: 100%; } }
-    .cta-sidebar .block-checkout-payment .requisites .form-row-data {
-      max-width: 103px; }
-      @media (max-width: 991px) {
-        .cta-sidebar .block-checkout-payment .requisites .form-row-data {
-          max-width: inherit;
-          width: 100%; } }
-    .cta-sidebar .block-checkout-payment .requisites .form-row-cvv {
-      max-width: 80px; }
-      @media (max-width: 991px) {
-        .cta-sidebar .block-checkout-payment .requisites .form-row-cvv {
-          max-width: inherit;
-          width: 100%; } }
-      @media (max-width: 991px) {
-        .cta-sidebar .block-checkout-payment .requisites .form-row-cvv {
-          margin: 0; } }
 
 .checkout-section form.checkout {
   display: flex; }
