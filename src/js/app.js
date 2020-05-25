@@ -296,7 +296,6 @@ import {log} from './utils'
       // $('html').animate({scrollTop: $(this).offset().top})
       // $('html').scrollTop($(this).get(0).scrollIntoView({ behavior: 'smooth' }))
       // $(this).on('transitionend', function(event) {
-      //   console.log(event, 'faq')
       //   $(this).get(0).scrollIntoView({ behavior: 'smooth' })
       // });
       // $(this).one('transitionend', function(event) {
@@ -338,7 +337,6 @@ import {log} from './utils'
   //     // $('html').animate({scrollTop: $(this).offset().top})
   //     // $('html').scrollTop($(this).get(0).scrollIntoView({ behavior: 'smooth' }))
   //     // $(this).on('transitionend', function(event) {
-  //     //   console.log(event, 'faq')
   //     //   $(this).get(0).scrollIntoView({ behavior: 'smooth' })
   //     // });
 
@@ -468,20 +466,12 @@ import {log} from './utils'
     var $contentStep = $('.steps-content')
     var cahngeConstVal = $currentIndex
 
-    // console.log($currentIndex)
-    // console.log($numStep.index())
-    // console.log($contentStep.index())
-
     $next.on('click', function (e) {
       e.preventDefault()
       $currentIndex++
 
       $numStep.removeClass('active').eq($currentIndex).addClass('active')
       $contentStep.removeClass('active').eq($currentIndex).addClass('active')
-
-      // console.log( $currentIndex)
-      // console.log( $numStep.index())
-      // console.log( $contentStep.index())
     })
 
     $prev.on('click', function (e) {
@@ -495,35 +485,6 @@ import {log} from './utils'
 
   stepTabs()
 
-  // ---- payment steps(on mobile) on service page ----
-
-  // function stepTabsBottomMob() {
-  //   var $nextMob = $('#stepsBottomMob .btn-next')
-  //   var $prevMob = $('#stepsBottomMob .btn-back')
-  //   var $currentIndexMob = 0
-  //   var $numStepMob = $('#stepsBottomMob #stepsList li')
-  //   var $contentStepMob = $('#stepsBottomMob .steps-content')
-  //   var cahngeConstValMob = $currentIndexMob
-
-  //   $nextMob.on('click', function (e) {
-  //     e.preventDefault()
-  //     $currentIndexMob++
-
-  //     $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
-  //     $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
-  //   })
-
-  //   $prevMob.on('click', function (e) {
-  //     e.preventDefault()
-  //     $currentIndexMob--
-
-  //     $numStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
-  //     $contentStepMob.removeClass('active').eq($currentIndexMob).addClass('active')
-  //   })
-  // }
-
-  // stepTabsBottomMob()
-
   // ---- checkout steps tabs ----
 
   function stepCheckout() {
@@ -536,7 +497,7 @@ import {log} from './utils'
     $continue.on('click', function (e) {
       e.preventDefault()
 
-      if (!checkAllFelds()) {
+      if (!checkAllFelds(null, $('.tab-checkout.active').next())) {
         return
       }
 
@@ -549,8 +510,13 @@ import {log} from './utils'
     $itemStepLink.on('click', function (e) {
       e.preventDefault()
 
-      if (!checkAllFelds()) {
+      var activeListItemIndex = $itemStepLink.index($(this))
+      var newTab = $tabCheck[activeListItemIndex]
+
+      if (activeListItemIndex > $currentStep && !checkAllFelds(null, newTab)) {
         return
+      } else if (activeListItemIndex < $currentStep) {
+        setValid()
       }
 
       $currentStep = $(this).parents($itemStep).index()
@@ -566,36 +532,33 @@ import {log} from './utils'
     checkValidClass()
   }
 
-  setInvalid()
-
   function setValid() {
     $('.block-checkout').find('#checkoutStepList').removeClass('invalid')
     $('.tab-checkout.active').find('.btn-continue').css({opacity: '1', pointerEvents: 'inherit'})
     checkValidClass()
-    console.log('valid')
   }
 
   stepCheckout()
 
   function checkValidClass() {
-    $('#checkoutStepList').each(function () {
-      if (!$(this).hasClass('invalid')) {
-        $(this).find('li a').css('pointer-events', 'inherit')
-      } else {
-        $(this).find('li a').css('pointer-events', 'none')
-      }
-    })
+    // $('#checkoutStepList').each(function () {
+    //   if (!$(this).hasClass('invalid')) {
+    //     $(this).find('li a').css('pointer-events', 'inherit')
+    //   } else {
+    //     // $(this).find('li.active ~ li a').css('pointer-events', 'none')
+    //   }
+    // })
   }
 
-  // $('#checkoutStepList').addClass('invalid')
-  // $('.tab-checkout.active').find('.btn-continue').css({opacity: '0.6', pointerEvents: 'none'})
   checkValidClass()
 
-  var hideTabForm = $('.div--form.form-hide ').parents('.tab-checkout')
+  var hideTabForm = $('.div--form.form-hide').parents('.tab-checkout')
   var hideFormRadios = hideTabForm.find('input[name="ship_to_different_address"]')
   const regExEmeil = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
   const regExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/
   const regExPostcode = /^[A-Za-z0-9\s]+$/
+
+  checkAllFelds()
 
   hideFormRadios.on('input', function () {
     $(this).trigger('focusout')
@@ -605,51 +568,51 @@ import {log} from './utils'
     var formCheck = $('.tab-checkout .div--form')
     var inputForm = formCheck.find('input')
 
-    setInvalid()
-
     inputForm.focusout(checkAllFelds)
   }
 
-  function checkAllFelds(e) {
+  function checkAllFelds(e, newTab) {
     var isValid = true
-    // if (!$(this).val()) {
-    //   $(this).css('border-color', '#a00')
-    // } else {
-    //   $(this).css('border-color', '#eee')
-    // }
+    var prevTabs = !newTab ? $('.tab-checkout.active') : $(newTab).prevAll('.tab-checkout')
 
-    $('.tab-checkout.active .div--form')
-      .find('input:not([type="hidden"])')
-      .each(function () {
-        console.log($(this), $(this).val())
-        if (
-          ($(this).attr('id') === 'billing_phone' && !regExPhone.test($('#billing_phone').val())) ||
-          ($(this).attr('id') === 'billing_email' && !regExEmeil.test($('#billing_email').val())) ||
-          ($(this).attr('id') === 'billing_postcode' && !regExPostcode.test($('#billing_postcode').val())) ||
-          !$(this).val()
-        ) {
-          if (e && e.target === $(this).get(0)) {
-            $(this).css('border-color', '#a00')
+    prevTabs.each(function () {
+      console.log($(this).get(0), hideTabForm.get(0))
+      if ($(this).get(0) === hideTabForm.get(0) && hideFormRadios.prop('checked') === true) {
+        isValid = true
+        return
+      }
+
+      $(this)
+        .find('input:not([type="hidden"])')
+        .each(function () {
+          if (
+            ($(this).attr('id') === 'billing_phone' && !regExPhone.test($('#billing_phone').val())) ||
+            ($(this).attr('id') === 'billing_email' && !regExEmeil.test($('#billing_email').val())) ||
+            ($(this).attr('id') === 'billing_postcode' && !regExPostcode.test($('#billing_postcode').val())) ||
+            ($(this).attr('id') !== 'billing_address_2' &&
+              $(this).attr('id') !== 'shipping_address_2' &&
+              !$(this).val().trim())
+          ) {
+            if (e && e.target === $(this).get(0)) {
+              $(this).css('border-color', '#a00')
+            }
+
+            setInvalid()
+
+            isValid = false
+          } else {
+            $(this).css('border-color', '#eee')
           }
+        })
 
-          setInvalid()
-          console.log('invalid')
-          isValid = false
-          // return false
-        } else {
-          $(this).css('border-color', '#eee')
-        }
-      })
-
-    console.log('hideFormRadios.val()', hideFormRadios.val())
-    if (hideTabForm.hasClass('active') && hideFormRadios.prop('checked') === true) {
-      isValid = true
-    }
+      if (!isValid) {
+        return
+      }
+    })
 
     if (isValid) {
       setValid()
     }
-    console.log('pp', isValid)
 
     return isValid
   }
@@ -660,8 +623,8 @@ import {log} from './utils'
 
   function choicePay() {
     var $form = $('.block-payment form')
-    var $inputPay = $('.block-payment .input-radio')
-
+    var $inputPay = $(' .input-radio')
+    console.log('pay')
     $inputPay.on('click', function () {
       $inputPay.parents('.custom-check').removeClass('active')
       if ($(this).prop('checked')) {
@@ -749,8 +712,6 @@ import {log} from './utils'
 
   //   divHeight = Math.floor(divHeight)
 
-  //   console.log(divHeight)
-
   //   if( windowTop + divHeight > nextSection - padding ) {
   //     $('.cart-section#fixedOnScroll').css({position: 'relative', top: 'auto'})
   //   } else if ( windowTop + divHeight < nextSection.scrollTop()) {
@@ -813,31 +774,19 @@ import {log} from './utils'
   //   var bottomPosFixedBlock = fixedBlock.height().toFixed()
 
   //   bottomPosFixedBlock = Number(bottomPosFixedBlock)
-  //   // console.log($('.product-section.on-cart').offset(), 'product pos')
-  //   // console.log(blockScroll.offset(), 'start steps pos')
-
-  //   // console.log(blockScroll.scrollTop())
 
   //   $(window).scroll(function () {
 
   //     var x = fixedBlock.offset()
 
-  //     console.log("height area", areaScroll)
-  //     console.log("height fixed block", bottomPosFixedBlock)
-  //     console.log("top fixed block", x.top)
-  //     console.log("bottom fixed block", x.top + bottomPosFixedBlock)
-  //     console.log("---------")
-
   //     // fixedBlock.removeClass('stopFixed')
 
   //     if ( (x.top + bottomPosFixedBlock) >= areaScroll) {
-  //       console.log('stop scroll')
   //       // fixedBlock.addClass('stopFixed')
   //       fixedBlock.css( "position" , "absolute")
   //     } else if ((x.top + bottomPosFixedBlock) < areaScroll) {
   //       // fixedBlock.removeClass('stopFixed')
   //       fixedBlock.css({"top": "10px", "position" : "fixed", "bottom" : "inherit"})
-  //       console.log('else')
   //     }
   //   })
 
@@ -851,8 +800,6 @@ import {log} from './utils'
 
   //   var scroll = $(window).scrollTop() + $(window).height()
   //   var offset = $element.offset().top
-
-  //   console.log(heightAreaScroll)
 
   //   $(window).scroll(function () {
 
@@ -881,7 +828,6 @@ import {log} from './utils'
 
     $('.menu-back-mob a').on('click', function (e) {
       e.stopPropagation()
-      console.log('test submenu')
       $(this).parents('#wrapper').removeClass('active')
       $(this).parents('.submenu').removeClass('active')
       $(this).parents('.has-submenu').removeClass('active')
@@ -907,7 +853,6 @@ import {log} from './utils'
 
       if ($glossaryList.children('li').hasClass('active')) {
         var thisOffset = $glossaryList.position().top
-        // console.log(thisOffset)
         $showBtn.parents('li').find('.content p').hide()
         $(this).parents('li').find('.content p').show()
         setTimeout(function () {
@@ -983,7 +928,6 @@ import {log} from './utils'
   // $('#colorList').on('click', function(e){
   //   var slideCLicked = $(e.currentSlide).attr('data-slick-index')
 
-  //   console.log(slideCLicked)
   // });
 
   // ---- product +/- ----
@@ -1037,7 +981,6 @@ import {log} from './utils'
   // ---- suname search on Surname page ----
 
   function searchSurname() {
-    // console.log('test work')
     if ($('#glossaryList').length) {
       var input = document.getElementById('searchInput')
       var glossaryList = document.getElementById('glossaryList')
@@ -1074,7 +1017,6 @@ import {log} from './utils'
 
     uplink.on('click', function () {
       $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 500)
-      console.log('up')
     })
 
     $(window).scroll(function () {
@@ -1146,7 +1088,6 @@ import {log} from './utils'
   //   $(".xt_woofc-product-image").find('a').on({
   //     mouseenter: function () {
   //       $(this).animate('slow').css('margin-left', '12px')
-  //       console.log('hover')
   //     },
   //     mouseleave: function () {
   //       $(this).animate('slow').css('margin-left', '0')

@@ -7281,8 +7281,8 @@ span.bg-title {
       text-transform: uppercase;
       color: #fff;
       border-radius: 4px;
-      border: 1px solid #0094FF;
-      background-color: #0094FF;
+      border: 1px solid #0094ff;
+      background-color: #0094ff;
       box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25); }
       .checkout-section .place-order .btn-confirm:hover,
       .cta-sidebar .place-order .btn-confirm:hover {
@@ -7552,27 +7552,27 @@ span.bg-title {
           .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row.validate-required,
           .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first {
             width: 100%; } }
-      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name="billing_expdatemonth"],
-      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name="billing_expdateyear"],
-      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name="billing_expdatemonth"],
-      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name="billing_expdateyear"] {
+      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdatemonth'],
+      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdateyear'],
+      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdatemonth'],
+      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdateyear'] {
         width: 49%; }
         @media (max-width: 991px) {
-          .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name="billing_expdatemonth"],
-          .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name="billing_expdateyear"],
-          .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name="billing_expdatemonth"],
-          .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name="billing_expdateyear"] {
+          .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdatemonth'],
+          .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdateyear'],
+          .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdatemonth'],
+          .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdateyear'] {
             width: 100%; } }
       @media (max-width: 991px) {
-        .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name="billing_expdatemonth"],
-        .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name="billing_expdatemonth"] {
+        .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdatemonth'],
+        .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdatemonth'] {
           margin: 0 0 24px; } }
-      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name="billing_expdatemonth"],
-      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name="billing_expdateyear"],
-      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name="billing_cardtype"],
-      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name="billing_expdatemonth"],
-      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name="billing_expdateyear"],
-      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name="billing_cardtype"] {
+      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdatemonth'],
+      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdateyear'],
+      .checkout-section .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_cardtype'],
+      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdatemonth'],
+      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdateyear'],
+      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_cardtype'] {
         padding: 14px 24px 13px; }
   .checkout-section .block-checkout-payment label,
   .cta-sidebar .block-checkout-payment label {
@@ -7752,6 +7752,196 @@ span.bg-title {
   .cta-sidebar form p.form-row {
     width: 100%; }
 
+.cta-sidebar .div--form.toggle {
+  display: flex;
+  justify-content: space-between; }
+  @media (max-width: 991px) {
+    .cta-sidebar .div--form.toggle {
+      flex-direction: column; } }
+  .cta-sidebar .div--form.toggle label {
+    width: 49%; }
+    @media (max-width: 991px) {
+      .cta-sidebar .div--form.toggle label {
+        width: 100%; } }
+
+.cta-sidebar .div--form.form-hide .form-row-last {
+  float: none; }
+
+.cta-sidebar .div--form.form-hide .form-row.notes {
+  width: 100%; }
+  .cta-sidebar .div--form.form-hide .form-row.notes label {
+    display: none; }
+  .cta-sidebar .div--form.form-hide .form-row.notes textarea {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 64px; }
+
+@media (max-width: 991px) {
+  .cta-sidebar .div--form.form-hide .form-row#shipping_country_field {
+    margin: 0 0 24px; } }
+
+.cta-sidebar .div--form.form-hide .form-row .country_select {
+  padding: 14px 24px 13px; }
+
+.cta-sidebar .div--form div.form-row {
+  width: 100%;
+  padding: 24px 0 0;
+  flex-wrap: wrap; }
+  .cta-sidebar .div--form div.form-row:before, .cta-sidebar .div--form div.form-row:after {
+    display: none; }
+  .cta-sidebar .div--form div.form-row-first {
+    padding: 0 0 24px;
+    border-bottom: 1px solid #eee; }
+  .cta-sidebar .div--form div.form-row-second, .cta-sidebar .div--form div.form-row:last-of-type {
+    padding: 24px 0 24px;
+    border-bottom: 1px solid #eee; }
+  .cta-sidebar .div--form div.form-row:nth-of-type(3) {
+    padding: 24px 0 0; }
+
+.cta-sidebar .div--form p.form-row {
+  width: 49%;
+  margin: 0;
+  padding: 0; }
+  @media (max-width: 991px) {
+    .cta-sidebar .div--form p.form-row#billing_country_field {
+      margin: 0 0 24px; } }
+  .cta-sidebar .div--form p.form-row#billing_address_2_field .woocommerce-input-wrapper,
+  .cta-sidebar .div--form p.form-row#billing_address_2_field input {
+    width: 100%; }
+  @media (max-width: 991px) {
+    .cta-sidebar .div--form p.form-row {
+      width: 100%; } }
+
+.cta-sidebar .block-checkout-payment .payment-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 24px;
+  padding: 24px 24px 24px 26px;
+  border: 1px solid #eee;
+  border-radius: 4px; }
+  @media (max-width: 991px) {
+    .cta-sidebar .block-checkout-payment .payment-item {
+      padding: 16px; } }
+  @media (max-width: 768px) {
+    .cta-sidebar .block-checkout-payment .payment-item img {
+      display: none; } }
+  .cta-sidebar .block-checkout-payment .payment-item label {
+    display: flex !important;
+    justify-content: space-between;
+    width: 100%; }
+  .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypal {
+    padding-top: 30px; }
+  .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%; }
+    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro label {
+      font-size: 14px;
+      line-height: 16px;
+      color: #777; }
+    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row.validate-required, .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first {
+      width: 49%; }
+      @media (max-width: 991px) {
+        .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row.validate-required, .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first {
+          width: 100%; } }
+    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdatemonth'],
+    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdateyear'] {
+      width: 49%; }
+      @media (max-width: 991px) {
+        .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdatemonth'],
+        .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row-first select[name='billing_expdateyear'] {
+          width: 100%; } }
+    @media (max-width: 991px) {
+      .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdatemonth'] {
+        margin: 0 0 24px; } }
+    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdatemonth'],
+    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_expdateyear'],
+    .cta-sidebar .block-checkout-payment .payment-item .payment_box.payment_method_paypalpro .form-row select[name='billing_cardtype'] {
+      padding: 14px 24px 13px; }
+
+.cta-sidebar .block-checkout-payment label {
+  font-size: 18px;
+  line-height: 21px;
+  color: #303030; }
+  .cta-sidebar .block-checkout-payment label a.about_paypal {
+    display: none; }
+
+.cta-sidebar .block-checkout-payment .custom-check {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 0 34px;
+  border: none; }
+  .cta-sidebar .block-checkout-payment .custom-check .radiobtn {
+    top: calc(50% - 3px);
+    left: 0; }
+
+.cta-sidebar .block-checkout-payment ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0 -8px;
+  padding: 0;
+  list-style: none; }
+  .cta-sidebar .block-checkout-payment ul li {
+    width: 100%;
+    padding: 0 8px; }
+
+.cta-sidebar .block-checkout-payment p {
+  margin: 16px 0 0 0; }
+
+.cta-sidebar .block-checkout-payment p,
+.cta-sidebar .block-checkout-payment .requisites {
+  width: 100%; }
+
+.cta-sidebar .block-checkout-payment .requisites {
+  display: flex;
+  margin: 24px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid #eee; }
+  @media (max-width: 768px) {
+    .cta-sidebar .block-checkout-payment .requisites {
+      flex-wrap: wrap; } }
+  .cta-sidebar .block-checkout-payment .requisites .form-row {
+    display: flex;
+    flex-direction: column;
+    margin: 0 24px 0 0; }
+    @media (max-width: 991px) {
+      .cta-sidebar .block-checkout-payment .requisites .form-row {
+        margin: 0 0 24px; } }
+    .cta-sidebar .block-checkout-payment .requisites .form-row label {
+      display: block;
+      margin: 0 0 8px;
+      font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+      color: #777; }
+    .cta-sidebar .block-checkout-payment .requisites .form-row input {
+      width: 100%;
+      margin: 0;
+      padding: 14px 24px 13px; }
+    .cta-sidebar .block-checkout-payment .requisites .form-row-number {
+      max-width: 246px; }
+      @media (max-width: 991px) {
+        .cta-sidebar .block-checkout-payment .requisites .form-row-number {
+          max-width: inherit;
+          width: 100%; } }
+    .cta-sidebar .block-checkout-payment .requisites .form-row-data {
+      max-width: 103px; }
+      @media (max-width: 991px) {
+        .cta-sidebar .block-checkout-payment .requisites .form-row-data {
+          max-width: inherit;
+          width: 100%; } }
+    .cta-sidebar .block-checkout-payment .requisites .form-row-cvv {
+      max-width: 80px; }
+      @media (max-width: 991px) {
+        .cta-sidebar .block-checkout-payment .requisites .form-row-cvv {
+          max-width: inherit;
+          width: 100%; } }
+      @media (max-width: 991px) {
+        .cta-sidebar .block-checkout-payment .requisites .form-row-cvv {
+          margin: 0; } }
+
 .checkout-section form.checkout {
   display: flex; }
   @media (max-width: 767px) {
@@ -7827,7 +8017,7 @@ span.bg-title {
   font-size: 16px;
   line-height: 19px !important;
   border: 1px solid #eee;
-  background-color: #F5F7FA;
+  background-color: #f5f7fa;
   border-radius: 4px;
   color: #999 !important; }
 
