@@ -535,6 +535,11 @@ import {log} from './utils'
 
     $continue.on('click', function (e) {
       e.preventDefault()
+
+      if (!checkAllFelds()) {
+        return
+      }
+
       $currentStep++
 
       $itemStep.removeClass('active').eq($currentStep).addClass('active')
@@ -543,21 +548,36 @@ import {log} from './utils'
 
     $itemStepLink.on('click', function (e) {
       e.preventDefault()
+
+      if (!checkAllFelds()) {
+        return
+      }
+
       $currentStep = $(this).parents($itemStep).index()
 
       $itemStep.removeClass('active').eq($currentStep).addClass('active')
       $tabCheck.removeClass('active').eq($currentStep).addClass('active')
-
-      console.log('valid')
     })
+  }
 
-    // console.log(inputForm)
+  function setInvalid() {
+    $('.tab-checkout.active').find('.btn-continue').css({opacity: '0.6', pointerEvents: 'none'})
+    $('.block-checkout').find('#checkoutStepList').addClass('invalid')
+    checkValidClass()
+  }
+
+  setInvalid()
+
+  function setValid() {
+    $('.block-checkout').find('#checkoutStepList').removeClass('invalid')
+    $('.tab-checkout.active').find('.btn-continue').css({opacity: '1', pointerEvents: 'inherit'})
+    checkValidClass()
+    console.log('valid')
   }
 
   stepCheckout()
 
   function checkValidClass() {
-    $('#checkoutStepList').addClass('invalid')
     $('#checkoutStepList').each(function () {
       if (!$(this).hasClass('invalid')) {
         $(this).find('li a').css('pointer-events', 'inherit')
@@ -567,73 +587,71 @@ import {log} from './utils'
     })
   }
 
+  // $('#checkoutStepList').addClass('invalid')
+  // $('.tab-checkout.active').find('.btn-continue').css({opacity: '0.6', pointerEvents: 'none'})
   checkValidClass()
 
+  var hideTabForm = $('.div--form.form-hide ').parents('.tab-checkout')
+  var hideFormRadios = hideTabForm.find('input[name="ship_to_different_address"]')
+  const regExEmeil = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
+  const regExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/
+  const regExPostcode = /^[A-Za-z0-9\s]+$/
+
+  hideFormRadios.on('input', function () {
+    $(this).trigger('focusout')
+  })
+
   function validFieldsCheckout() {
-    const regExEmeil = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
-    const regExPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,20}(\s*)?$/
-    const regExPostcode = /^[A-Za-z0-9\s]+$/
     var formCheck = $('.tab-checkout .div--form')
     var inputForm = formCheck.find('input')
 
-    function setInvalid(el) {
-      $('.tab-checkout.active').find('.btn-continue').css({opacity: '0.6', pointerEvents: 'none'})
-      $('.block-checkout').find('#checkoutStepList').addClass('invalid')
-      checkValidClass()
-    }
+    setInvalid()
 
-    function setValid() {
-      $('.block-checkout').find('#checkoutStepList').removeClass('invalid')
-      $('.tab-checkout.active').find('.btn-continue').css({opacity: '1', pointerEvents: 'inherit'})
-      checkValidClass()
-    }
+    inputForm.focusout(checkAllFelds)
+  }
 
-    inputForm.focusout(function () {
-      console.log(!$(this).val())
-      console.log(!regInvalid())
-      if (!$(this).val()) {
-        // $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '0.6', 'pointerEvents': 'none'})
-        // $(this).parents('.block-checkout').find('#checkoutStepList').addClass('invalid')
-        $(this).css('border-color', '#a00')
-        // checkValidClass()
-      } else {
-        // $(this).parents('.tab-checkout').find('.btn-continue').css({'opacity': '1', 'pointerEvents': 'inherit'})
-        // $(this).parents('.block-checkout').find('#checkoutStepList').removeClass('invalid')
-        $(this).css('border-color', '#eee')
-        // checkValidClass()
-      }
+  function checkAllFelds(e) {
+    var isValid = true
+    // if (!$(this).val()) {
+    //   $(this).css('border-color', '#a00')
+    // } else {
+    //   $(this).css('border-color', '#eee')
+    // }
 
-      $(this)
-        .parents('.tab-checkout.active .div--form')
-        .find('input')
-        .each(function () {
-          if (
-            ($(this).attr('id') === 'billing_phone' && !regExPhone.test($('#billing_phone').val())) ||
-            ($(this).attr('id') === 'billing_email' && !regExEmeil.test($('#billing_email').val())) ||
-            ($(this).attr('id') === 'billing_postcode' && !regExPostcode.test($('#billing_postcode').val())) ||
-            !$(this).val()
-          ) {
-            setInvalid()
-            return false
+    $('.tab-checkout.active .div--form')
+      .find('input:not([type="hidden"])')
+      .each(function () {
+        console.log($(this), $(this).val())
+        if (
+          ($(this).attr('id') === 'billing_phone' && !regExPhone.test($('#billing_phone').val())) ||
+          ($(this).attr('id') === 'billing_email' && !regExEmeil.test($('#billing_email').val())) ||
+          ($(this).attr('id') === 'billing_postcode' && !regExPostcode.test($('#billing_postcode').val())) ||
+          !$(this).val()
+        ) {
+          if (e && e.target === $(this).get(0)) {
+            $(this).css('border-color', '#a00')
           }
 
-          setValid()
-        })
-
-      function regInvalid() {
-        if (
-          regExPhone.test($('#billing_phone').val()) &&
-          regExEmeil.test($('#billing_email').val()) &&
-          regExPostcode.test($('#billing_postcode').val())
-        ) {
-          // console.log('valid reg')
-          return true
+          setInvalid()
+          console.log('invalid')
+          isValid = false
+          // return false
         } else {
-          // console.log('invalid reg')
-          return false
+          $(this).css('border-color', '#eee')
         }
-      }
-    })
+      })
+
+    console.log('hideFormRadios.val()', hideFormRadios.val())
+    if (hideTabForm.hasClass('active') && hideFormRadios.prop('checked') === true) {
+      isValid = true
+    }
+
+    if (isValid) {
+      setValid()
+    }
+    console.log('pp', isValid)
+
+    return isValid
   }
 
   validFieldsCheckout()
@@ -669,13 +687,10 @@ import {log} from './utils'
 
       if ($(this).hasClass('show') && $(this).prop('checked')) {
         $(this).parents('.block-toggle-addres').find('.form-hide').show('slow')
-        // console.log('test')
       } else if ($(this).hasClass('hide') && $(this).prop('checked')) {
         $(this).parents('.block-toggle-addres').find('.form-hide').hide('slow')
-        // console.log('test2')
       }
     })
-    // console.log($inputToggle)
   }
 
   differentAddress()
