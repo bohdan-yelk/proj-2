@@ -1,173 +1,324 @@
 .order-wood-section {
-    padding: 120px 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+  padding: 120px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 
-    @include media ('<=desktop') {
-        padding: 60px 0;
+  @include media('<=desktop') {
+    padding: 60px 0;
+  }
+
+  h2 {
+    margin: 0 0 24px;
+    color: $dark-blue;
+  }
+
+  h3 {
+    margin: 0 0 16px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+    color: $white;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include media('<tablet') {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  li {
+    margin: 0 0 30px;
+    color: $white;
+
+    @include media('<tablet') {
+      width: 48%;
     }
 
-    h2 {
+    @include media('<small') {
+      width: 100%;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .block {
+    &-form {
+      padding: 65px;
+      background-color: $white;
+      box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
+      border-radius: 8px;
+
+      @include media('<=large') {
+        padding: 40px 24px;
+      }
+
+      @include media('<tablet') {
+        margin: 40px 0 0;
+      }
+
+      & > p,
+      input {
         margin: 0 0 24px;
-        color: $dark-blue;
-    }
+        width: 100%;
+      }
 
-    h3 {
-        margin: 0 0 16px;
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 32px;
-        color: $white;
-    }
-
-    p {
-        margin: 0;
-    }
-
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        @include media ('<tablet') {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-    }
-
-    li {
-        margin: 0 0 30px;
-        color: $white;
-
-        @include media ('<tablet')  {
-            width: 48%;
-        }
-
-        @include media ('<small') {
-            width: 100%;
-        }
-
-        &:last-child {
-            margin: 0;
-        }
-    }
-
-    form {
+      p {
         position: relative;
-        display: flex;
-        flex-direction: column;
-    }
 
-    .block {
-        &-form {
-            padding: 65px;
-            background-color: $white;
-            box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
-            border-radius: 8px;
+        .wpcf7-not-valid-tip {
+          position: absolute;
+          left: 0;
+          bottom: 33px;
+        }
+      }
 
-            @include media ('<=large') {
-                padding: 40px 24px;
+      .wpcf7-response-output {
+        position: absolute;
+        bottom: -70px;
+        font-family: $base-font-sans-serif;
+      }
+
+      .ajax-loader {
+        position: absolute;
+        left: 0;
+        bottom: -30px;
+      }
+
+      .wpcf7-form-control-wrap {
+        .wpcf7-radio {
+          .wpcf7-list-item {
+            &.first {
+              margin: 15px 0 0;
             }
 
-            @include media ('<tablet') {
-                margin: 40px 0 0;
+            &.last {
+              margin: 0 0 15px;
+            }
+          }
+
+          label {
+            position: relative;
+            display: inline-block;
+            margin: 0 0 16px;
+            padding: 0 0 0 30px;
+            border: none;
+            border-radius: 0px;
+            font-family: $base-font-sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 19px;
+            color: $gray;
+            cursor: pointer;
+            user-select: none;
+
+            input,
+            span {
+              display: inline-block;
+              width: auto;
             }
 
-            &>p,input {
-                margin: 0 0 24px;
-                width: 100%;
-            }
+            input {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              width: 0;
+              height: 0;
+              left: 0;
 
-            p {
-                position: relative;
-                
-
-                .wpcf7-not-valid-tip {
-                    position: absolute;
-                    left: 0;
-                    bottom: 33px;
-                }
-
-            }
-
-            .wpcf7-response-output {
-                position: absolute;
-                bottom: -70px;
-                font-family: $base-font-sans-serif;
-            }
-
-            .ajax-loader {
-                position: absolute;
-                left: 0;
-                bottom: -30px;
+              &:checked ~ span:after {
+                display: block;
+              }
             }
 
             span {
-                width: 100%;
+              position: relative;
+
+              &:before {
+                position: absolute;
+                content: '';
+                top: 50%;
+                left: -30px;
+                transform: translateY(-50%);
+                width: 24px;
+                height: 24px;
+                border-radius: 4px;
+                border: 1px solid #eee;
+                background-color: $light-blue;
+              }
+
+              &:after {
+                position: absolute;
+                display: none;
+                content: '';
+                top: 50%;
+                left: -18px;
+                transform: translate(-50%, -50%);
+                width: 16px;
+                height: 16px;
+                background-color: $blue;
+                border-radius: 4px;
+              }
             }
-
-            select {
-                width: 100%;
-
-                &.wpcf7-list-item  {
-                    label {
-                        position: relative;
-                        display: block;
-                        margin: 0 0 16px;
-                        padding: 18px 18px 17px 56px;
-                        font-family: $base-font-sans-serif;
-                        font-size: 16px;
-                        font-weight: normal;
-                        line-height: 19px;
-                        color: $gray;
-                        border-radius: 4px;
-                        border: 1px solid #eee;
-                        cursor: pointer;
-                        user-select: none;
-                
-                        &.active {
-                            border-color: $blue;
-                            color: $blue;
-                        }
-                
-                        input[type="radio"] {
-                            position: absolute;
-                            opacity: 0;
-                            cursor: pointer;
-                            width: 0;
-                            height: 0;
-                
-                            &:checked~.radiobtn:after {
-                                display: block;
-                            }
-                        }
-                
-                        .radiobtn {
-                            position: absolute;
-                            top: 50%;
-                            left: 18px;
-                            transform: translateY(-50%);
-                            width: 20px;
-                            height: 20px;
-                            background-color: $light-blue;
-                            border: 1px solid #eee;
-                            border-radius: 50%;
-                
-                            &:after {
-                                position: absolute;
-                                content: '\e904';
-                                font-family: 'icomoon';
-                                font-size: 20px;
-                                color: $blue;
-                                display: none;
-                            }
-                        }
-
-                    }
-                }
-            }
+          }
         }
+      }
+
+      .load-description {
+        display: none;
+      }
+
+      .load-file {
+        position: relative;
+
+        .load-text {
+          position: absolute;
+          bottom: -3px;
+          width: 100%;
+        }
+        div {
+          position: relative;
+          height: 60px;
+          width: 100%;
+          margin: 0 0 24px;
+
+          &:hover {
+            cursor: pointer;
+
+            span.custom_browse {
+              background-color: $dark-blue;
+            }
+          }
+
+          span.file {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+
+            input {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              margin: 0;
+            }
+          }
+
+          span.custom_browse {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: $base-font-sans-serif;
+            font-size: 16px;
+            line-height: 19px;
+            background-color: $green;
+            border-radius: 5px;
+            color: $white;
+            transition: background 0.3s ease;
+
+            &:before {
+              position: relative;
+              content: '\e91c';
+              left: 2px;
+              top: 1px;
+              transform: translate(-50%);
+              font-family: 'icomoon';
+              font-size: 16px;
+            }
+          }
+        }
+      }
+
+      span {
+        width: 100%;
+      }
+
+      select {
+        width: 100%;
+
+        &.wpcf7-list-item {
+          label {
+            position: relative;
+            display: block;
+            margin: 0 0 16px;
+            padding: 18px 18px 17px 56px;
+            font-family: $base-font-sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 19px;
+            color: $gray;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            cursor: pointer;
+            user-select: none;
+
+            &.active {
+              border-color: $blue;
+              color: $blue;
+            }
+
+            input[type='radio'] {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              width: 0;
+              height: 0;
+
+              &:checked ~ .radiobtn:after {
+                display: block;
+              }
+            }
+
+            .radiobtn {
+              position: absolute;
+              top: 50%;
+              left: 18px;
+              transform: translateY(-50%);
+              width: 20px;
+              height: 20px;
+              background-color: $light-blue;
+              border: 1px solid #eee;
+              border-radius: 50%;
+
+              &:after {
+                position: absolute;
+                content: '\e904';
+                font-family: 'icomoon';
+                font-size: 20px;
+                color: $blue;
+                display: none;
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }

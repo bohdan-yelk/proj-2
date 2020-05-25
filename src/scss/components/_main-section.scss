@@ -1,233 +1,229 @@
 .main-section {
-    padding: 149px 0 87px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+  padding: 149px 0 87px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 
-    @include media('<desktop') {       
-        padding: 40px 0;
+  @include media('<desktop') {
+    padding: 40px 0;
+  }
+
+  @include media('<=small') {
+    background-position: 35% top;
+  }
+
+  .tag {
+    margin: 0 0 14px;
+    padding: 0 0 0 37px;
+    font-family: $base-font-sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    color: rgba(255, 255, 255, 0.75);
+
+    @include media('<desktop') {
+      margin: 0 auto 16px;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  h1 {
+    margin: 0 0 47px;
+    padding: 0 0 0 37px;
+    color: $white;
+
+    @include media('<desktop') {
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
 
     @include media('<=small') {
-        background-position: 35% top;
+      font-size: 32px;
+      line-height: 43px;
+    }
+  }
+
+  .item {
+    align-items: center;
+    @include media('<desktop') {
+      position: relative;
+      flex-direction: column;
+      padding: 0 0 40px;
+    }
+  }
+
+  .block {
+    &-content {
+      width: 41.5%;
+      margin: -4px 0 0;
+
+      @include media('<desktop') {
+        width: 100%;
+        margin: 0 0 40px;
+      }
     }
 
-    .tag {
-        margin: 0 0 14px;
-        padding: 0 0 0 37px;
-        font-family: $base-font-sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        letter-spacing: 0.2px;
-        color: rgba(255, 255, 255, 0.75);
+    &-product {
+      @include media('<desktop') {
+        margin: 0 auto;
+      }
+    }
+  }
 
-        @include media('<desktop') {
-            margin: 0 auto 16px;
-            padding: 0;
-            text-align: center;
-        }
+  .btn-blue {
+    margin: 0 0 0 37px;
+    padding: 20px 65px 19px;
+    text-align: inherit;
+
+    @include media('<desktop') {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      text-align: center;
+      margin: 0;
     }
 
-    h1 {
-        margin: 0 0 47px;
-        padding: 0 0 0 37px;
-        color: $white;
+    &:hover {
+      color: $white;
+      border-color: $white;
 
-        @include media('<desktop') {
-            margin: 0;
-            padding: 0;
-            text-align: center;            
-        }
-
-        @include media('<=small') {
-            font-size: 32px;
-            line-height: 43px;
-        }
-    }
-
-    .item {
-        @include media('<desktop') {
-            position: relative;
-            flex-direction: column;
-            padding: 0 0 40px;
-        }
-        
-    }
-
-    .block {   
-
-        &-content {
-            width: 41.5%;
-            margin: -4px 0 0;
-
-            @include media('<desktop') {
-                width: 100%;
-                margin: 0 0 40px;
-            }
-        }
-
-        &-product {
-            @include media('<desktop') {
-                margin: 0 auto;
-            }
-        }
-    }
-
-    .btn-blue {
-        margin: 0 0 0 37px;
-        padding: 20px 65px 19px;
-        text-align: inherit;
-
-        @include media('<desktop') {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
-            text-align: center;
-            margin: 0;
-        }
-        
-        
+      @include media('<=small') {
         &:hover {
-            color: $white;
-            border-color: $white;
-
-            @include media('<=small') {
-                &:hover {
-                    &:after {
-                        right: -17px;
-                    }
-                }
-            }
+          &:after {
+            right: -17px;
+          }
         }
+      }
+    }
 
+    &:after {
+      position: relative;
+      right: -14px;
+
+      @include media('<=small') {
         &:after {
-            position: relative;
-            right: -14px;
-
-            @include media('<=small') {
-                &:after {
-                    position: relative;
-                    right: -10px;
-                }
-            }
+          position: relative;
+          right: -10px;
         }
+      }
+    }
+  }
+
+  picture {
+    position: relative;
+    display: block;
+
+    .discount {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-family: $base-font-sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 27px;
+      background-color: $green;
+      border-radius: 50%;
+      padding: 36px 14px;
+      color: $white;
+
+      @include media('<desktop') {
+        right: inherit;
+        left: 12%;
+      }
+
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .slick {
+    &-slide {
+      height: auto;
     }
 
-    picture {
-        position: relative;
-        display: block;
+    &-arrow {
+      width: 50px;
+      height: 50%;
+      top: calc(50% - 16px);
 
-        .discount {
-            position: absolute;
-            top: 0;
-            right: 0;
-            font-family: $base-font-sans-serif;
-            font-size: 24px;
-            font-weight: 900;
-            line-height: 27px;
-            background-color: $green;
-            border-radius: 50%;
-            padding: 36px 14px;
-            color: $white;
+      &:before {
+        padding: 16px;
+        font-family: 'icomoon';
+        font-size: 16px;
+        color: $blue;
+        background-color: $white;
+        border-radius: 50%;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
 
-            @include media('<desktop') {
-                right: inherit;
-                left: 12%;
-            }
-
-            span {
-                font-size: 16px;
-            }
+      &:hover {
+        &:before {
+          opacity: 0.8;
         }
+      }
     }
 
-    .slick {
-
-        &-slide {
-            height: auto;
-        }
-        
-        &-arrow {
-            width: 50px;
-            height: 50%;
-            top: calc(50% - 16px);
-            
-            &:before {
-                padding: 16px;
-                font-family: 'icomoon';
-                font-size: 16px;
-                color: $blue;
-                background-color: $white;
-                border-radius: 50%;
-                opacity: 1;
-                transition: opacity .3s ease;
-            }
-
-            &:hover {
-                &:before {
-                    opacity: 0.8;
-                }
-            }
-        }
-
-        &-prev {
-            left: -125px;
-            &:before {
-                content: "\e902";
-                
-            }
-        }
-
-        &-next {
-            right: -97px;
-            &:before {
-                content: "\e901";
-            }
-        }
-
-        &-dots {
-            bottom: 55px;
-            display: flex;
-            justify-content: flex-start;
-            margin: 0 -5px -25px;
-            padding: 0 0 0 92px;
-            transition: width .3s ease;
-
-            @include media('<desktop') {
-                bottom: -10px;
-                justify-content: center;
-                padding: 0;
-            }
-
-            li {
-                width: 4px;
-                height: 4px;
-                margin: 0 3px;
-                padding: 0 5px;
-                
-                &.slick-active {
-                    width: 42px;
-                    
-                    button {
-                        width: 100%;
-                    }
-                }
-            }
-
-            button {
-                width: 4px;
-                height: 4px;
-                padding: 0;
-                border-radius: 50%;
-                background-color: $white;
-                transition: width .3s ease;
-                border-radius: 3px;
-
-                &:before {
-                    display: none;
-                }
-            }
-        }
+    &-prev {
+      left: -125px;
+      &:before {
+        content: '\e902';
+      }
     }
+
+    &-next {
+      right: -97px;
+      &:before {
+        content: '\e901';
+      }
+    }
+
+    &-dots {
+      bottom: 55px;
+      display: flex;
+      justify-content: flex-start;
+      margin: 0 -5px -25px;
+      padding: 0 0 0 92px;
+      transition: width 0.3s ease;
+
+      @include media('<desktop') {
+        bottom: -10px;
+        justify-content: center;
+        padding: 0;
+      }
+
+      li {
+        width: 4px;
+        height: 4px;
+        margin: 0 3px;
+        padding: 0 5px;
+
+        &.slick-active {
+          width: 42px;
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+
+      button {
+        width: 4px;
+        height: 4px;
+        padding: 0;
+        border-radius: 50%;
+        background-color: $white;
+        transition: width 0.3s ease;
+        border-radius: 3px;
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
 }

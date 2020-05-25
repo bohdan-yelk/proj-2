@@ -208,7 +208,7 @@ __webpack_require__.r(__webpack_exports__);
 
       }
     }]
-  }); // limit dots on gallery slider 
+  }); // limit dots on gallery slider
   // var dotsGallerySlider = $('#gallerySlider li')
   // dotsGallerySlider.click(function(){
   //   dotsGallerySlider.removeClass('before after')
@@ -225,7 +225,7 @@ __webpack_require__.r(__webpack_exports__);
   //     }
   //     if(!$(this).next().next().length) {
   //       $(this).prev().prev().prev().addClass('before')
-  //     }	
+  //     }
   //   })
   //   // dotsGallerySlider.eq(0).click()
   // })
@@ -570,8 +570,8 @@ __webpack_require__.r(__webpack_exports__);
 
     function setInvalid(el) {
       $('.tab-checkout.active').find('.btn-continue').css({
-        'opacity': '0.6',
-        'pointerEvents': 'none'
+        opacity: '0.6',
+        pointerEvents: 'none'
       });
       $('.block-checkout').find('#checkoutStepList').addClass('invalid');
       checkValidClass();
@@ -580,8 +580,8 @@ __webpack_require__.r(__webpack_exports__);
     function setValid() {
       $('.block-checkout').find('#checkoutStepList').removeClass('invalid');
       $('.tab-checkout.active').find('.btn-continue').css({
-        'opacity': '1',
-        'pointerEvents': 'inherit'
+        opacity: '1',
+        pointerEvents: 'inherit'
       });
       checkValidClass();
     }
