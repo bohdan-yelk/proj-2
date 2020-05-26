@@ -73,7 +73,7 @@ import {log} from './utils'
     dots: true,
     arrows: false,
     slidesToShow: 2,
-    slidesToScroll: 1,
+    // slidesToScroll: 1,
     variableWidth: true,
     responsive: [
       {
@@ -974,7 +974,13 @@ import {log} from './utils'
   // ---- tabs "abc" on Surname page ----
 
   $('ul.tabs-list-glossary').on('click', 'li:not(.active)', function (e) {
+    var abcIndex = $('ul.tabs-list-glossary li').attr('data-index')
+    var abcLink = $('ul.tabs-list-glossary li a')
+
     e.preventDefault()
+
+    console.log($(this))
+
     $(this)
       .addClass('active')
       .siblings()
@@ -991,8 +997,8 @@ import {log} from './utils'
   function searchSurname() {
     if ($('#glossaryList').length) {
       var input = document.getElementById('searchInput')
-      var glossaryList = document.getElementById('glossaryList')
-      var glossaryItems = glossaryList.querySelectorAll('h3')
+      // var glossaryList = document.getElementById('glossaryList')
+      var glossaryItems = document.querySelectorAll('.glossary-list li h3')
       var alert = document.getElementById('infoAlert')
 
       function onInput(event) {
@@ -1054,6 +1060,36 @@ import {log} from './utils'
   })
 
   // ---- color slider mobile only on product page ----
+
+  function limitDotsSlick() {
+    var dots = $('#gallerySlider .slick-dots li')
+
+    dots.on('click', function () {
+      dots.removeClass('before after')
+      $(this).prev().addClass('before').prev().addClass('before')
+      $(this).next().addClass('after').next().addClass('after')
+
+      if (!$(this).prev().length) {
+        $(this).next().next().next().addClass('after').next().addClass('after')
+      }
+
+      if (!$(this).prev().prev().length) {
+        $(this).next().next().next().addClass('after')
+      }
+
+      if (!$(this).next().length) {
+        $(this).prev().prev().prev().addClass('before').prev().addClass('before')
+      }
+
+      if (!$(this).next().next().length) {
+        $(this).prev().prev().prev().addClass('before')
+      }
+    })
+
+    dots.eq(0).click()
+  }
+
+  limitDotsSlick()
 
   // ---- anchor links Surname CoA page ----
 

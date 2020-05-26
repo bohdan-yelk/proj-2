@@ -1,696 +1,690 @@
 #header {
-    position: relative;
-    padding: 20px 0 16px;
-    background-color: $white;
+  position: relative;
+  padding: 20px 0 16px;
+  background-color: $white;
 
-    @include media('<=desktop') {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 100000;
+  @include media('<=desktop') {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100000;
+  }
+
+  // &.sticky {
+  //     @include media('<desktop') {
+  //         position: fixed;
+  //         top: 0;
+  //         left: 0;
+  //         width: 100%;
+  //         z-index: 110;
+  //     }
+  // }
+
+  &.active {
+    .burger-brick {
+      &:first-child {
+        transform: rotate(405deg);
+        margin-top: 0px;
+      }
+
+      &.middle {
+        transform: scale(0);
+      }
+
+      &:last-child {
+        transform: rotate(-405deg);
+        margin-top: -7px;
+      }
     }
+  }
 
-    // &.sticky {
-    //     @include media('<desktop') {
-    //         position: fixed;
-    //         top: 0;
-    //         left: 0;
-    //         width: 100%;
-    //         z-index: 110;
-    //     }
-    // }
+  @include media('<desktop') {
+    padding: 0;
+  }
 
-    &.active {
-        .burger-brick {
-            &:first-child {
-                transform: rotate(405deg);
-                margin-top: 0px;
-            }
+  .logo-main-wrapper {
+    @include media('<desktop') {
+      flex: inherit;
+      max-width: 28% !important;
+    }
+  }
 
-            &.middle {
-                transform: scale(0);
-            }
+  .cart-btn-wrapper {
+    @include media('<=large') {
+      margin: 0 0 0 auto;
+      padding: 0;
+      min-width: 64px;
+    }
+  }
 
-            &:last-child {
-                transform: rotate(-405deg);
-                margin-top: -7px;
-            }
-        }
+  .search-main-wrapper {
+    @include media('<desktop') {
+      // margin: 0 -5px;
+      padding: 0;
+      border-radius: 0;
+    }
+  }
+
+  .burger-btn-wrapper {
+    position: relative;
+    width: 100%;
+    height: 64px;
+    max-width: 64px;
+    max-height: 64px;
+    background-color: $blue;
+
+    .burger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      // transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      &-brick {
+        width: 100%;
+        height: 2px;
+        max-width: 18px;
+        background: $white;
+        margin-top: 3px;
+        transition: 0.3s ease-out;
+      }
+    }
+  }
+
+  .inner-wrapper {
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .logo {
+    margin: 0 auto 0 0;
+
+    img {
+      @include media('<desktop') {
+        width: 100%;
+        max-width: 62px;
+      }
+    }
+  }
+
+  form {
+    margin: -3px 0 0;
+
+    @include media('<desktop') {
+      margin: 0;
+    }
+  }
+
+  input[type='search'],
+  input[type='text'] {
+    width: calc(100% - 70px);
+    padding: 20px 24px 19px 2px;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    outline: none;
+
+    @include media('<=large') {
+      border-radius: 0;
+      appearance: textfield;
+      -webkit-border-radius: 0px;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     @include media('<desktop') {
-        padding: 0;
+      width: 100%;
+    }
+  }
+
+  .search {
+    margin: 0 -5px 0 0;
+    padding: 19px 24px 18px;
+    height: 60px;
+    font-size: 18px;
+    line-height: 19px;
+    border: 1px solid #eee;
+    border-right: none;
+    background-color: $light-blue;
+    border-radius: 4px 0 0 4px;
+    color: $dark-blue;
+    outline: none;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin: -3px 0 0 5px;
+    font-size: 20px;
+    color: $blue;
+    background-color: $white;
+    box-shadow: 0px 8px 16px rgba(0, 148, 255, 0.25);
+    border-radius: 4px;
+
+    @include media('<desktop') {
+      width: 64px;
+      height: 64px;
+      margin: 0 0 0 auto;
+      box-shadow: none;
+      border-radius: 0;
     }
 
-    .logo-main-wrapper {
-        @include media('<desktop') {
-            flex: inherit;
-            max-width: 28% !important;
+    &:hover {
+      color: $dark-blue;
+      box-shadow: 0px 8px 16px rgba(52, 90, 156, 0.25);
+
+      @include media('<desktop') {
+        box-shadow: none;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 18px;
+      right: 18px;
+      width: 8px;
+      height: 8px;
+      border: 1px solid $white;
+      border-radius: 50%;
+      background-color: $green;
+    }
+
+    &.has-product {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+
+  .block-search-result {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+
+    &.active {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 0;
+      padding: 32px 0;
+      list-style: none;
+
+      li {
+        width: 33.3%;
+        margin: 0 0 24px;
+        font-family: $base-font-sans-serif;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: $blue;
+      }
+    }
+  }
+}
+
+#nav {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 64px;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: $dark-blue;
+
+  .container {
+    @include media('<desktop') {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @include media('<desktop') {
+    position: absolute;
+    right: -9999px;
+    transition: right 0.3s ease;
+  }
+
+  &.active {
+    @include media('<desktop') {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $dark-blue;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      z-index: 100000;
+      max-height: inherit;
+    }
+  }
+
+  .mob-title,
+  .mob-subtitle,
+  .mob-close {
+    display: none;
+
+    @include media('<desktop') {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .mob-title,
+  .mob-subtitle {
+    margin: 0 0 32px;
+
+    h4 {
+      margin: 0;
+      padding: 24px 0 24px 40px;
+      font-family: $base-font-sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 19px;
+      color: rgba(255, 255, 255, 0.5);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .mob-close {
+    position: relative;
+    margin: auto 0 0;
+
+    a {
+      position: relative;
+      display: block;
+      padding: 24px 0 24px 50px;
+      font-size: 16px;
+      line-height: 19px;
+      color: $white;
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+      &.btn-close-submenu {
+        &:before {
+          content: '\e902';
         }
-    }
 
-    .cart-btn-wrapper {
-        @include media('<=large') {
-            margin: 0 0 0 auto;
-            padding: 0;
-            min-width: 64px;
+        &:after {
+          display: none;
         }
-    }
+      }
 
-    .search-main-wrapper {
-        @include media('<desktop') {
-            // margin: 0 -5px;
-            padding: 0;
-            border-radius: 0;
-        }
-    }
-
-    .burger-btn-wrapper {
+      &:before {
         position: relative;
-        width: 100%;
-        height: 64px;
-        max-width: 64px;
-        max-height: 64px;
-        background-color: $blue;
+        content: '\e905';
+        top: 50%;
+        left: -10px;
+        transform: translateY(-50%);
+        font-family: 'icomoon';
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
 
-        .burger {
-            position: absolute;
-            top: 0;
-            left: 0;
-            // transform: translate(-50%, -50%);
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    margin: 0 -32px;
+    padding: 0;
+    list-style: none;
+
+    @include media('<desktop') {
+      flex-direction: column;
+      align-items: flex-start !important;
+      margin: 0;
+      padding: 0 0 0 25px;
+    }
+
+    &.submenu {
+      position: absolute;
+      left: 0;
+      display: none;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      margin: 21px 0 0;
+      padding: 0;
+      background-color: $white;
+      list-style: none;
+      z-index: 100000;
+
+      // @include media('<desktop') {
+      //     position: relative;
+      //     width: 100%;
+      //     margin: 0;
+      //     background: $dark-blue;
+      // }
+
+      &.active {
+        display: flex;
+
+        @include media('<desktop') {
+          // position: absolute;
+          // top: -21px;
+          // left: 0;
+          // right: 0;
+          // bottom: 0;
+          // overflow-y: scroll;
+          // overflow-x: hidden;
+          top: 0;
+          bottom: 0;
+          z-index: 1000;
+          margin: 0;
+          flex-direction: column;
+          justify-content: center;
+          flex-wrap: nowrap;
+          // z-index: 1000;
+          background-color: $blue;
+          // max-height: 100%
+        }
+      }
+
+      &-services,
+      &-learn {
+        @include media('<desktop') {
+          flex-wrap: nowrap;
+        }
+
+        li {
+          a {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            height: 100%;
-
-            &-brick {
-                width: 100%;
-                height: 2px;
-                max-width: 18px;
-                background: $white;
-                margin-top: 3px;
-                transition: 0.3s ease-out;
-            }
-        }
-    }
-
-    .inner-wrapper {
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    .logo {
-        margin: 0 auto 0 0;
-
-        img {
-            @include media('<desktop') {
-                width: 100%;
-                max-width: 62px;
-            }
-        }
-    }
-
-    form {
-        margin: -3px 0 0;
-
-        @include media('<desktop') {
-            margin: 0;
-        }
-    }
-
-    input[type="search"],
-    input[type="text"] {
-        width: calc(100% - 70px);
-        padding: 20px 24px 19px 2px;
-        border-left: none;
-        border-radius: 0 4px 4px 0;
-        outline: none;
-
-        @include media('<=large') {
-            border-radius: 0;
-            appearance: textfield;
-            -webkit-border-radius:0px;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-
-        @include media('<desktop') {
-            width: 100%;
-        }
-    }
-
-    .search {
-        margin: 0 -5px 0 0;
-        padding: 19px 24px 18px;
-        height: 60px;
-        font-size: 18px;
-        line-height: 19px;
-        border: 1px solid #eee;
-        border-right: none;
-        background-color: $light-blue;
-        border-radius: 4px 0 0 4px;
-        color: $dark-blue;
-        outline: none;
-
-        &:hover {
-            color: $blue;
-        }
-    }
-
-    .cart {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 60px;
-        height: 60px;
-        margin: -3px 0 0 5px;
-        font-size: 20px;
-        color: $blue;
-        background-color: $white;
-        box-shadow: 0px 8px 16px rgba(0, 148, 255, 0.25);
-        border-radius: 4px;
-
-        @include media('<desktop') {
-            width: 64px;
-            height: 64px;
-            margin: 0 0 0 auto;
-            box-shadow: none;
-            border-radius: 0;
-        }
-
-        &:hover {
-            color: $dark-blue;
-            box-shadow: 0px 8px 16px rgba(52, 90, 156, 0.25);
 
             @include media('<desktop') {
-                box-shadow: none;
-            }
-
-        }
-
-        &:before {
-            position: absolute;
-            content: '';
-            top: 18px;
-            right: 18px;
-            width: 8px;
-            height: 8px;
-            border: 1px solid $white;
-            border-radius: 50%;
-            background-color: $green;
-        }
-
-        &.has-product {
-            background-color: $blue;
-            color: $white;
-        }
-    }
-
-    .block-search-result {
-        position: absolute;
-        display: none;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        z-index: 100;
-
-        &.active {
-            display: block;
-        }
-
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            margin: 0;
-            padding: 32px 0;
-            list-style: none;
-
-            li {
-                width: 33.3%;
-                margin: 0 0 24px;
-                font-family: $base-font-sans-serif;
-                font-size: 16px;
-                line-height: 19px;
-                text-align: center;
-                color: $blue;
-            }
-        }
-    }
-}
-
-#nav {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    max-height: 64px;
-    font-size: 16px;
-    line-height: 19px;
-    background-color: $dark-blue;
-
-    .container {
-        @include media('<desktop') {
-            display: flex;
-            align-items: center;
-        }
-    }
-
-    @include media('<desktop') {
-        position: absolute;
-        right: -9999px;
-        transition: right .3s ease;
-    }
-
-    &.active {
-        @include media('<desktop') {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: $dark-blue;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            z-index: 100000;
-            max-height: inherit;
-        }
-    }
-
-    .mob-title,
-    .mob-subtitle,
-    .mob-close {
-        display: none;
-
-        @include media('<desktop') {
-            display: block;
-            width: 100%;
-        }
-    }
-
-    .mob-title,
-    .mob-subtitle {
-        margin: 0 0 32px;
-
-        h4 {
-            margin: 0;
-            padding: 24px 0 24px 40px;
-            font-family: $base-font-sans-serif;
-            font-size: 16px;
-            font-weight: bold;
-            line-height: 19px;
-            color: rgba(255, 255, 255, .5);
-            border-bottom: 1px solid rgba(255, 255, 255, .5);
-        }
-    }
-
-    .mob-close {
-        position: relative;
-        margin: auto 0 0;
-
-        a {
-            position: relative;
-            display: block;
-            padding: 24px 0 24px 50px;
-            font-size: 16px;
-            line-height: 19px;
-            color: $white;
-            border-top: 1px solid rgba(255, 255, 255, .5);
-
-            &.btn-close-submenu {
-                &:before {
-                    content: '\e902';
-                }
-
-                &:after {
-                    display: none;
-                }
-            }
-
-            &:before {
-                position: relative;
-                content: '\e905';
-                top: 50%;
-                left: -10px;
-                transform: translateY(-50%);
-                font-family: 'icomoon';
-                font-size: 12px;
-                color: rgba(255, 255, 255, 0.5);
-            }
-        }
-    }
-
-    ul {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        margin: 0 -32px;
-        padding: 0;
-        list-style: none;
-
-        @include media('<desktop') {
-            flex-direction: column;
-            align-items: flex-start !important;
-            margin: 0;
-            padding: 0 0 0 25px;
-        }
-
-        &.submenu {
-            position: absolute;
-            left: 0;
-            display: none;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            width: 100%;
-            margin: 21px 0 0;
-            padding: 0;
-            background-color: $white;
-            list-style: none;
-            z-index: 100000;
-
-            // @include media('<desktop') {
-            //     position: relative;
-            //     width: 100%;
-            //     margin: 0;                
-            //     background: $dark-blue;
-            // }
-
-            &.active {
-                display: flex;
-
-                @include media('<desktop') {
-                    // position: absolute;
-                    // top: -21px;
-                    // left: 0;
-                    // right: 0;
-                    // bottom: 0;
-                    // overflow-y: scroll;
-                    // overflow-x: hidden;
-                    top: 0;
-                    bottom: 0;
-                    z-index: 1000;
-                    margin: 0;
-                    flex-direction: column;
-                    justify-content: center;
-                    flex-wrap: nowrap;
-                    // z-index: 1000;
-                    background-color: $blue;
-                    // max-height: 100%
-                }
-            }
-            
-
-            &-services,
-            &-learn {
-
-                @include media('<desktop') {
-                    flex-wrap: nowrap;
-                }
-
-                li {
-                    a {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-
-                        @include media('<desktop') {
-                            width: fit-content;
-                            align-items: flex-end;
-                        }
-                        
-                        i,
-                        span {
-                            color: $blue;
-
-                        }
-
-                        span {
-                            @include media('<desktop') {
-                                color: $white;
-                            }
-                        }
-
-                        i {
-                            @include media('<desktop') {
-                                display: none;
-                            }
-                        }
-
-                        &:hover {
-                            background-color: $blue;
-
-                            i,
-                            span {
-                                color: $white;
-                            }
-                        }
-                    }
-                }
-            }
-
-            li {
-                position: relative;
-                width: 25%;
-                height: 340px;
-
-                @include media('<desktop') {
-                    width: auto;
-                    height: inherit;
-                    padding: 0 0 32px 40px;
-                }
-
-                &.menu-back-mob {
-                    display: none; 
-
-                    @include media('<desktop') {
-                        position: absolute;
-                        bottom: -40px;
-                        display: block;
-
-                        a {
-                            padding-left: 40px;
-
-                            &:hover {
-                                color: $white;
-                            }
-
-                            &:after {
-                                content: '\e902';
-                                right: inherit;
-                                left: 0;
-                                transform: translateY(-50%) rotate(0);
-                            }
-                        }
-                    }
-                    
-                }
-
-                &.last {
-                    a {
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        width: auto;
-                        height: auto;
-
-                        @include media('<desktop') {
-                            color: $white;
-                            display: inline-block;
-                        }
-
-                        &:hover {
-                            &:after {
-                                right: -25px;
-                                color: $blue;
-                            }
-                        }
-
-                        &:after {
-                            content: '\e901';
-                            font-size: 10px;
-                            color: $dark-blue;
-
-                            @include media('<desktop') {
-                                display: none;
-                            }
-                        }
-                    }
-                }
-            }
-
-            &-services {
-                li {
-                    width: 50%;
-
-                    @include media('<desktop') {
-                        width: 100%;
-                    }
-                }
-            }
-
-            a {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 19px;
-                color: $dark-blue;
-
-                @include media('<desktop') {
-                    position: relative;
-                    display: inline-block;
-                    width: inherit;
-                    height: inherit;
-                    font-weight: 400;
-                    color: $white;
-                }
-
-                &:hover {
-                    color: $blue;
-
-                    @include media('<desktop') {
-                        color: $white;
-                    }
-
-                    picture {
-                        span {
-                            color: $blue;
-
-                            @include media('<desktop') {
-                                color: $white;
-                                font-weight: normal;
-                            }
-                        }
-                    }
-                }
+              width: fit-content;
+              align-items: flex-end;
             }
 
             i,
             span {
-                transition: color .3s ease;
+              color: $blue;
+            }
+
+            span {
+              @include media('<desktop') {
+                color: $white;
+              }
             }
 
             i {
-                margin: 0 0 16px;
-                font-size: 64px;
+              @include media('<desktop') {
+                display: none;
+              }
             }
 
-            picture {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100%;
+            &:hover {
+              background-color: $blue;
 
-                img {
-                    margin: 0 0 16px;
-
-                    @include media('<desktop') {
-                        display: none;
-                    }
-                }
-
-                span {
-                    font-size: 16px;
-                    font-weight: 500;
-                    line-height: 19px;
-
-                    @include media('<desktop') {
-                        font-weight: 400;
-                        color: $white;
-                    }
-                }
+              i,
+              span {
+                color: $white;
+              }
             }
+          }
         }
-    }
+      }
 
-    li {
-        padding: 21px 32px;
-
-        @include media('<desktop') {
-            padding: 0 0 32px;
-        }
-
-        &:last-child {
-            @include media('<desktop') {
-                padding: 0;
-                margin: 0 0 32px;
-            }
-        }
-
-        &.active {
-            a {
-                @include media('<desktop') {
-                    color: rgba(255, 255, 255, .75);
-                }
-
-            }
-        }
-
-        &.has-submenu {
-            overflow: hidden;
-
-            &.active {
-                @include media('<desktop') {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    overflow-y: scroll;
-                    overflow-x: hidden;
-                    z-index: 110;
-                    max-height: inherit;
-                    margin: 0;
-                    padding: 0;
-                    color: $blue;
-                }
-
-                &>a {
-                    @include media('<desktop') {
-                        display: none;
-                    }
-                }
-            }
-
-            a {
-                &:after {
-                    position: absolute;
-                    content: '\e900';
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: -22px;
-                    font-size: 7px;
-                    font-family: 'icomoon';
-                    color: rgba(255, 255, 255, 0.75);
-
-                    @include media('<desktop') {
-                        right: 0;
-                        transform: translateY(-50%) rotate(-90deg);
-                    }
-                }
-            }
-        }
-    }
-
-    a {
+      li {
         position: relative;
-        color: $white;
+        width: 25%;
+        height: 340px;
 
         @include media('<desktop') {
-            padding: 0 20px 0 0;
+          width: auto;
+          height: inherit;
+          padding: 0 0 32px 40px;
+        }
+
+        &.menu-back-mob {
+          display: none;
+
+          @include media('<desktop') {
+            position: absolute;
+            bottom: -40px;
+            display: block;
+
+            a {
+              padding-left: 40px;
+
+              &:hover {
+                color: $white;
+              }
+
+              &:after {
+                content: '\e902';
+                right: inherit;
+                left: 0;
+                transform: translateY(-50%) rotate(0);
+              }
+            }
+          }
+        }
+
+        &.last {
+          a {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: auto;
+
+            @include media('<desktop') {
+              color: $white;
+              display: inline-block;
+            }
+
+            &:hover {
+              &:after {
+                right: -25px;
+                color: $blue;
+              }
+            }
+
+            &:after {
+              content: '\e901';
+              font-size: 10px;
+              color: $dark-blue;
+
+              @include media('<desktop') {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      &-services {
+        li {
+          width: 50%;
+
+          @include media('<desktop') {
+            width: 100%;
+          }
+        }
+      }
+
+      a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        color: $dark-blue;
+
+        @include media('<desktop') {
+          position: relative;
+          display: inline-block;
+          width: inherit;
+          height: inherit;
+          font-weight: 400;
+          color: $white;
         }
 
         &:hover {
-            color: rgba(255, 255, 255, .75);
+          color: $blue;
+
+          @include media('<desktop') {
+            color: $white;
+          }
+
+          picture {
+            span {
+              color: $blue;
+
+              @include media('<desktop') {
+                color: $white;
+                font-weight: normal;
+              }
+            }
+          }
         }
+      }
+
+      i,
+      span {
+        transition: color 0.3s ease;
+      }
+
+      i {
+        margin: 0 0 16px;
+        font-size: 64px;
+      }
+
+      picture {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        img {
+          margin: 0 0 16px;
+
+          @include media('<desktop') {
+            display: none;
+          }
+        }
+
+        span {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 19px;
+
+          @include media('<desktop') {
+            font-weight: 400;
+            color: $white;
+          }
+        }
+      }
     }
+  }
+
+  li {
+    padding: 21px 32px;
+
+    @include media('<desktop') {
+      padding: 0 0 32px;
+    }
+
+    &:last-child {
+      @include media('<desktop') {
+        padding: 0;
+        margin: 0 0 32px;
+      }
+    }
+
+    &.active {
+      a {
+        @include media('<desktop') {
+          color: rgba(255, 255, 255, 0.75);
+        }
+      }
+    }
+
+    &.has-submenu {
+      overflow: hidden;
+
+      &.active {
+        @include media('<desktop') {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          z-index: 110;
+          max-height: inherit;
+          margin: 0;
+          padding: 0;
+          color: $blue;
+        }
+
+        & > a {
+          @include media('<desktop') {
+            display: none;
+          }
+        }
+      }
+
+      a {
+        &:after {
+          position: absolute;
+          content: '\e900';
+          top: 50%;
+          transform: translateY(-50%);
+          right: -22px;
+          font-size: 7px;
+          font-family: 'icomoon';
+          color: rgba(255, 255, 255, 0.75);
+
+          @include media('<desktop') {
+            right: 0;
+            transform: translateY(-50%) rotate(-90deg);
+          }
+        }
+      }
+    }
+  }
+
+  a {
+    position: relative;
+    color: $white;
+
+    @include media('<desktop') {
+      padding: 0 20px 0 0;
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75);
+    }
+  }
 }

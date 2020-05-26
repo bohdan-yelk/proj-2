@@ -149,6 +149,7 @@
       width: 50px;
       height: 50%;
       top: calc(50% - 16px);
+      z-index: 10;
 
       &:before {
         padding: 16px;
@@ -170,6 +171,15 @@
 
     &-prev {
       left: -125px;
+
+      @include media('<1366px') {
+        left: -40px;
+      }
+
+      @include media('<=large') {
+        left: -13px;
+      }
+
       &:before {
         content: '\e902';
       }
@@ -177,6 +187,15 @@
 
     &-next {
       right: -97px;
+
+      @include media('<1366px') {
+        right: -40px;
+      }
+
+      @include media('<=large') {
+        right: -13px;
+      }
+
       &:before {
         content: '\e901';
       }

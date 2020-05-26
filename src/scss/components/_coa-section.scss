@@ -121,12 +121,20 @@
 
         &-dots {
           bottom: -5px;
-
           button {
             &:before {
               font-size: 25px;
               color: $blue;
               opacity: 0.5;
+            }
+          }
+
+          li {
+            display: none;
+
+            &.after,
+            &.before {
+              display: block;
             }
           }
 

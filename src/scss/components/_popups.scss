@@ -1,787 +1,798 @@
 .popup {
-    position: relative;
-    visibility: hidden;
-    opacity: 0;
-    z-index: -100;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -100;
 
-    &.active {
-        visibility: visible;
-        opacity: 1;
-        z-index: 1000;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(48, 48, 48, 0.8);
+    z-index: 1000;
+
+    @include media('<=tablet') {
+      overflow-y: scroll;
     }
+  }
 
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(48, 48, 48, .8);
-        z-index: 1000;
+  .popup-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1110px;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border-radius: 8px;
+    z-index: 1001;
+    overflow: hidden;
 
-        @include media('<=tablet') {
-            overflow-y: scroll;
-        }
+    @include media('<=tablet') {
+      margin: 20px 0;
     }
+  }
 
+  h2 {
+    margin: 0 0 32px;
+    font-size: 48px;
+    line-height: 64px;
+    font-weight: bold;
+    color: $dark-blue;
+  }
+
+  p {
+    margin: 0 0 32px;
+    font-size: 18px;
+    line-height: 36px;
+    color: $gray-100;
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 34px;
+    right: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 3px;
+    font-size: 11px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    color: #ccc;
+    transition: border-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      color: $gray-100;
+      border-color: $gray-100;
+    }
+  }
+
+  &#successModal {
     .popup-wrapper {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 1110px;
-        transform: translate(-50%, -50%);
-        background-color: $white;
-        border-radius: 8px;
-        z-index: 1001;
-        overflow: hidden;
+      width: 90%;
+      max-width: 320px;
+      padding: 30px 20px;
+    }
 
-        @include media('<=tablet') {
-            margin: 20px 0;
-        }
+    a {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    h3 {
+      margin: 0;
+      font-family: $base-font-sans-serif;
+      text-align: center;
+      color: $green;
+    }
+  }
+
+  &#coaShop {
+    .popup-wrapper {
+      max-width: 605px;
+      padding: 80px 80px 60px;
     }
 
     h2 {
-        margin: 0 0 32px;
-        font-size: 48px;
-        line-height: 64px;
-        font-weight: bold;
-        color: $dark-blue;
+      margin: 0 0 32px;
+      font-size: 32px;
+      line-height: 43px;
+    }
+
+    form {
+      position: relative;
+      margin: 0 0 24px;
+
+      &.valid {
+        position: relative;
+
+        &:after {
+          position: absolute;
+          content: '\e904';
+          right: 33px;
+          bottom: 19px;
+          font-family: 'icomoon';
+          font-size: 18px;
+          color: $green;
+        }
+      }
+
+      &.no-match {
+        &:after {
+          position: absolute;
+          content: '\e905';
+          right: 33px;
+          bottom: 19px;
+          font-family: 'icomoon';
+          font-size: 10px;
+          color: #fff;
+          background-color: red;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &.default {
+        &:after {
+          position: absolute;
+          content: '\e90a';
+          right: 33px;
+          bottom: 19px;
+          font-family: 'icomoon';
+          font-size: 18px;
+          color: $blue;
+        }
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+
+    .label-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 16px;
+
+      @include media('<phone') {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      span {
+        font-family: $base-font-sans-serif;
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+
+    .coa-shop-slider {
+      display: flex;
+      align-items: center;
+    }
+
+    .item {
+      padding: 0 7px 32px;
+
+      &.active {
+        a {
+          border-color: rgba(0, 148, 255, 0.5);
+          box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
+        }
+      }
+
+      a {
+        display: block;
+        height: 110px;
+        padding: 15px 18px;
+        background-color: $white;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        outline: none;
+
+        &:hover {
+          box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
+        }
+      }
+
+      img {
+        max-width: 60px;
+      }
+    }
+
+    .btn-done {
+      margin: 0 0 24px;
+      box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
+    }
+
+    .warn {
+      margin: 0;
+    }
+
+    .slick {
+      &-arrow {
+        top: calc(50% - 16px);
+        z-index: 11;
+
+        &:before {
+          padding: 10px;
+          font-family: 'icomoon';
+          font-size: 12px;
+          color: $blue;
+          background-color: $white;
+          border-radius: 50%;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+          box-shadow: 0px 8px 24px rgba(52, 90, 156, 0.25);
+        }
+
+        &:hover {
+          &:before {
+            color: $dark-blue;
+          }
+        }
+      }
+
+      &-prev {
+        left: 13px;
+
+        &:before {
+          content: '\e902';
+        }
+      }
+
+      &-next {
+        right: 23px;
+
+        &:before {
+          content: '\e901';
+        }
+      }
+    }
+  }
+
+  &#CoaZoomPopup {
+    .block {
+      &-slider {
+        max-width: 475px;
+        padding: 80px 65px;
+        overflow: hidden;
+        background-color: $light-blue;
+
+        .item {
+          display: flex;
+          justify-content: center;
+        }
+
+        img {
+          margin: 0 auto;
+        }
+      }
+
+      &-content {
+        position: relative;
+        padding: 80px 80px 32px;
+      }
+    }
+
+    .price-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0 73px;
+    }
+
+    .price {
+      font-family: $base-font-sans-serif;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 37px;
+      color: $dark-blue;
+    }
+
+    .btn-cart {
+      min-width: 284px;
+      padding: 20px 65px 19px;
+      box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
+
+      &:before {
+        left: 40px;
+      }
+    }
+
+    .popup-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 33px 0 0;
+      border-top: 1px solid $light-blue;
+
+      p {
+        margin: 0;
+      }
+
+      ul {
+        display: flex;
+        margin: 0 -18px;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        padding: 0 18px;
+
+        a {
+          font-size: 24px;
+          color: $dark-blue;
+
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+    }
+
+    .slick {
+      &-arrow {
+        top: calc(50% - 16px);
+        z-index: 10;
+
+        &:before {
+          padding: 10px;
+          font-family: 'icomoon';
+          font-size: 12px;
+          color: $blue;
+          background-color: $white;
+          border-radius: 50%;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+          box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
+        }
+
+        &:hover {
+          &:before {
+            color: $dark-blue;
+          }
+        }
+      }
+
+      &-prev {
+        left: -30px;
+
+        &:before {
+          content: '\e902';
+        }
+      }
+
+      &-next {
+        right: -20px;
+
+        &:before {
+          content: '\e901';
+        }
+      }
+    }
+  }
+
+  &#SurnamePopup {
+    .popup-wrapper {
+      @include media('<=large') {
+        width: 95%;
+      }
+
+      @include media('<=tablet') {
+        position: relative;
+      }
     }
 
     p {
-        margin: 0 0 32px;
-        font-size: 18px;
-        line-height: 36px;
-        color: $gray-100;
+      @include media('<tablet') {
+        margin: 0 0 24px;
+      }
+
+      @include media('<=small') {
+        font-size: 16px;
+        line-height: 19px;
+      }
     }
 
     .btn-close {
+      right: 34px;
+
+      @include media('<=tablet') {
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    h2 {
+      margin: 0 0 48px;
+
+      @include media('<large') {
+        margin: 0 0 24px;
+        font-size: 32px;
+        line-height: 43px;
+      }
+    }
+
+    .row {
+      // position: relative;
+      margin: 0;
+    }
+
+    span {
+      font-family: $base-font-sans-serif;
+
+      &.main-title {
         position: absolute;
-        top: 34px;
-        right: 44px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 3px 3px;
-        font-size: 11px;
-        border-radius: 50%;
-        border: 2px solid #ccc;
-        color: #ccc;
-        transition: border-color .3s ease, color .3s ease;
+        display: block;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        transform: rotate(180deg);
+        padding: 0 20px 0 66px;
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 64px;
+        color: $white;
+        background-color: $green;
+        writing-mode: vertical-rl;
+        z-index: -1;
 
-        &:hover {
-            color: $gray-100;
-            border-color: $gray-100;
+        @include media('<large') {
+          padding: 0 20px 0 25px;
         }
+
+        @include media('<=tablet') {
+          width: 100%;
+          padding: 14px 0;
+          text-align: center;
+          font-size: 24px;
+          line-height: 32px;
+          transform: rotate(0);
+          writing-mode: inherit;
+        }
+      }
+
+      &.title {
+        display: block;
+        margin: 0 0 16px;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 21px;
+        color: $dark-blue;
+
+        @include media('<tablet') {
+          margin: 0 0 5px;
+          font-size: 16px;
+          line-height: 19px;
+        }
+      }
+
+      &.price {
+        display: block;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 28px;
+        color: $blue;
+
+        @include media('<tablet') {
+          font-size: 18px;
+          background-image: 21px;
+        }
+      }
+
+      .file {
+        font-size: 16px;
+        font-weight: normal;
+        color: $gray-100;
+      }
     }
 
-    &#coaShop {
-        
-        .popup-wrapper {
-            max-width: 605px;
-            padding: 80px 80px 60px;
-        }
+    .price-list,
+    .advant {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 -10px 32px;
+      padding: 0;
+      list-style: none;
 
-        h2 {
-            margin: 0 0 32px;
-            font-size: 32px;
-            line-height: 43px;
-        }
+      @include media('<tablet') {
+        flex-wrap: wrap;
+        margin: 0 0 24px;
+      }
 
-        form {
-            position: relative;
-            margin: 0 0 24px;
-
-            &.valid {
-                position: relative;
-                
-                &:after {
-                    position: absolute;
-                    content: '\e904';
-                    right: 33px;
-                    bottom: 19px;
-                    font-family: 'icomoon';
-                    font-size: 18px;
-                    color: $green;
-                }
-            }
-
-            &.no-match {
-                &:after {
-                    position: absolute;
-                    content: '\e905';
-                    right: 33px;
-                    bottom: 19px;
-                    font-family: 'icomoon';
-                    font-size: 10px;
-                    color: #fff;
-                    background-color: red;
-                    border-radius: 50%;
-                    width: 20px;
-                    height: 20px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                } 
-            }
-
-            &.default {
-                
-                &:after {
-                    position: absolute;
-                    content: '\e90a';
-                    right: 33px;
-                    bottom: 19px;
-                    font-family: 'icomoon';
-                    font-size: 18px;
-                    color: $blue;
-                }
-            }
-
-            input {
-                width: 100%;
-            }
-        }
-
-        .label-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 0 0 16px;
-            
-            @include media('<phone') {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            span {
-                font-family: $base-font-sans-serif;
-                font-size: 16px;
-                line-height: 19px;
-            }
-        }
-
-        .coa-shop-slider {
-            display: flex;
-            align-items: center;
-        }
-
-        .item {
-            padding: 0 7px 32px;
-
-            &.active {
-                a {
-                    border-color: rgba(0, 148, 255, 0.5);
-                    box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
-                }
-            }
-
-            a {
-                display: block;
-                height: 110px;
-                padding: 15px 18px;
-                background-color: $white;
-                border: 1px solid #eee;
-                border-radius: 8px;
-                outline: none;
-
-                &:hover {
-                    box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
-                }
-            }
-
-            img {
-                max-width: 60px;
-            }
-        }
-
-        .btn-done {
-            margin: 0 0 24px;
-            box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
-        }
-
-        .warn {
-            margin: 0;
-        }
-
-        .slick {
-            &-arrow {
-                top: calc(50% - 16px);
-                z-index: 11;
-
-                &:before {
-                    padding: 10px;
-                    font-family: 'icomoon';
-                    font-size: 12px;
-                    color: $blue;
-                    background-color: $white;
-                    border-radius: 50%;
-                    opacity: 1;
-                    transition: opacity .3s ease;
-                    box-shadow: 0px 8px 24px rgba(52, 90, 156, 0.25);
-                }
-
-                &:hover {
-                    &:before {
-                        color: $dark-blue;
-                    }
-                }
-                
-            }
-
-            &-prev {
-                left: 13px;
-
-                &:before {
-                    content: "\e902";
-
-                }
-            }
-
-            &-next {
-                right: 23px;
-
-                &:before {
-                    content: "\e901";
-                }
-            }
-        }
+      @include media('<=small') {
+        margin: 0 0 17px;
+      }
     }
 
-    &#CoaZoomPopup {
+    .price-list {
+      li {
+        width: 33.3%;
+        padding: 0 10px;
 
-        .block {
-            &-slider {
-                max-width: 475px;
-                padding: 80px 65px;
-                overflow: hidden;
-                background-color: $light-blue;
-
-                .item {
-                    display: flex;
-                    justify-content: center;
-                }
-
-                img {
-                    margin: 0 auto;
-                }
-            }
-
-            &-content {
-                position: relative;
-                padding: 80px 80px 32px;
-            }
+        @include media('<=small') {
+          width: 100%;
+          margin: 0 0 10px;
+          padding: 0;
         }
+      }
 
-        .price-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 0 73px;
+      .wrapper {
+        padding: 24px 24px;
+        border-radius: 4px;
+        background-color: $light-blue;
+
+        @include media('<tablet') {
+          padding: 16px;
         }
-
-        .price {
-            font-family: $base-font-sans-serif;
-            font-size: 32px;
-            font-weight: bold;
-            line-height: 37px;
-            color: $dark-blue;
-        }
-
-        .btn-cart {
-            min-width: 284px;
-            padding: 20px 65px 19px;
-            box-shadow: 0px 16px 32px rgba(52, 90, 156, 0.25);
-
-            &:before {
-                left: 40px;
-            }
-        }
-
-        .popup-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 33px 0 0;
-            border-top: 1px solid $light-blue;
-
-            p {
-                margin: 0;
-            }
-
-            ul {
-                display: flex;
-                margin: 0 -18px;
-                padding: 0;
-                list-style: none;
-            }
-
-            li {
-                padding: 0 18px;
-
-                a {
-                    font-size: 24px;
-                    color: $dark-blue;
-
-                    &:hover {
-                        color: $blue;
-                    }
-                }
-            }
-        }
-
-        .slick {
-            &-arrow {
-                top: calc(50% - 16px);
-                z-index: 10;
-
-                &:before {
-                    padding: 10px;
-                    font-family: 'icomoon';
-                    font-size: 12px;
-                    color: $blue;
-                    background-color: $white;
-                    border-radius: 50%;
-                    opacity: 1;
-                    transition: opacity .3s ease;
-                    box-shadow: 0px 8px 24px rgba(0, 148, 255, 0.25);
-                }
-
-                &:hover {
-                    &:before {
-                        color: $dark-blue;
-                    }
-                }
-            }
-
-            &-prev {
-                left: -30px;
-
-                &:before {
-                    content: "\e902";
-
-                }
-            }
-
-            &-next {
-                right: -20px;
-
-                &:before {
-                    content: "\e901";
-                }
-            }
-        }
+      }
     }
 
-    &#SurnamePopup {
+    .advant {
+      margin: 0 0;
+      padding: 0 0 50px;
 
-        .popup-wrapper {
+      @include media('<tablet') {
+        padding: 0;
+      }
 
-            @include media ('<=large') {
-                width: 95%;
-            }
+      li {
+        position: relative;
+        padding: 0 0;
 
-            @include media ('<=tablet') {
-                position: relative;
-            }
+        @include media('<=small') {
+          width: 100%;
+          margin: 0 0 20px;
         }
 
-        p {
-            @include media ('<tablet') {
-                margin: 0 0 24px;
-            }
-
-            @include media ('<=small') {
-                font-size: 16px;
-                line-height: 19px;
-            }
+        &:before {
+          position: absolute;
+          top: 50%;
+          left: 0px;
+          transform: translateY(-50%);
+          font-family: 'icomoon';
+          font-size: 22px;
+          color: $blue;
         }
 
-        .btn-close {
-            right: 34px;        
-            
-            @include media ('<=tablet') {
-                top: 20px;
-                right: 20px;
-            }
+        &:first-of-type {
+          &:before {
+            content: '\e906';
+          }
         }
 
-        h2 {
-            margin: 0 0 48px;
-
-            @include media ('<large') {
-                margin: 0 0 24px;
-                font-size: 32px;
-                line-height: 43px;
-            }
+        &:nth-of-type(2) {
+          &:before {
+            content: '\e915';
+          }
         }
 
-        .row {
-            // position: relative;
-            margin: 0;
+        &:last-of-type {
+          &:before {
+            content: '\e914';
+          }
         }
+      }
 
-        span {
-            font-family: $base-font-sans-serif;
+      .wrapper {
+        padding: 0 0 0 40px;
+      }
 
-            &.main-title {
-                position: absolute;
-                display: block;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                transform: rotate(180deg);
-                padding: 0 20px 0 66px;
-                font-size: 48px;
-                font-weight: bold;
-                text-align: center;
-                line-height: 64px;
-                color: $white;
-                background-color: $green;
-                writing-mode: vertical-rl;
-                z-index: -1;
+      h4 {
+        margin: 0 0 8px;
+        font-family: $base-font-sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 21px;
+        color: $dark-blue;
 
-                @include media ('<large') {
-                    padding: 0 20px 0 25px;
-                }
-
-                @include media ('<=tablet') {
-                    width: 100%;
-                    padding: 14px 0;
-                    text-align: center;
-                    font-size: 24px;
-                    line-height: 32px;
-                    transform: rotate(0);
-                    writing-mode: inherit;
-                }
-            }
-
-            &.title {
-                display: block;
-                margin: 0 0 16px;
-                font-size: 18px;
-                font-weight: bold;
-                line-height: 21px;
-                color: $dark-blue;
-
-                @include media ('<tablet') {
-                    margin: 0 0 5px;
-                    font-size: 16px;
-                    line-height: 19px;
-                }
-            }
-
-            &.price {
-                display: block;
-                font-size: 24px;
-                font-weight: bold;
-                line-height: 28px;
-                color: $blue;
-
-                @include media ('<tablet') {
-                    font-size: 18px;
-                    background-image: 21px;
-                }
-            }
-
-            .file {
-                font-size: 16px;
-                font-weight: normal;
-                color: $gray-100;
-            }
+        @include media('<tablet') {
+          margin: 0 0 5px;
+          font-size: 16px;
+          line-height: 19px;
         }
+      }
 
-        .price-list,
-        .advant {
-            display: flex;
-            justify-content: space-between;
-            margin: 0 -10px 32px;
-            padding: 0;
-            list-style: none;
+      span {
+        font-size: 16px;
+        font-weight: normal;
+        color: $gray-100;
 
-            @include media ('<tablet') {
-                flex-wrap: wrap;
-                margin: 0 0 24px;
-            }
-
-            @include media ('<=small') {
-                margin: 0 0 17px;
-            }
+        @include media('<tablet') {
+          font-size: 14px;
         }
-
-        .price-list {
-
-            li {
-                width: 33.3%;
-                padding: 0 10px;
-
-                @include media ('<=small') {
-                    width: 100%;
-                    margin: 0 0 10px;
-                    padding: 0;
-                }
-            }
-
-            .wrapper {
-                padding: 24px 24px;
-                border-radius: 4px;
-                background-color: $light-blue;
-
-                @include media ('<tablet') {
-                    padding: 16px;
-                }
-            }
-        }
-
-        .advant {
-            margin: 0 0;
-            padding: 0 0 50px;
-
-            @include media ('<tablet') {
-                padding: 0;
-            }
-
-            li {
-                position: relative;
-                padding: 0 0;
-
-                @include media ('<=small') {
-                    width: 100%;
-                    margin: 0 0 20px;
-                }
-
-                &:before {
-                    position: absolute;
-                    top: 50%;
-                    left: 0px;
-                    transform: translateY(-50%);
-                    font-family: 'icomoon';
-                    font-size: 22px;
-                    color: $blue;
-                }
-
-                &:first-of-type {
-                    &:before {
-                        content: '\e906';
-                    }
-                }
-
-                &:nth-of-type(2) {
-                    &:before {
-                        content: '\e915';
-                    }
-                }
-
-                &:last-of-type {
-                    &:before {
-                        content: '\e914';
-                    }
-                }
-            }
-
-            .wrapper {
-                padding: 0 0 0 40px;
-            }
-
-            h4 {
-                margin: 0 0 8px;
-                font-family: $base-font-sans-serif;
-                font-size: 18px;
-                font-weight: bold;
-                line-height: 21px;
-                color: $dark-blue;
-
-                @include media ('<tablet') {
-                    margin: 0 0 5px;
-                    font-size: 16px;
-                    line-height: 19px;
-                }
-            }
-
-            span {
-                font-size: 16px;
-                font-weight: normal;
-                color: $gray-100;
-
-                @include media ('<tablet') {
-                    font-size: 14px;
-                }
-            }
-        }
-
-        .block {
-
-            &-img,
-            &-content {
-                position: relative;
-                padding: 20px 20px;
-            }
-
-            &-content {
-                padding: 50px 80px 20px 20px;
-
-                @include media ('<=large') {
-                    padding: 20px 20px;
-                }
-
-                @include media ('<large') {
-                    margin: 0 0 0 20px;
-                }
-
-                @include media ('<=tablet') {
-                    margin: 0;
-                    padding: 70px 20px 20px;
-                }
-            }
-
-            &-img {
-                padding: 20px 0 20px 20px;
-
-                @include media ('<large') {
-                    width: 15% !important;
-                    flex: 0 0 auto;
-                }
-
-                @include media ('<=tablet') {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100% !important;
-                    height: 60px;
-                }
-
-                img {
-                    @include media ('<large') {
-                        display: none;
-                    }
-                }
-            }
-        }
+      }
     }
 
-    &#videoPopup {
-        .popup-wrapper {
-            width: 960px;
-            overflow: hidden;
+    .block {
+      &-img,
+      &-content {
+        position: relative;
+        padding: 20px 20px;
+      }
 
-            @include media ('<desktop') {
-                width: 95%;
-            }
+      &-content {
+        padding: 50px 80px 20px 20px;
 
-            &:after {
-                display: block;
-                content: '';
-                padding-top: 56.25%;
-            }
-
-            iframe {
-                position: absolute;                
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
+        @include media('<=large') {
+          padding: 20px 20px;
         }
 
-        .btn-close {
-            top: 12px;
-            right: 12px;
-            padding: 12px;
-            color: $blue;
-            border: none;
-            background-color: $light-blue;
-            border-radius: 50%;
-            z-index: 100;
+        @include media('<large') {
+          margin: 0 0 0 20px;
         }
+
+        @include media('<=tablet') {
+          margin: 0;
+          padding: 70px 20px 20px;
+        }
+      }
+
+      &-img {
+        padding: 20px 0 20px 20px;
+
+        @include media('<large') {
+          width: 15% !important;
+          flex: 0 0 auto;
+        }
+
+        @include media('<=tablet') {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100% !important;
+          height: 60px;
+        }
+
+        img {
+          @include media('<large') {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &#videoPopup {
+    .popup-wrapper {
+      width: 960px;
+      overflow: hidden;
+
+      @include media('<desktop') {
+        width: 95%;
+      }
+
+      &:after {
+        display: block;
+        content: '';
+        padding-top: 56.25%;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
 
-    &#digitalPopup,
-    &#genealogyPopup {
-        .popup-wrapper {
-            display: flex;
-            align-items: center;
-            padding: 80px;
+    .btn-close {
+      top: 12px;
+      right: 12px;
+      padding: 12px;
+      color: $blue;
+      border: none;
+      background-color: $light-blue;
+      border-radius: 50%;
+      z-index: 100;
+    }
+  }
 
-            @include media('<x-large') {
-                flex-direction: column;
-                width: 95%;
-                padding: 30px;
-            }           
+  &#digitalPopup,
+  &#genealogyPopup {
+    .popup-wrapper {
+      display: flex;
+      align-items: center;
+      padding: 80px;
+
+      @include media('<x-large') {
+        flex-direction: column;
+        width: 95%;
+        padding: 30px;
+      }
+    }
+
+    h2 {
+      margin: 0 0 32px;
+      font-size: 32px;
+      line-height: 43px;
+      color: $gray-800;
+
+      @include media('<x-large') {
+        margin: 0 0 24px;
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+    p {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 36px;
+
+      @include media('<x-large') {
+        margin: 0 0 24px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .btn-blue {
+      display: block;
+      width: 100%;
+      text-transform: uppercase;
+
+      @include media('<phone') {
+        padding: 20px 12px 19px;
+      }
+
+      &:hover {
+        color: $white;
+        background-color: $dark-blue;
+        border-color: $dark-blue;
+        &:after {
+          right: 19%;
+        }
+      }
+
+      &:after {
+        right: 20%;
+
+        @include media('<=phone') {
+          display: none;
+        }
+      }
+    }
+
+    .block {
+      &-img {
+        margin: 0 100px 0 0;
+
+        @include media('<x-large') {
+          margin: 0;
         }
 
-        h2 {
-            margin: 0 0 32px;
-            font-size: 32px;
-            line-height: 43px;
-            color: $gray-800;
+        picture {
+          display: block;
+          width: 400px;
+          height: 400px;
 
-            @include media('<x-large') {
-                margin: 0 0 24px;
-                font-size: 18px;
-                line-height: 24px;
-            }
-        }
-
-        p {
-            margin: 0 0 32px;
-            font-size: 18px;
-            line-height: 36px;
-
-            @include media('<x-large') {
-                margin: 0 0 24px;
-                font-size: 16px;
-                line-height: 24px;
-            }
-        }
-
-        .btn-blue {
-            display: block;
+          @include media('<x-large') {
             width: 100%;
-            text-transform: uppercase;
-
-            @include media('<phone') {
-                padding: 20px 12px 19px;
-            }
-
-            &:hover {
-                color: $white;
-                background-color: $dark-blue;
-                border-color: $dark-blue;
-                &:after {
-                    right: 19%;
-                }
-            }
-
-            &:after {
-                right: 20%;
-
-                @include media('<=phone') {
-                    display: none;
-                }
-            }
+            height: 100%;
+            max-width: 160px;
+            max-height: 160px;
+          }
         }
-
-        .block {
-            &-img {
-                margin: 0 100px 0 0;
-
-                @include media('<x-large') {
-                    margin: 0;
-                }
-
-                picture {
-                    display: block;
-                    width: 400px;
-                    height: 400px;
-
-                    @include media('<x-large') {
-                        width: 100%;
-                        height: 100%;
-                        max-width: 160px;
-                        max-height: 160px;
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 }

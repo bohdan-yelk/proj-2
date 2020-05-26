@@ -1,127 +1,138 @@
 .glossary-content-section {
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 
-    form {
-        @include media ('<=tablet') {
-            padding: 0 0 40px;
-        }
+  .tabs {
+    position: relative;
+  }
+
+  form {
+    @include media('<=tablet') {
+      padding: 0 0 40px;
     }
+  }
 
-    .glossary-list {
+  .info-alert {
+    position: absolute;
+    bottom: 80px;
+    font-family: $base-font-sans-serif;
+    font-size: 18px;
+    padding: 20px 0;
+    color: $gray;
+  }
+
+  .glossary-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      width: 33.3%;
+      padding: 0 15px;
+      margin: 0 0 30px;
+      transition: width 0.5s ease, order 0.5s ease;
+
+      @include media('<=desktop') {
+        width: 50%;
+      }
+
+      @include media('<=tablet') {
+        width: 100%;
+      }
+
+      &.active {
+        display: block;
+        width: 100%;
+        order: -1;
+
+        @include media('<=desktop') {
+          order: inherit;
+        }
+
+        .btn {
+          &.hide {
+            display: block;
+          }
+
+          &.show {
+            display: none;
+          }
+        }
+
+        p {
+          @include media('<=tablet') {
+            display: block;
+          }
+        }
+      }
+
+      .item-wrapper {
         display: flex;
-        flex-wrap: wrap;
-        margin: 0 -15px;
-        padding: 0;
-        list-style: none;
+        align-items: center;
+        padding: 32px;
+        border: 1px solid $light-blue;
+        border-radius: 8px;
 
-        li {
-            width: 33.3%;
-            padding: 0 15px;
-            margin: 0 0 30px;
-            transition: width .5s ease, order .5s ease;
-
-            @include media ('<=desktop') {
-                width: 50%;
-            }
-
-            @include media ('<=tablet') {
-                width: 100%;
-            }
-
-            &.active {
-                display: block;
-                width: 100%;
-                order: -1;
-
-                @include media ('<=desktop') {
-                    order: inherit;
-                }
-
-                .btn {
-                    &.hide {
-                        display: block;
-                    }
-
-                    &.show {
-                        display: none;
-                    }
-                }
-
-                p {
-
-                    @include media ('<=tablet') {
-                        display: block;
-                    }
-                }
-            }
-
-            .item-wrapper {
-                display: flex;
-                align-items: center;
-                padding: 32px;
-                border: 1px solid $light-blue;
-                border-radius: 8px;
-
-                @include media ('<=tablet') {
-                    position: relative;
-                    flex-wrap: wrap;
-                }
-            }
-
-            h3 {
-                margin: 0 0 16px;
-                font-size: 18px;
-                font-weight: bold;
-                line-height: 24px;
-                color: $gray-800;
-
-                @include media ('<=tablet') {
-                    position: absolute;
-                    top: 48px;
-                    left: 160px;
-                }
-            }
-
-            img {
-                width: 96px;
-                height: 96px;
-                min-width: 96px;
-                margin: 0 40px 0 0;
-                border-radius: 4px;
-                overflow: hidden;
-                object-fit: cover;
-
-                @include media ('<=small') {
-                    width: 80px;
-                    height: 80px;
-                    min-width: 80px;
-                }
-            }
-
-            p {
-                @include media ('<=tablet') {
-                    display: none;
-                }
-
-            }
-
-            .btn {
-                display: block;
-                font-size: 14px;
-                line-height: 16px;
-
-                @include media ('<=tablet') {
-                    position: absolute;
-                    top: 90px;
-                    left: 160px;
-                }
-
-                &.hide {
-                    display: none;
-                }
-            }
+        @include media('<=tablet') {
+          position: relative;
+          flex-wrap: wrap;
         }
+      }
+
+      h3 {
+        margin: 0 0 16px;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 24px;
+        color: $gray-800;
+
+        @include media('<=tablet') {
+          position: absolute;
+          top: 48px;
+          left: 160px;
+        }
+      }
+
+      img {
+        width: 96px;
+        height: 96px;
+        min-width: 96px;
+        margin: 0 40px 0 0;
+        border-radius: 4px;
+        overflow: hidden;
+        object-fit: cover;
+
+        @include media('<=small') {
+          width: 80px;
+          height: 80px;
+          min-width: 80px;
+        }
+      }
+
+      p {
+        @include media('<=tablet') {
+          display: none;
+        }
+      }
+
+      .btn {
+        display: block;
+        font-size: 14px;
+        line-height: 16px;
+
+        @include media('<=tablet') {
+          position: absolute;
+          top: 90px;
+          left: 160px;
+        }
+
+        &.hide {
+          display: none;
+        }
+      }
     }
+  }
 }

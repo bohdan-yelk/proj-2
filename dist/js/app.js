@@ -160,7 +160,7 @@ __webpack_require__.r(__webpack_exports__);
     dots: true,
     arrows: false,
     slidesToShow: 2,
-    slidesToScroll: 1,
+    // slidesToScroll: 1,
     variableWidth: true,
     responsive: [{
       breakpoint: 992,
@@ -916,7 +916,10 @@ __webpack_require__.r(__webpack_exports__);
   updateCartBtn(); // ---- tabs "abc" on Surname page ----
 
   $('ul.tabs-list-glossary').on('click', 'li:not(.active)', function (e) {
+    var abcIndex = $('ul.tabs-list-glossary li').attr('data-index');
+    var abcLink = $('ul.tabs-list-glossary li a');
     e.preventDefault();
+    console.log($(this));
     $(this).addClass('active').siblings().removeClass('active').closest('div.tabs').find('div.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
   }); // ---- suname search on Surname page ----
 
@@ -940,9 +943,9 @@ __webpack_require__.r(__webpack_exports__);
         isEmptyList ? alert.classList.remove('info-alert--hidden') : alert.classList.add('info-alert--hidden');
       };
 
-      var input = document.getElementById('searchInput');
-      var glossaryList = document.getElementById('glossaryList');
-      var glossaryItems = glossaryList.querySelectorAll('h3');
+      var input = document.getElementById('searchInput'); // var glossaryList = document.getElementById('glossaryList')
+
+      var glossaryItems = document.querySelectorAll('.glossary-list li h3');
       var alert = document.getElementById('infoAlert');
 
       if (input) {
@@ -982,7 +985,34 @@ __webpack_require__.r(__webpack_exports__);
     $('#header').removeClass('active');
     $('#nav').removeClass('active');
   }); // ---- color slider mobile only on product page ----
-  // ---- anchor links Surname CoA page ----
+
+  function limitDotsSlick() {
+    var dots = $('#gallerySlider .slick-dots li');
+    dots.on('click', function () {
+      dots.removeClass('before after');
+      $(this).prev().addClass('before').prev().addClass('before');
+      $(this).next().addClass('after').next().addClass('after');
+
+      if (!$(this).prev().length) {
+        $(this).next().next().next().addClass('after').next().addClass('after');
+      }
+
+      if (!$(this).prev().prev().length) {
+        $(this).next().next().next().addClass('after');
+      }
+
+      if (!$(this).next().length) {
+        $(this).prev().prev().prev().addClass('before').prev().addClass('before');
+      }
+
+      if (!$(this).next().next().length) {
+        $(this).prev().prev().prev().addClass('before');
+      }
+    });
+    dots.eq(0).click();
+  }
+
+  limitDotsSlick(); // ---- anchor links Surname CoA page ----
 
   $('.coa-section nav ul li a').on('click', function (e) {
     e.preventDefault();
