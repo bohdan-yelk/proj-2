@@ -454,7 +454,7 @@ import {log} from './utils'
 
   setTimeout(function () {
     $('#SurnamePopup').addClass('active')
-  }, 5000)
+  }, 2000)
 
   // ---- payment steps on service page ----
 
@@ -662,23 +662,23 @@ import {log} from './utils'
 
   // ---- fixed steps block on scroll ----
 
-  $(function () {
-    if ($(window).width() > 992) {
-      $(window).scroll(
-        (function fix_element() {
-          $('#fixedOnScroll')
-            .parents('.wcopc')
-            .css($(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'})
-          if (!$('#fixedOnScroll').parents('.wcopc').length) {
-            $('#fixedOnScroll').css(
-              $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
-            )
-          }
-          return fix_element
-        })()
-      )
-    }
-  })
+  // $(function () {
+  //   if ($(window).width() > 992) {
+  //     $(window).scroll(
+  //       (function fix_element() {
+  //         $('#fixedOnScroll')
+  //           .parents('.wcopc')
+  //           .css($(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'})
+  //         if (!$('#fixedOnScroll').parents('.wcopc').length) {
+  //           $('#fixedOnScroll').css(
+  //             $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
+  //           )
+  //         }
+  //         return fix_element
+  //       })()
+  //     )
+  //   }
+  // })
 
   // ---- change content on crest-setcion
 
@@ -991,6 +991,20 @@ import {log} from './utils'
       .eq($(this).index())
       .addClass('active')
   })
+
+  // about us form
+
+  // function validSelect() {
+  //   let sentForm = $('.order-wood-section .wpcf7-form')
+  //   let select = $('.order-wood-section .wpcf7-form select.wpcf7-form-control')
+  //   let btnGetPrice = $('.wpcf7-submit')
+
+  //   sentForm.each(function(){
+
+  //   })
+  // }
+
+  // validSelect()
 
   // ---- suname search on Surname page ----
 

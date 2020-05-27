@@ -1,75 +1,80 @@
 .surname-title-section {
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 0 0 70px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 0 70px;
 
+  @include media('<tablet') {
+    padding: 0 0 10px;
+  }
+
+  .inner-wrapper {
     @include media('<tablet') {
-        padding: 0 0 10px;
+      flex-direction: column;
+    }
+  }
+
+  .block {
+    &-content,
+    &-img {
+      display: flex;
+      align-items: center;
+      width: 50%;
+
+      @include media('<tablet') {
+        width: 100%;
+      }
     }
 
-    .inner-wrapper {
-        @include media('<tablet') {
-            flex-direction: column;
-        }
+    &-img {
+      justify-content: center;
+
+      img {
+        max-width: 200px;
+      }
     }
 
-    .block {
-        &-content,
-        &-img {
-            display: flex;
-            align-items: center;
-            width: 50%;
+    &-content {
+      &:only-child {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
 
-            @include media('<tablet') {
-                width: 100%;
-            }
+        p {
+          margin: 0;
         }
+      }
+    }
+  }
 
-        &-img {
-            justify-content: center;
-        }
+  h1 {
+    color: $gray-800;
 
-        &-content {
-            &:only-child {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
+    @include media('<=small') {
+      margin-top: 0;
+      font-size: 32px;
+      line-height: 43px;
+    }
+  }
 
-                p {
-                    margin: 0;
-                }
-            }
-        }
+  &.with-abc {
+    position: relative;
+    padding: 0 0 64px;
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(360deg, #ffffff 0%, rgba(255, 255, 255, 0.5) 10%);
+      z-index: 1;
     }
 
-    h1 {
-        color: $gray-800;
-
-        @include media('<=small') {
-            margin-top: 0;
-            font-size: 32px;
-            line-height: 43px;
-        }
+    .container {
+      position: relative;
+      z-index: 10;
     }
-
-    &.with-abc {position: relative;
-        padding: 0 0 64px;
-
-        &:after {
-            position: absolute;
-            content: '';
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background: linear-gradient(360deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 10%); 
-            z-index: 1;
-        }
-
-        .container {
-            position: relative;
-            z-index: 10;
-        }
-    }
+  }
 }

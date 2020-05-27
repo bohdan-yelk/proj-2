@@ -471,7 +471,7 @@ __webpack_require__.r(__webpack_exports__);
   });
   setTimeout(function () {
     $('#SurnamePopup').addClass('active');
-  }, 5000); // ---- payment steps on service page ----
+  }, 2000); // ---- payment steps on service page ----
 
   function stepTabs() {
     var $next = $('.btn-next');
@@ -650,32 +650,24 @@ __webpack_require__.r(__webpack_exports__);
 
   differentAddress(); // ---- show-hide
   // ---- fixed steps block on scroll ----
-
-  $(function () {
-    if ($(window).width() > 992) {
-      $(window).scroll(function fix_element() {
-        $('#fixedOnScroll').parents('.wcopc').css($(window).scrollTop() > 220 ? {
-          position: 'fixed',
-          top: '10px'
-        } : {
-          position: 'relative',
-          top: 'auto'
-        });
-
-        if (!$('#fixedOnScroll').parents('.wcopc').length) {
-          $('#fixedOnScroll').css($(window).scrollTop() > 220 ? {
-            position: 'fixed',
-            top: '10px'
-          } : {
-            position: 'relative',
-            top: 'auto'
-          });
-        }
-
-        return fix_element;
-      }());
-    }
-  }); // ---- change content on crest-setcion
+  // $(function () {
+  //   if ($(window).width() > 992) {
+  //     $(window).scroll(
+  //       (function fix_element() {
+  //         $('#fixedOnScroll')
+  //           .parents('.wcopc')
+  //           .css($(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'})
+  //         if (!$('#fixedOnScroll').parents('.wcopc').length) {
+  //           $('#fixedOnScroll').css(
+  //             $(window).scrollTop() > 220 ? {position: 'fixed', top: '10px'} : {position: 'relative', top: 'auto'}
+  //           )
+  //         }
+  //         return fix_element
+  //       })()
+  //     )
+  //   }
+  // })
+  // ---- change content on crest-setcion
 
   function crestContent() {
     var crestContent = $('.crest-section .block-content').find('.surname-rough-desc');
@@ -921,7 +913,16 @@ __webpack_require__.r(__webpack_exports__);
     e.preventDefault();
     console.log($(this));
     $(this).addClass('active').siblings().removeClass('active').closest('div.tabs').find('div.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
-  }); // ---- suname search on Surname page ----
+  }); // about us form
+  // function validSelect() {
+  //   let sentForm = $('.order-wood-section .wpcf7-form')
+  //   let select = $('.order-wood-section .wpcf7-form select.wpcf7-form-control')
+  //   let btnGetPrice = $('.wpcf7-submit')
+  //   sentForm.each(function(){
+  //   })
+  // }
+  // validSelect()
+  // ---- suname search on Surname page ----
 
   function searchSurname() {
     if ($('#glossaryList').length) {

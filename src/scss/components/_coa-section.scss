@@ -151,6 +151,8 @@
         &-arrow {
           top: calc(50% - 16px);
           z-index: 10;
+          width: 32px;
+          height: 32px;
 
           &:before {
             padding: 10px;
