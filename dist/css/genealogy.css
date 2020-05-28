@@ -1529,3 +1529,58 @@ p.logo-text {
 .form-row .validate-required select {
   padding: 14px 24px 13px;
 }
+.mc4wp-form .mc4wp-form-fields p,
+.mc4wp-form .mc4wp-form-fields label,
+.mc4wp-form .mc4wp-form-fields input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.mc4wp-form .mc4wp-form-fields label {
+  text-align: left;
+}
+
+.mc4wp-form .mc4wp-form-fields input {
+  margin: 0 0 16px;
+}
+
+.g-res p,
+.g-res span,
+.g-res label,
+.g-res input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.g-res label {
+  text-align: center;
+}
+
+.g-res input {
+  margin: 0 0 16px;
+}
+
+.g-res input[type='submit'] {
+  margin: 40px 0 0;
+}
+
+.sample-content form {
+  position: relative;
+}
+
+.wpcf7-response-output {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+}
+
+.g-res .wpcf7-form-control-wrap {
+  position: relative;
+}
+
+.g-res .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  font-size: 16px;
+}

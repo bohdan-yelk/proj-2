@@ -97,6 +97,10 @@ import {log} from './utils'
     // variableWidth: true,
     slidesToShow: 4,
     slidesToScroll: 1,
+    customPaging: function (slider, i) {
+      var thumb = $(slider.$slides[i]).data()
+      return '<a>' + i + '</a>'
+    },
     responsive: [
       {
         breakpoint: 1024,
@@ -448,7 +452,8 @@ import {log} from './utils'
     $('#videoPopup').addClass('active')
   })
 
-  $('.btn-close').on('click', function () {
+  $('.btn-close').on('click', function (e) {
+    e.preventDefault()
     $(this).parents('.popup').removeClass('active')
   })
 
@@ -1080,8 +1085,8 @@ import {log} from './utils'
 
     dots.on('click', function () {
       dots.removeClass('before after')
-      $(this).prev().addClass('before').prev().addClass('before')
-      $(this).next().addClass('after').next().addClass('after')
+      $(this).prev().addClass('before').prev().addClass('before').prev().addClass('before')
+      $(this).next().addClass('after').next().addClass('after').next().addClass('after')
 
       if (!$(this).prev().length) {
         $(this).next().next().next().addClass('after').next().addClass('after')

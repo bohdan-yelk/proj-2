@@ -393,6 +393,7 @@
 
       .entry-summary {
         width: 100%;
+        margin: 0 12px;
       }
 
       form {
@@ -466,6 +467,7 @@
         }
 
         &-surname {
+          position: relative;
           @include media('<=small') {
             order: 0;
             width: 100%;
@@ -477,31 +479,20 @@
           // 	flex-grow: 0;
           // }
 
-          &.valid {
-            position: relative;
+          button {
+            position: absolute;
+            top: 35px;
+            right: 13px;
+            width: 64px;
+            height: 64px;
+            border: 0;
+            border-radius: 0 4px 4px 0;
+            background-color: $blue;
+            color: $white;
+            transition: background 0.3s ease;
 
-            &:after {
-              position: absolute;
-              content: '\e904';
-              right: 33px;
-              bottom: 19px;
-              font-family: 'icomoon';
-              font-size: 18px;
-              color: $green;
-            }
-          }
-
-          &.warn {
-            position: relative;
-
-            &:after {
-              position: absolute;
-              content: '\e90a';
-              right: 24px;
-              bottom: 19px;
-              font-family: 'icomoon';
-              font-size: 18px;
-              color: $blue;
+            &:hover {
+              background-color: $dark-blue;
             }
           }
         }
@@ -570,7 +561,8 @@
             margin: 0 -5px;
           }
 
-          &.hide {
+          &.hide,
+          &.empty_slider {
             &:after {
               display: none;
             }
@@ -597,7 +589,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 0 0 16px;
+            width: 100%;
+            margin: 0 7px 16px;
+
+            @include media('<small') {
+              margin: 0 0 16px;
+            }
 
             @include media('<phone') {
               flex-direction: column;
