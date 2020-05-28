@@ -7,6 +7,8 @@ const baseConfig = require('./base.config')
 const sourceMap = require('./source-maps')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = merge(baseConfig, sourceMap, {
   optimization: {
@@ -58,6 +60,17 @@ module.exports = merge(baseConfig, sourceMap, {
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [autoprefixer()]
+      }
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../src/images')
+      }
+    ]),
+    new ImageminPlugin({
+      pngquant: {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        quality: '15'
       }
     })
   ]
