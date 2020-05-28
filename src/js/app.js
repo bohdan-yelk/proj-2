@@ -97,10 +97,6 @@ import {log} from './utils'
     // variableWidth: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    customPaging: function (slider, i) {
-      var thumb = $(slider.$slides[i]).data()
-      return '<a>' + i + '</a>'
-    },
     responsive: [
       {
         breakpoint: 1024,
@@ -1081,7 +1077,7 @@ import {log} from './utils'
   // ---- color slider mobile only on product page ----
 
   function limitDotsSlick() {
-    var dots = $('#gallerySlider .slick-dots li')
+    var dots = $('#gallerySlider .slick-dots li, button.slick-arrow')
 
     dots.on('click', function () {
       dots.removeClass('before after')

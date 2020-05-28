@@ -491,8 +491,26 @@
             color: $white;
             transition: background 0.3s ease;
 
+            &.loading {
+              i {
+                display: none;
+              }
+
+              .ouro {
+                display: inline-block;
+              }
+            }
+
             &:hover {
               background-color: $dark-blue;
+
+              .ouro {
+                background-color: $dark-blue;
+
+                &:after {
+                  background: none repeat scroll 0 0 $dark-blue;
+                }
+              }
             }
           }
         }
