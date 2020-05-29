@@ -3,6 +3,11 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  background-image: url(../../images/main-ssecion-bg.png);
+
+  @include media('<=small') {
+    background-image: url(../../images/main-ssecion-bg-mob.png);
+  }
 
   @include media('<desktop') {
     padding: 40px 0;

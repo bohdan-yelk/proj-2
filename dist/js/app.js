@@ -180,6 +180,10 @@ __webpack_require__.r(__webpack_exports__);
     // variableWidth: true,
     slidesToShow: 4,
     slidesToScroll: 1,
+    customPaging: function customPaging(slider, i) {
+      var thumb = $(slider.$slides[i]).data();
+      return '<a>' + i + '</a>';
+    },
     responsive: [{
       breakpoint: 1024,
       settings: {
@@ -320,14 +324,14 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   choiceCoaProd(); // ---- masonry on Testimonials page ----
-
-  $('#grid').masonry({
-    horizontalOrder: true,
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true,
-    gutter: 30
-  }); // ---- dropdown accordion on FAQ page ----
+  // $('#grid').masonry({
+  //   horizontalOrder: true,
+  //   itemSelector: '.grid-item',
+  //   columnWidth: '.grid-sizer',
+  //   percentPosition: true,
+  //   gutter: 30
+  // })
+  // ---- dropdown accordion on FAQ page ----
 
   function dropList() {
     var $dropItem = $('.faq-list li');
@@ -919,7 +923,10 @@ __webpack_require__.r(__webpack_exports__);
   //   let sentForm = $('.order-wood-section .wpcf7-form')
   //   let select = $('.order-wood-section .wpcf7-form select.wpcf7-form-control')
   //   let btnGetPrice = $('.wpcf7-submit')
-  //   sentForm.each(function(){
+  //   sentForm.each(function () {
+  //     console.log(select.filter(':selected').val())
+  //     console.log(select.filter(':selected').eq(0).text(), 'test select')
+  //     // if ( select.filter(':selected').eq() === 0 )
   //   })
   // }
   // validSelect()
@@ -989,8 +996,8 @@ __webpack_require__.r(__webpack_exports__);
   }); // ---- color slider mobile only on product page ----
 
   function limitDotsSlick() {
-    var dots = $('#gallerySlider .slick-dots li, button.slick-arrow');
-    dots.on('click', function () {
+    var dots = $('#gallerySlider .slick-dots li');
+    $('#gallerySlider .slick-dots li, #gallerySlider .slick-arrow').on('click', function () {
       dots.removeClass('before after');
       $(this).prev().addClass('before').prev().addClass('before').prev().addClass('before');
       $(this).next().addClass('after').next().addClass('after').next().addClass('after');

@@ -97,6 +97,10 @@ import {log} from './utils'
     // variableWidth: true,
     slidesToShow: 4,
     slidesToScroll: 1,
+    customPaging: function (slider, i) {
+      var thumb = $(slider.$slides[i]).data()
+      return '<a>' + i + '</a>'
+    },
     responsive: [
       {
         breakpoint: 1024,
@@ -276,13 +280,13 @@ import {log} from './utils'
 
   // ---- masonry on Testimonials page ----
 
-  $('#grid').masonry({
-    horizontalOrder: true,
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true,
-    gutter: 30
-  })
+  // $('#grid').masonry({
+  //   horizontalOrder: true,
+  //   itemSelector: '.grid-item',
+  //   columnWidth: '.grid-sizer',
+  //   percentPosition: true,
+  //   gutter: 30
+  // })
 
   // ---- dropdown accordion on FAQ page ----
 
@@ -1000,8 +1004,10 @@ import {log} from './utils'
   //   let select = $('.order-wood-section .wpcf7-form select.wpcf7-form-control')
   //   let btnGetPrice = $('.wpcf7-submit')
 
-  //   sentForm.each(function(){
-
+  //   sentForm.each(function () {
+  //     console.log(select.filter(':selected').val())
+  //     console.log(select.filter(':selected').eq(0).text(), 'test select')
+  //     // if ( select.filter(':selected').eq() === 0 )
   //   })
   // }
 
@@ -1077,9 +1083,9 @@ import {log} from './utils'
   // ---- color slider mobile only on product page ----
 
   function limitDotsSlick() {
-    var dots = $('#gallerySlider .slick-dots li, button.slick-arrow')
+    var dots = $('#gallerySlider .slick-dots li')
 
-    dots.on('click', function () {
+    $('#gallerySlider .slick-dots li, #gallerySlider .slick-arrow').on('click', function () {
       dots.removeClass('before after')
       $(this).prev().addClass('before').prev().addClass('before').prev().addClass('before')
       $(this).next().addClass('after').next().addClass('after').next().addClass('after')

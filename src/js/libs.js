@@ -1,11 +1,11 @@
-import jQuery from 'jquery'
+// import jQuery from 'jquery'
 // Enable wow.js if it is needed
-import {WOW} from 'wowjs'
-import 'slick-carousel'
-import jQueryBridget from 'jquery-bridget'
-import Masonry from 'masonry-layout'
+// import {WOW} from 'wowjs'
+// import 'slick-carousel'
+// import jQueryBridget from 'jquery-bridget'
+// import Masonry from 'masonry-layout'
 
-jQueryBridget('masonry', Masonry)
+// jQueryBridget('masonry', Masonry)
 
 // Enable popper.js and bootstrap if they are needed
 // import 'popper.js'
@@ -13,17 +13,17 @@ jQueryBridget('masonry', Masonry)
 
 // Allow to use jQuery in a global scope
 /* global */
-window.jQuery = jQuery
-new WOW({
-  offset: 200,
-  mobile: false
-}).init()
+// window.jQuery = jQuery
+// new WOW({
+//   offset: 200,
+//   mobile: false
+// }).init()
 
-function checkMas() {
-  var grid = document.getElementById('grid')
-  if (grid) {
-    var msnry = new Masonry('#grid', {})
-  }
-}
+// function checkMas() {
+//   var grid = document.getElementById('grid')
+//   if (grid) {
+//     var msnry = new Masonry('#grid', {})
+//   }
+// }
 
-checkMas()
+// checkMas()
