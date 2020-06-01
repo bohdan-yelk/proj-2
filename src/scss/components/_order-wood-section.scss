@@ -81,6 +81,15 @@
         width: 100%;
       }
 
+      input[type='submit'] {
+        &:hover {
+          background-color: $dark-blue;
+          color: $white;
+          border-color: $dark-blue;
+          cursor: pointer;
+        }
+      }
+
       p {
         position: relative;
 

@@ -97,6 +97,7 @@ import {log} from './utils'
     // variableWidth: true,
     slidesToShow: 4,
     slidesToScroll: 1,
+    // infinite: true,
     customPaging: function (slider, i) {
       var thumb = $(slider.$slides[i]).data()
       return '<a>' + i + '</a>'
@@ -136,34 +137,75 @@ import {log} from './utils'
     ]
   })
 
-  // limit dots on gallery slider
-  // var dotsGallerySlider = $('#gallerySlider li')
+  // function limitSlickDots() {
+  //   var dotsList = $('#gallerySlider .slick-dots')
+  //   var dotsItem = $('#gallerySlider .slick-dots li')
+  //   var gallerySlider = $('#gallerySlider')
+  //   var currentDot = $('#gallerySlider .slick-dots li.slick-active')
+  //   var dotCount = currentDot.index()
 
-  // dotsGallerySlider.click(function(){
-  //   dotsGallerySlider.removeClass('before after')
+  //   currentDot.next().addClass('after')
+  //   currentDot.next().next().addClass('after')
+  //   currentDot.next().next().next().addClass('after')
 
-  //   $(this).prev().addClass('before').prev().addClass('before')
+  //   $('#gallerySlider').on('afterChange', function (event, slick, currentSlide) {
 
-  //   $(this).next().addClass('after').next().addClass('after')
-
-  //     if(!$(this).prev().length) {
-  //       $(this).next().next().next().addClass('after').next().addClass('after');
-  //     }
-
-  //     if(!$(this).prev().prev().length) {
-  //       $(this).next().next().next().addClass('after');
-  //     }
-
-  //     if(!$(this).next().length) {
-  //       $(this).prev().prev().prev().addClass('before').prev().addClass('before');
-  //     }
-
-  //     if(!$(this).next().next().length) {
-  //       $(this).prev().prev().prev().addClass('before')
-  //     }
+  //     // console.log($('#gallerySlider .slick-dots li.slick-active'), dotsItem)
   //   })
-  //   // dotsGallerySlider.eq(0).click()
-  // })
+
+  //   // gallerySlider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+  //   //   var currGallerySlide = $(slick.$slides.get(currentSlide))
+
+  //   //   if( dotsGallery.index().)
+
+  //   //   console.log(currentDot.index())
+  //   // })
+  // }
+
+  // limitSlickDots()
+
+  function limitDotsSlick() {
+    var dotsGallery = $('#gallerySlider .slick-dots li')
+
+    // currentDot.next().addClass('after')
+    // currentDot.next().next().addClass('after')
+    // currentDot.next().next().next().addClass('after')
+
+    $('#gallerySlider').on('click', function () {
+      var currentDot = $('#gallerySlider .slick-dots li.slick-active')
+      console.log(currentDot)
+
+      dotsGallery.removeClass('before after')
+      currentDot.prev().addClass('before').prev().addClass('before')
+      currentDot.next().addClass('after').next().addClass('after')
+
+      if (!currentDot.prev().length) {
+        currentDot.next().next().next().addClass('after').next().addClass('after')
+      }
+
+      if (!currentDot.prev().prev().length) {
+        currentDot.next().next().next().addClass('after')
+      }
+
+      if (!currentDot.next().length) {
+        currentDot.prev().prev().prev().addClass('before').prev().addClass('before')
+      }
+
+      if (!currentDot.next().next().length) {
+        currentDot.prev().prev().prev().addClass('before')
+      }
+    })
+
+    // $('#gallerySlider .slick-dots li').on('click', function () {
+    //   dots.removeClass('before after')
+
+    //
+    // })
+
+    dotsGallery.eq(0).click()
+  }
+
+  limitDotsSlick()
 
   // Slick Selector.
 
@@ -999,19 +1041,31 @@ import {log} from './utils'
 
   // about us form
 
-  // function validSelect() {
-  //   let sentForm = $('.order-wood-section .wpcf7-form')
-  //   let select = $('.order-wood-section .wpcf7-form select.wpcf7-form-control')
-  //   let btnGetPrice = $('.wpcf7-submit')
+  function validSelect() {
+    let sentForm = $('.order-wood-section .wpcf7-form')
+    let select = $('.order-wood-section .wpcf7-form select.wpcf7-form-control')
+    let btnGetPrice = $('.wpcf7-submit')
 
-  //   sentForm.each(function () {
-  //     console.log(select.filter(':selected').val())
-  //     console.log(select.filter(':selected').eq(0).text(), 'test select')
-  //     // if ( select.filter(':selected').eq() === 0 )
-  //   })
-  // }
+    sentForm.each(function () {
+      console.log(select.children('option').eq(0).val(), 'val select')
 
-  // validSelect()
+      if (select.children('option').eq(0).is(':selected')) {
+        $(this).find('.wpcf7-submit').css({'pointer-events': 'none', opacity: '.6'})
+      }
+
+      select.on('change', function () {
+        if (!$(this).children('option').eq(0).is(':selected') && $(this).children('option').is(':selected')) {
+          sentForm.find('.wpcf7-submit').css({'pointer-events': 'inherit', opacity: '1'})
+        } else if ($(this).children('option').eq(0).is(':selected')) {
+          sentForm.find('.wpcf7-submit').css({'pointer-events': 'none', opacity: '.6'})
+        }
+      })
+      // console.log(select.index(), 'test select')
+      // if ( select.filter(':selected').eq() === 0 )
+    })
+  }
+
+  validSelect()
 
   // ---- suname search on Surname page ----
 
@@ -1081,36 +1135,6 @@ import {log} from './utils'
   })
 
   // ---- color slider mobile only on product page ----
-
-  function limitDotsSlick() {
-    var dots = $('#gallerySlider .slick-dots li')
-
-    $('#gallerySlider .slick-dots li, #gallerySlider .slick-arrow').on('click', function () {
-      dots.removeClass('before after')
-      $(this).prev().addClass('before').prev().addClass('before').prev().addClass('before')
-      $(this).next().addClass('after').next().addClass('after').next().addClass('after')
-
-      if (!$(this).prev().length) {
-        $(this).next().next().next().addClass('after').next().addClass('after')
-      }
-
-      if (!$(this).prev().prev().length) {
-        $(this).next().next().next().addClass('after')
-      }
-
-      if (!$(this).next().length) {
-        $(this).prev().prev().prev().addClass('before').prev().addClass('before')
-      }
-
-      if (!$(this).next().next().length) {
-        $(this).prev().prev().prev().addClass('before')
-      }
-    })
-
-    dots.eq(0).click()
-  }
-
-  limitDotsSlick()
 
   // ---- anchor links Surname CoA page ----
 

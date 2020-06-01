@@ -1,150 +1,147 @@
 .about-us-section {
+  h1 {
+    width: 100%;
+    margin: 40px 0 64px;
+    color: $gray-800;
 
-    h1 {
-        width: 100%;
-        margin: 40px 0 64px;
-        color: $gray-800;
+    @include media('<=tablet') {
+      margin: 0 0 24px;
+      font-size: 32px;
+      line-height: 43px;
+    }
+  }
 
-        @include media ('<=tablet') {
-            margin: 0 0 24px;
-            font-size: 32px;
-            line-height: 43px;
+  h2 {
+    margin: 0 0 48px;
+
+    @include media('<=tablet') {
+      margin: 0 0 32px;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  p {
+    margin: 0 0 30px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .block {
+    &-main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 0 80px;
+
+      @include media('<desktop') {
+        margin: 0 0 60px;
+      }
+
+      &-content,
+      &-img {
+        width: 50%;
+
+        @include media('<desktop') {
+          width: 100%;
         }
+      }
+
+      &-content {
+        @include media('<desktop') {
+          margin: 0 0 40px;
+        }
+      }
+
+      &-img {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+
+        @include media('<desktop') {
+          justify-content: center;
+        }
+
+        .img-wrapper {
+          position: relative;
+
+          .logo-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
     }
 
-    h2 {
-        margin: 0 0 48px;
+    &-owner {
+      &-slider {
+        display: flex;
+        flex-direction: column;
 
-        @include media ('<=tablet') {
-            margin: 0 0 32px;
-            font-size: 24px;
-            line-height: 32px;
+        @include media('<desktop') {
+          padding: 0 0 80px;
         }
+
+        @include media('<=small') {
+          padding: 0 20px 80px;
+        }
+
+        .item {
+          img {
+            @include media('<desktop') {
+              margin: 0 auto;
+            }
+          }
+        }
+
+        .slick {
+          &-dots {
+            bottom: -80px;
+            z-index: 10;
+
+            button {
+              &:before {
+                width: 20px;
+                height: 20px;
+                font-size: 20px;
+                color: $blue;
+                opacity: 0.5;
+              }
+            }
+
+            li.slick-active {
+              button {
+                &:before {
+                  width: 20px;
+                  height: 20px;
+                  font-size: 20px;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+
+        span {
+          align-self: center;
+          font-family: $base-font-sans-serif;
+          font-size: 16px;
+          line-height: 19%;
+          color: $gray-100;
+        }
+      }
+
+      &-content {
+        margin: 0 0 80px;
+
+        @include media('<=desktop') {
+          margin: 0 0 60px;
+        }
+      }
     }
-
-    p {
-        margin: 0 0 30px;
-
-        &:last-child {
-            margin: 0;
-        }
-    }
-
-    .block {
-        &-main {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 0 0 80px;
-
-            @include media ('<desktop') {
-                margin: 0 0 60px;
-            }
-
-            &-content,
-            &-img {
-                width: 50%;
-
-                @include media ('<desktop') {
-                    width: 100%;
-                } 
-            }
-
-            &-content {
-                @include media ('<desktop') {
-                    margin: 0 0 40px;
-                }
-            }
-
-            &-img {
-                display: flex;
-                justify-content: flex-end;
-                align-items: flex-start;
-
-                @include media ('<desktop') {
-                    justify-content: center;
-                } 
-
-                .img-wrapper {
-                    position: relative;
-
-                    .logo-bg {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                    }
-                }
-            }
-
-        }
-
-        &-owner {
-            
-            &-slider {
-                display: flex;
-                flex-direction: column;
-
-                @include media ('<desktop') {
-                    padding: 0 0 80px;
-                } 
-
-                @include media ('<=small') {
-                    padding: 0 20px 80px;
-                }
-                
-                .item {
-
-                    img {
-                        @include media ('<desktop') {
-                            margin: 0 auto;
-                        }
-                    }
-                    
-                }
-
-                .slick {
-                    &-dots {
-                        bottom: -80px;
-                        z-index: 10;
-
-                        button {
-                            &:before {
-                                font-size: 25px;
-                                color: $blue;
-                                opacity: .5;
-                            }
-                        }
-
-
-                        li.slick-active {
-                            button {
-                                &:before {
-                                    font-size: 40px;
-                                    opacity: 1;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                span {
-                    align-self: center;
-                    font-family: $base-font-sans-serif;
-                    font-size: 16px;
-                    line-height: 19%;
-                    color: $gray-100;
-                }
-            }
-
-            &-content {
-                margin: 0 0 80px;
-
-                @include media ('<=desktop') {
-                    margin: 0 0 60px;
-                }
-            }
-
-        }
-    }
+  }
 }

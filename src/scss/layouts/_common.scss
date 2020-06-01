@@ -165,19 +165,47 @@ a {
   border-radius: 24px;
   background-color: $light-blue;
 
-  &:after {
+  &:before {
     position: absolute;
     content: '\e90f';
-    top: 50%;
-    transform: translateY(-50%);
-    right: 1px;
-    padding: 18px 21px;
+    right: 21px;
     font-family: 'icomoon';
     font-size: 14px;
     color: $green;
+    z-index: 1;
+    transition: right 0.2s ease, font-size 0.2s ease;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    // padding: 18px 21px;
     background-color: $white;
     border-radius: 50%;
     box-shadow: 0px 8px 24px rgba(52, 90, 156, 0.25);
+    transition: height 0.2s ease, width 0.2s ease;
+  }
+
+  &:hover {
+    &:after {
+      width: 58px;
+      height: 58px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:before {
+      right: 23px;
+      font-size: 16px;
+    }
   }
 }
 

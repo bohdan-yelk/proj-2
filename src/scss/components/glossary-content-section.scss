@@ -63,6 +63,7 @@
         }
 
         p {
+          display: block;
           @include media('<=tablet') {
             display: block;
           }
@@ -113,6 +114,7 @@
       }
 
       p {
+        display: none;
         @include media('<=tablet') {
           display: none;
         }
