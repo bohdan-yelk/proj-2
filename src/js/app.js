@@ -97,10 +97,10 @@ import {log} from './utils'
     // variableWidth: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    // infinite: true,
+    swipe: false,
     customPaging: function (slider, i) {
       var thumb = $(slider.$slides[i]).data()
-      return '<a>' + i + '</a>'
+      return '<a>' + (i + 1) + '</a>'
     },
     responsive: [
       {
@@ -360,7 +360,8 @@ import {log} from './utils'
           .show({
             duration: 'slow',
             complete: function () {
-              $('html, body').animate({scrollTop: $(this).parent().offset().top})
+              var fixHeaderHeight = window.innerWidth <= 992 ? $('#header').height() : 0
+              $('html, body').animate({scrollTop: $(this).parent().offset().top - fixHeaderHeight}, 300)
             }
           })
       } else {

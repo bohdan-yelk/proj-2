@@ -910,6 +910,10 @@ span.bg-title {
     font-family: $base-font-sans-serif;
 
     &.disabled {
+      @include media('<=small') {
+        white-space: nowrap;
+      }
+
       a {
         pointer-events: none;
         cursor: inherit;

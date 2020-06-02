@@ -180,10 +180,10 @@ __webpack_require__.r(__webpack_exports__);
     // variableWidth: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    // infinite: true,
+    swipe: false,
     customPaging: function customPaging(slider, i) {
       var thumb = $(slider.$slides[i]).data();
-      return '<a>' + i + '</a>';
+      return '<a>' + (i + 1) + '</a>';
     },
     responsive: [{
       breakpoint: 1024,
@@ -393,9 +393,10 @@ __webpack_require__.r(__webpack_exports__);
         $(this).parent($dropItem).addClass('active').find($dropContent).show({
           duration: 'slow',
           complete: function complete() {
+            var fixHeaderHeight = window.innerWidth <= 992 ? $('#header').height() : 0;
             $('html, body').animate({
-              scrollTop: $(this).parent().offset().top
-            });
+              scrollTop: $(this).parent().offset().top - fixHeaderHeight
+            }, 300);
           }
         });
       } else {
