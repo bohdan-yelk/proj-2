@@ -282,7 +282,13 @@ __webpack_require__.r(__webpack_exports__);
     slidesToShow: 4,
     slidesToScroll: 1,
     variableWidth: true,
-    infinite: false
+    infinite: false,
+    responsive: [{
+      breakpoint: 515,
+      settings: {
+        slidesToShow: 2
+      }
+    }]
   }); // ---- popup CoA slider on Shop page ----
 
   $('#coaShopSlider').slick({
@@ -327,6 +333,7 @@ __webpack_require__.r(__webpack_exports__);
       e.preventDefault();
       $coaItemPopup.removeClass('active');
       $(this).parent($coaItemPopup).addClass('active');
+      $('body').addClass('no-scroll');
     });
   }
 
@@ -502,16 +509,24 @@ __webpack_require__.r(__webpack_exports__);
     var $coaIndex = $(this).attr('data-ind');
     $coaSlider.slick('slickGoTo', $coaIndex);
     $coaPopup.addClass('active');
+    $('body').addClass('no-scroll');
   });
   $('#btnVideo').on('click', function () {
     $('#videoPopup').addClass('active');
+    $('body').addClass('no-scroll');
   });
   $('.btn-close').on('click', function (e) {
     e.preventDefault();
     $(this).parents('.popup').removeClass('active');
+    $('body').removeClass('no-scroll');
   });
   setTimeout(function () {
     $('#SurnamePopup').addClass('active');
+
+    if ($('#SurnamePopup').length) {
+      $('#SurnamePopup').addClass('active');
+      $('body').addClass('no-scroll');
+    }
   }, 2000); // ---- payment steps on service page ----
 
   function stepTabs() {
@@ -550,6 +565,9 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
+      $('html,body').animate({
+        scrollTop: 0
+      }, 'slow');
       $currentStep++;
       $itemStep.removeClass('active').eq($currentStep).addClass('active');
       $tabCheck.removeClass('active').eq($currentStep).addClass('active');

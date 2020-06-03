@@ -1,5 +1,7 @@
 .popup {
-  position: relative;
+  position: fixed;
+  width: 100%;
+  height: 100%;
   visibility: hidden;
   opacity: 0;
   z-index: -100;
@@ -31,11 +33,11 @@
 
   .popup-wrapper {
     position: absolute;
-    // top: 50%;
+    top: 50%;
     left: 50%;
     width: 1110px;
-    // transform: translate(-50%, -50%);
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+    // transform: translateX(-50%);
     margin: 15vh 0;
     background-color: $white;
     border-radius: 8px;
@@ -43,7 +45,7 @@
     overflow: hidden;
 
     @include media('<=tablet') {
-      margin: 20px 0;
+      // margin: 20px 0;
     }
   }
 
@@ -106,14 +108,20 @@
   }
 
   &#coaShop {
+    .overlay {
+      overflow: hidden;
+    }
     .popup-wrapper {
+      top: 50%;
+      transform: translate(-50%, -50%);
       max-width: 605px;
+      margin: 0;
       padding: 80px 80px 60px;
 
       @include media('<tablet') {
         width: 90%;
         max-width: inherit;
-        padding: 20px 20px;
+        padding: 36px 20px 20px;
       }
     }
 
@@ -219,6 +227,12 @@
     .coa-shop-slider {
       display: flex;
       align-items: center;
+
+      &:not(.slick-slider) {
+        @include media('<=small') {
+          overflow-x: scroll;
+        }
+      }
     }
 
     .item {

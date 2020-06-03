@@ -224,7 +224,15 @@ import {log} from './utils'
     slidesToShow: 4,
     slidesToScroll: 1,
     variableWidth: true,
-    infinite: false
+    infinite: false,
+    responsive: [
+      {
+        breakpoint: 515,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
   })
 
   // ---- popup CoA slider on Shop page ----
@@ -280,6 +288,7 @@ import {log} from './utils'
       e.preventDefault()
       $coaItemPopup.removeClass('active')
       $(this).parent($coaItemPopup).addClass('active')
+      $('body').addClass('no-scroll')
     })
   }
 
@@ -489,19 +498,27 @@ import {log} from './utils'
 
     $coaSlider.slick('slickGoTo', $coaIndex)
     $coaPopup.addClass('active')
+    $('body').addClass('no-scroll')
   })
 
   $('#btnVideo').on('click', function () {
     $('#videoPopup').addClass('active')
+    $('body').addClass('no-scroll')
   })
 
   $('.btn-close').on('click', function (e) {
     e.preventDefault()
     $(this).parents('.popup').removeClass('active')
+    $('body').removeClass('no-scroll')
   })
 
   setTimeout(function () {
     $('#SurnamePopup').addClass('active')
+
+    if ($('#SurnamePopup').length) {
+      $('#SurnamePopup').addClass('active')
+      $('body').addClass('no-scroll')
+    }
   }, 2000)
 
   // ---- payment steps on service page ----
@@ -548,6 +565,8 @@ import {log} from './utils'
       if (!checkAllFelds(null, $('.tab-checkout.active').next())) {
         return
       }
+
+      $('html,body').animate({scrollTop: 0}, 'slow')
 
       $currentStep++
 

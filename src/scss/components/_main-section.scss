@@ -146,6 +146,14 @@
   }
 
   .slick {
+    &-slider {
+      visibility: hidden;
+
+      &.slick-initialized {
+        visibility: visible;
+      }
+    }
+
     &-slide {
       height: auto;
     }

@@ -1,111 +1,125 @@
 .faq-section {
-    padding: 0 0 52px;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: contain;
+  padding: 0 0 52px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+
+  @include media('<=large') {
+    padding: 0 0 60px;
+  }
+
+  h1 {
+    color: $gray-800;
+
+    @include media('<=tablet') {
+      margin: 0 0 24px;
+      font-size: 32px;
+      line-height: 43px;
+    }
+  }
+
+  .subtitle {
+    width: 50%;
+    margin: 0 0 64px;
+
+    @include media('<=small') {
+      width: 100%;
+      margin: 0 0 40px;
+    }
+  }
+
+  .faq-list {
+    margin: 0 0 80px;
+    padding: 0;
+    list-style: none;
 
     @include media('<=large') {
-        padding: 0 0 60px;
+      margin: 0;
     }
-    
-    h1  {
-        color: $gray-800;
 
-        @include media('<=tablet') {
-            margin: 0 0 24px;
-            font-size: 32px;
-            line-height: 43px;
+    li {
+      padding: 32px 0;
+      border-bottom: 1px solid #eee;
+
+      @include media('<=tablet') {
+        padding: 24px 0;
+      }
+
+      @include media('<=large') {
+        margin-right: -20px;
+      }
+
+      &.active {
+        a.dropLink {
+          color: $blue;
+
+          &:before,
+          &:after {
+            background-color: $gray;
+          }
+
+          &:after {
+            transform: translateY(-50%) rotate(90deg);
+          }
         }
-    }
-    
-    .subtitle {
-        width: 50%;
-        margin: 0 0 64px;
-
-        @include media('<=small') {
-            width: 100%;
-            margin: 0 0 40px;
-        }
+      }
     }
 
-    .faq-list {
-        margin: 0 0 80px;
-        padding: 0;
-        list-style: none;
+    a.dropLink {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin: -20px 0;
+      padding: 20px 0;
+      font-family: $base-font-serif;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 24px;
+      color: $gray-800;
+
+      @include media('<=large') {
+        padding: 20px 60px 20px 0;
+      }
+
+      &:hover {
+        color: $blue;
+      }
+
+      &:before,
+      &:after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $blue;
+        transition: transform 0.2s ease;
+      }
+
+      &:before {
+        right: 0;
+        width: 14px;
+        height: 2px;
 
         @include media('<=large') {
-            margin: 0;
+          right: 22px;
         }
+      }
 
-        li {
-            padding: 32px 0;
-            border-bottom: 1px solid #eee;
+      &:after {
+        right: 6px;
+        width: 2px;
+        height: 14px;
 
-            @include media('<=tablet') {
-                padding: 24px 0;
-            }
-
-            &.active {
-                a.dropLink {
-                    color: $blue;
-
-                    &:before,
-                    &:after {
-                        background-color: $gray;
-                    }
-
-                    &:after {
-                        transform: translateY(-50%) rotate(90deg);
-                    }
-                }
-            }
+        @include media('<=large') {
+          right: 28px;
         }
-
-        a.dropLink {
-            position: relative;
-            display: block;
-            width: 100%;
-            font-family: $base-font-serif;
-            font-size: 18px;
-            font-weight: bold;
-            line-height: 24px;
-            color: $gray-800;
-
-            @include media('<=small') {
-                padding-right: 30px;
-            }
-
-            &:hover {
-                color: $blue;
-            }
-
-            &:before,
-            &:after {
-                position: absolute;
-                content: '';
-                top: 50%;
-                transform: translateY(-50%);
-                background-color: $blue;
-                transition: transform .2s ease;
-            }
-
-            &:before {
-                right: 0;
-                width: 14px;
-                height: 2px;
-            }
-
-            &:after {
-                right: 6px;
-                width: 2px;
-                height: 14px;
-            }
-        }
-
-        p {
-            width: 93%;
-            margin: 0;
-            padding: 32px 0 0;
-        }
+      }
     }
+
+    p {
+      width: 93%;
+      margin: 0;
+      padding: 32px 0 0;
+    }
+  }
 }

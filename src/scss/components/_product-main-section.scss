@@ -440,6 +440,10 @@
           // margin: 0 -10px 32px;
         }
 
+        @include media('<=phone') {
+          padding: 0;
+        }
+
         @include media('<phone') {
           padding: 0 5px;
           // margin: 0 -5px 32px;

@@ -1,6 +1,10 @@
 body {
   font-family: $base-font-serif;
   color: $gray-100;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 #wrapper {

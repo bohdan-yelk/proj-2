@@ -1263,6 +1263,12 @@
       @include media('<desktop') {
         width: 100%;
       }
+
+      &#billing_state_field {
+        @include media('<desktop') {
+          margin: 0 0 24px;
+        }
+      }
     }
   }
 
