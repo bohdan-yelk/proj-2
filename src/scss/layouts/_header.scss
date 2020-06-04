@@ -115,6 +115,7 @@
 
   form {
     margin: -3px 0 0;
+    flex-direction: row-reverse;
 
     @include media('<desktop') {
       margin: 0;
@@ -142,6 +143,13 @@
     }
   }
 
+  input[type='search'] {
+    padding: 20px 2px 19px 24px;
+    border-right: none;
+    border-left: 1px solid #eee;
+    border-radius: 4px 0 0 4px;
+  }
+
   .search {
     margin: 0 -5px 0 0;
     padding: 19px 24px 18px;
@@ -149,9 +157,9 @@
     font-size: 18px;
     line-height: 19px;
     border: 1px solid #eee;
-    border-right: none;
+    border-left: none;
     background-color: $light-blue;
-    border-radius: 4px 0 0 4px;
+    border-radius: 0 4px 4px 0;
     color: $dark-blue;
     outline: none;
 

@@ -337,7 +337,8 @@ __webpack_require__.r(__webpack_exports__);
     });
   }
 
-  choiceCoaPopupShop(); // ---- choice coa on internal product slider ----
+  choiceCoaPopupShop();
+  console.log('test'); // ---- choice coa on internal product slider ----
 
   function choiceCoaProd() {
     var $coaSlider = $('#productSliderCoa');
@@ -381,16 +382,18 @@ __webpack_require__.r(__webpack_exports__);
     var $dropContent = $('.drop-content');
     $dropContent.hide();
     $dropLink.on('click', function (e) {
-      e.preventDefault(); // $('html').animate({scrollTop: $(this).offset().top})
-      // $('html').scrollTop($(this).get(0).scrollIntoView({ behavior: 'smooth' }))
-      // $(this).on('transitionend', function(event) {
-      //   $(this).get(0).scrollIntoView({ behavior: 'smooth' })
-      // });
-      // $(this).one('transitionend', function(event) {
+      e.preventDefault(); // $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide()
+      // $(this).parent($dropItem).find($dropContent).slideToggle('slow')
+      // $('html').animate({scrollTop: $(this).offset().top})
+      // $('html').scrollTop($(this).get(0).scrollIntoView({behavior: 'smooth'}))
+      // $(this).on('transitionend', function (event) {
+      //   $(this).get(0).scrollIntoView({behavior: 'smooth'})
+      // })
+      // $(this).one('transitionend', function (event) {
       //   if (event.originalEvent.propertyName === 'transform') {
-      //     $(this).get(0).scrollIntoView({ behavior: 'smooth' });
-      // }
-      // });
+      //     $(this).get(0).scrollIntoView({behavior: 'smooth'})
+      //   }
+      // })
 
       $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide('slow');
 
@@ -519,15 +522,14 @@ __webpack_require__.r(__webpack_exports__);
     e.preventDefault();
     $(this).parents('.popup').removeClass('active');
     $('body').removeClass('no-scroll');
-  });
-  setTimeout(function () {
-    $('#SurnamePopup').addClass('active');
-
-    if ($('#SurnamePopup').length) {
-      $('#SurnamePopup').addClass('active');
-      $('body').addClass('no-scroll');
-    }
-  }, 2000); // ---- payment steps on service page ----
+  }); // setTimeout(function () {
+  //   $('#SurnamePopup').addClass('active')
+  //   if ($('#SurnamePopup').length) {
+  //     $('#SurnamePopup').addClass('active')
+  //     $('body').addClass('no-scroll')
+  //   }
+  // }, 2000)
+  // ---- payment steps on service page ----
 
   function stepTabs() {
     var $next = $('.btn-next');

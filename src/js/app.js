@@ -294,6 +294,8 @@ import {log} from './utils'
 
   choiceCoaPopupShop()
 
+  console.log('test')
+
   // ---- choice coa on internal product slider ----
 
   function choiceCoaProd() {
@@ -348,16 +350,18 @@ import {log} from './utils'
     $dropContent.hide()
     $dropLink.on('click', function (e) {
       e.preventDefault()
+      // $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide()
+      // $(this).parent($dropItem).find($dropContent).slideToggle('slow')
       // $('html').animate({scrollTop: $(this).offset().top})
-      // $('html').scrollTop($(this).get(0).scrollIntoView({ behavior: 'smooth' }))
-      // $(this).on('transitionend', function(event) {
-      //   $(this).get(0).scrollIntoView({ behavior: 'smooth' })
-      // });
-      // $(this).one('transitionend', function(event) {
+      // $('html').scrollTop($(this).get(0).scrollIntoView({behavior: 'smooth'}))
+      // $(this).on('transitionend', function (event) {
+      //   $(this).get(0).scrollIntoView({behavior: 'smooth'})
+      // })
+      // $(this).one('transitionend', function (event) {
       //   if (event.originalEvent.propertyName === 'transform') {
-      //     $(this).get(0).scrollIntoView({ behavior: 'smooth' });
-      // }
-      // });
+      //     $(this).get(0).scrollIntoView({behavior: 'smooth'})
+      //   }
+      // })
       $dropLink.parent($dropItem).removeClass('active').find($dropContent).hide('slow')
       if (!$(this).hasClass('clicked')) {
         $dropLink.removeClass('clicked')
@@ -512,14 +516,14 @@ import {log} from './utils'
     $('body').removeClass('no-scroll')
   })
 
-  setTimeout(function () {
-    $('#SurnamePopup').addClass('active')
+  // setTimeout(function () {
+  //   $('#SurnamePopup').addClass('active')
 
-    if ($('#SurnamePopup').length) {
-      $('#SurnamePopup').addClass('active')
-      $('body').addClass('no-scroll')
-    }
-  }, 2000)
+  //   if ($('#SurnamePopup').length) {
+  //     $('#SurnamePopup').addClass('active')
+  //     $('body').addClass('no-scroll')
+  //   }
+  // }, 2000)
 
   // ---- payment steps on service page ----
 

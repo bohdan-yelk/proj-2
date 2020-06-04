@@ -8,6 +8,55 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Light.woff2') format('woff2'), url('../../fonts/Roboto-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Regular.woff2') format('woff2'), url('../../fonts/Roboto-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Medium.woff2') format('woff2'), url('../../fonts/Roboto-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Bold.woff2') format('woff2'), url('../../fonts/Roboto-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Black.woff2') format('woff2'), url('../../fonts/Roboto-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../../fonts/PlayfairDisplay-Regular.woff2') format('woff2'),
+    url('../../fonts/PlayfairDisplay-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../../fonts/PlayfairDisplay-Medium.woff2') format('woff2'),
+    url('../../fonts/PlayfairDisplay-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../../fonts/PlayfairDisplay-SemiBold.woff2') format('woff2'),
+    url('../../fonts/PlayfairDisplay-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../../fonts/PlayfairDisplay-Bold.woff2') format('woff2'),
+    url('../../fonts/PlayfairDisplay-Bold.woff') format('woff');
+}
+
 [class^='icon-'],
 [class*=' icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
