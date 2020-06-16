@@ -67,7 +67,8 @@ textarea {
   font-family: $base-font-sans-serif;
 }
 
-input {
+input,
+textarea {
   -webkit-appearance: none;
 }
 
@@ -2206,3 +2207,13 @@ span.bg-title {
 }
 
 //----------
+
+#uploaded_filename {
+  @include media('<=1440px') {
+    color: $white;
+  }
+}
+
+.empty-cart:before {
+  visibility: hidden;
+}

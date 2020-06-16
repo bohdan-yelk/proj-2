@@ -688,6 +688,9 @@
               width: 33px;
               height: 33px;
               z-index: 11;
+              border-radius: 50%;
+              box-shadow: 0px 8px 24px rgba(52, 90, 156, 0.25);
+              overflow: hidden;
 
               &:before {
                 padding: 10px;
@@ -695,10 +698,9 @@
                 font-size: 12px;
                 color: $blue;
                 background-color: $white;
-                border-radius: 50%;
+
                 opacity: 1;
                 transition: opacity 0.3s ease;
-                box-shadow: 0px 8px 24px rgba(52, 90, 156, 0.25);
               }
 
               &:hover {
@@ -709,7 +711,7 @@
             }
 
             &-prev {
-              left: 7px;
+              left: 0px;
 
               &:before {
                 content: '\e902';
@@ -717,7 +719,7 @@
             }
 
             &-next {
-              right: 17px;
+              right: 0px;
 
               &:before {
                 content: '\e901';

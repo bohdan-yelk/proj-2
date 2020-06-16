@@ -1,222 +1,218 @@
 .contact-section {
-    padding: 80px 0 100px;
+  padding: 80px 0 100px;
 
-    .row {
-        @include media('<=large') {
-            margin: 0;
-        }  
+  .row {
+    @include media('<=large') {
+      margin: 0;
     }
+  }
 
-    .block {
-        
-        &-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 0 80px;
+  .block {
+    &-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 80px;
 
-            @include media('<=large') {
-                flex-direction: column;
-                justify-content: center;
-                // align-items: flex-start;
-            }
+      @include media('<=large') {
+        flex-direction: column;
+        justify-content: center;
+        // align-items: flex-start;
+      }
 
-            @include media('<tablet') {
-                padding: 0;
-            }
+      @include media('<tablet') {
+        padding: 0;
+      }
 
-            picture {
-                min-width: 260px;
-                margin: 0 45px 0 0;
-                
-                @include media('<=large') {
-                    margin: 0;
-                }
-            }
-        }
-
-        &-form {
-            display: flex;
-            justify-content: flex-end;
-            padding: 0 0 80px;
-
-            div.wpcf7 {
-                @include media('<tablet') {
-                    width: 100%;
-                }
-
-                form {
-                    @include media('<tablet') {
-                        max-width: inherit;
-                        width: 100%;
-                    }
-                }
-
-                .wpcf7-form-control-wrap {
-                    @include media('<tablet') {
-                        width: 100%;
-                    }
-                }
-            }
-
-            p {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: 0;
-
-                @include media('<tablet') {
-                    width: 100%;
-                }
-            }
-
-            .custom-select-rough {
-                width: 100%;
-                max-width: 300px;
-
-                @include media('<tablet') {
-                    max-width: inherit;
-                }
-
-                select {
-                    width: 100%;
-                    margin: 0 0 35px;
-                }
-            }
-        }
-
-        &-share-history {
-            width: 100%;
-            padding: 40px 0 0;  
-            border-top: 1px solid #eee;
-            
-
-            @include media('<=tablet') {
-                flex-wrap: wrap;
-            }
-        }
-    }
-
-    h2 {
-        color: $dark-blue;
+      picture {
+        min-width: 260px;
+        margin: 0 45px 0 0;
 
         @include media('<=large') {
-            text-align: center;
+          margin: 0;
         }
-
-        @include media('<=small') {
-            text-align: left;
-            font-size: 24px;
-            line-height: 32px;
-        }
+      }
     }
 
-    form {
+    &-form {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 0 80px;
+
+      @include media('<tablet') {
+        width: 100%;
+      }
+
+      form {
+        @include media('<tablet') {
+          max-width: inherit;
+          width: 100%;
+        }
+      }
+
+      .mc-field-group {
         position: relative;
+      }
+
+      .small-meta {
+        display: none;
+      }
+
+      label {
+        position: absolute;
+        top: -17px;
+        left: 0;
+        font-family: $base-font-sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 16px;
+        color: #777;
+      }
+
+      p {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-        width: 100%;
-
-        @include media('<=large') {
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        @include media('<=small') {
-            max-width: inherit;
-        }
-
-        span.wpcf7-not-valid-tip {
-            position: absolute;
-            bottom: 7px;
-        }
-
-        .wpcf7-response-output {
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            margin: 0;
-            font-family: $base-font-sans-serif;
-            font-size: 16px;
-            line-height: 19px;
-            color: $gray;
-            border: 1px solid #eee;
-            background-color: $light-blue;
-            border-radius: 4px;
-        }
-    }
-
-    input,
-    .btn-blue {
-        width: 100%;
-        max-width: 300px;
-        margin: 0 0 35px;
-        padding: 18px 24px 17px;
-        
+        align-items: left;
+        margin: 0;
 
         @include media('<tablet') {
-            max-width: inherit;
+          width: 100%;
         }
-    }
+      }
 
-    select {
-        padding: 17px 24px 16px;
-    }
-
-    .btn-blue {
-        margin: 0;
-        box-shadow: none ;
-
-        &:hover {
-            background-color: $dark-blue;
-            border-color: $dark-blue;
-            color: $white;
-        }
-    }
-
-    .custom-select {
+      .custom-select-rough {
         width: 100%;
         max-width: 300px;
-        margin: 0 0 16px;
 
-        .select-selected {
-            padding: 17px 24px 16px;
-            background-color: $light-blue;
-            border-radius: 4px;
-            border: 1px solid #eee;
-            font-size: 16px;
-            line-height: 19px;
-            color: $gray;
-
-            &:after {
-                top: 50%;
-                right: 24px;
-                transform: translateY(-50%);
-                content: '\e900';
-                width: 10px;
-                height: 20px;
-                font-family: 'icomoon';
-                color: $gray;
-                border: none;
-                font-size: 8px;
-            }
+        @include media('<tablet') {
+          max-width: inherit;
         }
 
-        .select-items {
-            top: 95%;
-            background-color: $light-blue;
-            border: 1px solid #eee;
-            border-top: 1px solid transparent;
-            border-radius: 0 0 4px 4px;
-
-            div {
-                color: $gray-100;
-                border: none;
-            }
+        select {
+          width: 100%;
+          margin: 0 0 35px;
         }
+      }
     }
-    
+
+    &-share-history {
+      width: 100%;
+      padding: 40px 0 0;
+      border-top: 1px solid #eee;
+
+      @include media('<=tablet') {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  h2 {
+    color: $dark-blue;
+
+    @include media('<=large') {
+      text-align: center;
+    }
+
+    @include media('<=small') {
+      text-align: left;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+
+    @include media('<=large') {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    @include media('<=small') {
+      max-width: inherit;
+    }
+  }
+
+  input,
+  .btn-blue {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 0 35px;
+    padding: 18px 24px 17px;
+
+    @include media('<tablet') {
+      max-width: inherit;
+    }
+  }
+
+  input[type='submit'] {
+    cursor: pointer;
+
+    &:hover {
+      color: $white;
+      background-color: $dark-blue;
+      border-color: $dark-blue;
+    }
+  }
+
+  select {
+    padding: 17px 24px 16px;
+  }
+
+  .btn-blue {
+    margin: 0;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $dark-blue;
+      border-color: $dark-blue;
+      color: $white;
+    }
+  }
+
+  .custom-select {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 0 16px;
+
+    .select-selected {
+      padding: 17px 24px 16px;
+      background-color: $light-blue;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      font-size: 16px;
+      line-height: 19px;
+      color: $gray;
+
+      &:after {
+        top: 50%;
+        right: 24px;
+        transform: translateY(-50%);
+        content: '\e900';
+        width: 10px;
+        height: 20px;
+        font-family: 'icomoon';
+        color: $gray;
+        border: none;
+        font-size: 8px;
+      }
+    }
+
+    .select-items {
+      top: 95%;
+      background-color: $light-blue;
+      border: 1px solid #eee;
+      border-top: 1px solid transparent;
+      border-radius: 0 0 4px 4px;
+
+      div {
+        color: $gray-100;
+        border: none;
+      }
+    }
+  }
 }

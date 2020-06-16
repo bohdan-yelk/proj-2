@@ -16,39 +16,66 @@ body {
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto-Light.woff") format("woff"); }
+  src: url("../fonts/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: block; }
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff"); }
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block; }
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto-Medium.woff") format("woff"); }
+  src: url("../fonts/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block; }
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff"); }
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block; }
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff"); }
+  src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: block; }
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-Regular.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Regular.woff") format("woff"); }
+  src: url("../fonts/PlayfairDisplay-Regular.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block; }
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-Medium.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Medium.woff") format("woff"); }
+  src: url("../fonts/PlayfairDisplay-Medium.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Medium.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block; }
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-SemiBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-SemiBold.woff") format("woff"); }
+  src: url("../fonts/PlayfairDisplay-SemiBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-SemiBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block; }
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff"); }
+  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block; }
 
 [class^='icon-'],
 [class*=' icon-'] {
@@ -782,7 +809,8 @@ input,
 textarea {
   font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif; }
 
-input {
+input,
+textarea {
   -webkit-appearance: none; }
 
 a,
@@ -2303,6 +2331,13 @@ span.bg-title {
   100% {
     -webkit-transform: rotate(360deg); } }
 
+@media (max-width: 1440px) {
+  #uploaded_filename {
+    color: #fff; } }
+
+.empty-cart:before {
+  visibility: hidden; }
+
 #footer {
   padding: 40px 0;
   background-color: #303030; }
@@ -2555,11 +2590,11 @@ span.bg-title {
     .popup#coaShop .slick-arrow:hover:before {
       color: #345A9C; }
   .popup#coaShop .slick-prev {
-    left: 13px; }
+    left: -14px; }
     .popup#coaShop .slick-prev:before {
       content: '\e902'; }
   .popup#coaShop .slick-next {
-    right: 23px; }
+    right: -14px; }
     .popup#coaShop .slick-next:before {
       content: '\e901'; }
   @media (max-width: 1280px) {
@@ -4453,19 +4488,29 @@ span.bg-title {
     justify-content: flex-end;
     padding: 0 0 80px; }
     @media (max-width: 767px) {
-      .contact-section .block-form div.wpcf7 {
+      .contact-section .block-form {
         width: 100%; } }
     @media (max-width: 767px) {
-      .contact-section .block-form div.wpcf7 form {
+      .contact-section .block-form form {
         max-width: inherit;
         width: 100%; } }
-    @media (max-width: 767px) {
-      .contact-section .block-form div.wpcf7 .wpcf7-form-control-wrap {
-        width: 100%; } }
+    .contact-section .block-form .mc-field-group {
+      position: relative; }
+    .contact-section .block-form .small-meta {
+      display: none; }
+    .contact-section .block-form label {
+      position: absolute;
+      top: -17px;
+      left: 0;
+      font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 16px;
+      color: #777; }
     .contact-section .block-form p {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: left;
       margin: 0; }
       @media (max-width: 767px) {
         .contact-section .block-form p {
@@ -4509,23 +4554,6 @@ span.bg-title {
     @media (max-width: 567px) {
       .contact-section form {
         max-width: inherit; } }
-    .contact-section form span.wpcf7-not-valid-tip {
-      position: absolute;
-      bottom: 7px; }
-    .contact-section form .wpcf7-response-output {
-      position: absolute;
-      bottom: -50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      margin: 0;
-      font-family: "Roboto", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
-      font-size: 16px;
-      line-height: 19px;
-      color: #999;
-      border: 1px solid #eee;
-      background-color: #F5F7FA;
-      border-radius: 4px; }
   .contact-section input,
   .contact-section .btn-blue {
     width: 100%;
@@ -4536,6 +4564,12 @@ span.bg-title {
       .contact-section input,
       .contact-section .btn-blue {
         max-width: inherit; } }
+  .contact-section input[type='submit'] {
+    cursor: pointer; }
+    .contact-section input[type='submit']:hover {
+      color: #fff;
+      background-color: #345A9C;
+      border-color: #345A9C; }
   .contact-section select {
     padding: 17px 24px 16px; }
   .contact-section .btn-blue {
@@ -5532,25 +5566,26 @@ span.bg-title {
       top: calc(50% - 16px);
       width: 33px;
       height: 33px;
-      z-index: 11; }
+      z-index: 11;
+      border-radius: 50%;
+      box-shadow: 0px 8px 24px rgba(52, 90, 156, 0.25);
+      overflow: hidden; }
       .product-main-section .block-content .form-row-slider .slick-arrow:before {
         padding: 10px;
         font-family: 'icomoon';
         font-size: 12px;
         color: #0094FF;
         background-color: #fff;
-        border-radius: 50%;
         opacity: 1;
-        transition: opacity 0.3s ease;
-        box-shadow: 0px 8px 24px rgba(52, 90, 156, 0.25); }
+        transition: opacity 0.3s ease; }
       .product-main-section .block-content .form-row-slider .slick-arrow:hover:before {
         color: #345A9C; }
     .product-main-section .block-content .form-row-slider .slick-prev {
-      left: 7px; }
+      left: 0px; }
       .product-main-section .block-content .form-row-slider .slick-prev:before {
         content: '\e902'; }
     .product-main-section .block-content .form-row-slider .slick-next {
-      right: 17px; }
+      right: 0px; }
       .product-main-section .block-content .form-row-slider .slick-next:before {
         content: '\e901'; }
   @media (max-width: 567px) {

@@ -307,7 +307,7 @@
       }
 
       &-prev {
-        left: 13px;
+        left: -14px;
 
         &:before {
           content: '\e902';
@@ -315,7 +315,7 @@
       }
 
       &-next {
-        right: 23px;
+        right: -14px;
 
         &:before {
           content: '\e901';
