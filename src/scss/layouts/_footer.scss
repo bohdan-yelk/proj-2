@@ -1,64 +1,104 @@
 #footer {
-    padding: 40px 0;
-    background-color: $gray-800;
+  padding: 40px 0;
+  background-color: $gray-800;
 
-    nav {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto 32px;
+  @include media('<=tablet') {
+    padding: 16px 0;
+  }
 
-        @include media('<425px') {
-            margin: 0 0 24px;
-        }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        ul {
-            display: flex;
-            margin: 0 -16px;
-            padding: 0;
-            list-style: none;
+    @include media('<=tablet') {
+      flex-direction: column;
+    }
+  }
 
-            @include media('<425px') {
-                justify-content: space-between;
-                margin: 0 -16px;
-            }
-        }
+  .right-block {
+    display: flex;
+    align-items: center;
 
-        li {
-            padding: 0 16px;
+    @include media('<=tablet') {
+      margin-top: 16px;
+    }
+  }
 
-            @include media('<425px') {
-                padding: 0 8px;
-            }
-        }
-
-        a {
-            font-size: 16px;
-            line-height: 19px;
-            color: $white;
-
-            @include media('<425px') {
-                font-size: 14px;
-            }
-
-            &:hover {
-                color: rgba(225,255,255,.75);
-            }
-        }
+  .yelk {
+    span {
+      display: block;
+      margin-bottom: 5px;
+      font-family: $base-font-sans-serif;
+      font-size: 12px;
+      line-height: 14px;
+      color: rgba(255, 255, 255, 0.5);
     }
 
-    .copy {
-        font-size: 16px;
-        line-height: 19px;
-        text-align: center;
-        color: $gray;
-
-        @include media('<425px') {
-            font-size: 14px;
-        }
-
-        p {
-            margin: 0;
-            font-size: inherit;
-        }
+    p {
+      margin: 0;
+      line-height: 11px;
     }
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 16px;
+
+    @include media('<425px') {
+      margin: 0 0 16px;
+    }
+
+    ul {
+      display: flex;
+      margin: 0 -16px;
+      padding: 0;
+      list-style: none;
+
+      @include media('<425px') {
+        justify-content: space-between;
+        margin: 0 -16px;
+      }
+    }
+
+    li {
+      padding: 0 16px;
+
+      @include media('<425px') {
+        padding: 0 8px;
+      }
+    }
+
+    a {
+      font-size: 16px;
+      line-height: 19px;
+      color: $white;
+
+      @include media('<425px') {
+        font-size: 14px;
+      }
+
+      &:hover {
+        color: rgba(225, 255, 255, 0.75);
+      }
+    }
+  }
+
+  .copy {
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: $gray;
+
+    @include media('<425px') {
+      font-size: 14px;
+    }
+
+    p {
+      margin: 0;
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
 }

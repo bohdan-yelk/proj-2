@@ -1,0 +1,18 @@
+<svg width="72" height="18" viewBox="0 0 72 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="MyGradient" x1="00%"  x2="100%">
+			<stop offset="0%" stop-color="#7A5FFF">
+                <animate attributeName="stop-color" values="#F5F7FA;#0094FF; #345A9C; #0094FF; #F5F7FA" dur="4s" repeatCount="indefinite"></animate>
+            </stop>
+
+            <stop offset="100%" stop-color="#01FF89">
+                <animate attributeName="stop-color" values="#345A9C; #F5F7FA; #0094FF; #F5F7FA; #345A9C" dur="4s" repeatCount="indefinite"></animate>
+            </stop>
+		</linearGradient> 
+	</defs>
+
+<path d="M7.57031 7.40625L10.7109 0H15.1523L9.65625 10.9336V17.0625H5.48438V10.9336L0 0H4.41797L7.57031 7.40625Z" fill="url(#MyGradient)"/>
+<path d="M31.7766 9.83203H25.3078V13.8984H32.9484V17.0625H21.1945V0H32.9719V3.17578H25.3078V6.77344H31.7766V9.83203Z" fill="url(#MyGradient)"/>
+<path d="M43.5375 13.8984H50.6977V17.0625H39.4242V0H43.5375V13.8984Z" fill="url(#MyGradient)"/>
+<path d="M63.0328 10.7109L61.3453 12.5625V17.0625H57.232V0H61.3453V7.52344L62.775 5.35547L66.4547 0H71.5406L65.775 7.54688L71.5406 17.0625H66.6656L63.0328 10.7109Z" fill="url(#MyGradient)"/>
+</svg>

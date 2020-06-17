@@ -223,12 +223,12 @@ __webpack_require__.r(__webpack_exports__);
   //   currentDot.next().next().addClass('after')
   //   currentDot.next().next().next().addClass('after')
   //   $('#gallerySlider').on('afterChange', function (event, slick, currentSlide) {
-  //     // console.log($('#gallerySlider .slick-dots li.slick-active'), dotsItem)
+  //     //
   //   })
   //   // gallerySlider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
   //   //   var currGallerySlide = $(slick.$slides.get(currentSlide))
   //   //   if( dotsGallery.index().)
-  //   //   console.log(currentDot.index())
+  //   //
   //   // })
   // }
   // limitSlickDots()
@@ -240,7 +240,6 @@ __webpack_require__.r(__webpack_exports__);
 
     $('#gallerySlider').on('click', function () {
       var currentDot = $('#gallerySlider .slick-dots li.slick-active');
-      console.log(currentDot);
       dotsGallery.removeClass('before after');
       currentDot.prev().addClass('before').prev().addClass('before');
       currentDot.next().addClass('after').next().addClass('after');
@@ -337,8 +336,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   }
 
-  choiceCoaPopupShop();
-  console.log('test'); // ---- choice coa on internal product slider ----
+  choiceCoaPopupShop(); // ---- choice coa on internal product slider ----
 
   function choiceCoaProd() {
     var $coaSlider = $('#productSliderCoa');
@@ -529,6 +527,7 @@ __webpack_require__.r(__webpack_exports__);
   //     $('body').addClass('no-scroll')
   //   }
   // }, 2000)
+  // form validation on identification service
   // ---- payment steps on service page ----
 
   function stepTabs() {
@@ -552,7 +551,32 @@ __webpack_require__.r(__webpack_exports__);
     });
   }
 
-  stepTabs(); // ---- checkout steps tabs ----
+  stepTabs();
+
+  function identificationService() {
+    var formStep = $('#fixedOnScroll .steps-content[data-index="1"]'); // var nextStep = $('#fixedOnScroll').find('.next-btn')
+    // console.log(nextStep)
+    // console.log(formStep)
+    // formStep.addClass('testStep')
+    // nextStep.on('click', function () {
+    //   if (formStep.hasClass('active')) {
+    //     $(this)
+    //       .find('.div--form')
+    //       .each(function () {
+    //         console.log($(this))
+    //         if (!$(this).find('input').val()) {
+    //           console.log('bad value')
+    //           $(this).find('.next-btn').css({'pointer-events': 'none', opacity: 0.6})
+    //         } else {
+    //           console.log('good value')
+    //           $(this).find('.next-btn').css({'pointer-events': 'inherit', opacity: 1})
+    //         }
+    //       })
+    //   }
+    // })
+  }
+
+  identificationService(); // ---- checkout steps tabs ----
 
   function stepCheckout() {
     var $continue = $('.btn-continue');
@@ -641,8 +665,6 @@ __webpack_require__.r(__webpack_exports__);
     var isValid = true;
     var prevTabs = !newTab ? $('.tab-checkout.active') : $(newTab).prevAll('.tab-checkout');
     prevTabs.each(function () {
-      console.log($(this).get(0), hideTabForm.get(0));
-
       if ($(this).get(0) === hideTabForm.get(0) && hideFormRadios.prop('checked') === true) {
         isValid = true;
         return;
@@ -678,7 +700,6 @@ __webpack_require__.r(__webpack_exports__);
   function choicePay() {
     var $form = $('.block-payment form');
     var $inputPay = $(' .input-radio');
-    console.log('pay');
     $inputPay.on('click', function () {
       $inputPay.parents('.custom-check').removeClass('active');
 
@@ -972,7 +993,6 @@ __webpack_require__.r(__webpack_exports__);
     var abcIndex = $('ul.tabs-list-glossary li').attr('data-index');
     var abcLink = $('ul.tabs-list-glossary li a');
     e.preventDefault();
-    console.log($(this));
     $(this).addClass('active').siblings().removeClass('active').closest('div.tabs').find('div.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
   }); // about us form
 
@@ -981,8 +1001,6 @@ __webpack_require__.r(__webpack_exports__);
     var select = $('.order-wood-section .wpcf7-form select.wpcf7-form-control');
     var btnGetPrice = $('.wpcf7-submit');
     sentForm.each(function () {
-      console.log(select.children('option').eq(0).val(), 'val select');
-
       if (select.children('option').eq(0).is(':selected')) {
         $(this).find('.wpcf7-submit').css({
           'pointer-events': 'none',
@@ -1002,7 +1020,7 @@ __webpack_require__.r(__webpack_exports__);
             opacity: '.6'
           });
         }
-      }); // console.log(select.index(), 'test select')
+      }); //
       // if ( select.filter(':selected').eq() === 0 )
     });
   }
