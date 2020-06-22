@@ -554,26 +554,42 @@ __webpack_require__.r(__webpack_exports__);
   stepTabs();
 
   function identificationService() {
-    var formStep = $('#fixedOnScroll .steps-content[data-index="1"]'); // var nextStep = $('#fixedOnScroll').find('.next-btn')
-    // console.log(nextStep)
-    // console.log(formStep)
-    // formStep.addClass('testStep')
-    // nextStep.on('click', function () {
-    //   if (formStep.hasClass('active')) {
-    //     $(this)
-    //       .find('.div--form')
-    //       .each(function () {
-    //         console.log($(this))
-    //         if (!$(this).find('input').val()) {
-    //           console.log('bad value')
-    //           $(this).find('.next-btn').css({'pointer-events': 'none', opacity: 0.6})
-    //         } else {
-    //           console.log('good value')
-    //           $(this).find('.next-btn').css({'pointer-events': 'inherit', opacity: 1})
-    //         }
-    //       })
-    //   }
-    // })
+    var formStep = $('#fixedOnScroll .steps-content[data-index="1"]');
+    var firstStepBtn = $('#fixedOnScroll .steps-content[data-index="0"] .btn-next');
+
+    function checkValidInput() {
+      var isValid = true;
+      formStep.find('.div--form').find('input:not([type="hidden"])').each(function () {
+        if (!$(this).val()) {
+          isValid = false;
+        }
+
+        console.log($(this), $(this).val());
+      });
+
+      if (!isValid) {
+        formStep.find('.btn-next').css({
+          'pointer-events': 'none',
+          opacity: 0.6
+        });
+      } else {
+        formStep.find('.btn-next').css({
+          'pointer-events': 'inherit',
+          opacity: 1
+        });
+      }
+    }
+
+    firstStepBtn.on('click', checkValidInput);
+    formStep.find('.div--form input').focusout(function () {
+      if (!$(this).val()) {
+        $(this).css('border-color', 'red');
+      } else {
+        $(this).css('border-color', '#ccc');
+      }
+
+      checkValidInput();
+    });
   }
 
   identificationService(); // ---- checkout steps tabs ----
